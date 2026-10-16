@@ -19,7 +19,7 @@ Preserve the two visual directions Ali explicitly liked so they can be revisited
 - Visual direction: premium dark navy / midnight background, teal and coral accents, clear cards, status indicators, expandable build tree, repository map, tool policy, and responsive navigation.
 - Intended use: track project phases, file/repository map, decisions, evidence, risks, acceptance gates, and handover notes.
 - Current reality: standalone HTML/CSS/JavaScript prototype. It is not yet connected to live GitHub data, a database, authentication, or automated project status.
-- Before calling it GREEN: fix the known literal `\\n` text artifact in the HTML; validate HTML/JavaScript; test navigation, buttons, filtering, expandable sections, accessibility, and desktop/mobile behavior; document evidence and remaining limitations.
+- Before calling it GREEN: confirm the previously observed literal `\\n` text artifact is absent from the HTML; validate HTML/JavaScript; test navigation, buttons, filtering, expandable sections, accessibility, and desktop/mobile behavior; document evidence and remaining limitations.
 
 ## Option 2 — ALI-NEW Video Platform UI
 

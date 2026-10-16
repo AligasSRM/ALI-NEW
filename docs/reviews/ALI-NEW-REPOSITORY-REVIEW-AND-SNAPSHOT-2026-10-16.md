@@ -21,15 +21,15 @@ These are additive copies of the existing HTML sources. The originals remain unt
 
 | Source | Snapshot copy |
 |---|---|
-| `design-preview/index.html` | [backups/2026-10-16/design-preview-index.html](../backups/2026-10-16/design-preview-index.html) |
-| `control-panel/index.html` | [backups/2026-10-16/control-panel-index.html](../backups/2026-10-16/control-panel-index.html) |
+| `design-preview/index.html` | [backups/2026-10-16/design-preview-index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/backups/2026-10-16/design-preview-index.html) |
+| `control-panel/index.html` | [backups/2026-10-16/control-panel-index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/backups/2026-10-16/control-panel-index.html) |
 
 ## Findings
 
 ### GREEN — Repository and source preservation
 - Both source HTML files were fetched from GitHub before copying.
 - Two separate snapshot files were created successfully on `main`.
-- The approved design baseline index remains available at [ALI-NEW approved design baseline](../docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md).
+- The approved design baseline index remains available at [ALI-NEW approved design baseline](https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md).
 - No existing file was overwritten or deleted.
 
 ### YELLOW — Design preview limitations
