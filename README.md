@@ -21,6 +21,7 @@ This is the single canonical source for the engineering A0–A12 sequence, one-a
 - [Approved Design Baseline](docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md)
 - [Video Platform Screen Map & UX Specification](docs/design/VIDEO-PLATFORM-SCREEN-MAP.md)
 - [Latest A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md)
+- [A0 Static Source Validation Record (2026-10-17)](docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md)
 - [Repository Review & Snapshot Record (2026-10-16; earlier source review)](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md)
 
 ## Working boundaries
