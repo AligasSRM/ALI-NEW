@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "Browser acceptance tests for ALI-NEW static pages",
   "scripts": {
-    "test:e2e": "playwright test",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e": "playwright test --grep-invert @live",
+    "test:e2e:report": "playwright show-report",
+    "test:e2e:live": "playwright test tests/live-pages.spec.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"
