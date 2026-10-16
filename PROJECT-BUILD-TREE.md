@@ -1,0 +1,102 @@
+# ALI-NEW — Project Build Tree
+**Version:** 1.0  
+**Date:** 2026-10-16  
+**Owner / final decision:** Ali  
+**Engineering & coordination:** Alex  
+**Repository:** https://github.com/AligasSRM/ALI-NEW  
+**Status:** YELLOW — planning and control-panel prototype; not production-ready.
+
+## 1. Purpose and rules
+This tree is the source of truth for building ALI-NEW from zero to a verified release. The levels below are a proposed baseline, not a claim that every feature is already implemented. Each section must follow: inspect → specify → implement → test → review/security → evidence → GREEN → LOCK. No section is GREEN without repeatable evidence. Never copy code, files, configuration, or architecture from another project without Ali's explicit approval. Free-first; no paid activation, card, or upgrade without explicit approval. No secrets in repository files.
+
+## 2. Project levels (A0–A12)
+- **A0 — Project Control Panel & identity (FIRST):** project title, browser tab title, visual system, navigation, progress/status, section tree, evidence links, responsive layout, accessibility basics. Deliverable: `control-panel/index.html` prototype. Gate: visual review on desktop/mobile and interaction checks.
+- **A1 — Product definition:** problem, audiences, value, scope, exclusions, terminology, acceptance criteria, unresolved questions.
+- **A2 — Product UX/UI:** user journeys, page inventory, wireframes, design tokens, RTL Arabic and English behavior, responsive/accessibility rules.
+- **A3 — Architecture & boundaries:** domain model, trust boundaries, data flows, API contracts, threat model, provider-neutral interfaces, exit/migration plans.
+- **A4 — Repository & developer workflow:** source layout, naming, contribution rules, formatting/linting, tests, branch/PR strategy, CI baseline.
+- **A5 — Identity & creator verification:** account lifecycle, authentication, session policy, recovery, creator verification, abuse controls; no real credentials committed.
+- **A6 — Core video product:** upload pipeline, media metadata, playback, captions, language metadata, processing states, failure/retry behavior.
+- **A7 — Moderation & safety:** pre-publication review, reporting, appeals, policy decisions, audit trail, age/privacy safeguards.
+- **A8 — Discovery & community:** search, categories, creator pages, follows/saves, recommendations only after safety and privacy review.
+- **A9 — Admin & operations:** least-privilege roles, approvals, incident handling, audit logs, support tools, operational runbooks.
+- **A10 — Data & integrations:** schema/migrations, retention/export/deletion, backup/restore, provider-neutral adapters, integration contract tests.
+- **A11 — Security, privacy & quality:** threat-model review, dependency/SBOM checks where feasible, secrets scan, authorization tests, accessibility, performance, regression and recovery tests.
+- **A12 — Release & maintenance:** staging/live gates, deployment rollback, monitoring, documentation, ownership, release checklist, post-release review. Production release remains blocked until all required gates pass.
+
+## 3. A0 sections (first milestone)
+- **A0.1 — Identity:** visible product name “ALI-NEW”; subtitle “Ali & Alex Engineering Control Panel”; browser title “ALI-NEW | Engineering Control Panel”.
+- **A0.2 — Visual system:** dark navy background, clear cards, teal/coral status accents, readable typography, consistent spacing; avoid decorative clutter.
+- **A0.3 — Main layout:** sidebar navigation + main workspace; compact top bar with project name and current status.
+- **A0.4 — Overview:** project purpose, current milestone, next action, evidence/links.
+- **A0.5 — Build tree:** expandable A0–A12 hierarchy with section IDs and one-line scope.
+- **A0.6 — Status model:** PLANNED, YELLOW, ORANGE, GREEN, LOCKED, RED with text labels (not color alone).
+- **A0.7 — Section detail:** objective, files, dependencies, acceptance checks, risks, evidence, decision log.
+- **A0.8 — Repository map:** distinguish control-panel source, project documentation, future application source, tests and evidence. Do not split into many repositories prematurely.
+- **A0.9 — Responsive & accessible:** desktop-first engineering workspace that remains usable on mobile; keyboard focus, contrast, semantic controls, Arabic RTL support.
+- **A0.10 — Verification:** check links, navigation, tree interactions, mobile viewport, console/errors, and document known limitations before marking GREEN.
+
+## 4. Proposed repository layout (single repository initially)
+```text
+ALI-NEW/
+├── README.md
+├── IDEAS-ALI-ALEX.md
+├── ALI-ALEX-MASTER-PROJECT-PROMPT.md
+├── PROJECT-BUILD-TREE.md
+├── PROJECT-STATUS.md
+├── docs/
+│   ├── product/
+│   ├── ux/
+│   ├── architecture/
+│   ├── security/
+│   ├── decisions/
+│   └── operations/
+├── control-panel/
+│   ├── index.html
+│   ├── assets/
+│   └── README.md
+├── app/                 # create after A1–A4 design gates; no application code yet
+├── tests/               # add alongside the first testable behavior
+└── evidence/
+    ├── A0/
+    └── releases/
+```
+
+This is a planned structure, not a claim that every directory already exists. Create directories only when they contain useful files. Keep one repository until a concrete security, ownership, deployment, or scaling reason justifies a split.
+
+## 5. Repository strategy
+1. **ALI-NEW (primary/private):** source of truth for product docs, control-panel prototype, future app, tests, and evidence.
+2. **Optional public documentation repository:** only if Ali later explicitly wants a public methodology or public-facing docs; not needed now.
+3. **Optional deployment mirror:** only if a selected host requires it and its cost/exit plan is reviewed.
+Do not create extra repositories yet. No legacy project repository is a source for ALI-NEW code.
+
+## 6. Status definitions
+- **PLANNED:** not started.
+- **YELLOW:** being designed or built; not verified.
+- **ORANGE:** integration or external dependency remains unverified.
+- **GREEN:** acceptance criteria passed with evidence.
+- **LOCKED:** accepted and frozen; reopen only for a documented technical reason or Ali's decision.
+- **RED:** blocking defect, unsafe condition, or failed gate.
+
+## 7. Completion gate for every section
+1. Scope and acceptance criteria written.
+2. Existing files and dependencies inspected before edits.
+3. Implementation matches approved scope; no unrelated changes.
+4. Relevant automated/manual tests run and results recorded.
+5. Security, privacy, accessibility and failure modes reviewed as applicable.
+6. Evidence links and changed-file list recorded.
+7. Remaining risks and rollback/exit path documented.
+8. Ali's approval obtained for major, sensitive, paid, destructive, or production actions.
+
+## 8. Current verified baseline
+- The repository contains `README.md`, `IDEAS-ALI-ALEX.md`, and `ALI-ALEX-MASTER-PROJECT-PROMPT.md`.
+- This tree and the A0 prototype are being added as new, independent ALI-NEW artifacts.
+- No evidence currently establishes a complete application, production deployment, or production readiness.
+- The control panel is a static front-end prototype. It is not yet connected to GitHub data, persistent storage, authentication, or live project telemetry.
+
+## 9. Next actions
+1. Review the A0 visual prototype on desktop and mobile.
+2. Record visual and usability fixes; do not add backend functionality yet.
+3. Agree A0 acceptance criteria and verify the prototype.
+4. Lock A0 only after evidence is captured.
+5. Proceed to A1 product definition, then A2–A4 before creating the main application implementation.
