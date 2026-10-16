@@ -13,6 +13,20 @@ This tree is the source of truth for building ALI-NEW from zero to a verified re
 ## 2. Changeability is a permanent rule (OPEN TO CHANGE)
 The A0–A12 numbering is a starting map, not a hard limit. A13, A14, A15, or later levels may be added whenever evidence, product needs, newer technology, security, maintainability, or cost/availability make that the better choice. Sections may be split, merged, renamed, reordered, or removed only after impact analysis and an explicit record of the reason. Repository count is also changeable: start with one primary repository, but create another when a documented technical, security, ownership, deployment, or operational reason justifies it. Do not create or avoid repositories merely to satisfy a fixed number.
 
+
+## 3A. Technology and provider neutrality (mandatory gate)
+The project and its data are the durable assets; tools, builders, hosts, databases, AI services, and other providers are replaceable means—not permanent project identity.
+1. Define the requirement and acceptance tests before choosing a tool. Compare suitable alternatives, including free/no-card options where practical.
+2. For each significant dependency, record its purpose, alternatives, rationale, free-tier limits/costs, geographic availability, permissions/data exposure, lock-in risks, export path, replacement path, and rollback.
+3. Keep provider-specific code/configuration at explicit integration boundaries. Use portable data formats and clear interfaces where proportionate; avoid both unnecessary coupling and needless abstraction.
+4. Keep provider names out of generic domain names, core contracts, and unrelated files unless technically necessary. Centralize provider-specific details in the relevant adapter/configuration/docs.
+5. Before replacing/removing a dependency, inventory references, credentials/configuration names (never reveal secret values), data, jobs, workflows, and downstream consumers; plan migration and rollback; obtain required approval; test the new path and search for stale references.
+6. GREEN certifies tested behavior within a stated scope and commit, not permanent approval of a provider. Re-evaluate when requirements, pricing, limits, availability, security, maintainability, or alternatives materially change.
+7. Do not over-engineer portability. Choose the smallest boundary that makes a realistic future replacement manageable.
+8. Never start paid activation, upgrade, or card-required service without Ali's explicit approval.
+
+**Required decision gate:** a significant dependency cannot move beyond PLANNED/YELLOW until the decision record covers the requirement, alternatives, trade-offs, exit plan, and verification criteria.
+
 ## 3. Project levels (A0–A12 baseline)
 - **A0 — Project Control Panel & identity (FIRST):** project title, browser tab title, visual system, navigation, progress/status, section tree, evidence links, responsive layout, accessibility basics. Deliverable: `control-panel/index.html` prototype. Gate: visual review on desktop/mobile and interaction checks.
 - **A1 — Product definition:** problem, audiences, value, scope, exclusions, terminology, acceptance criteria, unresolved questions.
