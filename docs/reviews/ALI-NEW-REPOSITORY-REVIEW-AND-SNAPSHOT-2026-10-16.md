@@ -43,14 +43,16 @@ Files inspected:
 - The control-panel link that previously pointed to the absent `docs/decisions/` directory now points to the existing `PROJECT-BUILD-TREE.md` provider-neutrality policy. This destination was checked against the repository file path; browser navigation was not run.
 - No automated test/build configuration was found in the inspected repository tree. This is a finding from the current tree, not proof that no external checks exist.
 
-## Not tested in this review
-No browser/device interaction, HTML validator, JavaScript test, accessibility audit, security test, live deployment, or production service was run. Therefore neither prototype is certified GREEN as a functioning product.
+## A0 source verification performed on 2026-10-17
+After the A0 source edits, the three changed files were fetched again from GitHub. Source-level checks confirmed: all `data-target` navigation IDs exist; no duplicate HTML IDs were found; the new `stage-detail` section has a navigation target; the old palette variable references are absent; all six approved palette tokens are present; the `docs/decisions/` URL is absent; and the replacement policy URL plus the three Stage Detail evidence URLs are present in the HTML.
+
+These are source-text checks only. The following were **not run**: browser/device interaction, HTML validator, JavaScript parser/test, accessibility audit, security test, live deployment, or production service. Therefore A0 remains YELLOW and neither prototype is certified GREEN.
 
 ## Recommended next steps
-1. Run static HTML/JavaScript validation and browser checks against the original files.
-2. Run browser acceptance checks for the corrected newline presentation and the replacement provider-policy link.
-3. Compare the end-user prototype screen-by-screen with the approved Figma frames and record gaps before changing the UI.
-4. Plan the full navigation and Arabic RTL/English LTR acceptance tests.
+1. Run HTML/JavaScript validation and browser acceptance checks against the updated control-panel source.
+2. Exercise navigation, tree expand/collapse, filtering, both hero buttons, evidence links, keyboard focus, and responsive desktop/mobile layouts.
+3. Capture actual test environment, outcomes, and evidence before changing A0 status.
+4. Compare the separate end-user prototype screen-by-screen with the approved Figma frames and record gaps before changing that UI.
 5. Keep real age assurance, authentication, media playback, moderation, and deployment as separate gated engineering work.
 
 ## Status
@@ -59,3 +61,11 @@ No browser/device interaction, HTML validator, JavaScript test, accessibility au
 - Literal newline artifact: **FIXED IN SOURCE**; browser verification remains pending.
 - Prototype behavior / production readiness: **YELLOW — source-level review only; browser behavior remains untested**.
 - This report records evidence and gaps; it does not claim implementation is complete.
+
+ 
+## A0 source-change record — 2026-10-17
+- Control-panel source change commit: `5765993fba7560c300c126ddb923fed1fdd02f63` (palette alignment, Stage Detail section, and replacement policy link).
+- Follow-up evidence-link color commit: `495fc617f1106bd518e0c7c6b10d539561161872`.
+- Design options record commit: `4919f731a9bbb94a1962a3ac68356fa9538c1b4b`.
+- The control-panel design baseline was updated to record the source alignment and remaining verification boundary.
+- **Status remains YELLOW.** Source checks are not browser acceptance evidence.
