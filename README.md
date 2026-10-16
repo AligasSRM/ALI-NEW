@@ -4,9 +4,9 @@ AliNew — Building a secure, scalable, multilingual video platform with verifie
 
 ## Start here — required before every work session
 
-**[Open the Default Work Sequence & Stage Gate Policy](docs/WORK-SEQUENCE-DEFAULT.md)**
+**[Open the canonical Project Build Tree & Work Sequence](PROJECT-BUILD-TREE.md)**
 
-This is the project's first-stop working index. Read it before resuming work. It records the canonical engineering A0–A12 sequence from `PROJECT-BUILD-TREE.md`, the one-active-stage rule, acceptance gates, exception handling, and the current checkpoint. User-facing screen order is tracked separately in the UX screen map.
+This is the single canonical source for the engineering A0–A12 sequence, one-active-stage rule, acceptance gates, exception handling, and current checkpoint. Read it before every work session. Do not maintain a parallel sequence document. User-facing screen order is tracked separately in the UX screen map.
 
 ### Current checkpoint
 
