@@ -4,12 +4,16 @@
 **Owner / final decision:** Ali  
 **Engineering & coordination:** Alex  
 **Repository:** https://github.com/AligasSRM/ALI-NEW  
-**Status:** YELLOW — planning and control-panel prototype; not production-ready.
+**Status:** YELLOW — planning and control-panel prototype; not production-ready.  
+**Change policy:** OPEN TO CHANGE — the levels, section count, repository count, tools, architecture, and priorities are proposals that may be revised for a better, newer, safer, or more maintainable solution. Nothing is immutable merely because it appears in this tree.
 
 ## 1. Purpose and rules
 This tree is the source of truth for building ALI-NEW from zero to a verified release. The levels below are a proposed baseline, not a claim that every feature is already implemented. Each section must follow: inspect → specify → implement → test → review/security → evidence → GREEN → LOCK. No section is GREEN without repeatable evidence. Never copy code, files, configuration, or architecture from another project without Ali's explicit approval. Free-first; no paid activation, card, or upgrade without explicit approval. No secrets in repository files.
 
-## 2. Project levels (A0–A12)
+## 2. Changeability is a permanent rule (OPEN TO CHANGE)
+The A0–A12 numbering is a starting map, not a hard limit. A13, A14, A15, or later levels may be added whenever evidence, product needs, newer technology, security, maintainability, or cost/availability make that the better choice. Sections may be split, merged, renamed, reordered, or removed only after impact analysis and an explicit record of the reason. Repository count is also changeable: start with one primary repository, but create another when a documented technical, security, ownership, deployment, or operational reason justifies it. Do not create or avoid repositories merely to satisfy a fixed number.
+
+## 3. Project levels (A0–A12 baseline)
 - **A0 — Project Control Panel & identity (FIRST):** project title, browser tab title, visual system, navigation, progress/status, section tree, evidence links, responsive layout, accessibility basics. Deliverable: `control-panel/index.html` prototype. Gate: visual review on desktop/mobile and interaction checks.
 - **A1 — Product definition:** problem, audiences, value, scope, exclusions, terminology, acceptance criteria, unresolved questions.
 - **A2 — Product UX/UI:** user journeys, page inventory, wireframes, design tokens, RTL Arabic and English behavior, responsive/accessibility rules.
@@ -24,7 +28,7 @@ This tree is the source of truth for building ALI-NEW from zero to a verified re
 - **A11 — Security, privacy & quality:** threat-model review, dependency/SBOM checks where feasible, secrets scan, authorization tests, accessibility, performance, regression and recovery tests.
 - **A12 — Release & maintenance:** staging/live gates, deployment rollback, monitoring, documentation, ownership, release checklist, post-release review. Production release remains blocked until all required gates pass.
 
-## 3. A0 sections (first milestone)
+## 4. A0 sections (first milestone)
 - **A0.1 — Identity:** visible product name “ALI-NEW”; subtitle “Ali & Alex Engineering Control Panel”; browser title “ALI-NEW | Engineering Control Panel”.
 - **A0.2 — Visual system:** dark navy background, clear cards, teal/coral status accents, readable typography, consistent spacing; avoid decorative clutter.
 - **A0.3 — Main layout:** sidebar navigation + main workspace; compact top bar with project name and current status.
@@ -36,7 +40,7 @@ This tree is the source of truth for building ALI-NEW from zero to a verified re
 - **A0.9 — Responsive & accessible:** desktop-first engineering workspace that remains usable on mobile; keyboard focus, contrast, semantic controls, Arabic RTL support.
 - **A0.10 — Verification:** check links, navigation, tree interactions, mobile viewport, console/errors, and document known limitations before marking GREEN.
 
-## 4. Proposed repository layout (single repository initially)
+## 5. Proposed repository layout (single repository initially)
 ```text
 ALI-NEW/
 ├── README.md
@@ -64,13 +68,13 @@ ALI-NEW/
 
 This is a planned structure, not a claim that every directory already exists. Create directories only when they contain useful files. Keep one repository until a concrete security, ownership, deployment, or scaling reason justifies a split.
 
-## 5. Repository strategy
+## 6. Repository strategy
 1. **ALI-NEW (primary/private):** source of truth for product docs, control-panel prototype, future app, tests, and evidence.
 2. **Optional public documentation repository:** only if Ali later explicitly wants a public methodology or public-facing docs; not needed now.
 3. **Optional deployment mirror:** only if a selected host requires it and its cost/exit plan is reviewed.
 Do not create extra repositories yet. No legacy project repository is a source for ALI-NEW code.
 
-## 6. Status definitions
+## 7. Status definitions
 - **PLANNED:** not started.
 - **YELLOW:** being designed or built; not verified.
 - **ORANGE:** integration or external dependency remains unverified.
@@ -78,7 +82,7 @@ Do not create extra repositories yet. No legacy project repository is a source f
 - **LOCKED:** accepted and frozen; reopen only for a documented technical reason or Ali's decision.
 - **RED:** blocking defect, unsafe condition, or failed gate.
 
-## 7. Completion gate for every section
+## 8. Completion gate for every section
 1. Scope and acceptance criteria written.
 2. Existing files and dependencies inspected before edits.
 3. Implementation matches approved scope; no unrelated changes.
@@ -88,15 +92,59 @@ Do not create extra repositories yet. No legacy project repository is a source f
 7. Remaining risks and rollback/exit path documented.
 8. Ali's approval obtained for major, sensitive, paid, destructive, or production actions.
 
-## 8. Current verified baseline
+## 9. Required closeout note and GREEN certificate
 - The repository contains `README.md`, `IDEAS-ALI-ALEX.md`, and `ALI-ALEX-MASTER-PROJECT-PROMPT.md`.
 - This tree and the A0 prototype are being added as new, independent ALI-NEW artifacts.
 - No evidence currently establishes a complete application, production deployment, or production readiness.
 - The control panel is a static front-end prototype. It is not yet connected to GitHub data, persistent storage, authentication, or live project telemetry.
 
-## 9. Next actions
+## 10. Current verified baseline
+- The repository contains `README.md`, `IDEAS-ALI-ALEX.md`, `ALI-ALEX-MASTER-PROJECT-PROMPT.md`, this build tree, and the control-panel prototype.
+- The tree and prototype were saved and fetched back from GitHub. This verifies file persistence, not browser behavior or production readiness.
+- No evidence currently establishes a complete application, production deployment, or production readiness.
+- The control panel is a static front-end prototype. It is not connected to GitHub data, persistent storage, authentication, or live project telemetry.
+
+## 11. Next actions
 1. Review the A0 visual prototype on desktop and mobile.
 2. Record visual and usability fixes; do not add backend functionality yet.
 3. Agree A0 acceptance criteria and verify the prototype.
 4. Lock A0 only after evidence is captured.
 5. Proceed to A1 product definition, then A2–A4 before creating the main application implementation.
+
+
+## 12. Repository / section closeout record (mandatory)
+Before any repository, level, or section can be closed, create or update a durable closeout note. The note must record:
+- Scope and exact files/repositories inspected.
+- Baseline observed before work.
+- What existed and what was missing.
+- What changed, what was intentionally not changed, and why.
+- Defects, blockers, confusing behavior, failed attempts, and how they were resolved (or why they remain open).
+- Commands/tests/checks actually run, with results and evidence links.
+- Security/privacy/dependency/compatibility review as relevant.
+- Remaining risks, known limitations, rollback/reopen conditions, and future improvements.
+- Final file list and commit references.
+- Status decision and reviewer/approval.
+
+A closeout note is not a substitute for tests. A section is GREEN only if its acceptance criteria pass and evidence is linked. If any required criterion is untested or fails, keep it YELLOW/ORANGE or mark RED as appropriate.
+
+## 13. GREEN certification (evidence-based)
+Only issue a GREEN certificate after all required acceptance checks pass. The certificate must name the exact repository, branch, commit SHA, section/scope, test environment, tests and results, evidence links, known limitations, and approval date. It certifies only the stated scope and commit—not the entire product or future commits. A later change invalidates the old certificate for the changed scope until regression checks are repeated. GREEN is not a claim of absolute security or compatibility with every possible system.
+
+Suggested certificate file: `evidence/A0/GREEN-CERTIFICATE.md` (create only after A0 passes). Suggested closeout file: `evidence/A0/CLOSEOUT-NOTE.md` (maintain throughout work). These are planned paths; they do not exist until created.
+
+## 14. Section record template
+For each section, maintain:
+- ID and title
+- Status and changeability
+- Goal and exclusions
+- Exact files/repositories in scope
+- Dependencies and impact of change
+- Baseline / existing state
+- Planned changes
+- Acceptance criteria
+- Tests and results
+- Evidence links
+- Blockers and lessons learned
+- What was not done and why
+- Remaining risks / rollback
+- Closeout note and certificate link if GREEN
