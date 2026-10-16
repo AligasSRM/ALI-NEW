@@ -41,13 +41,13 @@ test.describe('ALI-NEW design preview', () => {
     await expect(page.getByRole('heading', { name: /Discover something/i })).toBeVisible();
 
     const search = page.getByRole('searchbox', { name: 'Search preview' });
-    await search.fill('ocean');
+    await search.fill('coastal');
     await expect(page.locator('.video-card:visible')).toHaveCount(1);
-    await expect(page.locator('.video-card:visible').first()).toContainText(/ocean/i);
+    await expect(page.locator('.video-card:visible').first()).toContainText(/Coastal Stories/i);
     await search.fill('no-such-demo-result');
     await expect(page.locator('#no-results')).toBeVisible();
     await search.fill('');
-    await expect(page.locator('.video-card:visible').count()).resolves.toBeGreaterThan(1);
+    expect(await page.locator('.video-card:visible').count()).toBeGreaterThan(1);
   });
 
   test('login and registration are clearly demo-only and empty forms stay blocked', async ({ page }) => {
