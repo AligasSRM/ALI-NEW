@@ -77,10 +77,44 @@ The earlier repository review dated 2026-10-16 contains source-level findings an
 
 GitHub repository metadata was checked on 2026-10-17 and reported the repository as **public**. The Pages URLs above were the targets in the browser report. Recheck the repository and deployment settings before any visibility or hosting change.
 
-## 7. Final status
+## 7. Playwright CI and live Pages parity check (2026-10-17)
+
+### Local-source Playwright run
+
+- Workflow run: https://github.com/AligasSRM/ALI-NEW/actions/runs/38982161340
+- Commit tested: `8913ef32179e50c80e375dd6739c75051c6d41a2`
+- Job: `Browser acceptance (Chromium)` — completed with conclusion `success`.
+- Result: **9 passed (4.7s)**.
+- Artifact: [ali-new-playwright-report](https://api.github.com/repos/AligasSRM/ALI-NEW/actions/artifacts/12081895427) (expires 2026-10-23).
+- Passing coverage: tree ARIA state in the checked-out repository source; build-tree search/clear; age-notice decline/return; preview card search/no-results; demo-only login/registration with empty forms blocked; horizontal overflow at 360, 390, 768, and 1280 px.
+
+### Read-only deployed Pages check
+
+- Control panel loaded at https://aligassrm.github.io/ALI-NEW/control-panel/ and design preview loaded at https://aligassrm.github.io/ALI-NEW/design-preview/.
+- A read-only live browser check reported the A1 “Product definition” button had no `aria-expanded` attribute before or after toggling, and reported no visible runtime/console errors.
+- The current main-branch `control-panel/index.html` source blob inspected during this review is `847a33c0380fd03b255d05afc2bc06bdd399f53d`; it does include `aria-expanded="false"` on the A1 tree row. This mismatch is evidence of a deployed/source parity issue or an inconsistent live-browser observation and must be resolved with a repeatable direct check. Do not claim Pages deployment is verified GREEN.
+- The deployed page's stage-detail copy still says browser acceptance is pending, which is stale relative to the passing CI run.
+- The available GitHub connector did not expose a readable Pages build-status/configuration response during this review. Therefore the exact Pages build source and last successful deployment SHA remain **unverified**.
+
+### Change made to the source to support the next deployment check
+
+Commit: `b893cb052255e69fcdc11559a3ca59cab72875e4`
+
+- Added a visible `:focus-visible` outline to buttons, links, inputs, selects, and textareas.
+- Updated the A0 stage-detail copy to reflect the 9/9 local Playwright result and explicitly keep live deployment parity/accessibility checks open.
+- This commit does not, by itself, prove that GitHub Pages has deployed the change. Re-fetch and re-test the live URLs after deployment.
+
+### Next checks
+
+1. Confirm whether the new commit is served by both Pages URLs; compare visible stage-detail copy and the A1 button's `aria-expanded` state against the current source.
+2. Add automated live-URL smoke tests so a future Pages/source mismatch fails visibly.
+3. Add keyboard-only focus assertions, navigation-link destination checks, browser-console capture, and standards-based HTML/JavaScript validation.
+4. Keep A0 **YELLOW** until deployed parity and the remaining acceptance gates are evidenced.
+
+## 8. Final status
 
 - Control-panel tested interactions: **PASS within the recorded scope**, with `aria-expanded` follow-up open.
 - Design-preview tested interactions: **PASS within the recorded scope**, with visible-focus follow-up open.
 - Overall A0 milestone: **YELLOW** — accessibility, security, responsive, validation, and additional acceptance checks remain open.
 - Production readiness: **NOT ESTABLISHED**.
-- No code, repository settings, credentials, or deployment configuration were changed as part of writing this evidence record.
+- This record was updated after the Playwright run and live Pages check. The source change is documented in Section 7; no credentials or hosting settings were changed.
