@@ -1,0 +1,13 @@
+{
+  "name": "ali-new-browser-acceptance",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser acceptance tests for ALI-NEW static pages",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
