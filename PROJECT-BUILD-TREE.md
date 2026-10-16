@@ -162,3 +162,76 @@ For each section, maintain:
 - What was not done and why
 - Remaining risks / rollback
 - Closeout note and certificate link if GREEN
+
+## 15. Default work sequence, stage gates, and session checkpoint
+
+**Policy ID:** ALI-NEW-WORK-SEQUENCE-001  
+**Policy version:** 1.0  
+**Owner / final decision:** Ali  
+**Engineering coordination:** Alex  
+**Scope:** ALI-NEW repository only  
+**Policy status:** Approved default working policy  
+**Last reviewed:** 2026-10-17
+
+### 15.1 One canonical source
+
+This file, `PROJECT-BUILD-TREE.md`, is the single canonical source for the engineering stage order and the default work sequence. Read it first whenever work resumes. Do not create a second parallel sequence document. Keep the README linked to this file. Git history records prior revisions; do not preserve confusing duplicate “current” documents in the working tree.
+
+The A0–A12 identifiers refer only to engineering/project stages. User-facing screens have a separate UX journey and must not reuse A0–A12 as screen IDs. The separate screen map remains `docs/design/VIDEO-PLATFORM-SCREEN-MAP.md`.
+
+### 15.2 Non-negotiable sequence rules
+
+1. **Resume the recorded stage first.** At the start of every session, read this file, inspect current repository state and recent history, then continue from the checkpoint below.
+2. **One active stage at a time.** Do not begin the next stage just because it is easier or more interesting.
+3. **Code is not completion.** A stage passes only when its acceptance criteria are checked and evidence is recorded.
+4. **No silent stage skipping.** If a technical dependency requires narrowly scoped work from a later stage, document the reason, exact scope/files, risks, test plan, and return point. This does not mark that later stage complete.
+5. **No fake GREEN.** GREEN applies only to the scope actually tested with evidence. Untested behaviour stays YELLOW; a blocker or failed safety gate is RED; integration work not fully accepted remains ORANGE.
+6. **Inspect before editing.** Review relevant files, history, dependencies, approved designs, tests, and impact before every change.
+7. **Preserve recoverability.** Verify a recoverable snapshot before risky changes. Do not delete, replace, redesign, deploy, or switch providers without a documented reason and the required approval.
+8. **Free-first.** Do not require paid plans, payment cards, or paid activation without Ali's explicit approval.
+9. **Evidence and handover.** Record inspected scope, changes, tests/results, open issues, commit SHA, and the exact next action.
+
+### 15.3 Stage status definitions
+
+- **PLANNED:** not started.
+- **YELLOW:** in progress, or evidence/acceptance is incomplete.
+- **ORANGE:** integration work is underway but not fully accepted.
+- **GREEN:** acceptance criteria passed with reproducible evidence for the stated scope.
+- **RED:** blocked or a critical acceptance/safety gate failed.
+- **LOCKED:** accepted and closed; reopen only for a documented technical reason or approved change.
+
+### 15.4 Stage transition gate
+
+Before moving to the next stage, confirm and record:
+- [ ] The current stage's scope and exclusions are clear.
+- [ ] Acceptance criteria are checked against the actual implementation.
+- [ ] Relevant desktop/mobile and interaction tests were run where applicable.
+- [ ] Accessibility, security, privacy, regression, and integration checks were addressed as relevant to the stage.
+- [ ] Evidence links, known limitations, unresolved blockers, and commit SHA are recorded.
+- [ ] The closeout note states what passed, what did not, and the next exact action.
+
+If a criterion fails or evidence is missing, keep the stage open and solve the gap. Do not label it GREEN to move forward.
+
+### 15.5 Separate user-facing screen journey
+
+Track user-facing screens in the UX screen map, not as engineering-stage IDs. Current journey checklist:
+1. Age gate.
+2. Homepage and discovery.
+3. Navigation, categories, and video menu.
+4. Video watch/detail page.
+5. Sign-in and registration.
+6. Account recovery.
+7. User profile and settings.
+8. Creator profile.
+9. Upload and moderation.
+
+This list is a UX journey checklist, not a claim that those screens are implemented or accepted.
+
+### 15.6 Current checkpoint — resume here
+
+- **Active stage:** A0 — Project Control Panel & identity.
+- **Status:** YELLOW — implementation and browser acceptance evidence are incomplete.
+- **Next action:** inspect the current `control-panel/index.html` against A0's scope; record the gap list and test plan before editing.
+- **Hold point:** do not start A1 or another stage until A0 passes its acceptance gate, unless a narrowly scoped technical dependency is documented under §15.2.
+- **After each session:** update this checkpoint in this same file, record evidence and commit SHA, and state the exact next action. Do not create another competing checkpoint page.
+
