@@ -1,0 +1,51 @@
+name: ALI-NEW Deployed Pages Smoke Tests
+
+on:
+  workflow_run:
+    workflows: ["ALI-NEW GitHub Pages deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ali-new-live-pages-smoke
+  cancel-in-progress: false
+
+jobs:
+  live-smoke:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    name: Live Pages acceptance (Chromium)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out deployed commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.sha || github.event.workflow_run.head_sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test published GitHub Pages URLs
+        run: npm run test:e2e:live
+
+      - name: Upload live smoke report and failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ali-new-live-pages-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
