@@ -25,6 +25,19 @@ test.describe('ALI-NEW control panel', () => {
   });
 });
 
+  test('keyboard focus is visible on the control panel', async ({ page }) => {
+    await page.goto('/control-panel/');
+    await page.keyboard.press('Tab');
+    const focused = page.locator(':focus');
+    await expect(focused).toBeVisible();
+    const outline = await focused.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(3);
+  });
+
 test.describe('ALI-NEW design preview', () => {
   test('age notice can decline and return, without opening the demo', async ({ page }) => {
     await page.goto('/design-preview/');
@@ -60,6 +73,19 @@ test.describe('ALI-NEW design preview', () => {
     await expect(form).toBeVisible();
     await expect(form.locator('input:invalid')).toHaveCount(3);
     await expect(page.getByText(/No account will be created/i)).toBeVisible();
+  });
+
+  test('keyboard focus is visible on the design preview age-gate control', async ({ page }) => {
+    await page.goto('/design-preview/');
+    await page.keyboard.press('Tab');
+    const focused = page.locator(':focus');
+    await expect(focused).toBeVisible();
+    const outline = await focused.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(3);
   });
 
   for (const width of [360, 390, 768, 1280]) {
