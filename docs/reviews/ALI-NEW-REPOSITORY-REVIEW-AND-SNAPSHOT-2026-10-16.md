@@ -28,7 +28,7 @@ Files inspected:
 - Both source HTML files were fetched from GitHub before copying.
 - Duplicate snapshot files were subsequently removed on 2026-10-17 at Ali's direction; the primary HTML files remain the source of truth.
 - The approved design baseline index remains available at [ALI-NEW approved design baseline](https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md).
-- No existing file was overwritten or deleted.
+- The primary HTML files remain the maintained source of truth. Two duplicate snapshot files under `backups/2026-10-16/` were deleted at Ali’s direction on 2026-10-17; Git history may still retain their prior contents.
 
 ### YELLOW — Design preview limitations
 - The age gate is a self-declaration UI and explicitly says it is not legally sufficient age verification. It must not be treated as production age assurance.
@@ -40,7 +40,7 @@ Files inspected:
 ### YELLOW — Control-panel follow-up
 - The control-panel HTML had a literal `\\n` text artifact near the metrics section. On 2026-10-17, the primary `control-panel/index.html` was corrected to use a real line break; no duplicate snapshot is maintained.
 - The control panel is a standalone prototype, not connected to live GitHub, a database, authentication, or automated project status.
-- The control-panel HTML references a `docs/decisions` location, but the inspected recursive tree did not contain that directory. Check/fix that link in a later planned change.
+- The control-panel link that previously pointed to the absent `docs/decisions/` directory now points to the existing `PROJECT-BUILD-TREE.md` provider-neutrality policy. This destination was checked against the repository file path; browser navigation was not run.
 - No automated test/build configuration was found in the inspected repository tree. This is a finding from the current tree, not proof that no external checks exist.
 
 ## Not tested in this review
@@ -48,14 +48,14 @@ No browser/device interaction, HTML validator, JavaScript test, accessibility au
 
 ## Recommended next steps
 1. Run static HTML/JavaScript validation and browser checks against the original files.
-2. Reproduce and verify the known control-panel `\\n` artifact and missing decisions link.
+2. Run browser acceptance checks for the corrected newline presentation and the replacement provider-policy link.
 3. Compare the end-user prototype screen-by-screen with the approved Figma frames and record gaps before changing the UI.
 4. Plan the full navigation and Arabic RTL/English LTR acceptance tests.
 5. Keep real age assurance, authentication, media playback, moderation, and deployment as separate gated engineering work.
 
 ## Status
 - Duplicate snapshot policy: **GREEN** — snapshot HTML files removed; primary source files retained.
-- Control-panel visual baseline: **RECORDED** in `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`.
+- Control-panel visual baseline: **RECORDED** in `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`; the primary control-panel palette has now been aligned in source.
 - Literal newline artifact: **FIXED IN SOURCE**; browser verification remains pending.
-- Prototype behavior / production readiness: **YELLOW — not yet tested**.
+- Prototype behavior / production readiness: **YELLOW — source-level review only; browser behavior remains untested**.
 - This report records evidence and gaps; it does not claim implementation is complete.
