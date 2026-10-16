@@ -25,6 +25,41 @@ test.describe('ALI-NEW control panel', () => {
   });
 });
 
+  test('all control-panel navigation targets exist and activate their section', async ({ page }) => {
+    await page.goto('/control-panel/');
+    const navButtons = page.locator('.nav button[data-target]');
+    const count = await navButtons.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      const button = navButtons.nth(i);
+      const target = await button.getAttribute('data-target');
+      expect(target, 'navigation button must declare a target').toBeTruthy();
+      await expect(page.locator(`#${target}`), `missing navigation target #${target}`).toHaveCount(1);
+      await button.click();
+      await expect(button).toHaveClass(/active/);
+    }
+  });
+
+  for (const width of [360, 390, 768, 1280]) {
+    test(`control panel fits viewport at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto('/control-panel/');
+      const dimensions = await page.evaluate(() => ({
+        viewport: document.documentElement.clientWidth,
+        page: document.documentElement.scrollWidth
+      }));
+      expect(dimensions.page, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(dimensions.viewport + 1);
+    });
+  }
+
+  test('both static pages load without uncaught page errors', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto('/control-panel/');
+    await page.goto('/design-preview/');
+    expect(errors, 'uncaught browser page errors').toEqual([]);
+  });
+
   test('keyboard focus is visible on the control panel', async ({ page }) => {
     await page.goto('/control-panel/');
     await page.keyboard.press('Tab');
