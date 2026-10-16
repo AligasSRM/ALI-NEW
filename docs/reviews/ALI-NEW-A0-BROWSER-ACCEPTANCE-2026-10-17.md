@@ -111,10 +111,19 @@ Commit: `b893cb052255e69fcdc11559a3ca59cab72875e4`
 3. Add keyboard-only focus assertions, navigation-link destination checks, browser-console capture, and standards-based HTML/JavaScript validation.
 4. Keep A0 **YELLOW** until deployed parity and the remaining acceptance gates are evidenced.
 
-## 8. Final status
+## 8. Latest Playwright and deployment verification (2026-10-17)
+
+- Playwright Acceptance run #10: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983084948 — **17 passed (6.6s)** on commit `ae2477df2fd924e28d2982044cd51d51ba95b03d`.
+- Coverage included control-panel tree ARIA state, search/clear, navigation targets, no uncaught page errors, visible keyboard focus on both pages, age-gate decline/return and continue flows, demo-only login/registration safeguards, and viewport checks at 360, 390, 768, and 1280 px.
+- Pages deployment run #3: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983085161 — **success** on the same commit. The deployment job fetched `/ALI-NEW/control-panel/` and verified the stage status marker and `aria-expanded="false"` in the published HTML.
+- Playwright report artifact: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983084948/artifacts/12081348435 (expires 2026-10-23).
+- CI maintenance note: the deployment workflow previously asserted the stale literal `9/9`; it has now been changed to assert the stable A0 YELLOW stage marker instead, so the check does not become brittle as the suite grows. The ARIA marker assertion remains.
+- This confirms a successful deployment workflow and its configured live-HTML smoke check. It does **not** establish a full accessibility/security audit or production readiness. A0 remains **YELLOW** until remaining gates are completed.
+
+## 9. Final status
 
 - Control-panel tested interactions: **PASS within the recorded scope**, with `aria-expanded` follow-up open.
 - Design-preview tested interactions: **PASS within the recorded scope**, with visible-focus follow-up open.
 - Overall A0 milestone: **YELLOW** — accessibility, security, responsive, validation, and additional acceptance checks remain open.
 - Production readiness: **NOT ESTABLISHED**.
-- This record was updated after the Playwright run and live Pages check. The source change is documented in Section 7; no credentials or hosting settings were changed.
+- This record was updated after the Playwright and deployment verification runs. Latest CI evidence is documented in Section 8; no credentials or hosting settings were changed.
