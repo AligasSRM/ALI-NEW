@@ -94,7 +94,7 @@ Do not create extra repositories yet. No legacy project repository is a source f
 
 ## 9. Required closeout note and GREEN certificate
 - The repository contains `README.md`, `IDEAS-ALI-ALEX.md`, and `ALI-ALEX-MASTER-PROJECT-PROMPT.md`.
-- This tree and the A0 prototype are being added as new, independent ALI-NEW artifacts.
+- The build tree and A0 prototype have been saved and fetched back from GitHub; this verifies file persistence only, not full browser behavior or production readiness.
 - No evidence currently establishes a complete application, production deployment, or production readiness.
 - The control panel is a static front-end prototype. It is not yet connected to GitHub data, persistent storage, authentication, or live project telemetry.
 
