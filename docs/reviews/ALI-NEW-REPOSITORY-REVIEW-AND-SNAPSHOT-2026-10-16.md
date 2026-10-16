@@ -1,7 +1,7 @@
 # ALI-NEW — Repository Review & Snapshot Record
 **Date:** 2026-10-16  
 **Scope:** ALI-NEW repository only  
-**Review type:** Read-only inspection plus additive backups; original files were not changed.
+**Review type:** Repository inspection. Duplicate HTML snapshots mentioned in the original review have since been removed at Ali's direction; the primary source files remain the maintained files.
 
 ## Repository baseline inspected
 Repository: https://github.com/AligasSRM/ALI-NEW  
@@ -16,19 +16,17 @@ Files inspected:
 - `README.md` — short project summary.
 - Recursive repository tree — no package manifest, automated test suite, or build configuration was present in the returned tree.
 
-## Snapshot copies created
-These are additive copies of the existing HTML sources. The originals remain untouched.
-
-| Source | Snapshot copy |
-|---|---|
-| `design-preview/index.html` | [backups/2026-10-16/design-preview-index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/backups/2026-10-16/design-preview-index.html) |
-| `control-panel/index.html` | [backups/2026-10-16/control-panel-index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/backups/2026-10-16/control-panel-index.html) |
+## Source-of-truth policy
+- `design-preview/index.html` and `control-panel/index.html` are the primary maintained HTML files.
+- Duplicate HTML snapshot files under `backups/2026-10-16/` were removed on 2026-10-17 at Ali's direction.
+- Do not recreate duplicate backup copies. Make approved changes in the primary files and document material design decisions in `docs/design/`.
+- The control-panel visual direction is recorded in [CONTROL-PANEL-DESIGN-BASELINE.md](../design/CONTROL-PANEL-DESIGN-BASELINE.md).
 
 ## Findings
 
 ### GREEN — Repository and source preservation
 - Both source HTML files were fetched from GitHub before copying.
-- Two separate snapshot files were created successfully on `main`.
+- Duplicate snapshot files were subsequently removed on 2026-10-17 at Ali's direction; the primary HTML files remain the source of truth.
 - The approved design baseline index remains available at [ALI-NEW approved design baseline](https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md).
 - No existing file was overwritten or deleted.
 
@@ -40,7 +38,7 @@ These are additive copies of the existing HTML sources. The originals remain unt
 - Navigation is a limited prototype (Discover/Popular/Categories/My account plus demo auth/watch views), not the full proposed screen inventory.
 
 ### YELLOW — Control-panel follow-up
-- The existing design-options document already flags a literal `\\n` text artifact in the control-panel HTML; this was preserved unchanged in the backup and source.
+- The control-panel HTML had a literal `\\n` text artifact near the metrics section. On 2026-10-17, the primary `control-panel/index.html` was corrected to use a real line break; no duplicate snapshot is maintained.
 - The control panel is a standalone prototype, not connected to live GitHub, a database, authentication, or automated project status.
 - The control-panel HTML references a `docs/decisions` location, but the inspected recursive tree did not contain that directory. Check/fix that link in a later planned change.
 - No automated test/build configuration was found in the inspected repository tree. This is a finding from the current tree, not proof that no external checks exist.
@@ -56,6 +54,8 @@ No browser/device interaction, HTML validator, JavaScript test, accessibility au
 5. Keep real age assurance, authentication, media playback, moderation, and deployment as separate gated engineering work.
 
 ## Status
-- Snapshot preservation: **GREEN** (GitHub file creation confirmed).
+- Duplicate snapshot policy: **GREEN** — snapshot HTML files removed; primary source files retained.
+- Control-panel visual baseline: **RECORDED** in `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`.
+- Literal newline artifact: **FIXED IN SOURCE**; browser verification remains pending.
 - Prototype behavior / production readiness: **YELLOW — not yet tested**.
 - This report records evidence and gaps; it does not claim implementation is complete.
