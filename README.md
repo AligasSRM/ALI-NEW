@@ -6,14 +6,14 @@ AliNew — Building a secure, scalable, multilingual video platform with verifie
 
 **[Open the Default Work Sequence & Stage Gate Policy](docs/WORK-SEQUENCE-DEFAULT.md)**
 
-This is the project's first-stop working index. Read it before resuming work. It records the A0–A12 default sequence, the one-active-stage rule, acceptance gates, exception handling, and the current checkpoint.
+This is the project's first-stop working index. Read it before resuming work. It records the canonical engineering A0–A12 sequence from `PROJECT-BUILD-TREE.md`, the one-active-stage rule, acceptance gates, exception handling, and the current checkpoint. User-facing screen order is tracked separately in the UX screen map.
 
 ### Current checkpoint
 
-- **Active stage:** A0 — Homepage
+- **Active stage:** A0 — Project Control Panel & identity
 - **Status:** YELLOW — implementation and browser acceptance evidence are incomplete
-- **Next action:** inspect the current homepage against the approved desktop/mobile Figma frames; record the A0 gap list and test plan before editing.
-- **Rule:** do not start A1 or another stage until A0 passes its acceptance gate, unless a documented and approved technical dependency requires a narrowly scoped exception.
+- **Next action:** inspect the current control-panel prototype against the A0 scope; record the A0 gap list and test plan before editing.
+- **Rule:** do not start A1 or another stage until the control-panel A0 passes its acceptance gate, unless a documented technical dependency requires a narrowly scoped, recorded exception.
 
 ## Project references
 
