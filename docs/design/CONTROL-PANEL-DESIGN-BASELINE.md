@@ -73,8 +73,10 @@ A visual badge or static metric is not proof of runtime status. Never mark a sta
 The repository review found the control panel to be a static prototype, not a verified live integration with GitHub, a database, authentication, or automated project status. Treat all displayed metrics and status values as illustrative until wired to a real source and tested.
 
 The review also identified:
-- a literal `\\n` text sequence in the HTML near the metrics section; the primary file should contain a real line break instead;
-- a link to a `docs/decisions` location that was not present in the inspected tree; verify the destination before claiming it works.
+- the literal `\\n` text artifact was corrected in the primary HTML source; source text was re-fetched and checked after the A0 update;
+- the former `docs/decisions/` link pointed to a location not present in the inspected tree. It now points to the existing `PROJECT-BUILD-TREE.md` policy file. The URL target was checked in source, but browser navigation has not been exercised.
+- the Stage Detail area now lists the A0 acceptance gate, real repository evidence links, source checks, and browser checks still pending.
+- the control-panel palette in `control-panel/index.html` now uses the accepted navy/violet/sky-blue/emerald/gold/coral tokens. The separate end-user video-platform file was not changed.
 
 No browser/device, accessibility, security, automated JavaScript, or deployment verification is implied by this visual baseline.
 
@@ -91,3 +93,4 @@ No browser/device, accessibility, security, automated JavaScript, or deployment 
 
 - **2026-10-16 — Visual direction accepted:** Stage Detail Card 1.8 and palette B accepted as the working visual reference.
 - **2026-10-17 — Repository source policy clarified:** maintain the primary file; do not keep duplicate backup HTML snapshots. The older snapshot files are not authoritative.
+- **2026-10-17 — A0 source alignment:** primary control-panel palette and evidence links updated; Stage Detail and acceptance/evidence status added. Source-level checks passed after re-fetch; browser/device and automated validation remain pending.
