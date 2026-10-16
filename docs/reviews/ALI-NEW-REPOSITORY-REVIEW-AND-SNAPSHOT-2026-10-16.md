@@ -6,7 +6,7 @@
 ## Repository baseline inspected
 Repository: https://github.com/AligasSRM/ALI-NEW  
 Default branch: `main`  
-Visibility reported by GitHub: private
+Visibility at the time of the original review: private (historical snapshot). GitHub repository metadata checked on 2026-10-17 reports the repository as public; use the latest metadata rather than this historical line for current visibility.
 
 Files inspected:
 - `design-preview/index.html` — standalone end-user video-platform UI mock.
@@ -69,3 +69,11 @@ These are source-text checks only. The following were **not run**: browser/devic
 - Design options record commit: `4919f731a9bbb94a1962a3ac68356fa9538c1b4b`.
 - The control-panel design baseline was updated to record the source alignment and remaining verification boundary.
 - **Status remains YELLOW.** Source checks are not browser acceptance evidence.
+
+
+## Documentation reconciliation addendum — 2026-10-17
+
+- The earlier source review above remains a historical record of its original inspection; it is not the latest acceptance status.
+- Browser interactions were subsequently tested and recorded in [ALI-NEW A0 Browser Acceptance Evidence (2026-10-17)](ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md), with the [TinyFish run report](https://agent.tinyfish.ai/runs/b3716518-8499-4c40-8940-19fe7d1379ae).
+- The later evidence supersedes the earlier “browser behavior remains untested” statement only for the specific control-panel and design-preview interactions listed in that evidence record.
+- Keyboard/accessibility, responsive coverage, HTML/JavaScript validation, comprehensive link/runtime review, hosting security configuration, and a complete historical secret scan remain unverified. Overall A0 remains **YELLOW**.
