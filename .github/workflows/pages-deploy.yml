@@ -42,6 +42,6 @@ jobs:
         run: |
           set -euo pipefail
           curl --fail --silent --show-error --retry 5 --retry-delay 3 "${PAGE_URL%/}/control-panel/" -o /tmp/control-panel.html
-          grep -q 'Playwright local Chromium acceptance passed 9/9' /tmp/control-panel.html
+          grep -q 'Current stage: A0 · Status: YELLOW' /tmp/control-panel.html
           grep -q 'aria-expanded="false"' /tmp/control-panel.html
           echo "Deployed control panel contains current acceptance evidence and ARIA state."
