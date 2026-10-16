@@ -231,7 +231,9 @@ This list is a UX journey checklist, not a claim that those screens are implemen
 
 - **Active stage:** A0 — Project Control Panel & identity.
 - **Status:** YELLOW — implementation and browser acceptance evidence are incomplete.
-- **Next action:** inspect the current `control-panel/index.html` against A0's scope; record the gap list and test plan before editing.
+- **Source work completed 2026-10-17:** aligned `control-panel/index.html` to `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`; replaced the missing `docs/decisions/` link with the existing `PROJECT-BUILD-TREE.md`; added Stage Detail scope, evidence links, and explicit unverified checks; updated the design-options, baseline, and review notes. No backup copies were created.
+- **Source verification:** re-fetched changed files from GitHub; checked navigation targets, duplicate IDs, palette tokens/old variable references, and the presence of replacement/evidence links. No browser or automated HTML/JS test has run.
+- **Next action:** run browser acceptance checks for navigation, tree expand/collapse, filtering, buttons, links, keyboard focus, and desktop/mobile layouts; record actual results before considering GREEN.
 - **Hold point:** do not start A1 or another stage until A0 passes its acceptance gate, unless a narrowly scoped technical dependency is documented under §15.2.
 - **After each session:** update this checkpoint in this same file, record evidence and commit SHA, and state the exact next action. Do not create another competing checkpoint page.
 
