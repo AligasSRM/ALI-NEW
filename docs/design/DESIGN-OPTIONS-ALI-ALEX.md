@@ -16,10 +16,10 @@ Preserve the two visual directions Ali explicitly liked so they can be revisited
 
 - Existing source: [control-panel/index.html](../../control-panel/index.html)
 - GitHub file: https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html
-- Visual direction: premium dark navy / midnight background, teal and coral accents, clear cards, status indicators, expandable build tree, repository map, tool policy, and responsive navigation.
+- Visual direction: deep navy background (`#080D19`) with violet (`#C8BDFF`), sky-blue (`#8CCBFF`), emerald (`#70E2BE`), gold (`#FFD16F`), and coral (`#FF8298`) accents; clear cards, status indicators, expandable build tree, repository map, tool policy, and responsive navigation.
 - Intended use: track project phases, file/repository map, decisions, evidence, risks, acceptance gates, and handover notes.
 - Current reality: standalone HTML/CSS/JavaScript prototype. It is not yet connected to live GitHub data, a database, authentication, or automated project status.
-- Before calling it GREEN: confirm the previously observed literal `\\n` text artifact is absent from the HTML; validate HTML/JavaScript; test navigation, buttons, filtering, expandable sections, accessibility, and desktop/mobile behavior; document evidence and remaining limitations.
+- Source-level follow-up: the previously observed literal `\\n` text artifact was corrected on 2026-10-17. A dedicated A0 Stage Detail area now records scope, evidence links, acceptance checks, and unverified browser checks. Before GREEN, run HTML/JavaScript validation and test navigation, buttons, filtering, expandable sections, keyboard focus, accessibility, and desktop/mobile behavior; document actual results and remaining limitations.
 
 ## Option 2 — ALI-NEW Video Platform UI
 
@@ -49,7 +49,7 @@ Preserve the two visual directions Ali explicitly liked so they can be revisited
 
 ## Next steps (not yet completed)
 
-1. Repair and verify the existing control-panel prototype.
+1. Verify the control-panel source changes and run browser acceptance checks; source-level checks alone do not qualify it as GREEN.
 2. Create a saved visual reference/screen specification for the video platform.
 3. Review the primary journeys and responsive layouts with Ali.
 4. Only then implement the product UI and connect real services in planned stages.
