@@ -127,3 +127,19 @@ Commit: `b893cb052255e69fcdc11559a3ca59cab72875e4`
 - Overall A0 milestone: **YELLOW** — accessibility, security, responsive, validation, and additional acceptance checks remain open.
 - Production readiness: **NOT ESTABLISHED**.
 - This record was updated after the Playwright and deployment verification runs. Latest CI evidence is documented in Section 8; no credentials or hosting settings were changed.
+
+
+## 10. Responsive defect correction and latest acceptance — 2026-10-17
+
+The following later runs supersede the earlier viewport failures and older 9/9 or 17/17 totals only for the exact commit and tests listed here.
+
+- **Code commit tested:** `7d97fae46ffe988fdfd6ca937e4498c64dff9e37`.
+- **Local Playwright Acceptance run #25:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108730 — **18 passed (8.0s)**.
+- **Deployed Pages smoke run #12:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985140923 — **11 passed (9.9s)**.
+- **GitHub Pages deployment run #18:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108729 — success.
+- **Pages build/deployment run #36:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108135 — success.
+- Coverage includes control-panel title/stage evidence; tree disclosure and synchronized ARIA state; all navigation targets; search/clear; explicit button types and safe in-page/external-link attributes; visible keyboard focus; no uncaught page errors; and 360, 390, 768, and 1280px viewport checks. The live suite covers the corresponding published-page interactions.
+- Earlier runs exposed horizontal overflow at 360px and 768px. The recorded root causes were an unconstrained mobile navigation/content width and intrinsic minimum width in the two-column detail grid. The source now constrains the mobile app/navigation and stacks detail grids at widths up to 900px. The subsequent local and live suites passed at all tested widths.
+- No real credentials were entered and no authentication or backend integration was added.
+
+**Status remains YELLOW** until standards-based HTML validation, full-history secret scanning, deployed response-header review, broader semantic/contrast accessibility review, and final A0 closeout are recorded. These passing browser tests do not certify the end-user platform or production readiness.

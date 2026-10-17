@@ -41,7 +41,12 @@ jobs:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           set -euo pipefail
-          curl --fail --silent --show-error --retry 5 --retry-delay 3 "${PAGE_URL%/}/control-panel/" -o /tmp/control-panel.html
+          curl --fail --silent --show-error --retry 5 --retry-delay 3 -D /tmp/control-panel-headers.txt "${PAGE_URL%/}/control-panel/" -o /tmp/control-panel.html
           grep -q 'Current stage: A0 · Status: YELLOW' /tmp/control-panel.html
           grep -q 'aria-expanded="false"' /tmp/control-panel.html
           echo "Deployed control panel contains current acceptance evidence and ARIA state."
+          echo "Relevant deployed response headers:"
+          for name in content-security-policy strict-transport-security x-content-type-options referrer-policy permissions-policy x-frame-options; do
+            value="$(grep -i "^${name}:" /tmp/control-panel-headers.txt | tail -n 1 | sed "s/\r$//" || true)"
+            if [ -n "$value" ]; then printf "%s\n" "$value"; else printf "%s: (not present)\n" "$name"; fi
+          done

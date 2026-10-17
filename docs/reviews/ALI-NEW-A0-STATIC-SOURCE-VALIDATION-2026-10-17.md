@@ -52,3 +52,12 @@ For the design preview, the source includes submit listeners that call `preventD
 
 **Static source-pattern checks: completed for the two listed file versions.**  
 **Overall A0: YELLOW.** No claim of full accessibility, security, standards compliance, or production readiness is made.
+
+
+## 6. Current-source recheck — 2026-10-17
+
+- Current `control-panel/index.html` blob SHA before the next validation commit: `f106ffcbc519bad7d9d50f1e2f2ec7fc5c1ae391`.
+- Source invariant scan: 15 unique IDs, no duplicate IDs; 7 navigation targets and no missing target IDs; 22 buttons and all 22 have explicit `type="button"`; 6 non-empty anchor links; no `target="_blank"` links without `rel="noopener"`.
+- Inline JavaScript syntax is now included in the automated A0 validation script; standards-based HTML validation and historical secret scanning are being added to CI and must pass before closeout.
+- Palette contrast calculations against the actual listed dark surfaces exceed WCAG AA's 4.5:1 normal-text threshold for the sampled pairs (lowest sampled pair: nav-label `#71839E` on `#10182A`, 4.59:1). This is a sampled token-pair calculation, not a full rendered-page WCAG audit.
+- This recheck does not claim complete screen-reader testing, full accessibility conformance, security certification, or production readiness.

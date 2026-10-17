@@ -18,6 +18,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan full Git history for secrets (redacted)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -26,6 +32,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Validate A0 HTML, inline JavaScript, and control-panel invariants
+        run: node scripts/validate-a0.mjs
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium

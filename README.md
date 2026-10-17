@@ -11,9 +11,9 @@ This is the single canonical source for the engineering A0–A12 sequence, one-a
 ### Current checkpoint
 
 - **Active stage:** A0 — Project Control Panel & identity
-- **Status:** YELLOW — latest recorded local/live browser tests passed; A0 closeout gates remain open.
-- **Latest browser evidence:** [A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md) · [local Playwright run #15](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898193) · [live Pages smoke run #2](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983943451) · [Pages deployment run #8](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898173)
-- **Next action:** finish standards validation, broader accessibility/contrast, deployed header and history secret checks, link destination review, and Ali's visual acceptance. Do not change status until evidence is recorded.
+- **Status:** YELLOW — current responsive/browser acceptance passes; standards/security and formal closeout checks are being completed.
+- **Latest browser evidence:** [A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md) · [local Playwright run #25](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108730) · [live Pages smoke run #12](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985140923) · [Pages deployment run #18](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108729)
+- **Next action:** complete the automated Nu HTML validation, redacted history secret scan, deployed response-header review, and A0 closeout evidence before considering GREEN.
 - **Rule:** do not start A1 or another stage until the control-panel A0 passes its acceptance gate, unless a documented technical dependency requires a narrowly scoped, recorded exception.
 
 ## Project references
