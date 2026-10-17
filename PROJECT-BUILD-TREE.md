@@ -238,3 +238,60 @@ This list is a UX journey checklist, not a claim that those screens are implemen
 - **Hold point:** do not start A1 or another stage until A0 passes its acceptance gate, unless a narrowly scoped technical dependency is documented under §15.2.
 - **After each session:** update this checkpoint in this same file, record evidence and commit SHA, and state the exact next action. Do not create another competing checkpoint page.
 
+## 16. Permanent A/B/C engineering index policy — approved by Ali (2026-10-17)
+
+**Policy ID:** ALI-NEW-ABC-INDEX-001  
+**Status:** APPROVED — mandatory working convention  
+**Scope:** ALI-NEW repository only  
+**Owner / final decision:** Ali  
+**Engineering coordination:** Alex
+
+This section is the authoritative rule for locating implementation files, defects, tests, and evidence. It supplements the A0–A12 build sequence and does not replace it.
+
+### 16.1 Stable stage IDs
+
+1. Keep the existing stage identifiers **A0 through A12** and their meanings as the fixed working baseline.
+2. Do not casually rename, renumber, reorder, or replace these identifiers. Any exceptional change requires Ali's explicit decision and a documented impact review; no change is implied by this policy.
+3. The A0–A12 identifiers represent engineering stages, not physical repository folders and not user-facing screen IDs.
+
+### 16.2 Required nested identifiers
+
+- **A** = an existing engineering stage, e.g. `A0`, `A1`, … `A12`.
+- **B** = a numbered section within that stage, assigned sequentially from `B0` for the first section, then `B1`, `B2`, and so on as needed.
+- **C** = a numbered file entry within a B section, assigned sequentially from `C0`, then `C1`, `C2`, and so on as needed.
+- Full locator format: `A0 / B3 / C1`.
+- Every physical repository file in the scope of the current inventory must have one canonical C identifier in the index. A file used by other stages may be linked as a cross-reference; do not create duplicate identities for the same file.
+- The index maps identifiers to the **real repository path**, branch/commit context where relevant, purpose, status, and evidence. IDs are organizational labels only.
+
+### 16.3 Preserve repository structure
+
+Do not rename, move, duplicate, or create files/directories merely to fit the A/B/C index. Keep the actual source tree intact unless a separate, reviewed implementation task explicitly requires a change. Do not invent paths for files that do not exist. Record missing required artifacts as missing/planned, not as existing files.
+
+### 16.4 Defect and evidence tracking
+
+Every defect or test finding must record, where applicable:
+1. Full A/B/C locator and exact repository path.
+2. Short description and expected versus actual behavior.
+3. Evidence: test output, report, commit, deployment URL, or reproducible steps.
+4. Status: PLANNED, YELLOW, ORANGE, GREEN, LOCKED, or RED, using the definitions in this document.
+5. Root cause only after it is evidenced; otherwise label it “under investigation”.
+6. Fix commit/change reference and the exact retest result before closure.
+7. Related defects, dependencies, limitations, and reopen conditions.
+
+A defect is not GREEN merely because a code change was made. GREEN requires a passing relevant retest and inspectable evidence. If evidence is incomplete, keep the item open.
+
+### 16.5 Mandatory working sequence
+
+For every stage, work through: **inventory → assign B sections → map existing files to C IDs → identify missing items and defects → define acceptance criteria → implement only after review → test → record evidence → close out**.
+
+Work on one active stage at a time. Inventory or cross-reference preparation for later stages does not authorize implementation of those stages before the current stage gate passes. The A/B/C index is the single agreed locating convention for this project; do not revert to ad-hoc naming schemes or start a competing index.
+
+### 16.6 Session checkpoint — 2026-10-17
+
+- **Session action:** paused at Ali's request; resume next work session from this checkpoint.
+- **Active stage:** A0 — Project Control Panel & identity.
+- **Status:** YELLOW — A0 inventory/index draft prepared in the conversation; the formal stage closeout and GREEN certificate have **not** been issued.
+- **A0 inventory:** initial proposed B sections cover the control-panel source, design baseline, build-tree/status rules, interaction tests/configuration, static validation, CI/live workflows, browser acceptance evidence, repository review, closeout templates, and project metadata/docs.
+- **A1 and A2:** preliminary file references identified only. No implementation work started and no stage was marked complete.
+- **Repository changes in this session:** this policy/checkpoint addition only. No application source, file names, directory structure, or other repositories are to be changed as part of the indexing policy.
+- **Next exact action:** resume with A0; verify the current main-branch commit and pending acceptance gates, refine the A0 B/C index against the actual file tree, resolve or explicitly carry forward outstanding findings, then prepare the closeout record. Do not mark A0 GREEN until its gates pass. Proceed to A1 only after A0 is formally accepted and closed.
