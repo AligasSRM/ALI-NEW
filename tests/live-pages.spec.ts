@@ -1,27 +1,25 @@
 import { test, expect } from '@playwright/test';
 
 const pages = {
-  control: 'https://aligassrm.github.io/ALI-NEW/control-panel/',
+  control: 'https://aligassrm.github.io/ALI-NEW/',
   preview: 'https://aligassrm.github.io/ALI-NEW/design-preview/'
 };
 
 test.describe('ALI-NEW deployed GitHub Pages @live', () => {
-  test('published control panel has current title and YELLOW stage evidence @live', async ({ page }) => {
+  test('published Ali Tree has current title and YELLOW stage evidence @live', async ({ page }) => {
     const response = await page.goto(pages.control);
     expect(response?.status()).toBe(200);
     await expect(page).toHaveTitle(/ALI-NEW.*Engineering Control Panel/i);
     await expect(page.getByText(/Current stage: A0 · Status: YELLOW/i)).toBeVisible();
   });
 
-  test('published control panel keeps tree disclosure and ARIA state synchronized @live', async ({ page }) => {
+  test('published Ali Tree keeps tree disclosure and ARIA state synchronized @live', async ({ page }) => {
     await page.goto(pages.control);
-    const row = page.locator('.tree-item').filter({ has: page.getByText('Product definition', { exact: true }) }).locator('.tree-row');
-    await expect(row).toHaveAttribute('aria-expanded', 'false');
-    await row.click();
-    await expect(row).toHaveAttribute('aria-expanded', 'true');
-    await expect(row.locator('xpath=..')).toHaveClass(/open/);
-    await row.click();
-    await expect(row).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('.tree-select')).toHaveCount(13);
+    await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
+    await expect(page.locator('#tree-crumbs')).toContainText('A0');
+    await page.getByRole('button', { name: '← رجوع' }).click();
+    await expect(page.locator('.tree-select')).toHaveCount(13);
   });
 
   test('published control-panel navigation targets exist and activate @live', async ({ page }) => {
@@ -40,7 +38,7 @@ test.describe('ALI-NEW deployed GitHub Pages @live', () => {
   });
 
   for (const width of [360, 390, 768, 1280]) {
-    test(`published control panel has no horizontal overflow at ${width}px @live`, async ({ page }) => {
+    test(`published Ali Tree has no horizontal overflow at ${width}px @live`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(pages.control);
       const dimensions = await page.evaluate(() => ({
