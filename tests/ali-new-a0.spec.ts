@@ -1,6 +1,20 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('ALI-NEW Ali Tree A/B/C index', () => {
+  test('renders from the canonical registry instead of an embedded tree', async ({ page }) => {
+    const response = await page.request.get('/core/registry.json');
+    expect(response.ok()).toBeTruthy();
+    const registry = await response.json();
+    const phaseCount = registry.nodes.filter((node: { level: string }) => node.level === 'A').length;
+    const fileCount = registry.nodes.filter((node: { level: string; path?: string }) => node.level === 'C' && node.path).length;
+
+    await page.goto('/');
+    await expect(page.locator('.tree-select')).toHaveCount(phaseCount);
+    await expect(page.locator('#tree-summary')).toContainText(fileCount + ' موارد C مرتبطة');
+    const inlineScripts = (await page.locator('script').allTextContents()).join('\\n');
+    expect(inlineScripts).not.toContain('const aliTree = [');
+  });
+
   test('loads the Ali Tree and drills from A to B to real C file paths', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/شجرة علي.*ALI-NEW Engineering Control Panel/);
@@ -25,7 +39,7 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
   test('planned sections do not pretend files exist', async ({ page }) => {
     await page.goto('/');
-    await page.locator('.tree-select').filter({ hasText: 'A3' }).click();
+    await page.locator('.tree-select').filter({ hasText: 'A1' }).click();
     await expect(page.locator('.tree-select')).toHaveCount(1);
     await page.locator('.tree-select').filter({ hasText: 'B0' }).click();
     await expect(page.locator('.empty-tree')).toContainText('لا يوجد ملف مخصص بعد');
