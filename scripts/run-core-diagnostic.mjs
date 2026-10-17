@@ -12,12 +12,21 @@ const eventPath = process.env.GITHUB_EVENT_PATH;
 const reportPath = path.join(root, 'artifacts', 'core-diagnostic-report.json');
 
 function parseRunId(body = '') {
-  const match = body.match(/^\s*(?:Run ID|Workflow Run ID|رقم التشغيل)\s*:\s*(\d+)\s*$/im);
-  return match?.[1] || '';
+  const inline = body.match(/^\s*(?:Run ID|Workflow Run ID|رقم التشغيل)\s*:\s*(\d+)\s*$/im);
+  if (inline) return inline[1];
+  const formField = body.match(/^###\s+GitHub Actions Run ID\s*\r?\n\s*(\d+)\s*$/im);
+  return formField?.[1] || '';
 }
 
 function parseExactPaths(value = '') {
   return [...new Set(value.split(/\r?\n/).map(item => item.trim()).filter(Boolean))];
+}
+
+function parseIssuePaths(body = '') {
+  const match = body.match(/^###\s+Exact changed paths(?: \(optional\))?\s*\r?\n([\s\S]*)/im);
+  if (!match) return [];
+  const section = match[1].split(/^###\s+/m)[0].replace(/^_No response_\s*$/im, '');
+  return parseExactPaths(section);
 }
 
 function safeText(value, max = 500) {
@@ -151,7 +160,7 @@ async function main() {
   const issueNumber = issue?.number ? String(issue.number) : (process.env.INPUT_ISSUE_NUMBER || '').trim();
   const manualRunId = (process.env.INPUT_RUN_ID || '').trim();
   const runId = manualRunId || parseRunId(issue?.body || '');
-  const manualPaths = parseExactPaths(process.env.INPUT_CHANGED_PATHS || '');
+  const manualPaths = [...parseExactPaths(process.env.INPUT_CHANGED_PATHS || ''), ...parseIssuePaths(issue?.body || '')];
   const errors = [];
   let run = null;
   let commit = null;
