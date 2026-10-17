@@ -230,10 +230,11 @@ This list is a UX journey checklist, not a claim that those screens are implemen
 ### 15.6 Current checkpoint — resume here
 
 - **Active stage:** A0 — Project Control Panel & identity.
-- **Status:** YELLOW — implementation and browser acceptance evidence are incomplete.
-- **Source work completed 2026-10-17:** aligned `control-panel/index.html` to `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`; replaced the missing `docs/decisions/` link with the existing `PROJECT-BUILD-TREE.md`; added Stage Detail scope, evidence links, and explicit unverified checks; updated the design-options, baseline, and review notes. No backup copies were created.
-- **Source verification:** re-fetched changed files from GitHub; checked navigation targets, duplicate IDs, palette tokens/old variable references, and the presence of replacement/evidence links. No browser or automated HTML/JS test has run.
-- **Next action:** run browser acceptance checks for navigation, tree expand/collapse, filtering, buttons, links, keyboard focus, and desktop/mobile layouts; record actual results before considering GREEN.
+- **Status:** YELLOW — browser behavior is passing in recorded CI, but the A0 closeout gates are not all complete.
+- **Source work completed 2026-10-17:** aligned `control-panel/index.html` to `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md`; replaced the missing `docs/decisions/` link with the existing `PROJECT-BUILD-TREE.md`; added Stage Detail scope/evidence; refreshed stale acceptance copy; and set explicit `type="button"` on all 22 control-panel buttons. No backup copies were created.
+- **Latest verified baseline before the current source update:** local Playwright 17/17 and live Pages smoke tests 11/11 passed on `be1a0ab518a95c439d9fa9b3294e23820878d08b`; Pages deployment verification succeeded on that commit. Evidence: [local Playwright run](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898193), [live smoke run](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983943451), [deployment run](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898173).
+- **Current source change:** commit `df5cf748027c0b0ff3219d6ca714ba60aa92cefd` updates the visible evidence copy and explicit button types. Its CI and Pages deployment are pending; do not claim these changes are deployed until those runs finish.
+- **Open A0 gates:** standards-based HTML/JavaScript validation; contrast and semantic accessibility review beyond the automated focus checks; deployed response-header review; historical secret scan; full relevant link destination review; and Ali's desktop/mobile visual acceptance. Keep A0 YELLOW until each applicable gate has evidence.
 - **Hold point:** do not start A1 or another stage until A0 passes its acceptance gate, unless a narrowly scoped technical dependency is documented under §15.2.
 - **After each session:** update this checkpoint in this same file, record evidence and commit SHA, and state the exact next action. Do not create another competing checkpoint page.
 
