@@ -4,7 +4,7 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
   test('loads the Ali Tree and drills from A to B to real C file paths', async ({ page }) => {
     await page.goto('/control-panel/');
     await expect(page).toHaveTitle(/شجرة علي.*ALI-NEW Engineering Control Panel/);
-    await expect(page.getByRole('heading', { name: /شجرة علي.*Ali Tree/ })).toBeVisible();
+    await expect(page.locator('h1').filter({ hasText: 'Ali Tree' })).toBeVisible();
     await expect(page.locator('.tree-select')).toHaveCount(13);
 
     await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
