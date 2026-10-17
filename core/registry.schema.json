@@ -128,7 +128,7 @@
               "string",
               "null"
             ],
-            "pattern": "^[AB][0-9]+$"
+            "pattern": "^(A[0-9]+|A[0-9]+/B[0-9]+)$"
           },
           "name": {
             "type": "string",
