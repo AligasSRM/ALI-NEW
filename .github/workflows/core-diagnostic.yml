@@ -23,7 +23,7 @@ on:
         type: string
 
 concurrency:
-  group: core-diagnostic-\${{ github.event.issue.number || inputs.issue_number || github.run_id }}
+  group: core-diagnostic-${{ github.event.issue.number || inputs.issue_number || github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -65,20 +65,20 @@ jobs:
       - name: Run read-only evidence collection and routing
         id: diagnose
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: \${{ github.repository }}
-          GITHUB_EVENT_NAME: \${{ github.event_name }}
-          GITHUB_EVENT_PATH: \${{ github.event_path }}
-          INPUT_RUN_ID: \${{ inputs.run_id }}
-          INPUT_ISSUE_NUMBER: \${{ inputs.issue_number }}
-          INPUT_CHANGED_PATHS: \${{ inputs.changed_paths }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          INPUT_RUN_ID: ${{ inputs.run_id }}
+          INPUT_ISSUE_NUMBER: ${{ inputs.issue_number }}
+          INPUT_CHANGED_PATHS: ${{ inputs.changed_paths }}
         run: node scripts/run-core-diagnostic.mjs
 
       - name: Upload structured diagnostic evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: core-diagnostic-\${{ github.run_id }}
+          name: core-diagnostic-${{ github.run_id }}
           path: artifacts/core-diagnostic-report.json
           if-no-files-found: error
           retention-days: 30
