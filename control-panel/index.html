@@ -42,7 +42,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
   <div class="change-note"><strong>OPEN TO CHANGE · قابل للتعديل دائماً</strong><br>A0–A12 هي الخطة الحالية وليست سقفاً ثابتاً. يمكن إضافة A13 أو A14 أو A15، أو تعديل الأقسام والملفات وعدد المستودعات، إذا أثبتت المراجعة أن ذلك أفضل وأكثر أماناً أو حداثة. نسجّل سبب كل تغيير وأثره قبل اعتماده.</div>
   <section class="metrics" aria-label="Project summary">
     <div class="metric"><span>Planned levels</span><strong>13</strong><small>A0 through A12</small></div>
-    <div class="metric"><span>ملفات مفهرسة</span><strong>23</strong><small>ملفات موجودة في main</small></div>
+    <div class="metric"><span>ملفات مفهرسة</span><strong>25</strong><small>ملفات موجودة في main</small></div>
     <div class="metric"><span>Production releases</span><strong>0</strong><small>No release verified</small></div>
     <div class="metric"><span>Current state</span><strong style="color:var(--gold)">YELLOW</strong><small>Design / prototype</small></div>
   </section>
@@ -141,7 +141,7 @@ function renderTree(){
  document.getElementById('tree-home').hidden=selectedA===null;
  if(selectedA===null){
   crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong>';
-  summary.textContent='13 مرحلة هندسية · '+aliTree.reduce((n,a)=>n+a.sections.length,0)+' أقسام B مفهرسة مبدئياً · 23 ملفاً موجوداً في المستودع.';
+  summary.textContent='13 مرحلة هندسية · '+aliTree.reduce((n,a)=>n+a.sections.length,0)+' أقسام B مفهرسة مبدئياً · 25 ملفاً موجوداً في المستودع.';
   aliTree.forEach(a=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';btn.innerHTML='<span class="level">'+a.id+'</span><span><span class="tree-name">'+a.name+'</span><span class="tree-desc">'+a.desc+'</span></span><span class="tree-count">'+a.sections.length+' أقسام B</span><span>›</span>';btn.addEventListener('click',()=>{selectedA=a.id;selectedB=null;renderTree()});card.append(btn);list.append(card)});
  }else{
   const a=aliTree.find(x=>x.id===selectedA);
