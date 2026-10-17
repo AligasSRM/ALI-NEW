@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CORE Incident Router | ALI-NEW</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#121b30;--line:#2b3954;--text:#eef4ff;--muted:#aab8d0;--teal:#55d6c2;--gold:#ffd27a;--red:#ff8b91}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}
+    main{max-width:900px;margin:0 auto;padding:24px 16px 48px}a{color:var(--teal)}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:18px}
+    h1{font-size:clamp(25px,4vw,36px);margin:12px 0}h2{font-size:20px;margin-top:0}.muted{color:var(--muted)}label{display:block;font-weight:650;margin:16px 0 6px}
+    input,textarea{width:100%;background:#080e1b;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:12px;font:inherit}
+    textarea{min-height:130px;resize:vertical;direction:ltr;text-align:left}input{direction:ltr;text-align:left}
+    button{background:var(--teal);color:#071321;border:0;border-radius:9px;padding:12px 18px;font:inherit;font-weight:750;cursor:pointer;margin-top:14px}
+    button:disabled{opacity:.6;cursor:wait}.status{border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+    .route{border-inline-start:4px solid var(--teal);padding:12px;margin:12px 0;background:#0b1425;border-radius:8px}.unknown{border-inline-start-color:var(--gold)}.danger{color:var(--red)}
+    code{direction:ltr;unicode-bidi:plaintext;overflow-wrap:anywhere}.small{font-size:13px}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 9px;color:var(--gold)}
+  </style>
+</head>
+<body>
+<main>
+  <div class="top"><a href="../index.html">← الرجوع إلى CORE / Ali Tree</a><span class="pill">READ-ONLY · بدون صلاحيات كتابة</span></div>
+  <h1>CORE Incident Router</h1>
+  <p class="muted">أدخل رقم تشغيل GitHub Actions أو مسارات الملفات المتغيرة. سيبحث النظام عن تطابق حرفي مع سجل A/B/C؛ إذا لم تكفِ الأدلة، سيعيد UNKNOWN ولن يخمّن.</p>
+  <section class="panel" aria-labelledby="intake-heading">
+    <h2 id="intake-heading">1. إدخال الحادثة</h2>
+    <form id="incident-form">
+      <label for="run-id">رقم تشغيل GitHub Actions (اختياري)</label>
+      <input id="run-id" inputmode="numeric" pattern="[0-9]*" placeholder="مثال: 39047109698" autocomplete="off">
+      <label for="changed-paths">مسارات الملفات المتغيرة حرفياً (مسار بكل سطر)</label>
+      <textarea id="changed-paths" placeholder="tests/ali-new-a0.spec.ts&#10;index.html"></textarea>
+      <p class="muted small">عند إدخال رقم تشغيل، تُقرأ بيانات التشغيل والـ commit وملفات التغيير من GitHub العام. لا يتم استخدام token أو أي سر. مسارات التغيير قرينة ربط، وليست إثباتاً لسبب الفشل.</p>
+      <button id="route-button" type="submit">تحليل الأدلة وتحديد المسار</button>
+    </form>
+  </section>
+  <section class="panel" aria-labelledby="result-heading">
+    <h2 id="result-heading">2. نتيجة التوجيه</h2>
+    <div id="result" class="status" role="status" aria-live="polite">بانتظار إدخال الأدلة. لم يتم تنفيذ أي تغيير على المستودع.</div>
+  </section>
+  <section class="panel">
+    <h2>حدود الأمان</h2>
+    <ul>
+      <li>القراءة فقط؛ لا تعديل ملفات ولا إعادة تشغيل workflow ولا إنشاء PR.</li>
+      <li>الـ API محصور بالمستودع العام <code>AligasSRM/ALI-NEW</code> ورقم تشغيل رقمي.</li>
+      <li>التوجيه يحتاج تطابقاً دقيقاً بين مسار C والـ registry؛ النصوص والكلمات المفتاحية وحدها لا تكفي.</li>
+      <li>التطابق لا يثبت السبب الجذري. إذا غاب المسار أو تعددت الاحتمالات، تبقى الحالة UNKNOWN وتحتاج تشخيصاً موجهاً.</li>
+    </ul>
+  </section>
+</main>
+<script type="module">
+import { resolveCoreRoutes } from './route-resolver.mjs';
+
+const repositoryFullName = 'AligasSRM/ALI-NEW';
+const form = document.getElementById('incident-form');
+const button = document.getElementById('route-button');
+const resultElement = document.getElementById('result');
+let registry = null;
+
+function addText(parent, tag, text, className) {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  if (className) element.className = className;
+  parent.append(element);
+  return element;
+}
+function showMessage(text, className = '') {
+  resultElement.replaceChildren();
+  addText(resultElement, 'p', text, className);
+}
+function renderResult(result, runEvidence) {
+  resultElement.replaceChildren();
+  addText(resultElement, 'strong', result.label + ' · ' + result.confidence);
+  addText(resultElement, 'p', result.reason);
+  if (runEvidence) {
+    addText(resultElement, 'p', 'Workflow: ' + runEvidence.name + ' · conclusion: ' + (runEvidence.conclusion || runEvidence.status));
+    addText(resultElement, 'p', 'Commit: ' + runEvidence.commitSha);
+    const link = document.createElement('a');
+    link.href = runEvidence.runUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'فتح تشغيل GitHub Actions ↗';
+    resultElement.append(link);
+  }
+  for (const route of result.routes || []) {
+    const card = addText(resultElement, 'div', '', 'route');
+    addText(card, 'h3', route.route);
+    addText(card, 'p', route.phase.name + ' → ' + route.section.name + ' → ' + route.resourceName);
+    addText(card, 'p', route.repositoryFullName + ' / ' + route.path);
+    addText(card, 'p', 'حالة المورد: ' + route.resourceStatus + ' · تطابق المسار: exact');
+    const link = document.createElement('a');
+    link.href = route.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'فتح الملف الدقيق على GitHub ↗';
+    card.append(link);
+  }
+  if (result.unmatchedPaths?.length) {
+    const card = addText(resultElement, 'div', '', 'route unknown');
+    addText(card, 'h3', 'مسارات غير مرتبطة');
+    for (const path of result.unmatchedPaths) addText(card, 'p', path);
+  }
+  addText(resultElement, 'p', 'تنبيه: هذه نتيجة ربط أدلة بالمسارات، وليست حكماً بالسبب الجذري أو تصريحاً بالإصلاح.');
+}
+
+async function loadRegistry() {
+  const response = await fetch('./registry.json', { cache: 'no-store' });
+  if (!response.ok) throw new Error('تعذر تحميل registry.json: HTTP ' + response.status);
+  registry = await response.json();
+}
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  button.disabled = true;
+  showMessage('جارٍ فحص الأدلة للقراءة فقط…');
+  try {
+    if (!registry) await loadRegistry();
+    const runId = document.getElementById('run-id').value.trim();
+    const manualPaths = document.getElementById('changed-paths').value.split(/\r?\n/).map(p => p.trim()).filter(Boolean);
+    let paths = [...manualPaths];
+    let runEvidence = null;
+    let commitSha = null;
+    let runUrl = null;
+    if (runId) {
+      if (!/^\d+$/.test(runId)) throw new Error('رقم التشغيل يجب أن يحتوي أرقاماً فقط.');
+      const runResponse = await fetch('https://api.github.com/repos/AligasSRM/ALI-NEW/actions/runs/' + runId, { headers: { Accept: 'application/vnd.github+json' } });
+      if (!runResponse.ok) throw new Error('تعذر قراءة التشغيل من GitHub: HTTP ' + runResponse.status + '. تحقق من الرقم أو حدود API العامة.');
+      const run = await runResponse.json();
+      commitSha = run.head_sha || null;
+      runUrl = run.html_url || null;
+      if (!commitSha || !/^[0-9a-f]{40}$/i.test(commitSha)) throw new Error('بيانات التشغيل لا تحتوي commit SHA صالحاً.');
+      const commitResponse = await fetch('https://api.github.com/repos/AligasSRM/ALI-NEW/commits/' + commitSha, { headers: { Accept: 'application/vnd.github+json' } });
+      if (!commitResponse.ok) throw new Error('تعذر قراءة ملفات commit: HTTP ' + commitResponse.status + '. لا يوجد تخمين بديل.');
+      const commit = await commitResponse.json();
+      paths = [...new Set([...paths, ...(commit.files || []).map(file => file.filename).filter(Boolean)])];
+      runEvidence = { name: run.name || 'GitHub Actions', status: run.status, conclusion: run.conclusion, commitSha, runUrl };
+    }
+    if (!paths.length) throw new Error('أدخل رقم تشغيل أو مساراً واحداً على الأقل.');
+    const routed = resolveCoreRoutes(registry, { repositoryFullName, changedPaths: paths, commitSha, runUrl });
+    renderResult(routed, runEvidence);
+  } catch (error) {
+    showMessage('UNKNOWN — targeted investigation required\n' + error.message + '\nلم يتم إنشاء مسار تخميني ولم يتم تعديل أي شيء.', 'danger');
+  } finally {
+    button.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
