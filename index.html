@@ -108,41 +108,46 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
 <script>
 const toast = document.getElementById('toast');
 function notify(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2600)}
-const aliTree = [
-{ id:'A0', name:'الجرد والتحكم بالمشروع', desc:'الواجهة، قواعد العمل، الأدلة والاختبارات الموجودة', status:'YELLOW', sections:[
-{id:'B0',name:'واجهة شجرة علي',desc:'الصفحة الرئيسية للفهرس',files:[['C0','index.html','واجهة شجرة علي التفاعلية الحالية']]},
-{id:'B1',name:'الحوكمة ووثائق المشروع',desc:'المرجع الرئيسي وقواعد العمل',files:[['C0','PROJECT-BUILD-TREE.md','وثيقة البناء والتسلسل المعتمدة'],['C1','README.md','مدخل المستودع ونقطة الاستئناف'],['C2','ALI-ALEX-MASTER-PROJECT-PROMPT.md','تعليمات الهندسة الرئيسية'],['C3','IDEAS-ALI-ALEX.md','سجل الأفكار'],['C4','docs/decisions/README.md','فهرس قرارات المشروع']]},
-{id:'B2',name:'اختبارات A0 والتحقق',desc:'اختبارات ومراجعات موجودة فعلياً',files:[['C0','tests/ali-new-a0.spec.ts','اختبارات قبول لوحة التحكم'],['C1','tests/live-pages.spec.ts','اختبارات صفحات النشر الحية'],['C2','scripts/validate-a0.mjs','مدقق المصدر الثابت'],['C3','package.json','أوامر المشروع واعتمادياته'],['C4','playwright.config.ts','إعدادات Playwright'],['C5','docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md','أدلة قبول المتصفح'],['C6','docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md','أدلة التحقق الثابت'],['C7','docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md','مراجعة المستودع ولقطة الأساس']]},
-{id:'B3',name:'سير العمل الآلي',desc:'ملفات CI والنشر الموجودة',files:[['C0','.github/workflows/pages-deploy.yml','بناء ونشر GitHub Pages'],['C1','.github/workflows/pages-live-smoke.yml','اختبار صفحات النشر الحية'],['C2','.github/workflows/playwright.yml','تشغيل اختبارات Playwright']]},
-{id:'B4',name:'قوالب الإغلاق والتوثيق',desc:'قوالب جاهزة موجودة',files:[['C0','docs/templates/GREEN-CERTIFICATE-TEMPLATE.md','قالب شهادة GREEN'],['C1','docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md','قالب إغلاق القسم'],['C2','docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md','قالب القرار التقني']]},
-{id:'B5',name:'مرجع تصميم لوحة التحكم',desc:'أساس التصميم الحالي',files:[['C0','docs/design/CONTROL-PANEL-DESIGN-BASELINE.md','خط أساس تصميم لوحة التحكم']]}
-]},
-{ id:'A1',name:'تعريف المنتج',desc:'المشكلة والجمهور والنطاق ومعايير القبول',status:'PLANNED',sections:[{id:'B0',name:'متطلبات المنتج',desc:'قسم منطقي بانتظار توثيقه',files:[]}]},
-{ id:'A2',name:'تجربة المستخدم والتصميم',desc:'خرائط الشاشات وخيارات التصميم',status:'PLANNED',sections:[
-{id:'B0',name:'خط أساس التصميم',desc:'مرجع التصميم العام',files:[['C0','docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md','خط أساس التصميم المعتمد']]},
-{id:'B1',name:'خرائط وتجارب الواجهة',desc:'وثائق تجربة المستخدم',files:[['C0','docs/design/VIDEO-PLATFORM-SCREEN-MAP.md','خريطة الشاشات ورحلة المستخدم'],['C1','docs/design/DESIGN-OPTIONS-ALI-ALEX.md','خيارات التصميم المسجلة']]}
-]},
-{ id:'A3',name:'المعمارية والحدود',desc:'تدفقات البيانات والثقة والعقود التقنية',status:'PLANNED',sections:[{id:'B0',name:'معمارية النظام',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A4',name:'المستودع وسير المطورين',desc:'معايير الكود والاختبارات والمساهمات',status:'PLANNED',sections:[{id:'B0',name:'قواعد التطوير',desc:'قسم منطقي بانتظار توثيق نطاقه',files:[]}]},
-{ id:'A5',name:'الهوية والتحقق',desc:'الحسابات والجلسات والاسترجاع والتحقق',status:'PLANNED',sections:[{id:'B0',name:'هوية المستخدم',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A6',name:'منتج الفيديو الأساسي',desc:'الرفع والمعالجة والتشغيل والترجمة',status:'PLANNED',sections:[{id:'B0',name:'مسار الفيديو',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A7',name:'الإشراف والسلامة',desc:'المراجعة والبلاغات والاستئناف',status:'PLANNED',sections:[{id:'B0',name:'السلامة والإشراف',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A8',name:'الاكتشاف والمجتمع',desc:'البحث والتصنيفات وصفحات المبدعين',status:'PLANNED',sections:[{id:'B0',name:'الاكتشاف',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A9',name:'الإدارة والتشغيل',desc:'الصلاحيات والتدقيق والدعم والحوادث',status:'PLANNED',sections:[{id:'B0',name:'الإدارة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A10',name:'البيانات والتكاملات',desc:'المخططات والهجرة والنسخ الاحتياطي',status:'PLANNED',sections:[{id:'B0',name:'البيانات والتكامل',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A11',name:'الأمن والخصوصية والجودة',desc:'الفحص الأمني والإتاحة والأداء والانحدار',status:'PLANNED',sections:[{id:'B0',name:'التحقق والجودة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
-{ id:'A12',name:'الإطلاق والصيانة',desc:'الإطلاق والتراجع والمراقبة والتسليم',status:'PLANNED',sections:[{id:'B0',name:'الإطلاق والصيانة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]}
-];
+let aliTree=[];
 let selectedA=null,selectedB=null;
 const list=document.getElementById('ali-tree-list'),summary=document.getElementById('tree-summary'),crumbs=document.getElementById('tree-crumbs'),back=document.getElementById('tree-back');
+
 const repo='https://github.com/AligasSRM/ALI-NEW/blob/main/';
+let registryMeta=null;
+const numericId=(item)=>Number(String(item.id).slice(1));
+async function loadCanonicalTree(){
+ try{
+  const response=await fetch('./core/registry.json',{cache:'no-store'});
+  if(!response.ok) throw new Error('HTTP '+response.status);
+  const registry=await response.json();
+  if(!Array.isArray(registry.nodes)) throw new Error('registry.nodes is missing');
+  registryMeta=registry;
+  const phases=registry.nodes.filter(n=>n.level==='A').sort((a,b)=>numericId(a)-numericId(b));
+  aliTree=phases.map(a=>({
+   id:a.id,name:a.name,desc:a.notes||a.status,status:a.status,
+   sections:registry.nodes.filter(n=>n.level==='B'&&n.parentId===a.id).sort((x,y)=>numericId(x)-numericId(y)).map(b=>({
+    id:b.id,name:b.name,desc:b.notes||b.status,status:b.status,
+    files:registry.nodes.filter(n=>n.level==='C'&&n.parentId===a.id+'/'+b.id).sort((x,y)=>numericId(x)-numericId(y)).map(c=>[c.id,c.path,c.name,c.status,c.url])
+   }))
+  }));
+  renderTree();
+ }catch(error){
+  list.replaceChildren();
+  const failure=document.createElement('div');
+  failure.className='empty-tree';
+  failure.textContent='تعذر تحميل سجل CORE المركزي. لم يتم استخدام فهرس احتياطي قديم. السبب: '+error.message;
+  list.append(failure);
+  summary.textContent='فشل تحميل السجل المركزي؛ راجع core/registry.json.';
+  console.error('CORE registry load failed:',error);
+ }
+}
 function renderTree(){
  list.replaceChildren();
  back.disabled=selectedA===null;
  document.getElementById('tree-home').hidden=selectedA===null;
  if(selectedA===null){
   crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong>';
-  summary.textContent='13 مرحلة هندسية · '+aliTree.reduce((n,a)=>n+a.sections.length,0)+' أقسام B مفهرسة مبدئياً · 25 ملفاً موجوداً في المستودع.';
+  const phaseCount=aliTree.length,sectionCount=aliTree.reduce((n,a)=>n+a.sections.length,0),fileCount=registryMeta.nodes.filter(n=>n.level==='C'&&n.path).length,unmappedCount=registryMeta.unmappedResources.length;\n  summary.textContent=phaseCount+' مرحلة A · '+sectionCount+' أقسام B · '+fileCount+' موارد C مرتبطة · '+unmappedCount+' غير مصنفة · حالة السجل: '+registryMeta.registryStatus+'.';
   aliTree.forEach(a=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';btn.innerHTML='<span class="level">'+a.id+'</span><span><span class="tree-name">'+a.name+'</span><span class="tree-desc">'+a.desc+'</span></span><span class="tree-count">'+a.sections.length+' أقسام B</span><span>›</span>';btn.addEventListener('click',()=>{selectedA=a.id;selectedB=null;renderTree()});card.append(btn);list.append(card)});
  }else{
   const a=aliTree.find(x=>x.id===selectedA);
@@ -156,7 +161,7 @@ function renderTree(){
    document.getElementById('crumb-a').addEventListener('click',()=>{selectedB=null;renderTree()});
    summary.textContent=a.id+' / '+b.id+' · '+(b.files.length?b.files.length+' ملفات موجودة ومساراتها الحقيقية':'لا يوجد ملف مخصص لهذا القسم حالياً؛ هذا قسم تنظيمي مخطط فقط.');
    if(!b.files.length){const empty=document.createElement('div');empty.className='empty-tree';empty.textContent='مخطط — لا يوجد ملف مخصص بعد. لم ننشئ ملفاً أو مجلداً، ولم نخترع مساراً.';list.append(empty)}
-   b.files.forEach(file=>{const card=document.createElement('article');card.className='tree-card file-card';const title=document.createElement('strong');title.textContent=file[0]+' · '+file[2];const path=document.createElement('div');path.className='file-path';path.textContent=file[1];const link=document.createElement('a');link.className='tree-link';link.href=repo+file[1];link.target='_blank';link.rel='noopener noreferrer';link.textContent='فتح الملف الفعلي على GitHub ↗';const note=document.createElement('p');note.textContent='معرّف تنظيمي فقط؛ لم يتغير اسم الملف أو مكانه.';card.append(title,path,link,note);list.append(card)});
+   b.files.forEach(file=>{const card=document.createElement('article');card.className='tree-card file-card';const title=document.createElement('strong');title.textContent=file[0]+' · '+file[2];const path=document.createElement('div');path.className='file-path';path.textContent=file[1];const link=document.createElement('a');link.className='tree-link';link.href=file[4]||repo+file[1];link.target='_blank';link.rel='noopener noreferrer';link.textContent='فتح الملف الفعلي على GitHub ↗';const note=document.createElement('p');note.textContent='الحالة: '+(file[3]||'YELLOW')+' · المسار مأخوذ من سجل CORE المركزي.';card.append(title,path,link,note);list.append(card)});
   }
  }
 }
@@ -165,7 +170,7 @@ document.getElementById('tree-home').addEventListener('click',()=>{selectedA=nul
 document.querySelectorAll('.nav button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));button.classList.add('active');document.getElementById(button.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'})}));
 document.getElementById('show-tree').addEventListener('click',()=>document.getElementById('build-tree').scrollIntoView({behavior:'smooth'}));
 document.getElementById('open-doc').addEventListener('click',()=>window.open('https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md','_blank','noopener'));
-renderTree();
+loadCanonicalTree();
 </script>
 </body>
 </html>
