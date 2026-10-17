@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Run read-only evidence collection and routing
+      - name: Test diagnostic and routing logic\n        run: node --test tests/core-diagnostic.test.mjs tests/core-route-resolver.test.mjs\n\n      - name: Run read-only evidence collection and routing
         id: diagnose
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
