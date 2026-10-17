@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aligassrm.github.io/ALI-NEW/core/registry.schema.json",
+  "title": "ALI & ALEX CORE Registry",
+  "description": "Versioned registry contract for stable A/B/C hierarchy IDs and evidence-backed repository resource routing. Schema only; it does not imply live integrations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "registryStatus",
+    "repositories",
+    "nodes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "registryStatus": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "PARTIALLY_VERIFIED",
+        "VERIFIED"
+      ]
+    },
+    "lastInventoryAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repositoryId",
+          "fullName",
+          "url",
+          "approvalStatus",
+          "defaultBranch",
+          "visibility"
+        ],
+        "properties": {
+          "repositoryId": {
+            "type": "string",
+            "pattern": "^A[0-9]+$"
+          },
+          "fullName": {
+            "type": "string",
+            "minLength": 3
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "approvalStatus": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "APPROVED",
+              "REVOKED"
+            ]
+          },
+          "defaultBranch": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "PUBLIC",
+              "PRIVATE",
+              "INTERNAL",
+              "UNKNOWN"
+            ]
+          },
+          "lastInspectedCommit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lastSuccessfulSyncAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "level",
+          "parentId",
+          "name",
+          "status",
+          "resourceType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[ABC][0-9]+$"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "parentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[AB][0-9]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PLANNED",
+              "UNMAPPED",
+              "YELLOW",
+              "ORANGE",
+              "GREEN",
+              "LOCKED",
+              "RED",
+              "RETIRED"
+            ]
+          },
+          "resourceType": {
+            "type": "string",
+            "enum": [
+              "REPOSITORY",
+              "SECTION",
+              "FILE",
+              "WORKFLOW",
+              "TEST",
+              "ISSUE",
+              "PULL_REQUEST",
+              "COMMIT",
+              "SERVICE",
+              "EVIDENCE",
+              "DOCUMENT",
+              "OTHER"
+            ]
+          },
+          "repositoryFullName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "branch": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verifiedCommit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lastVerifiedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
