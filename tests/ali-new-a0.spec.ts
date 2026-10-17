@@ -55,7 +55,7 @@ test.describe('ALI-NEW control panel', () => {
         const containers = ['html', 'body', '.app', 'aside', '.nav', 'main'].map(selector => { const el = document.querySelector(selector); if (!el) return {selector, missing: true}; const r = el.getBoundingClientRect(); const style = getComputedStyle(el); return {selector, left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), clientWidth: el.clientWidth, scrollWidth: el.scrollWidth, overflowX: style.overflowX}; });
         return {viewport, page, offenders, containers};
       });
-      expect(dimensions.page, 'horizontal overflow at ' + width + 'px; offenders=' + JSON.stringify(dimensions.offenders)).toBeLessThanOrEqual(dimensions.viewport + 1);
+      expect(dimensions.page, 'horizontal overflow at ' + width + 'px; offenders=' + JSON.stringify({offenders: dimensions.offenders, containers: dimensions.containers})).toBeLessThanOrEqual(dimensions.viewport + 1);
     });
   }
 
