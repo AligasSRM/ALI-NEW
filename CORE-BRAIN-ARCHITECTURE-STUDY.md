@@ -351,3 +351,15 @@ Alex must open and validate the exact target before acting. If the path, branch,
 - CORE and Ali Tree display the same registry state and no conflicting duplicate mappings.
 
 **Status:** the convention is specified here as a mandatory architecture rule. The live registry, ID allocator, and automated route resolver still need implementation and tests; this document alone does not make those functions live.
+
+
+## 16. Build checkpoint — registry contract created
+
+The first implementation artifact for the central registry now exists at `core/registry.schema.json` on `main`.
+
+- Commit: `b3e6aaf6839bd4848538a16ffa8d9aecf6a5a28d`
+- Purpose: define the machine-readable contract for repository A IDs, nested B/C nodes, canonical paths/URLs, approval and lifecycle states, and inspected commit evidence.
+- This is a **schema contract only**. It does not yet provide the populated registry, runtime validation, ID allocation, GitHub synchronization, incident intake, route resolution, authentication, or security enforcement.
+- The schema and all example IDs must be checked by tests before the registry can be trusted. In particular, future validation must enforce parent/level consistency, unique full hierarchical paths, valid references to approved repositories, and no duplicate IDs within a parent.
+- Next build step: derive a candidate registry from the actual repository tree, validate every path against GitHub, label unverified/planned entries accurately, and then change the UI to render from that single registry rather than its embedded `aliTree` array.
+- Keep the registry status at DRAFT/PARTIALLY_VERIFIED until the real inventory is reconciled. Do not claim all repositories or files are connected.
