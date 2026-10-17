@@ -75,6 +75,13 @@ function renderResult(result, runEvidence) {
   if (runEvidence) {
     addText(resultElement, 'p', 'Workflow: ' + runEvidence.name + ' · conclusion: ' + (runEvidence.conclusion || runEvidence.status));
     addText(resultElement, 'p', 'Commit: ' + runEvidence.commitSha);
+    if (runEvidence.failedSteps?.length) {
+      const failures = addText(resultElement, 'div', '', 'route unknown');
+      addText(failures, 'h3', 'خطوات فاشلة مسجلة في GitHub Actions');
+      for (const item of runEvidence.failedSteps) addText(failures, 'p', item);
+    } else if (runEvidence.jobsNote) {
+      addText(resultElement, 'p', runEvidence.jobsNote, 'muted small');
+    }
     const link = document.createElement('a');
     link.href = runEvidence.runUrl;
     link.target = '_blank';
@@ -132,7 +139,20 @@ form.addEventListener('submit', async (event) => {
       if (!commitResponse.ok) throw new Error('تعذر قراءة ملفات commit: HTTP ' + commitResponse.status + '. لا يوجد تخمين بديل.');
       const commit = await commitResponse.json();
       paths = [...new Set([...paths, ...(commit.files || []).map(file => file.filename).filter(Boolean)])];
-      runEvidence = { name: run.name || 'GitHub Actions', status: run.status, conclusion: run.conclusion, commitSha, runUrl };
+      const jobsResponse = await fetch('https://api.github.com/repos/AligasSRM/ALI-NEW/actions/runs/' + runId + '/jobs?per_page=100', { headers: { Accept: 'application/vnd.github+json' } });
+      let failedSteps = [];
+      let jobsNote = '';
+      if (jobsResponse.ok) {
+        const jobsData = await jobsResponse.json();
+        for (const job of jobsData.jobs || []) {
+          for (const step of job.steps || []) {
+            if (step.conclusion === 'failure') failedSteps.push(job.name + ' / ' + step.name);
+          }
+        }
+      } else {
+        jobsNote = 'تعذر قراءة تفاصيل الخطوات: HTTP ' + jobsResponse.status + '. تم الاحتفاظ بأدلة commit فقط.';
+      }
+      runEvidence = { name: run.name || 'GitHub Actions', status: run.status, conclusion: run.conclusion, commitSha, runUrl, failedSteps, jobsNote };
     }
     if (!paths.length) throw new Error('أدخل رقم تشغيل أو مساراً واحداً على الأقل.');
     const routed = resolveCoreRoutes(registry, { repositoryFullName, changedPaths: paths, commitSha, runUrl });
