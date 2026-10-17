@@ -147,7 +147,8 @@ function renderTree(){
  document.getElementById('tree-home').hidden=selectedA===null;
  if(selectedA===null){
   crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong>';
-  const phaseCount=aliTree.length,sectionCount=aliTree.reduce((n,a)=>n+a.sections.length,0),fileCount=registryMeta.nodes.filter(n=>n.level==='C'&&n.path).length,unmappedCount=registryMeta.unmappedResources.length;\n  summary.textContent=phaseCount+' مرحلة A · '+sectionCount+' أقسام B · '+fileCount+' موارد C مرتبطة · '+unmappedCount+' غير مصنفة · حالة السجل: '+registryMeta.registryStatus+'.';
+  const phaseCount=aliTree.length,sectionCount=aliTree.reduce((n,a)=>n+a.sections.length,0),fileCount=registryMeta.nodes.filter(n=>n.level==='C'&&n.path).length,unmappedCount=registryMeta.unmappedResources.length;
+  summary.textContent=phaseCount+' مرحلة A · '+sectionCount+' أقسام B · '+fileCount+' موارد C مرتبطة · '+unmappedCount+' غير مصنفة · حالة السجل: '+registryMeta.registryStatus+'.';
   aliTree.forEach(a=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';btn.innerHTML='<span class="level">'+a.id+'</span><span><span class="tree-name">'+a.name+'</span><span class="tree-desc">'+a.desc+'</span></span><span class="tree-count">'+a.sections.length+' أقسام B</span><span>›</span>';btn.addEventListener('click',()=>{selectedA=a.id;selectedB=null;renderTree()});card.append(btn);list.append(card)});
  }else{
   const a=aliTree.find(x=>x.id===selectedA);
