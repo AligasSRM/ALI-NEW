@@ -796,6 +796,48 @@
       "branch": "main",
       "verifiedCommit": "dbf5e098194a68254a3aaea7267f07eb68f18386",
       "notes": "Read-only incident console. It reads public GitHub Actions run/commit metadata and routes exact changed paths; it does not modify code or prove root cause."
+    },
+    {
+      "id": "C8",
+      "level": "C",
+      "parentId": "A0/B2",
+      "name": "اختبارات حلقة التشخيص المركزية",
+      "status": "YELLOW",
+      "resourceType": "TEST",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "tests/core-diagnostic.test.mjs",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-diagnostic.test.mjs",
+      "branch": "main",
+      "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
+      "notes": "Unit tests for the read-only CORE diagnostic parser, report, and exact route handling."
+    },
+    {
+      "id": "C3",
+      "level": "C",
+      "parentId": "A0/B3",
+      "name": "سير عمل تشخيص CORE",
+      "status": "YELLOW",
+      "resourceType": "WORKFLOW",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": ".github/workflows/core-diagnostic.yml",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/core-diagnostic.yml",
+      "branch": "main",
+      "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
+      "notes": "Read-only GitHub Actions workflow for issue-driven evidence collection and exact registry routing; no deployment."
+    },
+    {
+      "id": "C4",
+      "level": "C",
+      "parentId": "A0/B3",
+      "name": "منفذ تشخيص CORE",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "scripts/run-core-diagnostic.mjs",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/run-core-diagnostic.mjs",
+      "branch": "main",
+      "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
+      "notes": "Read-only evidence collector for workflow/commit metadata, failed-step metadata, and exact A/B/C routing."
     }
   ],
   "unmappedResources": []
