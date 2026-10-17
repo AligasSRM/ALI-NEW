@@ -248,3 +248,54 @@ CORE is not ready to be called GREEN until all applicable checks pass:
 - Status remains **YELLOW** until the implementation gates above are satisfied.
 
 **Next safe action:** reconcile the current tree against the actual `main` repository inventory. No new project, repository, paid service, credential, or automated write permission is required for this step.
+
+
+## 14. Mandatory operating rule — CORE directs Alex; Alex does not start by searching blindly
+
+This is a core product requirement, not an optional convenience.
+
+**Primary flow:** Ali or a connected, verified source submits a command or incident to CORE. CORE is the first triage authority and must assemble the available evidence, determine the best-supported destination, and issue Alex a bounded investigation/fix task. Alex follows that route, validates the diagnosis locally against the actual code and surrounding dependencies, then reports back to CORE with evidence. CORE records the outcome and updates the registry.
+
+### Required route format
+
+Every routed task should include, when evidence supports it:
+
+- **Repository:** exact `owner/repository` and repository URL.
+- **Branch / commit:** exact branch and commit SHA that were inspected.
+- **Hierarchy:** stable route such as `A1 → B2 → C5`.
+- **Actual target:** exact file path, workflow, issue, test, or service identifier and a verified deep link.
+- **Observed symptom:** the exact failure or report, not a paraphrase that loses key details.
+- **Evidence:** failing workflow/run/job/step, log excerpt, changed paths, test result, or other source reference.
+- **Diagnosis level:** confirmed, likely, or unknown, with confidence and explanation.
+- **Alex's bounded task:** what to inspect or change, what must remain untouched, and acceptance criteria.
+- **Approval gate:** whether the task is read-only or requires Ali's explicit approval before a write, permission change, deletion, or deployment.
+- **Return report:** files inspected/changed, diff/commit/PR link, tests run and results, remaining risks, and evidence URLs.
+
+### Routing behavior
+
+1. CORE checks the incident source and repository registry first.
+2. CORE correlates the error with the exact run/commit, changed files, test ownership, dependencies, and A/B/C mapping.
+3. CORE returns the best-supported route. Example: `Repository A1 → Section B2 → Resource C5 → src/path/to/file`. This example is illustrative; actual routes must come from verified registry data.
+4. Alex opens the supplied target and verifies that the file and failure context match before making changes. If they do not match, Alex reports the discrepancy to CORE and asks it to re-triage; Alex does not silently switch to a guessed file.
+5. If the evidence is insufficient, CORE must return **UNKNOWN — targeted investigation required**, list the missing evidence, and prescribe the smallest next diagnostic action. Only then should Alex perform that bounded investigation.
+6. CORE records Alex's findings and uses the new evidence to update the route if necessary.
+7. No repair is considered complete until the relevant tests and acceptance criteria are checked and the evidence is attached to the incident.
+
+### Role separation
+
+- **CORE:** intake, repository inventory, evidence collection/correlation, routing, priority, policy checks, approval state, audit trail, status updates.
+- **Alex:** execute the assigned bounded investigation or approved repair, validate the exact target, run relevant tests, report evidence and limitations.
+- **Ali:** final decision-maker for sensitive, destructive, permission-changing, provider-changing, paid, and production actions.
+
+CORE must not rely on an LLM guess as the sole source of a file location. It should use repository facts, test ownership metadata, workflow logs, commit diffs, dependency maps, and recorded prior incidents. A language model may explain or rank candidates, but each candidate must be tied to inspectable evidence.
+
+### Acceptance tests for this rule
+
+- A known failing test routes to its mapped file/section with a source link and exact commit.
+- A failure caused by a recently changed dependency includes that dependency as a candidate with evidence, not an unsupported assertion.
+- An ambiguous failure returns UNKNOWN and requests a bounded diagnostic step rather than inventing A/B/C IDs.
+- A stale or missing C path is flagged; it is never silently replaced by a similarly named file.
+- Alex's final report updates the same incident and registry record rather than creating an unlinked parallel status.
+- Write operations remain disabled until separately approved and tested.
+
+**Status:** requirement specified in the architecture document; routing automation is not implemented yet. Do not mark this requirement GREEN until the acceptance tests pass against the actual GitHub integration.
