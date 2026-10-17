@@ -4,7 +4,7 @@ AliNew — Building a secure, scalable, multilingual video platform with verifie
 
 ## ابدأ من هنا — شجرة علي (Ali Tree)
 
-**[افتح شجرة علي التفاعلية — الصفحة الرئيسية](index.html)**  \n**[افتح المرجع الهندسي الرئيسي وتسلسل العمل](PROJECT-BUILD-TREE.md)**
+**[افتح شجرة علي التفاعلية — الصفحة الرئيسية](index.html)**  \n**[افتح دراسة العقل المركزي ALI & ALEX CORE](CORE-BRAIN-ARCHITECTURE-STUDY.md)**  \\n**[افتح المرجع الهندسي الرئيسي وتسلسل العمل](PROJECT-BUILD-TREE.md)**
 
 This is the single canonical source for the engineering A0–A12 sequence, one-active-stage rule, acceptance gates, exception handling, and current checkpoint. Read it before every work session. Do not maintain a parallel sequence document. User-facing screen order is tracked separately in the UX screen map.
 
