@@ -70,7 +70,7 @@ function showMessage(text, className = '') {
 }
 function renderResult(result, runEvidence) {
   resultElement.replaceChildren();
-  addText(resultElement, 'strong', result.label + ' · ' + result.confidence);
+  addText(resultElement, 'strong', result.status + ' · ' + result.confidence + ' · ' + result.label);
   addText(resultElement, 'p', result.reason);
   if (runEvidence) {
     addText(resultElement, 'p', 'Workflow: ' + runEvidence.name + ' · conclusion: ' + (runEvidence.conclusion || runEvidence.status));
