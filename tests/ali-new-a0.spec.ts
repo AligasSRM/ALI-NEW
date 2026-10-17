@@ -37,6 +37,17 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     await expect(page.locator('.tree-select')).toHaveCount(13);
   });
 
+  test('incident console routes exact paths and exposes no write action', async ({ page }) => {
+    await page.goto('/core/incidents.html');
+    await expect(page.getByRole('heading', { name: 'CORE Incident Router' })).toBeVisible();
+    await page.locator('#changed-paths').fill('tests/ali-new-a0.spec.ts');
+    await page.getByRole('button', { name: 'تحليل الأدلة وتحديد المسار' }).click();
+    await expect(page.getByText('ROUTED · HIGH')).toBeVisible();
+    await expect(page.getByText('A0 → B2 → C0')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'فتح الملف الدقيق على GitHub ↗' })).toHaveAttribute('href', /tests\/ali-new-a0\.spec\.ts$/);
+    await expect(page.getByText(/لم يتم تنفيذ أي تغيير/)).toHaveCount(0);
+  });
+
   test('planned sections do not pretend files exist', async ({ page }) => {
     await page.goto('/');
     await page.locator('.tree-select').filter({ hasText: /^A1\b/ }).click();
