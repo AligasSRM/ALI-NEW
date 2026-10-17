@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('ALI-NEW Ali Tree A/B/C index', () => {
   test('loads the Ali Tree and drills from A to B to real C file paths', async ({ page }) => {
-    await page.goto('/control-panel/');
+    await page.goto('/');
     await expect(page).toHaveTitle(/شجرة علي.*ALI-NEW Engineering Control Panel/);
     await expect(page.locator('h1').filter({ hasText: 'Ali Tree' })).toBeVisible();
     await expect(page.locator('.tree-select')).toHaveCount(13);
@@ -24,7 +24,7 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
   });
 
   test('planned sections do not pretend files exist', async ({ page }) => {
-    await page.goto('/control-panel/');
+    await page.goto('/');
     await page.locator('.tree-select').filter({ hasText: 'A3' }).click();
     await expect(page.locator('.tree-select')).toHaveCount(1);
     await page.locator('.tree-select').filter({ hasText: 'B0' }).click();
