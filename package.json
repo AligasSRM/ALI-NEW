@@ -9,7 +9,8 @@
     "test:e2e:live": "playwright test tests/live-pages.spec.ts",
     "validate:core-inventory": "node scripts/validate-core-inventory.mjs",
     "validate:core-registry": "node scripts/validate-core-registry.mjs",
-    "test:core-router": "node --test tests/core-route-resolver.test.mjs"
+    "test:core-router": "node --test tests/core-route-resolver.test.mjs",
+    "test:core-diagnostic": "node --test tests/core-diagnostic.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"
