@@ -295,3 +295,91 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 - **A1 and A2:** preliminary file references identified only. No implementation work started and no stage was marked complete.
 - **Repository changes in this session:** this policy/checkpoint addition only. No application source, file names, directory structure, or other repositories are to be changed as part of the indexing policy.
 - **Next exact action:** resume with A0; verify the current main-branch commit and pending acceptance gates, refine the A0 B/C index against the actual file tree, resolve or explicitly carry forward outstanding findings, then prepare the closeout record. Do not mark A0 GREEN until its gates pass. Proceed to A1 only after A0 is formally accepted and closed.
+
+
+## 17. شجرة علي — فهرس A/B/C الفعلي (2026-10-17)
+
+**الاسم المعروض:** شجرة علي · Ali Tree  
+**المستودع الأساسي:** [AligasSRM/ALI-NEW](https://github.com/AligasSRM/ALI-NEW)  
+**واجهة الفهرس:** [control-panel/index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html)  
+**حالة التغيير:** مقترح على فرع مراجعة؛ لا يُعد معتمداً على main قبل المراجعة والدمج.  
+**قاعدة أساسية:** A/B/C معرّفات تنظيمية فقط. لا تُنشأ مجلدات بهذه الأسماء، ولا تُنقل أو تُعاد تسمية الملفات، ولا يُختلق مسار لملف غير موجود.
+
+### 17.1 ما أثبته جرد المستودع
+
+جرد شجرة GitHub الفعلية على `main` أظهر **25 ملفاً** في 2026-10-17. الفهرس الحالي يعطي كل ملف هوية C واحدة فقط، ويشير إلى مساره الحقيقي. الرقم ليس تقديراً ولا عدد ملفات مستقبلية. الأقسام التي لم تُبنَ بعد تظهر كمخططة دون ادعاء وجود ملفات لها.
+
+### 17.2 A0 — الجرد والتحكم بالمشروع
+
+#### A0 / B0 — واجهة شجرة علي
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `control-panel/index.html` | واجهة الفهرس التفاعلي |
+
+#### A0 / B1 — الحوكمة ووثائق المشروع
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `PROJECT-BUILD-TREE.md` | المرجع الهندسي الرئيسي |
+| C1 | `README.md` | مدخل المستودع ونقطة الاستئناف |
+| C2 | `ALI-ALEX-MASTER-PROJECT-PROMPT.md` | تعليمات الهندسة الرئيسية |
+| C3 | `IDEAS-ALI-ALEX.md` | سجل الأفكار |
+| C4 | `docs/decisions/README.md` | فهرس قرارات المشروع |
+
+#### A0 / B2 — اختبارات A0 والتحقق والأدلة
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `tests/ali-new-a0.spec.ts` | اختبارات قبول لوحة التحكم |
+| C1 | `tests/live-pages.spec.ts` | اختبارات صفحات النشر الحية |
+| C2 | `scripts/validate-a0.mjs` | التحقق الثابت من المصدر |
+| C3 | `package.json` | أوامر المشروع والاعتماديات |
+| C4 | `playwright.config.ts` | إعدادات Playwright |
+| C5 | `docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md` | أدلة قبول المتصفح |
+| C6 | `docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md` | أدلة التحقق الثابت |
+| C7 | `docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md` | مراجعة المستودع ولقطة الأساس |
+
+#### A0 / B3 — سير العمل الآلي
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `.github/workflows/pages-deploy.yml` | بناء ونشر GitHub Pages |
+| C1 | `.github/workflows/pages-live-smoke.yml` | اختبار صفحات النشر الحية |
+| C2 | `.github/workflows/playwright.yml` | تشغيل اختبارات Playwright |
+
+#### A0 / B4 — قوالب الإغلاق والتوثيق
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `docs/templates/GREEN-CERTIFICATE-TEMPLATE.md` | قالب شهادة GREEN |
+| C1 | `docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md` | قالب إغلاق القسم |
+| C2 | `docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md` | قالب القرار التقني |
+
+#### A0 / B5 — مرجع تصميم لوحة التحكم
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md` | خط أساس تصميم لوحة التحكم |
+
+### 17.3 A1 — تعريف المنتج
+- **A1 / B0 — متطلبات المنتج:** قسم تنظيمي مخطط؛ لا يوجد ملف مخصص لهذا القسم في شجرة المستودع الحالية.
+
+### 17.4 A2 — تجربة المستخدم والتصميم
+
+#### A2 / B0 — خط أساس التصميم
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md` | خط أساس التصميم المعتمد |
+
+#### A2 / B1 — خرائط وتجارب الواجهة
+| C ID | المسار الحقيقي | الغرض |
+|---|---|---|
+| C0 | `docs/design/VIDEO-PLATFORM-SCREEN-MAP.md` | خريطة الشاشات ورحلة المستخدم |
+| C1 | `docs/design/DESIGN-OPTIONS-ALI-ALEX.md` | خيارات التصميم المسجلة |
+| C2 | `design-preview/index.html` | معاينة تصميم الواجهة |
+
+### 17.5 A3–A12 — أقسام مخططة
+لكل مرحلة من A3 إلى A12 يوجد حالياً قسم B0 تنظيمي واحد في واجهة الفهرس لتسهيل التوسعة. هذه الأقسام **ليست دليلاً على وجود تنفيذ أو ملفات**؛ وتظهر رسالة «لا توجد ملفات مخصصة بعد» إلى أن يُجرى جرد فعلي وتُسجّل المسارات الحقيقية. لا نُنشئ ملفات لمجرد ملء أرقام C.
+
+### 17.6 قواعد الصيانة
+1. قبل أي تعديل، أعد جرد شجرة GitHub من الفرع والـcommit المستهدفين.
+2. لا تعِد استخدام C ID نفسه لملفين، ولا تمنح الملف نفسه أكثر من هوية C أساسية.
+3. عند إضافة ملف جديد مستقبلاً، حدّث هذا السجل وواجهة شجرة علي معاً، ثم اختبر تطابق عدد الملفات والمسارات.
+4. الروابط من الواجهة يجب أن تفتح المسار الحقيقي للملف على GitHub، لا صفحة وهمية ولا ملفاً غير موجود.
+5. حالة القسم مستقلة عن وجود الملف: وجود الملف لا يعني GREEN، ووجود قسم مخطط لا يعني أنه نُفّذ.
+6. لا تُدمج التغييرات إلى `main` ولا تعتمد نشرها إلا بعد مراجعة التغييرات وتشغيل اختبارات A0 المطلوبة.
