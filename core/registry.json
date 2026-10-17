@@ -731,6 +731,20 @@
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
       "notes": "Seeded registry; validate hierarchy and local path consistency before calling it verified."
+    },
+    {
+      "id": "C5",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "مدقّق السجل المركزي",
+      "status": "YELLOW",
+      "resourceType": "TEST",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "scripts/validate-core-registry.mjs",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-registry.mjs",
+      "branch": "main",
+      "verifiedCommit": "05dca54a5bcd8537226d6dffc4017f5adcc43905",
+      "notes": "Validates A/B/C parent consistency, unique routes, exact links, existing paths, and complete tracked-file coverage."
     }
   ],
   "unmappedResources": []
