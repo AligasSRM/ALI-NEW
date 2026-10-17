@@ -2,14 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aligassrm.github.io/ALI-NEW/core/registry.schema.json",
   "title": "ALI & ALEX CORE Registry",
-  "description": "Versioned registry contract for stable A/B/C hierarchy IDs and evidence-backed repository resource routing. Schema only; it does not imply live integrations.",
+  "description": "Canonical registry contract for repository identities, stable A/B/C hierarchy IDs, verified resources, and explicitly unmapped inventory entries.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schemaVersion",
     "registryStatus",
     "repositories",
-    "nodes"
+    "nodes",
+    "unmappedResources"
   ],
   "properties": {
     "schemaVersion": {
@@ -47,7 +48,7 @@
         "properties": {
           "repositoryId": {
             "type": "string",
-            "pattern": "^A[0-9]+$"
+            "pattern": "^R-[A-Z0-9-]+$"
           },
           "fullName": {
             "type": "string",
@@ -200,6 +201,49 @@
               "null"
             ],
             "format": "date-time"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "unmappedResources": {
+      "type": "array",
+      "description": "Observed repository resources that have not yet been assigned a verified A/B/C route. Do not invent IDs or parent nodes to force classification.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "url",
+          "blobSha",
+          "sizeBytes",
+          "status"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "blobSha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "status": {
+            "type": "string",
+            "const": "UNMAPPED"
           },
           "notes": {
             "type": [
