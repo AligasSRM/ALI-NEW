@@ -93,6 +93,16 @@ test.describe('ALI-NEW control panel', () => {
     }
   });
 
+  test('all design-preview buttons declare explicit types', async ({ page }) => {
+    await page.goto('/design-preview/');
+    const buttons = page.locator('button');
+    const count = await buttons.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await expect(buttons.nth(i), `design-preview button ${i} must declare type`).toHaveAttribute('type', /^(button|submit|reset)$/);
+    }
+  });
+
   test('keyboard focus is visible on the control panel', async ({ page }) => {
     await page.goto('/control-panel/');
     await page.keyboard.press('Tab');
