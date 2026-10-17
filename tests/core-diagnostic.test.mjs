@@ -16,8 +16,8 @@ test('extracts only a numeric run ID from an explicit issue field', () => {
   assert.equal(parseRunId('### GitHub Actions Run ID\n39048168421'), '39048168421');
 });
 
-test('normalizes exact paths without inventing matches', () => {
-  assert.deepEqual(parseExactPaths('index.html\n\nindex.html\n core/registry.json '), ['index.html', 'core/registry.json']);
+test('normalizes exact paths and rejects prose or unsafe path segments', () => {
+  assert.deepEqual(parseExactPaths('index.html\n\nindex.html\n core/registry.json \nThis text is not a file path\n../secrets.txt\n/absolute/path'), ['index.html', 'core/registry.json']);
 });
 
 test('extracts exact paths from the structured issue form only', () => {
