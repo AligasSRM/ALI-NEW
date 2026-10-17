@@ -11,9 +11,9 @@ This is the single canonical source for the engineering A0–A12 sequence, one-a
 ### Current checkpoint
 
 - **Active stage:** A0 — Project Control Panel & identity
-- **Status:** YELLOW — recorded browser interactions passed within scope; accessibility, security, responsive, and validation gates remain incomplete
-- **Latest browser evidence:** [A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md) · [TinyFish run report](https://agent.tinyfish.ai/runs/b3716518-8499-4c40-8940-19fe7d1379ae)
-- **Next action:** complete the remaining A0 keyboard/accessibility, responsive, HTML/JavaScript validation, link/runtime, and security checks; record evidence before changing status.
+- **Status:** YELLOW — latest recorded local/live browser tests passed; A0 closeout gates remain open.
+- **Latest browser evidence:** [A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md) · [local Playwright run #15](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898193) · [live Pages smoke run #2](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983943451) · [Pages deployment run #8](https://github.com/AligasSRM/ALI-NEW/actions/runs/38983898173)
+- **Next action:** finish standards validation, broader accessibility/contrast, deployed header and history secret checks, link destination review, and Ali's visual acceptance. Do not change status until evidence is recorded.
 - **Rule:** do not start A1 or another stage until the control-panel A0 passes its acceptance gate, unless a documented technical dependency requires a narrowly scoped, recorded exception.
 
 ## Project references
