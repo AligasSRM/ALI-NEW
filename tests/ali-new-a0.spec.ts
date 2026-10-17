@@ -39,7 +39,7 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
   test('planned sections do not pretend files exist', async ({ page }) => {
     await page.goto('/');
-    await page.locator('.tree-select').filter({ hasText: 'A1' }).click();
+    await page.locator('.tree-select').filter({ hasText: /^A1\\b/ }).click();
     await expect(page.locator('.tree-select')).toHaveCount(1);
     await page.locator('.tree-select').filter({ hasText: 'B0' }).click();
     await expect(page.locator('.empty-tree')).toContainText('لا يوجد ملف مخصص بعد');
