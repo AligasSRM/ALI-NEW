@@ -36,6 +36,9 @@ jobs:
       - name: Validate A0 HTML, inline JavaScript, and control-panel invariants
         run: node scripts/validate-a0.mjs
 
+      - name: Validate CORE inventory snapshot
+        run: npm run validate:core-inventory
+
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
