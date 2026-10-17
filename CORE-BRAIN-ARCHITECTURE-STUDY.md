@@ -45,6 +45,43 @@ CORE updates status and reports back to Ali
 
 CORE is the **coordinator and index**, not a magical agent that can safely repair everything on its own. Every conclusion should identify its evidence and confidence. It must distinguish observed facts from hypotheses.
 
+## 2A. Required user experience — CORE is the front door
+
+The required default experience is **CORE first**, not a file browser first. Ali opens the CORE dashboard and submits a command, question, error report, or task there. CORE then gathers repository evidence, identifies the likely location, and presents a traceable route. The dashboard is the primary workspace; Ali Tree is the hierarchical inspection view controlled by CORE.
+
+Important platform boundary: an ordinary GitHub Pages website cannot automatically appear on top of every GitHub page or intercept every action inside GitHub.com. The practical first implementation is to make the CORE dashboard the saved starting page/bookmark and provide verified deep links into GitHub. If Ali later requires a persistent overlay or command interception inside GitHub.com, that is a separate browser-extension or GitHub-App integration and must be designed and permission-reviewed separately. Do not claim this behavior exists until implemented and tested.
+
+### Screen 1 — CORE dashboard (first page)
+Show:
+- command / problem intake at the top;
+- current task queue and approvals waiting for Ali;
+- red/yellow/orange/green status with text labels;
+- repository inventory and sync health;
+- recent errors and CI failures with evidence links;
+- the next recommended action, why it was chosen, and confidence;
+- a prominent link to Ali Tree.
+
+### Screen 2 — A phase page
+Clicking an A item opens a dedicated phase view. It lists its B sections vertically, ordered by stable numeric ID (A0.1, A0.2 … or B0, B1, B2 … as the chosen naming convention specifies). Each row shows title, status, unresolved issues, and evidence count. Provide breadcrumb navigation back to CORE and the A list.
+
+### Screen 3 — B section page
+Clicking B0 opens a dedicated section view listing C resources vertically in ascending order: C0, C1, C2 … Each item shows its actual path, repository, branch/commit, resource type, status, and last verification. Missing, stale, or unmapped paths must be clearly flagged.
+
+### Screen 4 — C resource / file detail
+Clicking C opens the actual GitHub file or a CORE detail view with a verified deep link. The detail view shows the exact repository/path/ref, last inspected commit, connected incidents, related tests, recent changes, and actions allowed by current permissions. It must never substitute a similarly named file silently.
+
+### Screen 5 — Incident / command detail
+Every request gets a traceable record with original input, interpreted intent, repository scope, evidence collected, suspected A/B/C location, confidence, proposed next step, approval requirement, execution status, test result, and closure note.
+
+### Navigation and ordering contract
+- The vertical lists are numbered and sorted by numeric ID, not alphabetical string order (so C2 appears before C10).
+- Each click opens the next hierarchy level as a distinct page/view, with breadcrumbs and a clear Back action.
+- The same hierarchy and status are available from the CORE dashboard and Ali Tree; these are two views of one registry, not two manually maintained sources.
+- Include search across repository, branch, path, A/B/C ID, incident, commit, and status.
+- Include filters for RED, YELLOW, ORANGE, pending approval, failed checks, stale mapping, and unmapped resources.
+- Provide a “show me the evidence” route for every diagnosis.
+- Keep CORE visible as the stable home link on every screen.
+
 ## 3. Core responsibilities
 
 1. **Repository registry:** list only repositories Ali has explicitly connected or approved; record default branch, visibility, last inspected commit, and access state.
