@@ -638,48 +638,100 @@
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
       "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
-    }
-  ],
-  "unmappedResources": [
-    {
-      "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
-      "blobSha": "ad838f572e49f7dc657b27a112e1874f43342b05",
-      "sizeBytes": 28880,
-      "status": "UNMAPPED",
-      "notes": "Real file observed in repository tree; not yet assigned a verified A/B/C route."
     },
     {
-      "path": "core/inventory.snapshot.json",
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
-      "blobSha": "75ed3d1ea42858a83c33bd95c145118751bec275",
-      "sizeBytes": 8260,
-      "status": "UNMAPPED",
-      "notes": "Real file observed in repository tree; not yet assigned a verified A/B/C route."
+      "id": "B2",
+      "level": "B",
+      "parentId": "A2",
+      "name": "النموذج الأولي للمنتج",
+      "status": "YELLOW",
+      "resourceType": "SECTION",
+      "notes": "واجهة عرض تجريبية فقط؛ لا تمثل تكاملاً أو مصادقة حقيقية."
     },
     {
-      "path": "core/registry.schema.json",
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.schema.json",
-      "blobSha": "b15c1a8603a0ab60d093ccd601b0814d2562d271",
-      "sizeBytes": 5837,
-      "status": "UNMAPPED",
-      "notes": "Real file observed in repository tree; not yet assigned a verified A/B/C route."
-    },
-    {
+      "id": "C0",
+      "level": "C",
+      "parentId": "A2/B2",
+      "name": "النموذج الأولي للواجهة",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
       "path": "design-preview/index.html",
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/design-preview/index.html",
-      "blobSha": "cf33283d8bd1ccd6f1bb588b8c7220cf3f6b8a08",
-      "sizeBytes": 18522,
-      "status": "UNMAPPED",
-      "notes": "Real file observed in repository tree; not yet assigned a verified A/B/C route."
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Prototype UI; demo-only behavior, not a production service."
     },
     {
+      "id": "C0",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "دراسة معمارية العقل المركزي",
+      "status": "YELLOW",
+      "resourceType": "DOCUMENT",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Architecture and workflow requirements; implementation remains staged."
+    },
+    {
+      "id": "C1",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "مخطط سجل CORE",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "core/registry.schema.json",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.schema.json",
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Schema contract; custom structural validation is the next gate."
+    },
+    {
+      "id": "C2",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "لقطة جرد المستودع",
+      "status": "YELLOW",
+      "resourceType": "EVIDENCE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "core/inventory.snapshot.json",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Historical inventory snapshot tied to its sourceCommit; not a live GitHub sync."
+    },
+    {
+      "id": "C3",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "مدقّق لقطة الجرد",
+      "status": "YELLOW",
+      "resourceType": "TEST",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
       "path": "scripts/validate-core-inventory.mjs",
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-inventory.mjs",
-      "blobSha": "ae4c7ae5011dc0325441401c8c606d5e3c649103",
-      "sizeBytes": 2819,
-      "status": "UNMAPPED",
-      "notes": "Real file observed in repository tree; not yet assigned a verified A/B/C route."
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Validates inventory structure; it does not fetch live GitHub data."
+    },
+    {
+      "id": "C4",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "السجل المركزي الحالي",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "core/registry.json",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
+      "branch": "main",
+      "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
+      "notes": "Seeded registry; validate hierarchy and local path consistency before calling it verified."
     }
-  ]
+  ],
+  "unmappedResources": []
 }
