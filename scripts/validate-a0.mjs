@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 
 const failures = [];
-const sources = ['control-panel/index.html', 'design-preview/index.html'];
+const sources = ['index.html', 'design-preview/index.html'];
 const sourceByPath = new Map();
 
 for (const path of sources) {
@@ -38,7 +38,7 @@ if (failures.length) {
   for (const failure of failures) console.error('FAIL: ' + failure);
   process.exitCode = 1;
 } else {
-  console.log('A0 source invariants and inline JavaScript syntax: PASS for both maintained pages.');
+  console.log('A0 source invariants and inline JavaScript syntax: PASS for the root Ali Tree and design preview.');
 }
 
 for (const [path, html] of sourceByPath) {
