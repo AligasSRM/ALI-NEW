@@ -299,3 +299,55 @@ CORE must not rely on an LLM guess as the sole source of a file location. It sho
 - Write operations remain disabled until separately approved and tested.
 
 **Status:** requirement specified in the architecture document; routing automation is not implemented yet. Do not mark this requirement GREEN until the acceptance tests pass against the actual GitHub integration.
+
+
+## 15. Mandatory permanent ID and addressing convention — A / B / C
+
+This convention is mandatory for CORE, Ali Tree, Alex task routing, repository onboarding, incident records, documentation, and future connected repositories. It is part of the project's operating contract.
+
+### Hierarchy and meaning
+
+- **A = top-level project/repository domain.** Example: `A13` may identify a newly onboarded repository/domain only after checking the registry and reserving the next available stable ID. Do not assume the example number is available.
+- **B = section within an A parent.** Example: `A13 → B5` identifies section B5 belonging to A13. B IDs are unique within their parent A scope; the complete address is always the parent path plus the local ID.
+- **C = file/resource within a B parent.** Example: `A13 → B5 → C3` identifies resource C3 in that exact section. C can represent a real file, workflow, test, issue, pull request, commit, service, or evidence resource; its type must be explicit.
+- Further hierarchy levels, if ever required, must be proposed and documented before use. Do not silently overload A/B/C meanings.
+
+### Stable addressing requirements
+
+1. Every registered node has a stable ID, level, parent ID, display name, resource type, and lifecycle status.
+2. Every real resource also has its canonical repository name/ID, branch or immutable commit ref as appropriate, exact path or external resource ID, and verified deep link.
+3. The human-friendly route is hierarchical: `A13 → B5 → C3`. The machine record must resolve that route to exactly one canonical target.
+4. The same local ID (for example B1) may exist under different parent A nodes; therefore the **full hierarchical address**, not the local number alone, is the unambiguous identifier.
+5. Reserve IDs centrally before adding nodes. Check for collisions and never silently renumber existing nodes when inserting a new item.
+6. Sort IDs numerically, not lexicographically: C2 precedes C10. Keep display order separate from stable identity.
+7. When a resource is renamed or moved, preserve its stable ID and update the canonical path with an audit record. If it is deleted, mark its record retired/deleted and do not recycle its ID for a different resource.
+8. Planned nodes must be labelled PLANNED and must not claim a real file exists until verified. Unmapped discovered resources must be labelled UNMAPPED until assigned.
+9. Every repository onboarding, new section, new file/resource, move, retirement, and mapping correction must update the same registry and be reflected in CORE and Ali Tree. Do not maintain separate hand-edited conflicting ID lists.
+10. Every routed task and incident must carry the full hierarchical address when known, plus repository/path/commit evidence. If mapping is missing or ambiguous, CORE must report UNKNOWN/UNMAPPED and investigate rather than guess.
+
+### Required command and response pattern
+
+Example request: “CORE, direct Alex to A13, section B5, resource C3.”
+
+CORE resolves the complete address and returns a task card containing:
+- canonical repository and URL;
+- A/B/C IDs and their names;
+- exact target path and verified deep link;
+- branch and inspected commit;
+- incident evidence and diagnosis confidence;
+- permitted action, approval gate, and acceptance criteria.
+
+Alex must open and validate the exact target before acting. If the path, branch, commit, or mapping disagrees with the task card, Alex stops and returns the mismatch to CORE for re-resolution. Alex must not silently choose a similarly named resource.
+
+### Acceptance tests
+
+- Creating a repository/domain checks the registry and reserves a non-colliding A ID.
+- Adding a section or resource reserves a B/C ID under the correct parent.
+- Two different A parents may each have B1, but their full paths resolve to different records unambiguously.
+- Numeric sorting places C2 before C10.
+- Renames and moves preserve the ID and create an audit event.
+- Deleted IDs are not reassigned to unrelated resources.
+- A task using A/B/C IDs resolves to the exact repository and resource, or explicitly returns UNKNOWN/UNMAPPED.
+- CORE and Ali Tree display the same registry state and no conflicting duplicate mappings.
+
+**Status:** the convention is specified here as a mandatory architecture rule. The live registry, ID allocator, and automated route resolver still need implementation and tests; this document alone does not make those functions live.
