@@ -52,7 +52,8 @@ test.describe('ALI-NEW control panel', () => {
           const style = getComputedStyle(el);
           return {tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), overflowX: style.overflowX};
         }).filter(el => el.right > viewport + 1 || el.left < -1).slice(0, 12);
-        return {viewport, page, offenders};
+        const containers = ['html', 'body', '.app', 'aside', '.nav', 'main'].map(selector => { const el = document.querySelector(selector); if (!el) return {selector, missing: true}; const r = el.getBoundingClientRect(); const style = getComputedStyle(el); return {selector, left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), clientWidth: el.clientWidth, scrollWidth: el.scrollWidth, overflowX: style.overflowX}; });
+        return {viewport, page, offenders, containers};
       });
       expect(dimensions.page, 'horizontal overflow at ' + width + 'px; offenders=' + JSON.stringify(dimensions.offenders)).toBeLessThanOrEqual(dimensions.viewport + 1);
     });
