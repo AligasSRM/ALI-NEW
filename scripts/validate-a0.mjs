@@ -5,25 +5,25 @@ const path = 'control-panel/index.html';
 const html = await readFile(path, 'utf8');
 const failures = [];
 
-const ids = [...html.matchAll(/\\bid=[\"']([^\"']+)[\"']/g)].map(m => m[1]);
+const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(m => m[1]);
 const duplicates = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
 if (duplicates.length) failures.push('Duplicate IDs: ' + duplicates.join(', '));
 
-const targets = [...html.matchAll(/\\bdata-target=[\"']([^\"']+)[\"']/g)].map(m => m[1]);
+const targets = [...html.matchAll(/\bdata-target=["']([^"']+)["']/g)].map(m => m[1]);
 const missingTargets = targets.filter(id => !ids.includes(id));
 if (missingTargets.length) failures.push('Missing navigation targets: ' + missingTargets.join(', '));
 
-const buttons = [...html.matchAll(/<button\\b([^>]*)>/gi)].map(m => m[1]);
-const untypedButtons = buttons.filter(attrs => !/\\btype\\s*=/.test(attrs));
+const buttons = [...html.matchAll(/<button\b([^>]*)>/gi)].map(m => m[1]);
+const untypedButtons = buttons.filter(attrs => !/\btype\s*=/.test(attrs));
 if (untypedButtons.length) failures.push(untypedButtons.length + ' buttons lack an explicit type');
 
-const anchors = [...html.matchAll(/<a\\b[^>]*href=[\"']([^\"']*)[\"'][^>]*>/gi)];
+const anchors = [...html.matchAll(/<a\b[^>]*href=["']([^"']*)["'][^>]*>/gi)];
 const emptyLinks = anchors.filter(m => !m[1].trim());
 if (emptyLinks.length) failures.push(emptyLinks.length + ' links have an empty href');
-const unsafeBlankLinks = anchors.filter(m => /\\btarget=[\"']_blank[\"']/i.test(m[0]) && !/\\brel=[\"'][^\"']*noopener/i.test(m[0]));
+const unsafeBlankLinks = anchors.filter(m => /\btarget=["']_blank["']/i.test(m[0]) && !/\brel=["'][^"']*noopener/i.test(m[0]));
 if (unsafeBlankLinks.length) failures.push(unsafeBlankLinks.length + ' target=_blank links lack rel=noopener');
 
-const inlineScripts = [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)].map(m => m[1]).join('\\n');
+const inlineScripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(m => m[1]).join('\n');
 if (inlineScripts.trim()) {
   const syntax = spawnSync(process.execPath, ['--check', '-'], { input: inlineScripts, encoding: 'utf8' });
   if (syntax.status !== 0) failures.push('Inline JavaScript syntax check failed: ' + (syntax.stderr || syntax.stdout).trim());
