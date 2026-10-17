@@ -1,0 +1,35 @@
+name: CORE diagnostic request
+description: Create a durable incident record and request a read-only evidence diagnosis.
+title: "[CORE incident] "
+labels: ["core-incident"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This request is read-only. CORE will inspect a GitHub Actions run and exact changed paths. It will not modify code or deploy.
+  - type: input
+    id: run_id
+    attributes:
+      label: GitHub Actions Run ID
+      description: Paste the numeric run ID from its GitHub URL (for example, 39048168421).
+      placeholder: "39048168421"
+    validations:
+      required: false
+  - type: textarea
+    id: symptoms
+    attributes:
+      label: Observed symptom
+      description: Describe what failed and what you expected. Do not include passwords, tokens, or private data.
+      placeholder: "What happened? What should have happened?"
+    validations:
+      required: true
+  - type: textarea
+    id: changed_paths
+    attributes:
+      label: Exact changed paths (optional)
+      description: One exact repository path per line. CORE will not guess from keywords.
+      placeholder: |
+        core/route-resolver.mjs
+        tests/core-route-resolver.test.mjs
+    validations:
+      required: false
