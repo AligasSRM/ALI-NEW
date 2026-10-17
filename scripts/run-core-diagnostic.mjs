@@ -19,7 +19,14 @@ function parseRunId(body = '') {
 }
 
 function parseExactPaths(value = '') {
-  return [...new Set(value.split(/\r?\n/).map(item => item.trim()).filter(Boolean))];
+  const candidates = value.split(/\r?\n/).map(item => item.trim());
+  return [...new Set(candidates.filter(item =>
+    item &&
+    !/\s/.test(item) &&
+    !/[`<>|]/.test(item) &&
+    !item.startsWith('/') &&
+    !item.split('/').some(segment => segment === '..' || segment === '.')
+  ))];
 }
 
 function parseIssuePaths(body = '') {
