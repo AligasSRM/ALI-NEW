@@ -60,6 +60,32 @@ test.describe('ALI-NEW control panel', () => {
     expect(errors, 'uncaught browser page errors').toEqual([]);
   });
 
+
+  test('all control-panel buttons declare an explicit type and links have safe destinations', async ({ page }) => {
+    await page.goto('/control-panel/');
+    const buttons = page.locator('button');
+    const buttonCount = await buttons.count();
+    expect(buttonCount).toBeGreaterThan(0);
+    for (let i = 0; i < buttonCount; i++) {
+      await expect(buttons.nth(i), `button ${i} must declare type`).toHaveAttribute('type', 'button');
+    }
+
+    const links = page.locator('a[href]');
+    const linkCount = await links.count();
+    expect(linkCount).toBeGreaterThan(0);
+    for (let i = 0; i < linkCount; i++) {
+      const link = links.nth(i);
+      const href = await link.getAttribute('href');
+      expect(href?.trim(), `link ${i} must have a non-empty href`).toBeTruthy();
+      if (href?.startsWith('#')) {
+        await expect(page.locator(href), `missing in-page destination ${href}`).toHaveCount(1);
+      }
+      if (await link.getAttribute('target') === '_blank') {
+        await expect(link).toHaveAttribute('rel', /noopener/);
+      }
+    }
+  });
+
   test('keyboard focus is visible on the control panel', async ({ page }) => {
     await page.goto('/control-panel/');
     await page.keyboard.press('Tab');
