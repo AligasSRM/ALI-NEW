@@ -773,6 +773,29 @@
       "branch": "main",
       "verifiedCommit": "e83f9aebaf4eeae3642e042bef03d26f8a146d32",
       "notes": "Unit tests cover exact routing, unknown paths, unapproved repositories, partial matches, and no guessing from free text."
+    },
+    {
+      "id": "B1",
+      "level": "B",
+      "parentId": "A3",
+      "name": "استقبال الحوادث وتوجيه الأدلة",
+      "status": "YELLOW",
+      "resourceType": "SECTION",
+      "notes": "واجهة قراءة فقط لتحليل تشغيل GitHub ومسارات التغيير وتوجيهها إلى A/B/C."
+    },
+    {
+      "id": "C0",
+      "level": "C",
+      "parentId": "A3/B1",
+      "name": "واجهة محقق الحوادث",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "core/incidents.html",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/incidents.html",
+      "branch": "main",
+      "verifiedCommit": "dbf5e098194a68254a3aaea7267f07eb68f18386",
+      "notes": "Read-only incident console. It reads public GitHub Actions run/commit metadata and routes exact changed paths; it does not modify code or prove root cause."
     }
   ],
   "unmappedResources": []
