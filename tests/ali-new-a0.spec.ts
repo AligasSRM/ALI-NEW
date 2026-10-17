@@ -44,11 +44,17 @@ test.describe('ALI-NEW control panel', () => {
     test(`control panel fits viewport at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/control-panel/');
-      const dimensions = await page.evaluate(() => ({
-        viewport: document.documentElement.clientWidth,
-        page: document.documentElement.scrollWidth
-      }));
-      expect(dimensions.page, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(dimensions.viewport + 1);
+      const dimensions = await page.evaluate(() => {
+        const viewport = document.documentElement.clientWidth;
+        const page = document.documentElement.scrollWidth;
+        const offenders = [...document.querySelectorAll('body *')].map(el => {
+          const r = el.getBoundingClientRect();
+          const style = getComputedStyle(el);
+          return {tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), overflowX: style.overflowX};
+        }).filter(el => el.right > viewport + 1 || el.left < -1).slice(0, 12);
+        return {viewport, page, offenders};
+      });
+      expect(dimensions.page, 'horizontal overflow at ' + width + 'px; offenders=' + JSON.stringify(dimensions.offenders)).toBeLessThanOrEqual(dimensions.viewport + 1);
     });
   }
 
