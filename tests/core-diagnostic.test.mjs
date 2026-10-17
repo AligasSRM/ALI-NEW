@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseRunId, parseExactPaths, makeReport, formatIssueComment } from '../scripts/run-core-diagnostic.mjs';
+import { parseRunId, parseExactPaths, parseIssuePaths, makeReport, formatIssueComment } from '../scripts/run-core-diagnostic.mjs';
 import { resolveCoreRoutes } from '../core/route-resolver.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -13,13 +13,14 @@ test('extracts only a numeric run ID from an explicit issue field', () => {
   assert.equal(parseRunId('Problem summary\nRun ID: 39048168421\nMore detail'), '39048168421');
   assert.equal(parseRunId('The number 39048168421 appears in free text'), '');
   assert.equal(parseRunId('Run ID: abc'), '');
+  assert.equal(parseRunId('### GitHub Actions Run ID\\n39048168421'), '39048168421');
 });
 
 test('normalizes exact paths without inventing matches', () => {
   assert.deepEqual(parseExactPaths('index.html\n\nindex.html\n core/registry.json '), ['index.html', 'core/registry.json']);
 });
 
-test('routes a known exact path using the repository registry', () => {
+test('extracts exact paths from the structured issue form only', () => {\n  const body = '### Observed symptom\\nBuild failed\\n\\n### Exact changed paths (optional)\\ncore/route-resolver.mjs\\ntests/core-route-resolver.test.mjs\\n\\n### Extra section\\nignore/me';\n  assert.deepEqual(parseIssuePaths(body), ['core/route-resolver.mjs', 'tests/core-route-resolver.test.mjs']);\n  assert.deepEqual(parseIssuePaths('### Observed symptom\\nindex.html'), []);\n});\n\ntest('routes a known exact path using the repository registry', () => {
   const route = resolveCoreRoutes(registry, {
     repositoryFullName: 'AligasSRM/ALI-NEW',
     changedPaths: ['core/route-resolver.mjs'],
