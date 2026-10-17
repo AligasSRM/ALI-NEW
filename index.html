@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080D19">
+<title>شجرة علي | ALI-NEW Engineering Control Panel</title>
+<style>
+:root{color-scheme:dark;--bg:#080D19;--panel:#10182A;--panel2:#172238;--line:#2B3852;--text:#F3F5FF;--muted:#AAB5CC;--violet:#C8BDFF;--sky:#8CCBFF;--emerald:#70E2BE;--gold:#FFD16F;--coral:#FF8298;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#172947 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--emerald);outline-offset:3px}.app{min-height:100vh;display:grid;grid-template-columns:260px minmax(0,1fr)}aside{padding:24px 16px;border-right:1px solid var(--line);background:#10182AE8}.brand{display:flex;gap:12px;align-items:center;padding:4px 8px 24px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--violet),#8CCBFF);color:#091323;display:grid;place-items:center;font-weight:900;letter-spacing:-1px}.brand strong{display:block;font-size:17px;letter-spacing:.4px}.brand small{color:var(--muted)}.nav-label{padding:16px 10px 7px;color:#71839e;text-transform:uppercase;font-size:11px;letter-spacing:1.5px}.nav{display:grid;gap:5px}.nav button{width:100%;border:1px solid transparent;background:transparent;color:#b8c6da;text-align:left;padding:11px 12px;border-radius:10px;display:flex;gap:10px;align-items:center}.nav button:hover,.nav button.active{background:var(--panel2);border-color:var(--line);color:white}.nav .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}.aside-note{margin:26px 4px 0;padding:14px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:12px}.aside-note strong{color:var(--gold)}.change-note{margin:0 0 18px;padding:13px 15px;border:1px solid #2d5c65;background:#102b35;border-radius:12px;color:#c9f7f0;font-size:13px}.change-note strong{color:var(--violet)}.workflow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.workflow-step{border:1px solid var(--line);border-radius:11px;padding:12px;background:#101b2c}.workflow-step strong{display:block;color:var(--violet);font-size:13px}.workflow-step span{font-size:12px;color:var(--muted)}main{min-width:0;padding:26px clamp(16px,3vw,42px) 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px}.eyebrow{color:var(--violet);font-size:11px;font-weight:750;letter-spacing:1.7px;text-transform:uppercase}.topbar h1{font-size:clamp(25px,3vw,36px);line-height:1.15;margin:6px 0}.subtitle{color:var(--muted);margin:0}.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #6b552d;border-radius:99px;color:var(--gold);background:#2a2418;font-size:12px;font-weight:700}.pill i{width:7px;height:7px;background:var(--gold);border-radius:50%}.hero{margin:24px 0;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.8fr);gap:16px}.card{background:linear-gradient(145deg,#142238,#101a2b);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}.hero h2{font-size:22px;margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 18px;max-width:720px}.actions{display:flex;flex-wrap:wrap;gap:9px}.primary,.secondary{border-radius:10px;padding:10px 14px;border:1px solid var(--line);font-weight:700}.primary{background:var(--violet);border-color:var(--violet);color:#071522}.secondary{background:#15243a;color:var(--text)}.secondary:hover{border-color:var(--violet)}.next-label{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--coral);font-weight:800}.next-title{font-size:20px;font-weight:750;margin:9px 0}.muted{color:var(--muted)}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:24px}.metric{padding:16px;border:1px solid var(--line);background:#101b2c;border-radius:14px}.metric span{color:var(--muted);font-size:12px;display:block}.metric strong{display:block;font-size:25px;margin-top:6px}.metric small{color:var(--muted)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:28px 0 13px}.section-head h2{margin:0;font-size:20px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.search{max-width:280px;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0D1424;color:var(--text)}.tree{display:grid;gap:9px}.tree-item{border:1px solid var(--line);border-radius:12px;background:#101b2c;overflow:hidden}.tree-row{width:100%;border:0;background:transparent;color:var(--text);display:grid;grid-template-columns:64px minmax(0,1fr) auto 20px;gap:12px;align-items:center;text-align:left;padding:14px}.tree-row:hover{background:#17263c}.level{font-weight:850;color:var(--violet);font-size:13px}.tree-name{font-weight:720}.tree-desc{font-size:12px;color:var(--muted);display:block;margin-top:2px}.status{font-size:10px;font-weight:800;letter-spacing:.4px;border:1px solid #6b552d;background:#2a2418;color:var(--gold);padding:4px 8px;border-radius:99px;white-space:nowrap}.chevron{color:var(--muted);transition:transform .2s}.tree-item.open .chevron{transform:rotate(90deg)}.tree-detail{display:none;border-top:1px solid var(--line);padding:15px 18px 18px 90px;color:var(--muted);font-size:13px}.tree-item.open .tree-detail{display:block}.tree-detail strong{color:var(--text)}.tree-detail ul{margin:8px 0 0;padding-left:18px}.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.mini-title{font-weight:750;margin-bottom:10px}.status-list{display:grid;gap:10px}.status-line{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}.key{width:9px;height:9px;border-radius:50%;flex:0 0 auto}.key.yellow{background:var(--gold)}.key.green{background:var(--emerald)}.key.orange{background:var(--coral)}.key.red{background:var(--coral)}.repo-path{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;color:#8CCBFF;overflow-wrap:anywhere;padding:8px 0;border-bottom:1px solid #223047}.repo-path:last-child{border:0}footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:#7587a1;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;bottom:20px;right:20px;max-width:min(400px,calc(100vw - 40px));padding:12px 16px;background:#17392f;border:1px solid #2b7b61;color:#d9fff0;border-radius:12px;display:none}.toast.show{display:block}
+@media(max-width:900px){.app{grid-template-columns:210px minmax(0,1fr)}.workflow{grid-template-columns:repeat(2,minmax(0,1fr))}.bottom-grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.tree-row{grid-template-columns:55px minmax(0,1fr) auto 14px}.tree-detail{padding-left:20px}}
+@media(max-width:640px){.app{display:block;overflow-x:clip}.workflow{grid-template-columns:1fr}aside{padding:12px;min-width:0;max-width:100%;overflow:hidden;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:4px 6px 12px}.nav-label,.aside-note{display:none}.nav{display:flex;width:100%;min-width:0;max-width:100%;overflow-x:auto;padding-bottom:2px}.nav button{width:auto;white-space:nowrap;flex:0 0 auto;padding:9px 11px}.nav button span:last-child{font-size:12px}main{padding:20px 14px 34px}.topbar{align-items:flex-start}.metrics{gap:8px}.metric{padding:12px}.metric strong{font-size:22px}.bottom-grid{grid-template-columns:1fr}.tree-row{grid-template-columns:48px minmax(0,1fr) 14px;gap:8px;padding:12px}.tree-row .status{grid-column:2;justify-self:start}.chevron{grid-column:3;grid-row:1}.tree-desc{line-height:1.4}.section-head{align-items:stretch}.search{max-width:none}}
+
+.tree-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0}.crumbs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}.crumbs strong{color:var(--text)}.tree-actions{display:flex;gap:8px;flex-wrap:wrap}.tree-actions button:disabled{opacity:.45;cursor:not-allowed}.tree-summary{color:var(--muted);font-size:13px;margin:10px 0 14px}.tree-card{border:1px solid var(--line);border-radius:12px;background:#101b2c;overflow:hidden}.tree-select{width:100%;border:0;background:transparent;color:var(--text);display:grid;grid-template-columns:76px minmax(0,1fr) auto 18px;gap:12px;align-items:center;text-align:left;padding:15px}.tree-select:hover{background:#17263c}.tree-select .level{font-weight:850;color:var(--violet);font-size:13px}.tree-select .tree-name{font-weight:750;display:block}.tree-select .tree-desc{font-size:12px;color:var(--muted);display:block;margin-top:3px}.tree-count{font-size:11px;color:var(--sky);white-space:nowrap}.tree-link{color:var(--sky);text-decoration:none;overflow-wrap:anywhere}.tree-link:hover{text-decoration:underline}.file-path{font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;color:var(--sky)}.file-card{padding:14px 16px;display:grid;gap:7px}.file-card p{margin:0;color:var(--muted);font-size:12px}.tree-footnote{font-size:12px;line-height:1.65;color:var(--muted);margin-top:16px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px}.empty-tree{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:#101b2c}.tree-status{font-size:10px;font-weight:800;letter-spacing:.4px;border:1px solid #6b552d;background:#2a2418;color:var(--gold);padding:4px 8px;border-radius:99px;white-space:nowrap}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand"><div class="logo">A+</div><div><strong>شجرة علي</strong><small>ALI-NEW · فهرس هندسي</small></div></div>
+  <div class="nav-label">Workspace</div>
+  <nav class="nav" aria-label="Main navigation">
+    <button type="button" class="active" data-target="overview"><span>◈</span><span>Overview</span></button>
+    <button type="button" data-target="build-tree"><span>⌘</span><span>Build tree</span></button>
+    <button type="button" data-target="repository"><span>▤</span><span>Repository map</span></button>
+    <button type="button" data-target="status-legend"><span>◉</span><span>Status & gates</span></button>
+    <button type="button" data-target="stage-detail"><span>◎</span><span>Stage detail</span></button><button type="button" data-target="tool-policy"><span>↻</span><span>Tool policy</span></button>
+    <button type="button" data-target="design-options"><span>✦</span><span>Design options</span></button>
+  </nav>
+  <div class="aside-note"><strong>YELLOW · IN PROGRESS</strong><br>Planning and visual prototype. No production app or live integrations are claimed.</div>
+</aside>
+<main>
+  <header class="topbar" id="overview">
+    <div><div class="eyebrow">ALI & ALEX · PROJECT CONTROL</div><h1>شجرة علي · Ali Tree</h1><p class="subtitle">فهرس مركزي لمراحل المشروع وأقسامها وملفاتها الفعلية.</p></div>
+    <div class="pill"><i></i> YELLOW · PLANNING</div>
+  </header>
+  <section class="hero">
+    <div class="card"><div class="eyebrow">PROJECT NORTH STAR</div><h2>كل المشروع بمكان واحد. كل ملف بمساره الحقيقي.</h2><p>ALI-NEW is planned as a secure, multilingual video platform with verified creators and pre-publication content review. This panel tracks the build; it is not the end-user video product.</p><div class="actions"><button type="button" class="primary" id="show-tree">افتح شجرة علي ↓</button><button type="button" class="secondary" id="open-doc">افتح وثيقة البناء ↗</button></div></div>
+    <div class="card"><div class="next-label">NEXT ACTION</div><div class="next-title">A0 — جرد وفهرسة الشجرة</div><p class="muted">Review the visual system, navigation, expandable tree, and mobile layout before locking this milestone.</p><span class="status">NOT VERIFIED</span></div>
+  </section>
+  <div class="change-note"><strong>OPEN TO CHANGE · قابل للتعديل دائماً</strong><br>A0–A12 هي الخطة الحالية وليست سقفاً ثابتاً. يمكن إضافة A13 أو A14 أو A15، أو تعديل الأقسام والملفات وعدد المستودعات، إذا أثبتت المراجعة أن ذلك أفضل وأكثر أماناً أو حداثة. نسجّل سبب كل تغيير وأثره قبل اعتماده.</div>
+  <section class="metrics" aria-label="Project summary">
+    <div class="metric"><span>Planned levels</span><strong>13</strong><small>A0 through A12</small></div>
+    <div class="metric"><span>ملفات مفهرسة</span><strong>25</strong><small>ملفات موجودة في main</small></div>
+    <div class="metric"><span>Production releases</span><strong>0</strong><small>No release verified</small></div>
+    <div class="metric"><span>Current state</span><strong style="color:var(--gold)">YELLOW</strong><small>Design / prototype</small></div>
+  </section>
+  <section id="build-tree">
+    <div class="section-head"><div><h2>شجرة علي · Ali Tree</h2><p>فهرس مراقبة هرمي: اختر A، ثم B، ثم اعرض ملفات C وروابطها الفعلية داخل المستودع. الأرقام للتنظيم فقط ولا تغيّر أسماء الملفات أو أماكنها.</p></div></div>
+    <div class="tree-toolbar">
+      <div class="crumbs" id="tree-crumbs" aria-live="polite"><span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong></div>
+      <div class="tree-actions"><button type="button" class="secondary" id="tree-back" disabled>← رجوع</button><button type="button" class="secondary" id="tree-home">كل المراحل</button></div>
+    </div>
+    <div class="tree-summary" id="tree-summary" aria-live="polite"></div>
+    <div class="tree" id="ali-tree-list" role="region" aria-label="شجرة علي"></div>
+    <p class="tree-footnote">قاعدة الفهرسة: A = مرحلة هندسية، B = قسم منطقي داخل المرحلة، C = ملف موجود فعلياً. لا تُنشأ مجلدات A/B/C، ولا نختلق مسارات للملفات الناقصة. الأقسام التي لا تملك ملفات مخصصة تظهر كـ «مخطط — لا يوجد ملف مخصص بعد».</p>
+  </section>
+
+  <section id="design-options" class="bottom-grid" aria-label="Approved design options">
+    <div class="card">
+      <div class="eyebrow">OPTION 01 · APPROVED DIRECTION</div>
+      <h2>Engineering Control Panel</h2>
+      <p class="muted">Dark navy workspace with teal/coral accents, project status, expandable build tree, repository map, and engineering gates.</p>
+      <p><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html" target="_blank" rel="noopener">Open current prototype ↗</a></p>
+    </div>
+    <div class="card">
+      <div class="eyebrow">OPTION 02 · APPROVED DIRECTION</div>
+      <h2>Video Platform UI</h2>
+      <p class="muted">Premium dark video experience with navy base, teal/coral accents, video discovery cards, search, watch page, creator profiles, and responsive layouts.</p>
+      <p><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/DESIGN-OPTIONS-ALI-ALEX.md" target="_blank" rel="noopener">Open saved design options and build notes ↗</a></p>
+    </div>
+  </section>
+
+  <section id="stage-detail" class="card" aria-labelledby="stage-detail-heading">
+    <div class="section-head"><div><div class="eyebrow">A0 · STAGE DETAIL 1.8</div><h2 id="stage-detail-heading">Control panel acceptance & evidence</h2><p>Current stage: A0 · Status: YELLOW — local Chromium acceptance passed 17/17 and deployed Pages smoke tests passed 11/11 on the recorded commit; standards-based HTML validation, broader accessibility/security review, and owner visual acceptance remain open.</p></div><span class="status">NOT GREEN</span></div>
+    <div class="bottom-grid">
+      <div><div class="mini-title">Scope and acceptance gate</div><ul><li>Use the approved control-panel palette and keep the video-platform UI separate.</li><li>Confirm every navigation target and external link resolves to an existing destination.</li><li>Exercise tree expand/collapse, search filtering, navigation, and specification buttons.</li><li>Review keyboard focus, contrast, and desktop/mobile layouts in a browser.</li></ul><div class="mini-title">Next action</div><p class="muted">Verify deployed Pages matches the main-branch source; complete keyboard-only focus, contrast, link destinations, runtime checks, and responsive review before considering GREEN.</p></div>
+      <div><div class="mini-title">Evidence links</div><div class="repo-path"><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md">PROJECT-BUILD-TREE.md — canonical stage gate</a></div><div class="repo-path"><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/CONTROL-PANEL-DESIGN-BASELINE.md">Control-panel design baseline</a></div><div class="repo-path"><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md">Repository review / current limitations</a></div><div class="mini-title" style="margin-top:14px">Checks recorded in this change</div><div class="status-list"><div class="status-line"><i class="key green"></i><span>Source-level IDs and navigation targets cross-checked.</span></div><div class="status-line"><i class="key green"></i><span>Decision-policy link redirected to existing PROJECT-BUILD-TREE.md.</span></div><div class="status-line"><i class="key yellow"></i><span>Evidence updated 2026-10-17: local Playwright Acceptance passed 17/17 (run 38983898193), deployed Pages smoke tests passed 11/11 (run 38983943451), and Pages deployment verification succeeded (run 38983898173), all on commit be1a0ab518a95c439d9fa9b3294e23820878d08b. The current live checks verified tree ARIA state, navigation targets, age-notice flow, search/demo safeguards, visible focus, four viewport widths, and no uncaught page errors. Still open: standards-based HTML/JavaScript validation, contrast/semantic accessibility review, deployed response-header review, historical secret scan, and Ali's desktop/mobile visual acceptance.</span></div></div></div>
+    </div>
+    <p class="muted" style="font-size:12px;margin-bottom:0">Evidence boundary: these are repository/source checks only. Metrics and statuses elsewhere remain static prototype content, not live telemetry.</p>
+  </section>
+
+  <section id="tool-policy" class="card" aria-labelledby="tool-policy-heading">
+    <div class="eyebrow">PERMANENT ENGINEERING RULE</div>
+    <h2 id="tool-policy-heading">Tools are replaceable · الأدوات قابلة للاستبدال</h2>
+    <p>المشروع وبياناته هما الأساس؛ الأدوات والمنصات والمزوّدون وسائل قابلة للتغيير، وليست قرارات أبدية.</p>
+    <div class="workflow">
+      <div class="workflow-step"><strong>01 · Need first</strong><span>حدّد المتطلب ومعيار القبول قبل اختيار الأداة.</span></div>
+      <div class="workflow-step"><strong>02 · Compare options</strong><span>قارن البدائل والتكلفة والحدود والتوفر؛ المجاني أولاً.</span></div>
+      <div class="workflow-step"><strong>03 · Plan the exit</strong><span>وثّق التصدير والاستبدال والأثر والتراجع قبل الاعتماد.</span></div>
+      <div class="workflow-step"><strong>04 · Verify evidence</strong><span>اختبر الوظيفة فعلياً؛ GREEN ليس التزاماً دائماً بمزوّد.</span></div>
+    </div>
+    <p class="muted" style="font-size:12px;margin-bottom:0">No tool is permanent by default. Avoid unnecessary provider names in core files. Review the decision record before major dependencies or replacements.</p>
+    <p><a href="https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md" target="_blank" rel="noopener">Open provider decision policy ↗</a></p>
+  </section>
+
+  <section aria-labelledby="closeout-heading"><div class="section-head"><div><h2 id="closeout-heading">Closeout · الإغلاق بشروط واضحة</h2><p>لا نغلق قسماً أو مستودعاً لمجرد انتهاء التعديل؛ نوثّق ما وجدناه وما أصلحناه وما بقي.</p></div></div><div class="workflow"><div class="workflow-step"><strong>01 · Baseline</strong><span>الملفات الموجودة، النواقص، الاعتماديات والمشاكل.</span></div><div class="workflow-step"><strong>02 · Work log</strong><span>ما تغيّر، ما لم يتغيّر، المحاولات والعوائق.</span></div><div class="workflow-step"><strong>03 · Evidence</strong><span>الاختبارات الفعلية، النتائج، الروابط وCommit SHA.</span></div><div class="workflow-step"><strong>04 · GREEN certificate</strong><span>شهادة محددة النطاق لا تصدر إلا بعد نجاح المعايير.</span></div></div></section>
+  <section class="bottom-grid">
+    <div class="card" id="status-legend"><div class="mini-title">Status & release gates</div><div class="status-list"><div class="status-line"><i class="key yellow"></i><span><strong>YELLOW</strong> — design or implementation underway</span></div><div class="status-line"><i class="key orange"></i><span><strong>ORANGE</strong> — integration not yet verified</span></div><div class="status-line"><i class="key green"></i><span><strong>GREEN</strong> — acceptance checks passed with evidence</span></div><div class="status-line"><i class="key red"></i><span><strong>RED</strong> — blocker, unsafe condition or failed gate</span></div><div class="status-line"><i class="key" style="background:#a5b4fc"></i><span><strong>LOCKED</strong> — accepted; reopen only with a reason</span></div></div></div>
+    <div class="card" id="repository"><div class="mini-title">Repository map · proposed</div><div class="repo-path">/README.md</div><div class="repo-path">/IDEAS-ALI-ALEX.md</div><div class="repo-path">/ALI-ALEX-MASTER-PROJECT-PROMPT.md</div><div class="repo-path">/PROJECT-BUILD-TREE.md</div><div class="repo-path">/control-panel/index.html</div><div class="repo-path">/docs · /app · /tests · /evidence (add when needed)</div><p class="muted" style="font-size:12px;margin-bottom:0">Keep one primary repository for now. Do not create extra repositories without a concrete need.</p></div>
+  </section>
+  <footer><span>ALI-NEW · Ali owns final decisions · Alex coordinates engineering</span><span>Prototype v0.2 · Open to change · No live integrations</span></footer>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const toast = document.getElementById('toast');
+function notify(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2600)}
+const aliTree = [
+{ id:'A0', name:'الجرد والتحكم بالمشروع', desc:'الواجهة، قواعد العمل، الأدلة والاختبارات الموجودة', status:'YELLOW', sections:[
+{id:'B0',name:'واجهة شجرة علي',desc:'الصفحة الرئيسية للفهرس',files:[['C0','control-panel/index.html','واجهة شجرة علي التفاعلية الحالية']]},
+{id:'B1',name:'الحوكمة ووثائق المشروع',desc:'المرجع الرئيسي وقواعد العمل',files:[['C0','PROJECT-BUILD-TREE.md','وثيقة البناء والتسلسل المعتمدة'],['C1','README.md','مدخل المستودع ونقطة الاستئناف'],['C2','ALI-ALEX-MASTER-PROJECT-PROMPT.md','تعليمات الهندسة الرئيسية'],['C3','IDEAS-ALI-ALEX.md','سجل الأفكار'],['C4','docs/decisions/README.md','فهرس قرارات المشروع']]},
+{id:'B2',name:'اختبارات A0 والتحقق',desc:'اختبارات ومراجعات موجودة فعلياً',files:[['C0','tests/ali-new-a0.spec.ts','اختبارات قبول لوحة التحكم'],['C1','tests/live-pages.spec.ts','اختبارات صفحات النشر الحية'],['C2','scripts/validate-a0.mjs','مدقق المصدر الثابت'],['C3','package.json','أوامر المشروع واعتمادياته'],['C4','playwright.config.ts','إعدادات Playwright'],['C5','docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md','أدلة قبول المتصفح'],['C6','docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md','أدلة التحقق الثابت'],['C7','docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md','مراجعة المستودع ولقطة الأساس']]},
+{id:'B3',name:'سير العمل الآلي',desc:'ملفات CI والنشر الموجودة',files:[['C0','.github/workflows/pages-deploy.yml','بناء ونشر GitHub Pages'],['C1','.github/workflows/pages-live-smoke.yml','اختبار صفحات النشر الحية'],['C2','.github/workflows/playwright.yml','تشغيل اختبارات Playwright']]},
+{id:'B4',name:'قوالب الإغلاق والتوثيق',desc:'قوالب جاهزة موجودة',files:[['C0','docs/templates/GREEN-CERTIFICATE-TEMPLATE.md','قالب شهادة GREEN'],['C1','docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md','قالب إغلاق القسم'],['C2','docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md','قالب القرار التقني']]},
+{id:'B5',name:'مرجع تصميم لوحة التحكم',desc:'أساس التصميم الحالي',files:[['C0','docs/design/CONTROL-PANEL-DESIGN-BASELINE.md','خط أساس تصميم لوحة التحكم']]}
+]},
+{ id:'A1',name:'تعريف المنتج',desc:'المشكلة والجمهور والنطاق ومعايير القبول',status:'PLANNED',sections:[{id:'B0',name:'متطلبات المنتج',desc:'قسم منطقي بانتظار توثيقه',files:[]}]},
+{ id:'A2',name:'تجربة المستخدم والتصميم',desc:'خرائط الشاشات وخيارات التصميم',status:'PLANNED',sections:[
+{id:'B0',name:'خط أساس التصميم',desc:'مرجع التصميم العام',files:[['C0','docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md','خط أساس التصميم المعتمد']]},
+{id:'B1',name:'خرائط وتجارب الواجهة',desc:'وثائق تجربة المستخدم',files:[['C0','docs/design/VIDEO-PLATFORM-SCREEN-MAP.md','خريطة الشاشات ورحلة المستخدم'],['C1','docs/design/DESIGN-OPTIONS-ALI-ALEX.md','خيارات التصميم المسجلة']]}
+]},
+{ id:'A3',name:'المعمارية والحدود',desc:'تدفقات البيانات والثقة والعقود التقنية',status:'PLANNED',sections:[{id:'B0',name:'معمارية النظام',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A4',name:'المستودع وسير المطورين',desc:'معايير الكود والاختبارات والمساهمات',status:'PLANNED',sections:[{id:'B0',name:'قواعد التطوير',desc:'قسم منطقي بانتظار توثيق نطاقه',files:[]}]},
+{ id:'A5',name:'الهوية والتحقق',desc:'الحسابات والجلسات والاسترجاع والتحقق',status:'PLANNED',sections:[{id:'B0',name:'هوية المستخدم',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A6',name:'منتج الفيديو الأساسي',desc:'الرفع والمعالجة والتشغيل والترجمة',status:'PLANNED',sections:[{id:'B0',name:'مسار الفيديو',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A7',name:'الإشراف والسلامة',desc:'المراجعة والبلاغات والاستئناف',status:'PLANNED',sections:[{id:'B0',name:'السلامة والإشراف',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A8',name:'الاكتشاف والمجتمع',desc:'البحث والتصنيفات وصفحات المبدعين',status:'PLANNED',sections:[{id:'B0',name:'الاكتشاف',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A9',name:'الإدارة والتشغيل',desc:'الصلاحيات والتدقيق والدعم والحوادث',status:'PLANNED',sections:[{id:'B0',name:'الإدارة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A10',name:'البيانات والتكاملات',desc:'المخططات والهجرة والنسخ الاحتياطي',status:'PLANNED',sections:[{id:'B0',name:'البيانات والتكامل',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A11',name:'الأمن والخصوصية والجودة',desc:'الفحص الأمني والإتاحة والأداء والانحدار',status:'PLANNED',sections:[{id:'B0',name:'التحقق والجودة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]},
+{ id:'A12',name:'الإطلاق والصيانة',desc:'الإطلاق والتراجع والمراقبة والتسليم',status:'PLANNED',sections:[{id:'B0',name:'الإطلاق والصيانة',desc:'قسم منطقي بانتظار التوثيق',files:[]}]}
+];
+let selectedA=null,selectedB=null;
+const list=document.getElementById('ali-tree-list'),summary=document.getElementById('tree-summary'),crumbs=document.getElementById('tree-crumbs'),back=document.getElementById('tree-back');
+const repo='https://github.com/AligasSRM/ALI-NEW/blob/main/';
+function renderTree(){
+ list.replaceChildren();
+ back.disabled=selectedA===null;
+ document.getElementById('tree-home').hidden=selectedA===null;
+ if(selectedA===null){
+  crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong>';
+  summary.textContent='13 مرحلة هندسية · '+aliTree.reduce((n,a)=>n+a.sections.length,0)+' أقسام B مفهرسة مبدئياً · 25 ملفاً موجوداً في المستودع.';
+  aliTree.forEach(a=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';btn.innerHTML='<span class="level">'+a.id+'</span><span><span class="tree-name">'+a.name+'</span><span class="tree-desc">'+a.desc+'</span></span><span class="tree-count">'+a.sections.length+' أقسام B</span><span>›</span>';btn.addEventListener('click',()=>{selectedA=a.id;selectedB=null;renderTree()});card.append(btn);list.append(card)});
+ }else{
+  const a=aliTree.find(x=>x.id===selectedA);
+  if(selectedB===null){
+   crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><strong>'+a.id+' · '+a.name+'</strong>';
+   summary.textContent=a.id+' يحتوي '+a.sections.length+' أقسام B ضمن الفهرس. الأقسام ذات الملفات تعرض العدد الفعلي، والأقسام الأخرى تبقى مخططة.';
+   a.sections.forEach(b=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';const count=b.files.length?b.files.length+' ملفات C':'لا توجد ملفات مخصصة';btn.innerHTML='<span class="level">'+b.id+'</span><span><span class="tree-name">'+b.name+'</span><span class="tree-desc">'+b.desc+'</span></span><span class="tree-count">'+count+'</span><span>›</span>';btn.addEventListener('click',()=>{selectedB=b.id;renderTree()});card.append(btn);list.append(card)});
+  }else{
+   const b=a.sections.find(x=>x.id===selectedB);
+   crumbs.innerHTML='<span>ALI-NEW</span><span>›</span><button type="button" class="secondary" id="crumb-a">'+a.id+'</button><span>›</span><strong>'+b.id+' · '+b.name+'</strong>';
+   document.getElementById('crumb-a').addEventListener('click',()=>{selectedB=null;renderTree()});
+   summary.textContent=a.id+' / '+b.id+' · '+(b.files.length?b.files.length+' ملفات موجودة ومساراتها الحقيقية':'لا يوجد ملف مخصص لهذا القسم حالياً؛ هذا قسم تنظيمي مخطط فقط.');
+   if(!b.files.length){const empty=document.createElement('div');empty.className='empty-tree';empty.textContent='مخطط — لا يوجد ملف مخصص بعد. لم ننشئ ملفاً أو مجلداً، ولم نخترع مساراً.';list.append(empty)}
+   b.files.forEach(file=>{const card=document.createElement('article');card.className='tree-card file-card';const title=document.createElement('strong');title.textContent=file[0]+' · '+file[2];const path=document.createElement('div');path.className='file-path';path.textContent=file[1];const link=document.createElement('a');link.className='tree-link';link.href=repo+file[1];link.target='_blank';link.rel='noopener noreferrer';link.textContent='فتح الملف الفعلي على GitHub ↗';const note=document.createElement('p');note.textContent='معرّف تنظيمي فقط؛ لم يتغير اسم الملف أو مكانه.';card.append(title,path,link,note);list.append(card)});
+  }
+ }
+}
+back.addEventListener('click',()=>{if(selectedB!==null)selectedB=null;else selectedA=null;renderTree()});
+document.getElementById('tree-home').addEventListener('click',()=>{selectedA=null;selectedB=null;renderTree()});
+document.querySelectorAll('.nav button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));button.classList.add('active');document.getElementById(button.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'})}));
+document.getElementById('show-tree').addEventListener('click',()=>document.getElementById('build-tree').scrollIntoView({behavior:'smooth'}));
+document.getElementById('open-doc').addEventListener('click',()=>window.open('https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md','_blank','noopener'));
+renderTree();
+</script>
+</body>
+</html>
