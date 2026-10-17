@@ -230,7 +230,7 @@ async function main() {
   console.log(JSON.stringify({ reportPath, status: route.status, confidence: route.confidence, routeCount: route.routes?.length || 0, failedSteps: report.failedSteps.length, issueNumber: issueNumber || null }, null, 2));
 }
 
-export { parseRunId, parseExactPaths, makeReport, formatIssueComment };
+export { parseRunId, parseExactPaths, parseIssuePaths, makeReport, formatIssueComment };
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch(error => {
     console.error('CORE diagnostic stopped safely:', error.message);
