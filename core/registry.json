@@ -745,6 +745,34 @@
       "branch": "main",
       "verifiedCommit": "05dca54a5bcd8537226d6dffc4017f5adcc43905",
       "notes": "Validates A/B/C parent consistency, unique routes, exact links, existing paths, and complete tracked-file coverage."
+    },
+    {
+      "id": "C6",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "محرك توجيه الأدلة",
+      "status": "YELLOW",
+      "resourceType": "FILE",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "core/route-resolver.mjs",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/route-resolver.mjs",
+      "branch": "main",
+      "verifiedCommit": "4a115230009419d02b2f483bfaf4b164517bab46",
+      "notes": "Pure read-only resolver; routes only exact changed paths and returns UNKNOWN when evidence is insufficient."
+    },
+    {
+      "id": "C7",
+      "level": "C",
+      "parentId": "A3/B0",
+      "name": "اختبارات محرك التوجيه",
+      "status": "YELLOW",
+      "resourceType": "TEST",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "tests/core-route-resolver.test.mjs",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-route-resolver.test.mjs",
+      "branch": "main",
+      "verifiedCommit": "e83f9aebaf4eeae3642e042bef03d26f8a146d32",
+      "notes": "Unit tests cover exact routing, unknown paths, unapproved repositories, partial matches, and no guessing from free text."
     }
   ],
   "unmappedResources": []
