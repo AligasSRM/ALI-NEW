@@ -48,6 +48,32 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     await expect(page.getByText(/لم يتم تنفيذ أي تغيير/)).toHaveCount(0);
   });
 
+  test('incident console correlates mocked run, commit paths, and failed step metadata', async ({ page }) => {
+    const sha = 'a'.repeat(40);
+    await page.route('https://api.github.com/**', async (route) => {
+      const url = new URL(route.request().url());
+      let body: unknown;
+      if (url.pathname.endsWith('/actions/runs/12345/jobs')) {
+        body = { jobs: [{ name: 'Browser acceptance', conclusion: 'failure', steps: [{ name: 'Run browser acceptance tests', conclusion: 'failure' }] }] };
+      } else if (url.pathname.endsWith('/actions/runs/12345')) {
+        body = { name: 'ALI-NEW Playwright Acceptance', status: 'completed', conclusion: 'failure', head_sha: sha, html_url: 'https://github.com/AligasSRM/ALI-NEW/actions/runs/12345' };
+      } else if (url.pathname.endsWith('/commits/' + sha)) {
+        body = { files: [{ filename: 'tests/ali-new-a0.spec.ts' }] };
+      } else {
+        await route.fulfill({ status: 404, contentType: 'application/json', body: JSON.stringify({ message: 'Not found in test mock' }) });
+        return;
+      }
+      await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
+    });
+
+    await page.goto('/core/incidents.html');
+    await page.locator('#run-id').fill('12345');
+    await page.getByRole('button', { name: 'تحليل الأدلة وتحديد المسار' }).click();
+    await expect(page.getByText('ROUTED · HIGH')).toBeVisible();
+    await expect(page.getByText('A0 → B2 → C0')).toBeVisible();
+    await expect(page.getByText('Browser acceptance / Run browser acceptance tests')).toBeVisible();
+  });
+
   test('planned sections do not pretend files exist', async ({ page }) => {
     await page.goto('/');
     await page.locator('.tree-select').filter({ hasText: /^A1\b/ }).click();
