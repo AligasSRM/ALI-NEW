@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "1.0.0",
+  "inventoryStatus": "PARTIALLY_VERIFIED",
+  "repository": {
+    "fullName": "AligasSRM/ALI-NEW",
+    "url": "https://github.com/AligasSRM/ALI-NEW",
+    "defaultBranch": "main"
+  },
+  "sourceCommit": "8ed8de3a7e743d88ca14c4f29a1f42d667fe474e",
+  "capturedAt": "2026-10-17",
+  "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
+  "counts": {
+    "files": 27,
+    "unmapped": 27
+  },
+  "policy": "This is an observed inventory snapshot, not the canonical A/B/C registry. No hierarchy IDs are invented here. Each blob SHA and path are tied to sourceCommit.",
+  "files": [
+    {
+      "path": ".github/workflows/pages-deploy.yml",
+      "blobSha": "dbe0a2c853c389537e0b1bd42dee197dad4b3923",
+      "sizeBytes": 1815,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-deploy.yml",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": ".github/workflows/pages-live-smoke.yml",
+      "blobSha": "1541a8f3dc29db21054ad7fad4aa1c7305a1652c",
+      "sizeBytes": 1364,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-live-smoke.yml",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": ".github/workflows/playwright.yml",
+      "blobSha": "57094fab20917fe504dfe962d5d1b7b7743b2247",
+      "sizeBytes": 1347,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/playwright.yml",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "ALI-ALEX-MASTER-PROJECT-PROMPT.md",
+      "blobSha": "9aeb9607b4f3a75a6f180d2a4dd3b11e2f574b9e",
+      "sizeBytes": 17721,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/ALI-ALEX-MASTER-PROJECT-PROMPT.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
+      "blobSha": "ad838f572e49f7dc657b27a112e1874f43342b05",
+      "sizeBytes": 28880,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "IDEAS-ALI-ALEX.md",
+      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
+      "sizeBytes": 31138,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "PROJECT-BUILD-TREE.md",
+      "blobSha": "66afebdc442071dc45a1df8e7511c4eee74021c1",
+      "sizeBytes": 31010,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "README.md",
+      "blobSha": "2dce24be33207561626d45f0e10b446d75d3dcbd",
+      "sizeBytes": 2757,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "core/registry.schema.json",
+      "blobSha": "fa87f861eb1d99a625c0d5e11115125eef799d27",
+      "sizeBytes": 4732,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.schema.json",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "design-preview/index.html",
+      "blobSha": "cf33283d8bd1ccd6f1bb588b8c7220cf3f6b8a08",
+      "sizeBytes": 18522,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/design-preview/index.html",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "blobSha": "a89158950b818fbb959b569963a33dfa46ef9930",
+      "sizeBytes": 81,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/decisions/README.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md",
+      "blobSha": "fcd8dd9cfe189807ef93c579a457dee96e025a9a",
+      "sizeBytes": 2709,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/design/CONTROL-PANEL-DESIGN-BASELINE.md",
+      "blobSha": "56b88c680ef5a075737f78e9123bb2751043a771",
+      "sizeBytes": 6815,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/CONTROL-PANEL-DESIGN-BASELINE.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/design/DESIGN-OPTIONS-ALI-ALEX.md",
+      "blobSha": "cc90a48ffe7806d14a4c76054e8ab11d33176daf",
+      "sizeBytes": 4157,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/DESIGN-OPTIONS-ALI-ALEX.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
+      "blobSha": "5aec55238b18100b28fb14ffba2339331e46c976",
+      "sizeBytes": 5240,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
+      "blobSha": "b0dd28a8bacf9226234c322b19e56b81a38dab91",
+      "sizeBytes": 11894,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md",
+      "blobSha": "cfc7b58b717abfe2176148eb91c0203b4dd06943",
+      "sizeBytes": 4722,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md",
+      "blobSha": "bb601b13c03834baff2de837048a0efbec3dc27c",
+      "sizeBytes": 7292,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/templates/GREEN-CERTIFICATE-TEMPLATE.md",
+      "blobSha": "7f3efc103177c586aa0a31b7dfb14da8f58359bd",
+      "sizeBytes": 1773,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/GREEN-CERTIFICATE-TEMPLATE.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md",
+      "blobSha": "c8237e77dd661092056e729688ee6ca8670349df",
+      "sizeBytes": 2507,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md",
+      "blobSha": "d11e3343464fcaf37acc07e4b106d061e93809fd",
+      "sizeBytes": 2630,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "index.html",
+      "blobSha": "1162adf3c3e5c86e838d70bdd9f96d25349271f4",
+      "sizeBytes": 34321,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/index.html",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "package.json",
+      "blobSha": "110ac65c8bb55d6c6723e7b120981d29ee3889db",
+      "sizeBytes": 404,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/package.json",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "playwright.config.ts",
+      "blobSha": "eb4f3254519ff227a7e02451644a4dd3fbd7c0a4",
+      "sizeBytes": 684,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/playwright.config.ts",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "scripts/validate-a0.mjs",
+      "blobSha": "08e95b532a0f70977a2f1ffc3944143796980547",
+      "sizeBytes": 3523,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-a0.mjs",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "tests/ali-new-a0.spec.ts",
+      "blobSha": "e7d2f46d4808ecf0514c10c6b7b19c897bb90267",
+      "sizeBytes": 5221,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/ali-new-a0.spec.ts",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "tests/live-pages.spec.ts",
+      "blobSha": "f060160cf023b284db11c417253aabdca3799cba",
+      "sizeBytes": 4623,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/live-pages.spec.ts",
+      "mappingStatus": "UNMAPPED"
+    }
+  ]
+}
