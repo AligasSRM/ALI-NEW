@@ -42,9 +42,13 @@ jobs:
         run: |
           set -euo pipefail
           curl --fail --silent --show-error --retry 5 --retry-delay 3 -D /tmp/control-panel-headers.txt "${PAGE_URL%/}/control-panel/" -o /tmp/control-panel.html
+          curl --fail --silent --show-error --retry 5 --retry-delay 3 "${PAGE_URL%/}/" -o /tmp/root-index.html
+          grep -q '<title>شجرة علي | ALI-NEW Engineering Control Panel</title>' /tmp/root-index.html
+          grep -q 'Current stage: A0 · Status: YELLOW' /tmp/root-index.html
+          grep -q 'id="tree-crumbs"' /tmp/root-index.html
           grep -q 'Current stage: A0 · Status: YELLOW' /tmp/control-panel.html
-          grep -q 'aria-expanded="false"' /tmp/control-panel.html
-          echo "Deployed control panel contains current acceptance evidence and ARIA state."
+          grep -q 'id="tree-crumbs"' /tmp/control-panel.html
+          echo "Root Ali Tree entry point and control-panel route contain the expected page title, stage evidence, and navigation container."
           echo "Relevant deployed response headers:"
           for name in content-security-policy strict-transport-security x-content-type-options referrer-policy permissions-policy x-frame-options; do
             value="$(grep -i "^${name}:" /tmp/control-panel-headers.txt | tail -n 1 | sed "s/\r$//" || true)"
