@@ -7,7 +7,8 @@
     "test:e2e": "playwright test --grep-invert @live",
     "test:e2e:report": "playwright show-report",
     "test:e2e:live": "playwright test tests/live-pages.spec.ts",
-    "validate:core-inventory": "node scripts/validate-core-inventory.mjs"
+    "validate:core-inventory": "node scripts/validate-core-inventory.mjs",
+    "validate:core-registry": "node scripts/validate-core-registry.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"
