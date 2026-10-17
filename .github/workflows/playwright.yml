@@ -42,6 +42,9 @@ jobs:
       - name: Validate CORE registry hierarchy and tracked-file coverage
         run: npm run validate:core-registry
 
+      - name: Test evidence-only CORE route resolver
+        run: npm run test:core-router
+
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
