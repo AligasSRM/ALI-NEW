@@ -61,8 +61,8 @@ for (const [i, node] of nodes.entries()) {
     if (node.url !== expectedUrl) errors(label + ' URL does not match repository/branch/path');
     if (!repoNames.has(node.repositoryFullName)) errors(label + ' references an unregistered repository');
     try { await access(node.path); } catch { errors(label + ' path does not exist in checkout: ' + node.path); }
-  } else if (node.level !== 'A' && node.status !== 'PLANNED') {
-    errors(label + ' non-planned resource must have an exact path');
+  } else if (node.level === 'B' && node.status !== 'PLANNED') {
+    errors(label + ' non-planned B resource must have an exact physical path');
   }
 }
 
