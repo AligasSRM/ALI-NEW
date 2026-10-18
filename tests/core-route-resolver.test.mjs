@@ -32,15 +32,17 @@ test('supports deeper levels without changing the resolver', () => {
   });
   extended.nodes.push({
     id: 'M0', level: 'M', parentId: file.parentId + '/' + file.id + '/C0',
-    name: 'تفصيل فرعي تجريبي', status: 'YELLOW', resourceType: 'OTHER'
+    name: 'تفصيل فرعي تجريبي', status: 'YELLOW', resourceType: 'OTHER',
+    repositoryFullName: 'AligasSRM/ALI-NEW', path: 'docs/test-deep-path.md',
+    url: 'https://github.com/AligasSRM/ALI-NEW/blob/main/docs/test-deep-path.md', branch: 'main'
   });
   const result = resolveCoreRoutes(extended, {
     repositoryFullName: 'AligasSRM/ALI-NEW',
-    changedPaths: ['tests/ali-new-a0.spec.ts']
+    changedPaths: ['docs/test-deep-path.md']
   });
   assert.equal(result.status, 'ROUTED');
-  assert.equal(result.routes[0].canonicalRoute.split('/').length, 2);
-  assert.deepEqual(result.routes[0].hierarchy.map(node => node.level), ['A', 'B']);
+  assert.equal(result.routes[0].canonicalRoute.split('/').length, 4);
+  assert.deepEqual(result.routes[0].hierarchy.map(node => node.level), ['A', 'B', 'C', 'M']);
 });
 
 test('returns UNKNOWN instead of guessing an unmapped path', () => {
