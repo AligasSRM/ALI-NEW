@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "registryStatus": "PARTIALLY_VERIFIED",
   "lastInventoryAt": null,
   "repositories": [
@@ -135,178 +135,6 @@
     {
       "id": "B0",
       "level": "B",
-      "parentId": "A0",
-      "name": "واجهة شجرة علي",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B1",
-      "level": "B",
-      "parentId": "A0",
-      "name": "الحوكمة ووثائق المشروع",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B2",
-      "level": "B",
-      "parentId": "A0",
-      "name": "اختبارات A0 والتحقق",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B3",
-      "level": "B",
-      "parentId": "A0",
-      "name": "سير العمل الآلي",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B4",
-      "level": "B",
-      "parentId": "A0",
-      "name": "قوالب الإغلاق والتوثيق",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B5",
-      "level": "B",
-      "parentId": "A0",
-      "name": "مرجع تصميم لوحة التحكم",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A1",
-      "name": "متطلبات المنتج",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A2",
-      "name": "خط أساس التصميم",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B1",
-      "level": "B",
-      "parentId": "A2",
-      "name": "خرائط وتجارب الواجهة",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "Section currently listed in the existing Ali Tree."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A3",
-      "name": "المعمارية الأساسية",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A4",
-      "name": "قواعد التطوير",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A5",
-      "name": "هوية المستخدم",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A6",
-      "name": "مسار الفيديو",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A7",
-      "name": "السلامة والإشراف",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A8",
-      "name": "الاكتشاف",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A9",
-      "name": "الإدارة",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A10",
-      "name": "البيانات والتكامل",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A11",
-      "name": "التحقق والجودة",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "B0",
-      "level": "B",
-      "parentId": "A12",
-      "name": "الإطلاق والصيانة",
-      "status": "PLANNED",
-      "resourceType": "SECTION",
-      "notes": "Planned section; no implementation is implied."
-    },
-    {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B0",
       "name": "واجهة شجرة علي التفاعلية الحالية",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -315,12 +143,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/index.html",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B0; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B1",
+      "id": "B1",
+      "level": "B",
       "name": "وثيقة البناء والتسلسل المعتمدة",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -329,12 +157,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B1; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A0/B1",
+      "id": "B2",
+      "level": "B",
       "name": "مدخل المستودع ونقطة الاستئناف",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -343,12 +171,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B1; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C2",
-      "level": "C",
-      "parentId": "A0/B1",
+      "id": "B3",
+      "level": "B",
       "name": "تعليمات الهندسة الرئيسية",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -357,12 +185,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/ALI-ALEX-MASTER-PROJECT-PROMPT.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B1; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C3",
-      "level": "C",
-      "parentId": "A0/B1",
+      "id": "B4",
+      "level": "B",
       "name": "سجل الأفكار",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -371,12 +199,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B1; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C4",
-      "level": "C",
-      "parentId": "A0/B1",
+      "id": "B5",
+      "level": "B",
       "name": "فهرس قرارات المشروع",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -385,12 +213,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/decisions/README.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B1; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B6",
+      "level": "B",
       "name": "اختبارات قبول لوحة التحكم",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -399,12 +227,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/ali-new-a0.spec.ts",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B7",
+      "level": "B",
       "name": "اختبارات صفحات النشر الحية",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -413,12 +241,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/live-pages.spec.ts",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C2",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B8",
+      "level": "B",
       "name": "مدقق المصدر الثابت",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -427,12 +255,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-a0.mjs",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C3",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B9",
+      "level": "B",
       "name": "أوامر المشروع واعتمادياته",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -441,12 +269,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/package.json",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C4",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B10",
+      "level": "B",
       "name": "إعدادات Playwright",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -455,12 +283,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/playwright.config.ts",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C5",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B11",
+      "level": "B",
       "name": "أدلة قبول المتصفح",
       "status": "YELLOW",
       "resourceType": "EVIDENCE",
@@ -469,12 +297,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C6",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B12",
+      "level": "B",
       "name": "أدلة التحقق الثابت",
       "status": "YELLOW",
       "resourceType": "EVIDENCE",
@@ -483,12 +311,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C7",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B13",
+      "level": "B",
       "name": "مراجعة المستودع ولقطة الأساس",
       "status": "YELLOW",
       "resourceType": "EVIDENCE",
@@ -497,12 +325,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B3",
+      "id": "B14",
+      "level": "B",
       "name": "بناء ونشر GitHub Pages",
       "status": "YELLOW",
       "resourceType": "WORKFLOW",
@@ -511,12 +339,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-deploy.yml",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A0/B3",
+      "id": "B15",
+      "level": "B",
       "name": "اختبار صفحات النشر الحية",
       "status": "YELLOW",
       "resourceType": "WORKFLOW",
@@ -525,12 +353,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-live-smoke.yml",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C2",
-      "level": "C",
-      "parentId": "A0/B3",
+      "id": "B16",
+      "level": "B",
       "name": "تشغيل اختبارات Playwright",
       "status": "YELLOW",
       "resourceType": "WORKFLOW",
@@ -539,12 +367,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/playwright.yml",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B4",
+      "id": "B17",
+      "level": "B",
       "name": "قالب شهادة GREEN",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -553,12 +381,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/GREEN-CERTIFICATE-TEMPLATE.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B4; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A0/B4",
+      "id": "B18",
+      "level": "B",
       "name": "قالب إغلاق القسم",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -567,12 +395,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B4; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C2",
-      "level": "C",
-      "parentId": "A0/B4",
+      "id": "B19",
+      "level": "B",
       "name": "قالب القرار التقني",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -581,12 +409,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B4; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A0/B5",
+      "id": "B20",
+      "level": "B",
       "name": "خط أساس تصميم لوحة التحكم",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -595,12 +423,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/CONTROL-PANEL-DESIGN-BASELINE.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A0/B5; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A2/B0",
+      "id": "B0",
+      "level": "B",
       "name": "خط أساس التصميم المعتمد",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -609,12 +437,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A2/B0; the physical path is unchanged.",
+      "parentId": "A2"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A2/B1",
+      "id": "B1",
+      "level": "B",
       "name": "خريطة الشاشات ورحلة المستخدم",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -623,12 +451,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A2/B1; the physical path is unchanged.",
+      "parentId": "A2"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A2/B1",
+      "id": "B2",
+      "level": "B",
       "name": "خيارات التصميم المسجلة",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -637,21 +465,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/DESIGN-OPTIONS-ALI-ALEX.md",
       "branch": "main",
       "verifiedCommit": "ee785df4944642577b1aeedbf1ed2bf36f709316",
-      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory."
+      "notes": "Path observed in the GitHub tree and matched to the existing Ali Tree entry. Content and behaviour have not been fully certified by this inventory. Migrated from legacy grouping A2/B1; the physical path is unchanged.",
+      "parentId": "A2"
     },
     {
-      "id": "B2",
+      "id": "B3",
       "level": "B",
-      "parentId": "A2",
-      "name": "النموذج الأولي للمنتج",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "واجهة عرض تجريبية فقط؛ لا تمثل تكاملاً أو مصادقة حقيقية."
-    },
-    {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A2/B2",
       "name": "النموذج الأولي للواجهة",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -660,12 +479,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/design-preview/index.html",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Prototype UI; demo-only behavior, not a production service."
+      "notes": "Prototype UI; demo-only behavior, not a production service. Migrated from legacy grouping A2/B2; the physical path is unchanged.",
+      "parentId": "A2"
     },
     {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B0",
+      "level": "B",
       "name": "دراسة معمارية العقل المركزي",
       "status": "YELLOW",
       "resourceType": "DOCUMENT",
@@ -674,12 +493,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Architecture and workflow requirements; implementation remains staged."
+      "notes": "Architecture and workflow requirements; implementation remains staged. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C1",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B1",
+      "level": "B",
       "name": "مخطط سجل CORE",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -688,12 +507,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.schema.json",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Schema contract; custom structural validation is the next gate."
+      "notes": "Schema contract; custom structural validation is the next gate. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C2",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B2",
+      "level": "B",
       "name": "لقطة جرد المستودع",
       "status": "YELLOW",
       "resourceType": "EVIDENCE",
@@ -702,12 +521,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Historical inventory snapshot tied to its sourceCommit; not a live GitHub sync."
+      "notes": "Historical inventory snapshot tied to its sourceCommit; not a live GitHub sync. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C3",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B3",
+      "level": "B",
       "name": "مدقّق لقطة الجرد",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -716,12 +535,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-inventory.mjs",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Validates inventory structure; it does not fetch live GitHub data."
+      "notes": "Validates inventory structure; it does not fetch live GitHub data. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C4",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B4",
+      "level": "B",
       "name": "السجل المركزي الحالي",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -730,12 +549,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
       "branch": "main",
       "verifiedCommit": "e2757a6d7ad27407278fb5afad0d3369dce11b0c",
-      "notes": "Seeded registry; validate hierarchy and local path consistency before calling it verified."
+      "notes": "Seeded registry; validate hierarchy and local path consistency before calling it verified. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C5",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B5",
+      "level": "B",
       "name": "مدقّق السجل المركزي",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -744,12 +563,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-registry.mjs",
       "branch": "main",
       "verifiedCommit": "05dca54a5bcd8537226d6dffc4017f5adcc43905",
-      "notes": "Validates A/B/C parent consistency, unique routes, exact links, existing paths, and complete tracked-file coverage."
+      "notes": "Validates A/B/C parent consistency, unique routes, exact links, existing paths, and complete tracked-file coverage. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C6",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B6",
+      "level": "B",
       "name": "محرك توجيه الأدلة",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -758,12 +577,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/route-resolver.mjs",
       "branch": "main",
       "verifiedCommit": "4a115230009419d02b2f483bfaf4b164517bab46",
-      "notes": "Pure read-only resolver; routes only exact changed paths and returns UNKNOWN when evidence is insufficient."
+      "notes": "Pure read-only resolver; routes only exact changed paths and returns UNKNOWN when evidence is insufficient. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C7",
-      "level": "C",
-      "parentId": "A3/B0",
+      "id": "B7",
+      "level": "B",
       "name": "اختبارات محرك التوجيه",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -772,21 +591,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-route-resolver.test.mjs",
       "branch": "main",
       "verifiedCommit": "e83f9aebaf4eeae3642e042bef03d26f8a146d32",
-      "notes": "Unit tests cover exact routing, unknown paths, unapproved repositories, partial matches, and no guessing from free text."
+      "notes": "Unit tests cover exact routing, unknown paths, unapproved repositories, partial matches, and no guessing from free text. Migrated from legacy grouping A3/B0; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "B1",
+      "id": "B8",
       "level": "B",
-      "parentId": "A3",
-      "name": "استقبال الحوادث وتوجيه الأدلة",
-      "status": "YELLOW",
-      "resourceType": "SECTION",
-      "notes": "واجهة قراءة فقط لتحليل تشغيل GitHub ومسارات التغيير وتوجيهها إلى A/B/C."
-    },
-    {
-      "id": "C0",
-      "level": "C",
-      "parentId": "A3/B1",
       "name": "واجهة محقق الحوادث",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -795,12 +605,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/incidents.html",
       "branch": "main",
       "verifiedCommit": "dbf5e098194a68254a3aaea7267f07eb68f18386",
-      "notes": "Read-only incident console. It reads public GitHub Actions run/commit metadata and routes exact changed paths; it does not modify code or prove root cause."
+      "notes": "Read-only incident console. It reads public GitHub Actions run/commit metadata and routes exact changed paths; it does not modify code or prove root cause. Migrated from legacy grouping A3/B1; the physical path is unchanged.",
+      "parentId": "A3"
     },
     {
-      "id": "C8",
-      "level": "C",
-      "parentId": "A0/B2",
+      "id": "B21",
+      "level": "B",
       "name": "اختبارات حلقة التشخيص المركزية",
       "status": "YELLOW",
       "resourceType": "TEST",
@@ -809,12 +619,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-diagnostic.test.mjs",
       "branch": "main",
       "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
-      "notes": "Unit tests for the read-only CORE diagnostic parser, report, and exact route handling."
+      "notes": "Unit tests for the read-only CORE diagnostic parser, report, and exact route handling. Migrated from legacy grouping A0/B2; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C3",
-      "level": "C",
-      "parentId": "A0/B3",
+      "id": "B22",
+      "level": "B",
       "name": "سير عمل تشخيص CORE",
       "status": "YELLOW",
       "resourceType": "WORKFLOW",
@@ -823,12 +633,12 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/core-diagnostic.yml",
       "branch": "main",
       "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
-      "notes": "Read-only GitHub Actions workflow for issue-driven evidence collection and exact registry routing; no deployment."
+      "notes": "Read-only GitHub Actions workflow for issue-driven evidence collection and exact registry routing; no deployment. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
+      "parentId": "A0"
     },
     {
-      "id": "C4",
-      "level": "C",
-      "parentId": "A0/B3",
+      "id": "B23",
+      "level": "B",
       "name": "منفذ تشخيص CORE",
       "status": "YELLOW",
       "resourceType": "FILE",
@@ -837,7 +647,8 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/run-core-diagnostic.mjs",
       "branch": "main",
       "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
-      "notes": "Read-only evidence collector for workflow/commit metadata, failed-step metadata, and exact A/B/C routing."
+      "notes": "Read-only evidence collector for workflow/commit metadata, failed-step metadata, and exact A/B/C routing. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
+      "parentId": "A0"
     }
   ],
   "unmappedResources": []
