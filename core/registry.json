@@ -649,6 +649,20 @@
       "verifiedCommit": "e5f57e709af31009428ba56bc13682670344f4fa",
       "notes": "Read-only evidence collector for workflow/commit metadata, failed-step metadata, and exact A/B/C routing. Migrated from legacy grouping A0/B3; the physical path is unchanged.",
       "parentId": "A0"
+    },
+    {
+      "id": "B9",
+      "level": "B",
+      "parentId": "A3",
+      "name": "مرجع بنية الشجرة المفتوحة",
+      "status": "YELLOW",
+      "resourceType": "DOCUMENT",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "path": "docs/architecture/OPEN-ENDED-CORE-HIERARCHY.md",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/architecture/OPEN-ENDED-CORE-HIERARCHY.md",
+      "branch": "main",
+      "verifiedCommit": "c6dfc1223310e1880ee75cc9103678ee45664ced",
+      "notes": "Defines open-ended A/B/C+ semantics and migration rules; mapped as a physical document under A3."
     }
   ],
   "unmappedResources": []
