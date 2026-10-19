@@ -383,3 +383,17 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 4. الروابط من الواجهة يجب أن تفتح المسار الحقيقي للملف على GitHub، لا صفحة وهمية ولا ملفاً غير موجود.
 5. حالة القسم مستقلة عن وجود الملف: وجود الملف لا يعني GREEN، ووجود قسم مخطط لا يعني أنه نُفّذ.
 6. لا تُدمج التغييرات إلى `main` ولا تعتمد نشرها إلا بعد مراجعة التغييرات وتشغيل اختبارات A0 المطلوبة.
+
+
+## 18. Mandatory session-resume contract — Ali's standing instruction (2026-10-19)
+
+At every resumed work session:
+1. Start at [ALI-ALEX-CONTROL](https://github.com/AligasSRM/ALI-ALEX-CONTROL) and read its control index and work/scope rules.
+2. For ALI-NEW, read the latest checkpoint/review notes first: [Repository Review & Snapshot](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md), then the latest applicable stage evidence such as [A0 Browser Acceptance Evidence](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md).
+3. State the exact last stopping point, what was completed, open blockers/decisions, current evidence, and the next safe action.
+4. Read this Project Build Tree and the relevant stage roadmap after the checkpoint notes; inspect source files only after those steps.
+5. Keep ALI-NEW notes and evidence in ALI-NEW. Do not copy CORE notes into this repository or infer that another project's status applies here.
+6. After meaningful work and before pausing, update the relevant checkpoint with date, result, branch/commit, tests/evidence, unresolved items, and one exact next action. Read the saved file back to verify it. If not verified, say so.
+7. No GREEN without evidence. Do not merge, deploy, delete, change providers/permissions, spend money/credits, or broaden scope without the required approval.
+
+This is a session-driven procedure; it does not claim background work happens while no session is active.
