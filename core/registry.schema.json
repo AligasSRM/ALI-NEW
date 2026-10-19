@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aligassrm.github.io/ALI-NEW/core/registry.schema.json",
-  "title": "ALI & ALEX CORE Registry",
-  "description": "Canonical registry contract for repository identities, stable A/B/C hierarchy IDs, verified resources, and explicitly unmapped inventory entries.",
+  "title": "ALI & ALEX CORE Open-Ended Registry",
+  "description": "Open-ended hierarchy. A nodes are top-level sections; B nodes are directly mapped resources/files; deeper uppercase-letter levels may represent tasks, issues, evidence, or further detail. Parent identity is always a full canonical route.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   "properties": {
     "schemaVersion": {
       "type": "string",
-      "const": "1.0.0"
+      "const": "2.0.0"
     },
     "registryStatus": {
       "type": "string",
@@ -113,22 +113,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^[ABC][0-9]+$"
+            "pattern": "^[A-Z][0-9]+$"
           },
           "level": {
             "type": "string",
-            "enum": [
-              "A",
-              "B",
-              "C"
-            ]
+            "pattern": "^[A-Z]$"
           },
           "parentId": {
             "type": [
               "string",
               "null"
             ],
-            "pattern": "^(A[0-9]+|A[0-9]+/B[0-9]+)$"
+            "pattern": "^A[0-9]+(?:/[A-Z][0-9]+)*$"
           },
           "name": {
             "type": "string",
@@ -213,7 +209,7 @@
     },
     "unmappedResources": {
       "type": "array",
-      "description": "Observed repository resources that have not yet been assigned a verified A/B/C route. Do not invent IDs or parent nodes to force classification.",
+      "description": "Observed repository resources not yet assigned a verified route.",
       "items": {
         "type": "object",
         "additionalProperties": false,

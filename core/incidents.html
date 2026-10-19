@@ -22,7 +22,7 @@
 <main>
   <div class="top"><a href="../index.html">← الرجوع إلى CORE / Ali Tree</a><span class="pill">READ-ONLY · بدون صلاحيات كتابة</span></div>
   <h1>CORE Incident Router</h1>
-  <p class="muted">أدخل رقم تشغيل GitHub Actions أو مسارات الملفات المتغيرة. سيبحث النظام عن تطابق حرفي مع سجل A/B/C؛ إذا لم تكفِ الأدلة، سيعيد UNKNOWN ولن يخمّن.</p>
+  <p class="muted">أدخل رقم تشغيل GitHub Actions أو مسارات الملفات المتغيرة. سيبحث النظام عن تطابق حرفي مع سجل هرمي مفتوح A/B/C وما بعده؛ إذا لم تكفِ الأدلة، سيعيد UNKNOWN ولن يخمّن.</p>
   <section class="panel" aria-labelledby="intake-heading">
     <h2 id="intake-heading">1. إدخال الحادثة</h2>
     <form id="incident-form">
@@ -43,7 +43,7 @@
     <ul>
       <li>القراءة فقط؛ لا تعديل ملفات ولا إعادة تشغيل workflow ولا إنشاء PR.</li>
       <li>الـ API محصور بالمستودع العام <code>AligasSRM/ALI-NEW</code> ورقم تشغيل رقمي.</li>
-      <li>التوجيه يحتاج تطابقاً دقيقاً بين مسار C والـ registry؛ النصوص والكلمات المفتاحية وحدها لا تكفي.</li>
+      <li>التوجيه يحتاج تطابقاً دقيقاً بين مسار المورد بأي مستوى والـ registry؛ النصوص والكلمات المفتاحية وحدها لا تكفي.</li>
       <li>التطابق لا يثبت السبب الجذري. إذا غاب المسار أو تعددت الاحتمالات، تبقى الحالة UNKNOWN وتحتاج تشخيصاً موجهاً.</li>
     </ul>
   </section>
@@ -92,7 +92,8 @@ function renderResult(result, runEvidence) {
   for (const route of result.routes || []) {
     const card = addText(resultElement, 'div', '', 'route');
     addText(card, 'h3', route.route);
-    addText(card, 'p', route.phase.name + ' → ' + route.section.name + ' → ' + route.resourceName);
+    addText(card, 'p', (route.hierarchy || []).map(item => item.name).join(' → '));
+    addText(card, 'p', 'المسار الكامل: ' + route.canonicalRoute);
     addText(card, 'p', route.repositoryFullName + ' / ' + route.path);
     addText(card, 'p', 'حالة المورد: ' + route.resourceStatus + ' · تطابق المسار: exact');
     const link = document.createElement('a');
