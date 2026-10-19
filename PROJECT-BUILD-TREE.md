@@ -388,7 +388,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 ## 18. Mandatory session-resume contract — Ali's standing instruction (2026-10-19)
 
 At every resumed work session:
-1. Start at [ALI-ALEX-CONTROL](https://github.com/AligasSRM/ALI-ALEX-CONTROL) and read its control index and work/scope rules.
+1. Start at [Ali-CONTROL](https://github.com/AligasSRM/Ali-CONTROL) and read its control index and work/scope rules.
 2. For ALI-NEW, read the latest checkpoint/review notes first: [Repository Review & Snapshot](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md), then the latest applicable stage evidence such as [A0 Browser Acceptance Evidence](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md).
 3. State the exact last stopping point, what was completed, open blockers/decisions, current evidence, and the next safe action.
 4. Read this Project Build Tree and the relevant stage roadmap after the checkpoint notes; inspect source files only after those steps.
