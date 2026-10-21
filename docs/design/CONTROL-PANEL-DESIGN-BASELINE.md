@@ -9,11 +9,11 @@
 
 ## Source of truth
 
-- Primary implementation/mockup: [`control-panel/index.html`](../../control-panel/index.html)
+- Primary implementation/mockup: [`index.html`](../../index.html)
 - End-user platform design baseline (separate scope): [ALI-NEW approved design baseline](./ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md)
 - Repository review record: [ALI-NEW repository review](../reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md)
 
-The current `control-panel/index.html` is the single maintained HTML source for this control-panel prototype. Do not create or maintain duplicate HTML snapshots for it. Make approved changes in the primary file and document material decisions here.
+The current `index.html` at the repository root is the single maintained HTML source for the Ali Tree control-panel prototype. The former `control-panel/index.html` path is historical and is not present on current `main`. Do not create or maintain duplicate HTML snapshots. Make approved changes in the root source and document material decisions here.
 
 ## Accepted visual direction — Stage Detail Card 1.8, palette B
 
@@ -76,7 +76,7 @@ The review also identified:
 - the literal `\\n` text artifact was corrected in the primary HTML source; source text was re-fetched and checked after the A0 update;
 - the former `docs/decisions/` link pointed to a location not present in the inspected tree. It now points to the existing `PROJECT-BUILD-TREE.md` policy file. The URL target was checked in source, but browser navigation has not been exercised.
 - the Stage Detail area now lists the A0 acceptance gate, real repository evidence links, source checks, and browser checks still pending.
-- the control-panel palette in `control-panel/index.html` now uses the accepted navy/violet/sky-blue/emerald/gold/coral tokens. The separate end-user video-platform file was not changed.
+- the current root `index.html` uses the accepted navy/violet/sky-blue/emerald/gold/coral tokens. Earlier references to `control-panel/index.html` describe the historical location of the prototype; the separate end-user video-platform file was not changed.
 
 No browser/device, accessibility, security, automated JavaScript, or deployment verification is implied by this visual baseline.
 
