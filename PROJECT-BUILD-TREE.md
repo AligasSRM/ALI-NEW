@@ -394,3 +394,15 @@ At every resumed work session:
 7. No GREEN without evidence. Do not merge, deploy, delete, change providers/permissions, spend money/credits, or broaden scope without the required approval.
 
 This is a session-driven procedure; it does not claim background work happens while no session is active.
+
+## 19. Current checkpoint — 2026-10-22
+
+- **Active stage:** A0 — Ali Tree control panel and canonical inventory.
+- **Status:** YELLOW — implementation fixes are staged for review; this is not a GREEN certificate or a production-readiness claim.
+- **Working branch:** `fix/a0-inventory-and-docs`.
+- **Implementation baseline before this checkpoint note:** `48256490e6ad188c8938c810bb42c8a4461be13c`.
+- **Changes prepared on the branch:** dashboard phase/file counts now derive from `core/registry.json`; the unlabeled metrics container uses a group instead of a section; the B2 browser assertion derives its expected count from the canonical registry; current design/build references point to the actual root `index.html`; the session-resume contract points to `Ali-Control`; the inventory validator cross-checks the snapshot against the canonical registry and tracked Git paths; and the snapshot records 37 tracked files with 37 canonical mappings for the captured source commit.
+- **Verification state:** changes have been written to the branch and read-back checks are still required. A new CI run for this branch has not yet been observed. The previous main-branch browser run failed on the former hard-coded B2 count; the new test derives the expected value from the registry. No merge or deployment has been performed.
+- **Open gates:** run the branch CI; review HTML/accessibility/security results; reconcile overlapping open PRs #7 (registry-derived B2 test count) and #10 (session-resume control reference) before merging; review PR #8 separately because it proposes a broader registry schema migration; complete A0 closeout only when all required evidence is available.
+- **Next exact action:** open a draft pull request for this branch, inspect every check and failure log, correct any new failures, and keep A0 YELLOW until the required acceptance gates pass.
+
