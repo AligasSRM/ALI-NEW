@@ -41,12 +41,12 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
     <div class="card"><div class="next-label">NEXT ACTION</div><div class="next-title">A0 — جرد وفهرسة الشجرة</div><p class="muted">Review the visual system, navigation, expandable tree, and mobile layout before locking this milestone.</p><span class="status">NOT VERIFIED</span></div>
   </section>
   <div class="change-note"><strong>OPEN TO CHANGE · قابل للتعديل دائماً</strong><br>A0–A12 هي الخطة الحالية وليست سقفاً ثابتاً. يمكن إضافة A13 أو A14 أو A15، أو تعديل الأقسام والملفات وعدد المستودعات، إذا أثبتت المراجعة أن ذلك أفضل وأكثر أماناً أو حداثة. نسجّل سبب كل تغيير وأثره قبل اعتماده.</div>
-  <section class="metrics" aria-label="Project summary">
-    <div class="metric"><span>Planned levels</span><strong>13</strong><small>A0 through A12</small></div>
-    <div class="metric"><span>ملفات مفهرسة</span><strong>25</strong><small>ملفات موجودة في main</small></div>
+  <div class="metrics" role="group" aria-label="Project summary">
+    <div class="metric"><span>Planned levels</span><strong id="metric-phase-count">13</strong><small>A0 through A12</small></div>
+    <div class="metric"><span>ملفات مفهرسة</span><strong id="metric-file-count">—</strong><small>ملفات ذات مسارات فعلية في السجل</small></div>
     <div class="metric"><span>Production releases</span><strong>0</strong><small>No release verified</small></div>
     <div class="metric"><span>Current state</span><strong style="color:var(--gold)">YELLOW</strong><small>Design / prototype</small></div>
-  </section>
+  </div>
   <section id="build-tree">
     <div class="section-head"><div><h2>شجرة علي · Ali Tree</h2><p>فهرس مراقبة هرمي: اختر A، ثم B، ثم اعرض ملفات C وروابطها الفعلية داخل المستودع. الأرقام للتنظيم فقط ولا تغيّر أسماء الملفات أو أماكنها.</p></div><a class="tree-link" href="./core/incidents.html">فتح محقق الحوادث للقراءة فقط ↗</a></div>
     <div class="tree-toolbar">
@@ -123,6 +123,8 @@ async function loadCanonicalTree(){
   if(!Array.isArray(registry.nodes)) throw new Error('registry.nodes is missing');
   registryMeta=registry;
   const phases=registry.nodes.filter(n=>n.level==='A').sort((a,b)=>numericId(a)-numericId(b));
+  document.getElementById('metric-phase-count').textContent=String(phases.length);
+  document.getElementById('metric-file-count').textContent=String(registry.nodes.filter(n=>n.level==='C'&&typeof n.path==='string'&&n.path.length>0).length);
   aliTree=phases.map(a=>({
    id:a.id,name:a.name,desc:a.notes||a.status,status:a.status,
    sections:registry.nodes.filter(n=>n.level==='B'&&n.parentId===a.id).sort((x,y)=>numericId(x)-numericId(y)).map(b=>({
