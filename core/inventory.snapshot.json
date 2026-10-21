@@ -6,7 +6,7 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "dfebc60f39746beb3ae11533ace7d35ac5597ea8",
+  "sourceCommit": "eefb0f69620ef3fc830973075c0b54873defd126",
   "capturedAt": "2026-10-22",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
@@ -74,7 +74,7 @@
     },
     {
       "path": "core/inventory.snapshot.json",
-      "blobSha": "726a8480f325e902127acfd072cb2803227495a1",
+      "blobSha": "a202ba386bf1e9b739319ef31cd58ee5187992a1",
       "sizeBytes": 12462,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
@@ -82,7 +82,7 @@
     },
     {
       "path": "core/registry.json",
-      "blobSha": "1ba083aaeadc15c97484fa547313dee6ee72c448",
+      "blobSha": "fb51ad512b1e5361fff190f852b87ba4cb46eb61",
       "sizeBytes": 33300,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
       "mappingStatus": "MAPPED",
@@ -234,8 +234,8 @@
     },
     {
       "path": "PROJECT-BUILD-TREE.md",
-      "blobSha": "0032d7e29e239da08d51d5e6e018915b6b1cd053",
-      "sizeBytes": 34856,
+      "blobSha": "1bd68459b3fc076972668517ff230201d74914a9",
+      "sizeBytes": 34967,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B1/C0"
