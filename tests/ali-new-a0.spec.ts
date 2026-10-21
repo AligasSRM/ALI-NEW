@@ -15,6 +15,25 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     expect(inlineScripts).not.toContain('const aliTree = [');
   });
 
+  test('renders registry labels as text rather than executable HTML', async ({ page }) => {
+    const payload = '<img src=x data-injected="true">';
+    await page.route('**/core/registry.json', async (route) => {
+      const response = await route.fetch();
+      const registry = await response.json();
+      const phase = registry.nodes.find((node: { level: string; id: string; name: string; notes?: string }) => node.level === 'A' && node.id === 'A0');
+      if (!phase) throw new Error('A0 phase is missing from the registry fixture');
+      phase.name = payload;
+      phase.notes = payload;
+      await route.fulfill({ response, json: registry });
+    });
+
+    await page.goto('/');
+    await expect(page.locator('#ali-tree-list img[data-injected="true"]')).toHaveCount(0);
+    await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
+    await expect(page.locator('#tree-crumbs img[data-injected="true"]')).toHaveCount(0);
+    await expect(page.getByText(payload, { exact: true }).first()).toBeVisible();
+  });
+
   test('loads the Ali Tree and drills from A to B to real C file paths', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/شجرة علي.*ALI-NEW Engineering Control Panel/);
