@@ -14,8 +14,8 @@ Preserve the two visual directions Ali explicitly liked so they can be revisited
 
 **Decision:** Keep the current control-panel concept as the preferred starting point for the project workspace.
 
-- Existing source: [control-panel/index.html](../../control-panel/index.html)
-- GitHub file: https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html
+- Existing source: [index.html](../../index.html)
+- GitHub file: https://github.com/AligasSRM/ALI-NEW/blob/main/index.html
 - Visual direction: deep navy background (`#080D19`) with violet (`#C8BDFF`), sky-blue (`#8CCBFF`), emerald (`#70E2BE`), gold (`#FFD16F`), and coral (`#FF8298`) accents; clear cards, status indicators, expandable build tree, repository map, tool policy, and responsive navigation.
 - Intended use: track project phases, file/repository map, decisions, evidence, risks, acceptance gates, and handover notes.
 - Current reality: standalone HTML/CSS/JavaScript prototype. It is not yet connected to live GitHub data, a database, authentication, or automated project status.
