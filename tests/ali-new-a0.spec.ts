@@ -27,7 +27,13 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
     await page.locator('.tree-select').filter({ hasText: 'B2' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('B2');
-    await expect(page.locator('.file-card')).toHaveCount(8);
+    const registryResponse = await page.request.get('/core/registry.json');
+    expect(registryResponse.ok()).toBeTruthy();
+    const registry = await registryResponse.json();
+    const expectedFileCount = registry.nodes.filter((node: { level: string; parentId?: string; path?: string }) =>
+      node.level === 'C' && node.parentId === 'A0/B2' && Boolean(node.path)
+    ).length;
+    await expect(page.locator('.file-card')).toHaveCount(expectedFileCount);
     await expect(page.getByText('tests/ali-new-a0.spec.ts', { exact: true })).toBeVisible();
     await expect(page.getByRole('link', { name: /فتح الملف الفعلي على GitHub/ }).first()).toHaveAttribute('href', /github.com\/AligasSRM\/ALI-NEW\/blob\/main\//);
 
