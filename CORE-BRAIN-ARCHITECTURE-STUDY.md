@@ -1,4 +1,4 @@
-# ALI & ALEX CORE — Central GitHub Brain Architecture Study
+# Ali Tree — Central GitHub Control Architecture Study
 
 **Owner / final decision:** Ali  
 **Engineering / coordination:** Alex  
@@ -9,7 +9,7 @@
 
 ## 1. Executive decision
 
-Build one central control plane, called **ALI & ALEX CORE**, with **Ali Tree** as its visible navigation and inspection surface. CORE should become the authoritative index and coordinator for the GitHub repositories Ali chooses to connect.
+Build one central control plane, called **Ali Tree**, as the visible navigation and inspection surface. It should become the authoritative index and coordinator for the GitHub repositories Ali chooses to connect.
 
 The existing `index.html` is a static interactive prototype. It is not yet a live controller: it does not query GitHub, maintain a durable incident queue, discover real repository contents automatically, dispatch verified tasks, or observe live test results. The existing tree contains manually authored mappings, and at least one inventory count needs reconciliation before it can be treated as authoritative.
 
@@ -23,7 +23,7 @@ Do not create a new repository for this work. Keep the design, source, tests, an
 Ali (owner / approval authority)
              |
              v
-ALI & ALEX CORE — central control plane
+Ali Tree — central control plane
   |          |            |             |
   |          |            |             +--> Policy, approvals, audit trail
   |          |            +----------------> Incidents / CI failures / alerts
