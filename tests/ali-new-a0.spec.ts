@@ -29,9 +29,10 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
     await page.goto('/');
     await expect(page.locator('#ali-tree-list img[data-injected="true"]')).toHaveCount(0);
+    await expect(page.getByText(payload, { exact: true }).first()).toBeVisible();
     await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
     await expect(page.locator('#tree-crumbs img[data-injected="true"]')).toHaveCount(0);
-    await expect(page.getByText(payload, { exact: true }).first()).toBeVisible();
+    await expect(page.locator('#tree-crumbs')).toContainText(payload);
   });
 
   test('loads the Ali Tree and drills from A to B to real C file paths', async ({ page }) => {
