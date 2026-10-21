@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aligassrm.github.io/ALI-NEW/core/registry.schema.json",
-  "title": "ALI & ALEX CORE Registry",
+  "title": "Ali Tree Registry",
   "description": "Canonical registry contract for repository identities, stable A/B/C hierarchy IDs, verified resources, and explicitly unmapped inventory entries.",
   "type": "object",
   "additionalProperties": false,
