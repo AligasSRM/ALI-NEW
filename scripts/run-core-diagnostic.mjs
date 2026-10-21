@@ -46,7 +46,7 @@ async function githubGet(apiPath) {
       Accept: 'application/vnd.github+json',
       Authorization: 'Bearer ' + token,
       'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent': 'ALI-ALEX-CORE-read-only-diagnostics'
+      'User-Agent': 'ALI-NEW-read-only-diagnostics'
     }
   });
   if (!response.ok) {
@@ -65,7 +65,7 @@ async function githubPostComment(issueNumber, body) {
       Authorization: 'Bearer ' + token,
       'X-GitHub-Api-Version': '2022-11-28',
       'Content-Type': 'application/json',
-      'User-Agent': 'ALI-ALEX-CORE-read-only-diagnostics'
+      'User-Agent': 'ALI-NEW-read-only-diagnostics'
     },
     body: JSON.stringify({ body })
   });
@@ -87,7 +87,7 @@ function makeReport({ runId, issueNumber, changedPaths, run, commit, jobs, route
   }
   return {
     schemaVersion: 1,
-    system: 'ALI & ALEX CORE',
+    system: 'Ali Tree',
     mode: 'READ_ONLY_DIAGNOSTIC',
     generatedAt: new Date().toISOString(),
     repository: repo,
@@ -116,7 +116,7 @@ function makeReport({ runId, issueNumber, changedPaths, run, commit, jobs, route
 
 function formatIssueComment(report) {
   const lines = [
-    '## ALI & ALEX CORE — Diagnostic result',
+    '## Ali Tree — Diagnostic result',
     '',
     `- **Mode:** READ-ONLY — no repository files were changed.`,
     `- **Status:** ${report.route.status}`,
@@ -228,7 +228,7 @@ async function main() {
     await githubPostComment(issueNumber, comment);
   }
   const summary = [
-    '# ALI & ALEX CORE — Read-only diagnostic',
+    '# Ali Tree — Read-only diagnostic',
     '',
     `- Status: **${route.status}**`,
     `- Confidence: **${route.confidence}**`,
