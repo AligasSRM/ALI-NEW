@@ -1,208 +1,316 @@
 {
   "schemaVersion": "1.0.0",
-  "inventoryStatus": "PARTIALLY_VERIFIED",
+  "inventoryStatus": "VERIFIED",
   "repository": {
     "fullName": "AligasSRM/ALI-NEW",
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "8ed8de3a7e743d88ca14c4f29a1f42d667fe474e",
-  "capturedAt": "2026-10-17",
+  "sourceCommit": "eefb0f69620ef3fc830973075c0b54873defd126",
+  "capturedAt": "2026-10-22",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
-    "files": 27,
-    "unmapped": 27
+    "files": 37,
+    "mapped": 37,
+    "unmapped": 0
   },
-  "policy": "This is an observed inventory snapshot, not the canonical A/B/C registry. No hierarchy IDs are invented here. Each blob SHA and path are tied to sourceCommit.",
+  "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness.",
   "files": [
+    {
+      "path": ".github/workflows/core-diagnostic.yml",
+      "blobSha": "bb9083032e08009fa024cf9fbb9b0b75b6e5eec2",
+      "sizeBytes": 2560,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/core-diagnostic.yml",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B3/C3"
+    },
     {
       "path": ".github/workflows/pages-deploy.yml",
       "blobSha": "dbe0a2c853c389537e0b1bd42dee197dad4b3923",
       "sizeBytes": 1815,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-deploy.yml",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B3/C0"
     },
     {
       "path": ".github/workflows/pages-live-smoke.yml",
       "blobSha": "1541a8f3dc29db21054ad7fad4aa1c7305a1652c",
       "sizeBytes": 1364,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/pages-live-smoke.yml",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B3/C1"
     },
     {
       "path": ".github/workflows/playwright.yml",
-      "blobSha": "57094fab20917fe504dfe962d5d1b7b7743b2247",
-      "sizeBytes": 1347,
+      "blobSha": "f5ba60f9659a7a47635aaacbb63b7a975b7da27e",
+      "sizeBytes": 1650,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/.github/workflows/playwright.yml",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B3/C2"
     },
     {
       "path": "ALI-ALEX-MASTER-PROJECT-PROMPT.md",
       "blobSha": "9aeb9607b4f3a75a6f180d2a4dd3b11e2f574b9e",
       "sizeBytes": 17721,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/ALI-ALEX-MASTER-PROJECT-PROMPT.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C2"
     },
     {
       "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
-      "blobSha": "ad838f572e49f7dc657b27a112e1874f43342b05",
-      "sizeBytes": 28880,
+      "blobSha": "11ecf173a03b15bfd0b76f56397a052b19111069",
+      "sizeBytes": 30913,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C0"
     },
     {
-      "path": "IDEAS-ALI-ALEX.md",
-      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
-      "sizeBytes": 31138,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
-      "mappingStatus": "UNMAPPED"
+      "path": "core/incidents.html",
+      "blobSha": "6aa5be1b302a0924e0dc7f5ca249ab0d873b0879",
+      "sizeBytes": 10784,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/incidents.html",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B1/C0"
     },
     {
-      "path": "PROJECT-BUILD-TREE.md",
-      "blobSha": "66afebdc442071dc45a1df8e7511c4eee74021c1",
-      "sizeBytes": 31010,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
-      "mappingStatus": "UNMAPPED"
+      "path": "core/inventory.snapshot.json",
+      "blobSha": "a202ba386bf1e9b739319ef31cd58ee5187992a1",
+      "sizeBytes": 12462,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C2"
     },
     {
-      "path": "README.md",
-      "blobSha": "2dce24be33207561626d45f0e10b446d75d3dcbd",
-      "sizeBytes": 2757,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
-      "mappingStatus": "UNMAPPED"
+      "path": "core/registry.json",
+      "blobSha": "fb51ad512b1e5361fff190f852b87ba4cb46eb61",
+      "sizeBytes": 33300,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C4"
     },
     {
       "path": "core/registry.schema.json",
-      "blobSha": "fa87f861eb1d99a625c0d5e11115125eef799d27",
-      "sizeBytes": 4732,
+      "blobSha": "4778509dc8fb83f4d9fbfbf649cdcdfe280322c5",
+      "sizeBytes": 5830,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.schema.json",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C1"
+    },
+    {
+      "path": "core/route-resolver.mjs",
+      "blobSha": "14464649add1e1d79490e5b64294d88826939597",
+      "sizeBytes": 3328,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/route-resolver.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C6"
     },
     {
       "path": "design-preview/index.html",
       "blobSha": "cf33283d8bd1ccd6f1bb588b8c7220cf3f6b8a08",
       "sizeBytes": 18522,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/design-preview/index.html",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A2/B2/C0"
     },
     {
       "path": "docs/decisions/README.md",
       "blobSha": "a89158950b818fbb959b569963a33dfa46ef9930",
       "sizeBytes": 81,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/decisions/README.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C4"
     },
     {
       "path": "docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md",
       "blobSha": "fcd8dd9cfe189807ef93c579a457dee96e025a9a",
       "sizeBytes": 2709,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A2/B0/C0"
     },
     {
       "path": "docs/design/CONTROL-PANEL-DESIGN-BASELINE.md",
-      "blobSha": "56b88c680ef5a075737f78e9123bb2751043a771",
-      "sizeBytes": 6815,
+      "blobSha": "618d2872f9e0705b82fb9a9417ab34fac655959d",
+      "sizeBytes": 6961,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/CONTROL-PANEL-DESIGN-BASELINE.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B5/C0"
     },
     {
       "path": "docs/design/DESIGN-OPTIONS-ALI-ALEX.md",
-      "blobSha": "cc90a48ffe7806d14a4c76054e8ab11d33176daf",
-      "sizeBytes": 4157,
+      "blobSha": "cedc84d0c97c1517f88f43df167a828c9f78dfec",
+      "sizeBytes": 4115,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/DESIGN-OPTIONS-ALI-ALEX.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A2/B1/C1"
     },
     {
       "path": "docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
       "blobSha": "5aec55238b18100b28fb14ffba2339331e46c976",
       "sizeBytes": 5240,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A2/B1/C0"
     },
     {
       "path": "docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
       "blobSha": "b0dd28a8bacf9226234c322b19e56b81a38dab91",
       "sizeBytes": 11894,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C5"
     },
     {
       "path": "docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md",
       "blobSha": "cfc7b58b717abfe2176148eb91c0203b4dd06943",
       "sizeBytes": 4722,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C6"
     },
     {
       "path": "docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md",
       "blobSha": "bb601b13c03834baff2de837048a0efbec3dc27c",
       "sizeBytes": 7292,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C7"
     },
     {
       "path": "docs/templates/GREEN-CERTIFICATE-TEMPLATE.md",
       "blobSha": "7f3efc103177c586aa0a31b7dfb14da8f58359bd",
       "sizeBytes": 1773,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/GREEN-CERTIFICATE-TEMPLATE.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B4/C0"
     },
     {
       "path": "docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md",
       "blobSha": "c8237e77dd661092056e729688ee6ca8670349df",
       "sizeBytes": 2507,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B4/C1"
     },
     {
       "path": "docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md",
       "blobSha": "d11e3343464fcaf37acc07e4b106d061e93809fd",
       "sizeBytes": 2630,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B4/C2"
+    },
+    {
+      "path": "IDEAS-ALI-ALEX.md",
+      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
+      "sizeBytes": 31138,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C3"
     },
     {
       "path": "index.html",
-      "blobSha": "1162adf3c3e5c86e838d70bdd9f96d25349271f4",
-      "sizeBytes": 34321,
+      "blobSha": "f30d7833e60248364551359c6d5f97d1f3081fb7",
+      "sizeBytes": 31585,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/index.html",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B0/C0"
     },
     {
       "path": "package.json",
-      "blobSha": "110ac65c8bb55d6c6723e7b120981d29ee3889db",
-      "sizeBytes": 404,
+      "blobSha": "013dffbc6cff8a52c288be46a0eba48475c3e34e",
+      "sizeBytes": 626,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/package.json",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C3"
     },
     {
       "path": "playwright.config.ts",
       "blobSha": "eb4f3254519ff227a7e02451644a4dd3fbd7c0a4",
       "sizeBytes": 684,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/playwright.config.ts",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C4"
+    },
+    {
+      "path": "PROJECT-BUILD-TREE.md",
+      "blobSha": "1bd68459b3fc076972668517ff230201d74914a9",
+      "sizeBytes": 34967,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C0"
+    },
+    {
+      "path": "README.md",
+      "blobSha": "cae8c362b28423ac58164ecd1dafeb780391e356",
+      "sizeBytes": 2754,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C1"
+    },
+    {
+      "path": "scripts/run-core-diagnostic.mjs",
+      "blobSha": "c463ce323a6287ae3c3eac660aa6e78fb608c95b",
+      "sizeBytes": 9944,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/run-core-diagnostic.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B3/C4"
     },
     {
       "path": "scripts/validate-a0.mjs",
       "blobSha": "08e95b532a0f70977a2f1ffc3944143796980547",
       "sizeBytes": 3523,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-a0.mjs",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C2"
+    },
+    {
+      "path": "scripts/validate-core-inventory.mjs",
+      "blobSha": "184d28fd67e56f22265283b25ae59bed9bc4d35b",
+      "sizeBytes": 5473,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-inventory.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C3"
+    },
+    {
+      "path": "scripts/validate-core-registry.mjs",
+      "blobSha": "64ff6a2f85648ba7b04a83309f23bec374c01fba",
+      "sizeBytes": 6125,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/scripts/validate-core-registry.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C5"
     },
     {
       "path": "tests/ali-new-a0.spec.ts",
-      "blobSha": "e7d2f46d4808ecf0514c10c6b7b19c897bb90267",
-      "sizeBytes": 5221,
+      "blobSha": "741dadec398a9acccf733ef4e9f90daa3d7935a3",
+      "sizeBytes": 9995,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/ali-new-a0.spec.ts",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C0"
+    },
+    {
+      "path": "tests/core-diagnostic.test.mjs",
+      "blobSha": "c2a4fa24a5695cb56d90235fdd5a50f9f2286186",
+      "sizeBytes": 3597,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-diagnostic.test.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C8"
+    },
+    {
+      "path": "tests/core-route-resolver.test.mjs",
+      "blobSha": "761b24786ce8c34c0af259960c2a84c52da96af1",
+      "sizeBytes": 2402,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/core-route-resolver.test.mjs",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A3/B0/C7"
     },
     {
       "path": "tests/live-pages.spec.ts",
       "blobSha": "f060160cf023b284db11c417253aabdca3799cba",
       "sizeBytes": 4623,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/live-pages.spec.ts",
-      "mappingStatus": "UNMAPPED"
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B2/C1"
     }
   ]
 }

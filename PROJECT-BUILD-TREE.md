@@ -28,7 +28,7 @@ The project and its data are the durable assets; tools, builders, hosts, databas
 **Required decision gate:** a significant dependency cannot move beyond PLANNED/YELLOW until the decision record covers the requirement, alternatives, trade-offs, exit plan, and verification criteria.
 
 ## 3. Project levels (A0–A12 baseline)
-- **A0 — Project Control Panel & identity (FIRST):** project title, browser tab title, visual system, navigation, progress/status, section tree, evidence links, responsive layout, accessibility basics. Deliverable: `control-panel/index.html` prototype. Gate: visual review on desktop/mobile and interaction checks.
+- **A0 — Project Control Panel & identity (FIRST):** project title, browser tab title, visual system, navigation, progress/status, section tree, evidence links, responsive layout, accessibility basics. Deliverable: root `index.html` prototype (current source; the former `control-panel/index.html` path is historical). Gate: visual review on desktop/mobile and interaction checks.
 - **A1 — Product definition:** problem, audiences, value, scope, exclusions, terminology, acceptance criteria, unresolved questions.
 - **A2 — Product UX/UI:** user journeys, page inventory, wireframes, design tokens, RTL Arabic and English behavior, responsive/accessibility rules.
 - **A3 — Architecture & boundaries:** domain model, trust boundaries, data flows, API contracts, threat model, provider-neutral interfaces, exit/migration plans.
@@ -69,10 +69,7 @@ ALI-NEW/
 │   ├── security/
 │   ├── decisions/
 │   └── operations/
-├── control-panel/
-│   ├── index.html
-│   ├── assets/
-│   └── README.md
+├── index.html             # Current Ali Tree engineering control-panel prototype
 ├── app/                 # create after A1–A4 design gates; no application code yet
 ├── tests/               # add alongside the first testable behavior
 └── evidence/
@@ -301,7 +298,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 
 **الاسم المعروض:** شجرة علي · Ali Tree  
 **المستودع الأساسي:** [AligasSRM/ALI-NEW](https://github.com/AligasSRM/ALI-NEW)  
-**واجهة الفهرس:** [control-panel/index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html)  
+**واجهة الفهرس:** [index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/index.html)  
 **حالة التغيير:** مقترح على فرع مراجعة؛ لا يُعد معتمداً على main قبل المراجعة والدمج.  
 **قاعدة أساسية:** A/B/C معرّفات تنظيمية فقط. لا تُنشأ مجلدات بهذه الأسماء، ولا تُنقل أو تُعاد تسمية الملفات، ولا يُختلق مسار لملف غير موجود.
 
@@ -314,7 +311,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 #### A0 / B0 — واجهة شجرة علي
 | C ID | المسار الحقيقي | الغرض |
 |---|---|---|
-| C0 | `control-panel/index.html` | واجهة الفهرس التفاعلي |
+| C0 | `index.html` | واجهة الفهرس التفاعلي |
 
 #### A0 / B1 — الحوكمة ووثائق المشروع
 | C ID | المسار الحقيقي | الغرض |
@@ -388,7 +385,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 ## 18. Mandatory session-resume contract — Ali's standing instruction (2026-10-19)
 
 At every resumed work session:
-1. Start at [ALI-ALEX-CONTROL](https://github.com/AligasSRM/ALI-ALEX-CONTROL) and read its control index and work/scope rules.
+1. Start at [Ali-Control](https://github.com/AligasSRM/Ali-Control) and read its control index and work/scope rules.
 2. For ALI-NEW, read the latest checkpoint/review notes first: [Repository Review & Snapshot](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md), then the latest applicable stage evidence such as [A0 Browser Acceptance Evidence](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md).
 3. State the exact last stopping point, what was completed, open blockers/decisions, current evidence, and the next safe action.
 4. Read this Project Build Tree and the relevant stage roadmap after the checkpoint notes; inspect source files only after those steps.
@@ -397,3 +394,15 @@ At every resumed work session:
 7. No GREEN without evidence. Do not merge, deploy, delete, change providers/permissions, spend money/credits, or broaden scope without the required approval.
 
 This is a session-driven procedure; it does not claim background work happens while no session is active.
+
+## 19. Current checkpoint — 2026-10-22
+
+- **Active stage:** A0 — Ali Tree control panel and canonical inventory.
+- **Status:** YELLOW — implementation fixes are staged for review; this is not a GREEN certificate or a production-readiness claim.
+- **Working branch:** `fix/a0-inventory-and-docs`.
+- **Implementation baseline before this checkpoint note:** `48256490e6ad188c8938c810bb42c8a4461be13c`.
+- **Changes prepared on the branch:** dashboard phase/file counts derive from `core/registry.json`; summary containers use labeled groups; the B2 browser assertion derives its expected count from the registry; current design/build references point to root `index.html`; the session-resume contract points to `Ali-Control`; inventory validation cross-checks the snapshot, canonical registry, and tracked Git paths; the snapshot records 37 tracked files with 37 canonical mappings; and registry-derived labels are rendered through DOM `textContent` rather than HTML parsing, with a regression test for injected markup.
+- **Verification state:** PR #11 head `8584ec55ec852ff8cb057a087ac22a1bde98481a` passed [Playwright acceptance run #39694835149](https://github.com/AligasSRM/ALI-NEW/actions/runs/39694835149) and [CORE diagnostic run #39694835183](https://github.com/AligasSRM/ALI-NEW/actions/runs/39694835183): 13/13 browser tests, source invariants, 0 HTML errors/warnings on both pages, secret-history scan, 37/37 inventory mappings, registry coverage, and 11/11 route-resolver tests. Subsequent commits add DOM-safe registry rendering and a regression test for injected markup; those changes require a fresh CI result on the current head before being accepted. No merge or deployment has been performed.
+- **Open gates:** run the branch CI; review HTML/accessibility/security results; reconcile overlapping open PRs #7 (registry-derived B2 test count) and #10 (session-resume control reference) before merging; review PR #8 separately because it proposes a broader registry schema migration; complete A0 closeout only when all required evidence is available.
+- **Next exact action:** inspect the fresh CI result for the DOM-injection regression test and confirm the HTML checker remains warning-free; then review the rendered UI on desktop/mobile, reconcile overlapping draft PRs #7 and #10, and review PR #8 separately. Keep A0 YELLOW until owner visual acceptance, broader security/accessibility review, and formal closeout are complete; do not merge without Ali's explicit approval.
+
