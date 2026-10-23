@@ -31,6 +31,16 @@ for (const path of sources) {
     const syntax = spawnSync(process.execPath, ['--check', '-'], { input: inlineScripts, encoding: 'utf8' });
     if (syntax.status !== 0) failures.push(path + ' inline JavaScript syntax failed: ' + (syntax.stderr || syntax.stdout).trim());
   }
+
+  if (path === 'index.html') {
+    if (!/<meta\\s+http-equiv=["']Content-Security-Policy["']/i.test(html)) failures.push(path + ' missing page-level Content-Security-Policy');
+    if (!/script-src 'self'/.test(html) || /script-src[^"]*unsafe-inline/.test(html)) failures.push(path + ' CSP must restrict scripts to same-origin sources without unsafe-inline');
+    if (!/<meta\\s+name=["']referrer["']\\s+content=["']strict-origin-when-cross-origin["']/i.test(html)) failures.push(path + ' missing strict-origin-when-cross-origin referrer policy');
+    if (!/<script\\s+src=["']\\.\\/ali-tree\\.js["'][^>]*\\bdefer\\b/i.test(html)) failures.push(path + ' must load the external control-panel script with defer');
+    const externalScript = await readFile('ali-tree.js', 'utf8');
+    const externalSyntax = spawnSync(process.execPath, ['--check', '-'], { input: externalScript, encoding: 'utf8' });
+    if (externalSyntax.status !== 0) failures.push('ali-tree.js syntax failed: ' + (externalSyntax.stderr || externalSyntax.stdout).trim());
+  }
   console.log(path + ': ' + ids.length + ' IDs, ' + targets.length + ' navigation targets, ' + buttons.length + ' buttons, ' + anchors.length + ' links.');
 }
 
