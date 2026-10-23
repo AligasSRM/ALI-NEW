@@ -6,7 +6,7 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "ead7bb30f756e46959c857ac4d95b1ba4cbf1ef8",
+  "sourceCommit": "f754be1cfb84fcc1274641ed33877e364faa4cf6",
   "capturedAt": "2026-10-23",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
@@ -65,6 +65,30 @@
       "hierarchyRoute": "A3/B0/C0"
     },
     {
+      "path": "IDEAS-ALI-ALEX.md",
+      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
+      "sizeBytes": 31138,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C3"
+    },
+    {
+      "path": "PROJECT-BUILD-TREE.md",
+      "blobSha": "cc29a84068ac9032b66c962a16936b03d70a556c",
+      "sizeBytes": 35507,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C0"
+    },
+    {
+      "path": "README.md",
+      "blobSha": "08c735a6c299cfa10c37f743b13f19f4e5488bb0",
+      "sizeBytes": 22232,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A0/B1/C1"
+    },
+    {
       "path": "core/incidents.html",
       "blobSha": "6aa5be1b302a0924e0dc7f5ca249ab0d873b0879",
       "sizeBytes": 10784,
@@ -74,8 +98,8 @@
     },
     {
       "path": "core/inventory.snapshot.json",
-      "blobSha": "87057512bb8029d45493fbf93db3900a17f1287c",
-      "sizeBytes": 12802,
+      "blobSha": "6eb75ca5e3b4264d6d17a887c4bf53a1dc3b2664",
+      "sizeBytes": 12803,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A3/B0/C2"
@@ -209,14 +233,6 @@
       "hierarchyRoute": "A0/B4/C2"
     },
     {
-      "path": "IDEAS-ALI-ALEX.md",
-      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
-      "sizeBytes": 31138,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
-      "mappingStatus": "MAPPED",
-      "hierarchyRoute": "A0/B1/C3"
-    },
-    {
       "path": "index.html",
       "blobSha": "3960eb5df4c8aafe27c9af76e7707bac3c2c5850",
       "sizeBytes": 31738,
@@ -239,22 +255,6 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/playwright.config.ts",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B2/C4"
-    },
-    {
-      "path": "PROJECT-BUILD-TREE.md",
-      "blobSha": "cc29a84068ac9032b66c962a16936b03d70a556c",
-      "sizeBytes": 35507,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
-      "mappingStatus": "MAPPED",
-      "hierarchyRoute": "A0/B1/C0"
-    },
-    {
-      "path": "README.md",
-      "blobSha": "cae8c362b28423ac58164ecd1dafeb780391e356",
-      "sizeBytes": 2754,
-      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
-      "mappingStatus": "MAPPED",
-      "hierarchyRoute": "A0/B1/C1"
     },
     {
       "path": "scripts/run-core-diagnostic.mjs",
