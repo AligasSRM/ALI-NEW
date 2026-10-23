@@ -161,3 +161,16 @@ This addendum supersedes the earlier open-item wording only for HTML validation 
 - The response-header finding is documented, not silently waived. No hosting, Pages, permission, or protection settings were changed. Addressing server response headers may require a separately authorized hosting/configuration decision; static HTML cannot supply every missing response header.
 - A broader semantic/accessibility review and the owner's desktop/mobile visual acceptance are still outstanding.
 - No GREEN certificate is issued and A1 is not started. Reassess only after the remaining gates are resolved with evidence and the required owner acceptance is recorded.
+
+## 12. Page-level security mitigation — 2026-10-24
+
+A source-level mitigation was added on the existing PR #15 branch; it has **not** been merged or verified on the live Pages deployment.
+
+- Moved the control-panel inline JavaScript into the same-origin `ali-tree.js` file and load it with `defer`.
+- Added a page-level CSP meta policy: `default-src 'self'`, `object-src 'none'`, `base-uri 'self'`, same-origin scripts only, same-origin connections, and restricted form actions. Inline styles remain allowed because the current design uses an inline style block and style attributes.
+- Added `strict-origin-when-cross-origin` as the document referrer policy.
+- Extended `scripts/validate-a0.mjs` to assert the policies are present and that `ali-tree.js` passes JavaScript syntax validation.
+
+**Important limitation:** these meta policies are defense-in-depth, not HTTP response headers. They do not clear the SecurityHeaders finding and do not replace `X-Frame-Options`, `X-Content-Type-Options: nosniff`, or `Permissions-Policy`; CSP `frame-ancestors` also cannot be enforced through a CSP meta element. The live SecurityHeaders grade therefore remains unverified after this source change and must not be described as fixed. GitHub Pages does not provide arbitrary per-site response-header configuration through repository HTML. No hosting, DNS, Pages, protection, or permission settings were changed.
+
+A0 remains **YELLOW / OPEN** until the source checks pass, the change is deployed and checked live, the remaining response-header risk is resolved through an explicitly authorized supported hosting path or documented risk decision, and accessibility/owner-acceptance gates are complete.
