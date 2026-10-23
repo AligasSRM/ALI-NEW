@@ -167,7 +167,7 @@ test.describe('ALI-NEW design preview', () => {
   test('registration fields retain visible keyboard focus and associated labels', async ({ page }) => {
     await page.goto('/design-preview/');
     await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
-    await page.getByRole('button', { name: 'Create an account' }).click();
+    await page.getByRole('button', { name: 'Create account', exact: true }).click();
     await expect(page.getByLabel('Display name')).toBeVisible();
     await expect(page.getByLabel('Email address')).toBeVisible();
     await expect(page.getByLabel('Create password', { exact: true })).toBeVisible();
