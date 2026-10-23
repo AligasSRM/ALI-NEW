@@ -229,14 +229,7 @@ This list is a UX journey checklist, not a claim that those screens are implemen
 
 ### 15.6 Current checkpoint — resume here
 
-- **Active stage:** A0 — Project Control Panel & identity.
-- **Status:** YELLOW — browser acceptance now passes after responsive defects were found and corrected; remaining standards/security/closeout gates are being verified.
-- **Source work completed 2026-10-17:** aligned `control-panel/index.html` to the accepted design baseline; corrected stale acceptance copy; set explicit `type="button"` on all 22 control-panel buttons; constrained mobile navigation overflow; and stacked narrow detail grids to eliminate real horizontal overflow at 360px and 768px. No duplicate HTML backups were created.
-- **Verified current code baseline:** commit `7d97fae46ffe988fdfd6ca937e4498c64dff9e37`; local Playwright **18/18 passed** (run [#25](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108730)); deployed Pages smoke **11/11 passed** (run [#12](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985140923)); Pages deployment verification succeeded (run [#18](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108729)); Pages build/deployment succeeded (run [#36](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108135)).
-- **Root-cause note:** earlier automated runs exposed real horizontal overflow at 360px (mobile navigation contributed to document width) and at 768px (the two-column detail grid's intrinsic minimum width). Responsive rules now constrain the mobile app/nav and stack the bottom detail grid below 900px; subsequent local acceptance passed at 360, 390, 768, and 1280px.
-- **Next action:** run the new Nu HTML Checker + inline JavaScript/static invariants, redacted full-history secret scan, and deployed response-header capture; review their results and then finish the A0 closeout note and GREEN certificate only if all required gates pass.
-- **Hold point:** do not start A1 or another stage until A0 passes its acceptance gate, unless a narrowly scoped technical dependency is documented under §15.2.
-- **After each session:** update this checkpoint in this same file, record evidence and commit SHA, and state the exact next action. Do not create another competing checkpoint page.
+The current operational checkpoint is Section 19. Do not treat dated checkpoint notes elsewhere in this file as current state.
 
 ## 16. Permanent A/B/C engineering index policy — approved by Ali (2026-10-17)
 
@@ -288,121 +281,48 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 
 ### 16.6 Historical session checkpoint — 2026-10-17
 
-This subsection preserves the original checkpoint as history only. Its file counts, next actions, and repository state are not the current operational baseline. Use Section 19 below for the current checkpoint, and verify branch/commit data directly before relying on any test evidence.
+Historical only. The current inventory and working state are recorded in Sections 17 and 19; use Git history for the original session details.
 
-## 17. شجرة علي — فهرس A/B/C الفعلي (مراجعة 2026-10-23)
+## 17. Canonical A/B/C index and inventory
 
-**الاسم المعروض:** شجرة علي · Ali Tree  
-**المستودع الأساسي:** [AligasSRM/ALI-NEW](https://github.com/AligasSRM/ALI-NEW)  
-**واجهة الفهرس:** [index.html](https://github.com/AligasSRM/ALI-NEW/blob/main/index.html)  
-**حالة التغيير:** مقترح على فرع مراجعة؛ لا يُعد معتمداً على main قبل المراجعة والدمج.  
-**قاعدة أساسية:** A/B/C معرّفات تنظيمية فقط. لا تُنشأ مجلدات بهذه الأسماء، ولا تُنقل أو تُعاد تسمية الملفات، ولا يُختلق مسار لملف غير موجود.
+The canonical file-to-ID mapping is maintained in **core/registry.json**. The tracked-file snapshot is maintained in **core/inventory.snapshot.json** and must identify its exact source commit. Do not duplicate the full file map in this document; duplication creates drift.
 
-### 17.1 ما أثبته جرد المستودع
+The latest reconciled snapshot records:
+- 13 A phases
+- 21 B sections
+- 38 C resources
+- 38 tracked files, 38 mapped, 0 unmapped
 
-أظهر الجرد المسجل في فرع الإصلاح **38 ملفاً متتبعاً، و38 ملفاً مربوطاً، و0 غير مربوط**. هذه نتيجة لقطة مرتبطة بمرجع مصدر سابق؛ بعد تعديل الوثائق يجب إعادة بناء اللقطة والتحقق من مساراتها وـ blob SHAs على commit نهائي. لا يُستخدم الرقم كدليل حديث قبل إتمام هذا التحقق. الأقسام التي لم تُبنَ بعد تبقى مخططة ولا تُعرض كملفات موجودة.
+These are inventory facts only. They do not mean all stages are implemented, approved, or GREEN.
 
-### 17.2 A0 — الجرد والتحكم بالمشروع
+### Mapping rules
+1. Every tracked file has one canonical C resource or an explicit UNMAPPED record.
+2. Full A/B/C routes must be unique and point to real paths.
+3. IDs are logical locators; they never rename or move physical files.
+4. Planned sections are not represented as existing files.
+5. Update the registry and snapshot together when tracked files change, then run both validators.
+6. The Ali Tree interface renders the registry; it must not maintain a second embedded file map.
 
-#### A0 / B0 — واجهة شجرة علي
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `index.html` | واجهة الفهرس التفاعلي |
+## 18. Session-resume contract
 
-#### A0 / B1 — الحوكمة ووثائق المشروع
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `PROJECT-BUILD-TREE.md` | المرجع الهندسي الرئيسي |
-| C1 | `README.md` | مدخل المستودع ونقطة الاستئناف |
-| C2 | `ALI-ALEX-MASTER-PROJECT-PROMPT.md` | تعليمات الهندسة الرئيسية |
-| C3 | `IDEAS-ALI-ALEX.md` | سجل الأفكار |
-| C4 | `docs/decisions/README.md` | فهرس قرارات المشروع |
-
-#### A0 / B2 — اختبارات A0 والتحقق والأدلة
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `tests/ali-new-a0.spec.ts` | اختبارات قبول لوحة التحكم |
-| C1 | `tests/live-pages.spec.ts` | اختبارات صفحات النشر الحية |
-| C2 | `scripts/validate-a0.mjs` | التحقق الثابت من المصدر |
-| C3 | `package.json` | أوامر المشروع والاعتماديات |
-| C4 | `playwright.config.ts` | إعدادات Playwright |
-| C5 | `docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md` | أدلة قبول المتصفح |
-| C6 | `docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md` | أدلة التحقق الثابت |
-| C7 | `docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md` | مراجعة المستودع ولقطة الأساس |
-
-#### A0 / B3 — سير العمل الآلي
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `.github/workflows/pages-deploy.yml` | بناء ونشر GitHub Pages |
-| C1 | `.github/workflows/pages-live-smoke.yml` | اختبار صفحات النشر الحية |
-| C2 | `.github/workflows/playwright.yml` | تشغيل اختبارات Playwright |
-
-#### A0 / B4 — قوالب الإغلاق والتوثيق
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `docs/templates/GREEN-CERTIFICATE-TEMPLATE.md` | قالب شهادة GREEN |
-| C1 | `docs/templates/SECTION-CLOSEOUT-NOTE-TEMPLATE.md` | قالب إغلاق القسم |
-| C2 | `docs/templates/TECHNICAL-DECISION-RECORD-TEMPLATE.md` | قالب القرار التقني |
-
-#### A0 / B5 — مرجع تصميم لوحة التحكم
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md` | خط أساس تصميم لوحة التحكم |
-
-### 17.3 A1 — تعريف المنتج
-- **A1 / B0 — متطلبات المنتج:** المرحلة ما زالت `PLANNED` وغير معتمدة. توجد مسودة `docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md` مفهرسة كـ `A1/B0/C0` بحالة `PLANNED`. إدراجها هنا لأغراض الجرد والتتبع فقط؛ لا يعني بدء تنفيذ A1 أو اعتماد الوثيقة، ولا يغيّر شرط إغلاق A0 أولاً.
-
-### 17.4 A2 — تجربة المستخدم والتصميم
-
-#### A2 / B0 — خط أساس التصميم
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md` | خط أساس التصميم المعتمد |
-
-#### A2 / B1 — خرائط وتجارب الواجهة
-| C ID | المسار الحقيقي | الغرض |
-|---|---|---|
-| C0 | `docs/design/VIDEO-PLATFORM-SCREEN-MAP.md` | خريطة الشاشات ورحلة المستخدم |
-| C1 | `docs/design/DESIGN-OPTIONS-ALI-ALEX.md` | خيارات التصميم المسجلة |
-| C2 | `design-preview/index.html` | معاينة تصميم الواجهة |
-
-### 17.5 A3–A12 — أقسام مخططة
-لكل مرحلة من A3 إلى A12 يوجد حالياً قسم B0 تنظيمي واحد في واجهة الفهرس لتسهيل التوسعة. هذه الأقسام **ليست دليلاً على وجود تنفيذ أو ملفات**؛ وتظهر رسالة «لا توجد ملفات مخصصة بعد» إلى أن يُجرى جرد فعلي وتُسجّل المسارات الحقيقية. لا نُنشئ ملفات لمجرد ملء أرقام C.
-
-### 17.6 قواعد الصيانة
-1. قبل أي تعديل، أعد جرد شجرة GitHub من الفرع والـcommit المستهدفين.
-2. لا تعِد استخدام C ID نفسه لملفين، ولا تمنح الملف نفسه أكثر من هوية C أساسية.
-3. عند إضافة ملف جديد مستقبلاً، حدّث هذا السجل وواجهة شجرة علي معاً، ثم اختبر تطابق عدد الملفات والمسارات.
-4. الروابط من الواجهة يجب أن تفتح المسار الحقيقي للملف على GitHub، لا صفحة وهمية ولا ملفاً غير موجود.
-5. حالة القسم مستقلة عن وجود الملف: وجود الملف لا يعني GREEN، ووجود قسم مخطط لا يعني أنه نُفّذ.
-6. لا تُدمج التغييرات إلى `main` ولا تعتمد نشرها إلا بعد مراجعة التغييرات وتشغيل اختبارات A0 المطلوبة.
-
-
-## 18. Mandatory session-resume contract — Ali's standing instruction (2026-10-19)
-
-At every resumed work session:
-1. Start at [Ali-Control](https://github.com/AligasSRM/Ali-Control) and read its control index and work/scope rules.
-2. For ALI-NEW, read the latest checkpoint/review notes first: [Repository Review & Snapshot](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md), then the latest applicable stage evidence such as [A0 Browser Acceptance Evidence](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md).
-3. State the exact last stopping point, what was completed, open blockers/decisions, current evidence, and the next safe action.
-4. Read this Project Build Tree and the relevant stage roadmap after the checkpoint notes; inspect source files only after those steps.
-5. Keep ALI-NEW notes and evidence in ALI-NEW. Do not copy CORE notes into this repository or infer that another project's status applies here.
-6. After meaningful work and before pausing, update the relevant checkpoint with date, result, branch/commit, tests/evidence, unresolved items, and one exact next action. Read the saved file back to verify it. If not verified, say so.
-7. No GREEN without evidence. Do not merge, deploy, delete, change providers/permissions, spend money/credits, or broaden scope without the required approval.
-
-This is a session-driven procedure; it does not claim background work happens while no session is active.
+When work resumes:
+1. Confirm the approved repository and scope; for this project, work only in ALI-NEW unless Ali separately authorizes otherwise.
+2. Read this build tree and Section 19 before inspecting or changing source files.
+3. Verify the current branch and commit; do not assume an old checkpoint or CI run still describes the current tree.
+4. Keep reading as the default; no deletion, merge, deployment, permission/security-setting change, or paid activation without the required explicit approval.
+5. After meaningful work, update the relevant checkpoint, preserve evidence links, and read the saved file back to verify it.
+6. No GREEN without acceptance evidence. No background work is implied when a session is inactive.
 
 ## 19. Current checkpoint — 2026-10-23
 
 - **Active stage:** A0 — Ali Tree control panel and canonical inventory.
-- **Status:** YELLOW. No GREEN certificate or stage closure has been issued.
+- **Status:** YELLOW. A0 remains open; no GREEN certificate or stage closeout has been issued.
 - **Working repository:** AligasSRM/ALI-NEW only.
 - **Working branch:** fix/a0-reconcile-core-inventory.
-- **Pull request:** [PR #13](https://github.com/AligasSRM/ALI-NEW/pull/13), draft and not merged. This work does not authorize merge or deployment.
-- **Documentation cleanup:** README is a concise entry point; the master rules focus on governance and workflow; the ideas ledger separates decisions, proposals, and open product questions; the CORE study distinguishes architectural proposals from implemented capabilities.
-- **Ali Tree interface:** reviewed the existing semantic navigation and current-step labels. The page remains an English-dominant bilingual control-panel prototype, not a live GitHub controller or the video product itself. No additional UI behavior was changed in this documentation pass.
-- **Inventory:** the refreshed snapshot records 38 tracked files, 38 mapped, and 0 unmapped. Its sourceCommit field identifies the source tree described by the recorded blob SHAs and byte sizes. Inventory verification does not certify runtime behavior or production readiness.
-- **Latest complete automated evidence before the final snapshot/checkpoint commits:** [Playwright run #39986785851](https://github.com/AligasSRM/ALI-NEW/actions/runs/39986785851) passed 15 browser tests; the inventory and registry validators passed; the secret-history scan passed; the HTML checker reported 0 errors. That run used an intermediate version of index.html and reported one language warning; the file has since been restored to its previous English-dominant markup. [CORE diagnostic run #39986785822](https://github.com/AligasSRM/ALI-NEW/actions/runs/39986785822) passed its diagnostic/router tests.
-- **Final-commit CI:** no fresh workflow/status result was returned for the latest snapshot-only commit. Do not treat the earlier run as proof that the exact final commit was tested.
-- **Open A0 gates:** obtain fresh automated validation on the final branch head; Ali's visual acceptance; remaining manual screen-reader/accessibility review; and a documented disposition for the observed missing response security headers. Automated HTML checks and design-token contrast sampling do not replace these manual gates.
-- **A1:** remains PLANNED and unapproved. Listing its draft in the registry is inventory-only; it does not start A1.
-- **Next exact action:** obtain fresh CI evidence for the final branch head and review the complete PR diff. Keep A0 YELLOW and PR #13 in draft until every required gate is addressed.
+- **Pull request:** [PR #13](https://github.com/AligasSRM/ALI-NEW/pull/13). It remains a review-only draft; no merge or deployment is authorized by this work.
+- **Documentation roles:** README is the short entry point; the master prompt governs working rules; this file governs stage order, gates, and checkpoint; IDEAS records decisions/proposals/questions; the CORE study records proposed architecture and capability boundaries.
+- **Inventory:** consult core/inventory.snapshot.json for the exact sourceCommit and current 38-file mapping result. Consult core/registry.json for canonical A/B/C routes. A verified inventory is not production-readiness evidence.
+- **A1:** PLANNED and unapproved. Its product-definition document is a draft only; do not start A1 implementation before A0 is accepted and closed.
+- **Open A0 gates:** inspect CI on the exact final branch head; obtain Ali's visual acceptance; complete the remaining manual screen-reader/accessibility review; document the disposition of the previously observed missing response security headers.
+- **Next safe action:** review the complete PR diff and latest CI results, then address only the remaining A0 acceptance gates. Keep A0 YELLOW and PR #13 unmerged until those gates are resolved.
+
