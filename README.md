@@ -1,34 +1,61 @@
 # شجرة علي · Ali Tree — ALI-NEW
 
-AliNew — Building a secure, scalable, multilingual video platform with verified creators, content moderation, and a free-first development approach.
+**ALI-NEW** مشروع مستقل لبناء منصة فيديو متعددة اللغات، آمنة وقابلة للتوسع، بصنّاع محتوى موثّقين ومراجعة محتوى واضحة. الهدف تجربة بمستوى عالمي في **جودة التصميم، الأناقة، السرعة، سهولة الاستخدام، الوصولية، الأمان والموثوقية**؛ وهذه أهداف قبول تُثبت بالاختبار، وليست ادعاءً بأن المنتج اكتمل.
 
-## ابدأ من هنا — شجرة علي (Ali Tree)
+## ابدأ من هنا
 
-**[افتح شجرة علي التفاعلية — الصفحة الرئيسية](index.html)**
-**[افتح دراسة بنية التحكم المركزية](CORE-BRAIN-ARCHITECTURE-STUDY.md)**
-**[افتح المرجع الهندسي الرئيسي وتسلسل العمل](PROJECT-BUILD-TREE.md)**
+- [شجرة علي التفاعلية](index.html)
+- [المرجع الهندسي وتسلسل المراحل A0–A12](PROJECT-BUILD-TREE.md) — **المصدر الوحيد لترتيب المراحل وبوابات قبولها ونقطة التوقف**.
+- [دراسة معمارية CORE](CORE-BRAIN-ARCHITECTURE-STUDY.md)
+- [تعريف المنتج](docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md)
+- [خريطة الشاشات وتجربة المستخدم](docs/design/VIDEO-PLATFORM-SCREEN-MAP.md)
+- [خط أساس التصميم المعتمد](docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md)
+- [سجل الأفكار والقرارات والأسئلة المفتوحة](IDEAS-ALI-ALEX.md)
+- [قواعد العمل الهندسي](ALI-ALEX-MASTER-PROJECT-PROMPT.md)
 
-This is the single canonical source for the engineering A0–A12 sequence, one-active-stage rule, acceptance gates, exception handling, and current checkpoint. Read it before every work session. Do not maintain a parallel sequence document. User-facing screen order is tracked separately in the UX screen map.
+## خارطة المراحل
 
-### Current checkpoint
+| المرحلة | الهدف |
+|---|---|
+| **A0** | هوية المشروع ولوحة التحكم والتنقل والحالة والأدلة. |
+| **A1** | تعريف المشكلة والمستخدمين والنطاق والمتطلبات ومعايير القبول. |
+| **A2** | تصميم تجربة المستخدم والواجهات واللغات والتجاوب والوصولية. |
+| **A3** | المعمارية وتدفق البيانات وحدود الثقة والعقود وخطط الخروج من المزوّدين. |
+| **A4** | تنظيم الكود وسير المطور والفروع والفحوص والتكامل المستمر. |
+| **A5** | الحسابات والمصادقة واستعادة الحساب والتحقق من صنّاع المحتوى. |
+| **A6** | رفع الفيديو ومعالجته وتشغيله والترجمة وحالات الفشل وإعادة المحاولة. |
+| **A7** | مراجعة المحتوى والإبلاغ والاستئناف ومكافحة الإساءة وسجل التدقيق. |
+| **A8** | البحث والتصنيفات وصفحات المبدعين والتفاعل والاكتشاف الآمن. |
+| **A9** | الإدارة والدعم والصلاحيات والحوادث والتشغيل. |
+| **A10** | البيانات والتكاملات والترحيل والنسخ الاحتياطي والتصدير والحذف. |
+| **A11** | الأمان والخصوصية والأداء والوصولية والاختبارات والاسترداد. |
+| **A12** | الإصدار والنشر والمراقبة والتراجع والصيانة المستمرة. |
 
-- **Active stage:** A0 — Project Control Panel & identity
-- **Status:** YELLOW — current responsive/browser acceptance passes; standards/security and formal closeout checks are being completed.
-- **Latest browser evidence:** [A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md) · [local Playwright run #25](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108730) · [live Pages smoke run #12](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985140923) · [Pages deployment run #18](https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108729)
-- **Next action:** complete the automated Nu HTML validation, redacted history secret scan, deployed response-header review, and A0 closeout evidence before considering GREEN.
-- **Rule:** do not start A1 or another stage until the control-panel A0 passes its acceptance gate, unless a documented technical dependency requires a narrowly scoped, recorded exception.
+هذه الخارطة تلخّص الغرض فقط؛ النطاق التفصيلي والاعتماديات ومعايير القبول لكل مرحلة موجودة في [المرجع الهندسي](PROJECT-BUILD-TREE.md). لا تبدأ مرحلة جديدة قبل اجتياز بوابة المرحلة الحالية، إلا باستثناء تقني محدود وموثّق.
 
-## Project references
+## معيار الجودة المستمر
 
-- [Approved Design Baseline](docs/design/ALI-NEW-APPROVED-DESIGN-BASELINE-2026-10-16.md)
-- [Video Platform Screen Map & UX Specification](docs/design/VIDEO-PLATFORM-SCREEN-MAP.md)
-- [Latest A0 Browser Acceptance Evidence (2026-10-17)](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md)
-- [A0 Static Source Validation Record (2026-10-17)](docs/reviews/ALI-NEW-A0-STATIC-SOURCE-VALIDATION-2026-10-17.md)
-- [Repository Review & Snapshot Record (2026-10-16; earlier source review)](docs/reviews/ALI-NEW-REPOSITORY-REVIEW-AND-SNAPSHOT-2026-10-16.md)
+في **كل مرحلة**: افحص الموجود أولًا، وحدد النطاق والاستثناءات، ثم نفّذ أصغر تغيير مناسب، واختبره، وراجع الأمان والخصوصية والوصولية والأداء وتجربة الهاتف والكمبيوتر بحسب الحاجة، ووثّق الأدلة والمخاطر وما بقي مفتوحًا. عالج الانحدارات بعد كل تغيير، ولا تعتبر العمل منتهيًا لمجرد وجود كود أو نجاح فحص واحد.
 
-## Working boundaries
+- **التصميم:** واضح وأنيق ومتسق، بلا ازدحام أو عناصر شكلية مضللة.
+- **الأداء:** تحميل سريع وتفاعل سلس وقياس فعلي قبل ادعاء السرعة.
+- **الوصولية واللغات:** لوحة مفاتيح وقارئ شاشة وتباين مناسب، مع دعم العربية RTL واللغات المطلوبة.
+- **الأمان والخصوصية:** أقل صلاحية لازمة، حماية الأسرار والبيانات، واختبار الصلاحيات وحالات الفشل.
+- **الاعتمادية:** اختبارات قابلة للتكرار، رسائل أخطاء واضحة، ومراقبة ونسخ احتياطي وخطة تراجع حيث يلزم.
+- **الاستقلالية والتكلفة:** مجاني أولًا، بلا خدمة مدفوعة أو بطاقة أو تغيير مزوّد دون الموافقة المطلوبة، مع خطة تصدير واستبدال للاعتماديات المهمة.
 
-- Scope this sequence to **ALI-NEW only**.
-- Preserve approved Figma designs and recoverable backups.
-- Do not claim a feature is working without actual test evidence.
-- Do not deploy, delete, switch providers, or introduce paid requirements without the required review and Ali's approval.
+## نقطة التوقف الحالية
+
+- **المرحلة النشطة:** A0 — لوحة التحكم والهوية.
+- **الحالة:** **YELLOW — لم تُغلق رسميًا.**
+- **الأدلة على فرع الإصلاح:** [اختبارات المتصفح — 15 ناجحة](https://github.com/AligasSRM/ALI-NEW/actions/runs/39975446006) · [تشخيص CORE — 5/5 ناجحة](https://github.com/AligasSRM/ALI-NEW/actions/runs/39975446090) · [تقرير أدلة A0](docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md).
+- **المتبقي:** القبول البصري النهائي، واستكمال المراجعة اليدوية للوصولية وقارئ الشاشة، وحسم ملاحظات رؤوس أمان الاستجابة المنشورة. لم تُغيّر إعدادات الاستضافة.
+- **A1:** وثيقة تعريف المنتج مسجّلة كمسودة PLANNED فقط؛ وجودها لا يعني اعتماد المرحلة أو بدء تنفيذها.
+- **PR الإصلاح:** [PR #13](https://github.com/AligasSRM/ALI-NEW/pull/13) مفتوح كمسودة؛ لم يُدمج هذا الإصلاح في main بعد.
+
+## حدود العمل
+
+- النطاق هو **ALI-NEW فقط**؛ لا تنقل كودًا أو ملفات أو إعدادات من مشروع آخر دون إذن صريح.
+- لا حذف أو دمج أو نشر أو تغيير صلاحيات أو إعدادات استضافة أو تفعيل مدفوع دون الموافقة المطلوبة.
+- لا تستخدم **GREEN** إلا للجزء الذي اجتاز معايير قبوله بأدلة مرتبطة بالفرع والـ commit؛ نجاح CI وحده لا يثبت اكتمال المنتج.
+- حدّث هذا الملخص والمرجع الهندسي عند تغير الحالة، وتجنب إنشاء وثائق متوازية متعارضة.
