@@ -80,7 +80,7 @@ ALI-NEW/
 This is a planned structure, not a claim that every directory already exists. Create directories only when they contain useful files. Keep one repository until a concrete security, ownership, deployment, or scaling reason justifies a split.
 
 ## 6. Repository strategy
-1. **ALI-NEW (primary/private):** source of truth for product docs, control-panel prototype, future app, tests, and evidence.
+1. **ALI-NEW (primary repository):** source of truth for product docs, control-panel prototype, future app, tests, and evidence.
 2. **Optional public documentation repository:** only if Ali later explicitly wants a public methodology or public-facing docs; not needed now.
 3. **Optional deployment mirror:** only if a selected host requires it and its cost/exit plan is reviewed.
 Do not create extra repositories yet. No legacy project repository is a source for ALI-NEW code.
