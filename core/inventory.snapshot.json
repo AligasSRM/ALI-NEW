@@ -6,12 +6,12 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "eefb0f69620ef3fc830973075c0b54873defd126",
-  "capturedAt": "2026-10-22",
+  "sourceCommit": "80e36d6f8fdf1b539fe35f96eadb8bfee404aea8",
+  "capturedAt": "2026-10-23",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
-    "files": 37,
-    "mapped": 37,
+    "files": 38,
+    "mapped": 38,
     "unmapped": 0
   },
   "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness.",
@@ -74,7 +74,7 @@
     },
     {
       "path": "core/inventory.snapshot.json",
-      "blobSha": "a202ba386bf1e9b739319ef31cd58ee5187992a1",
+      "blobSha": "2c3f80449832d74bda421022ff852a958e6bae45",
       "sizeBytes": 12462,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
@@ -82,8 +82,8 @@
     },
     {
       "path": "core/registry.json",
-      "blobSha": "fb51ad512b1e5361fff190f852b87ba4cb46eb61",
-      "sizeBytes": 33300,
+      "blobSha": "b88bb2ddd8d2267b580034ffbb355af3b28b40d2",
+      "sizeBytes": 33762,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A3/B0/C4"
@@ -151,6 +151,14 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A2/B1/C0"
+    },
+    {
+      "path": "docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "blobSha": "e138fda58774fbd2f4fe69a188235307ec26a2d6",
+      "sizeBytes": 13331,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "mappingStatus": "MAPPED",
+      "hierarchyRoute": "A1/B0/C0"
     },
     {
       "path": "docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
