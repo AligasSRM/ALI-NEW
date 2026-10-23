@@ -110,18 +110,21 @@ Do not create extra repositories yet. No legacy project repository is a source f
 - The control panel is a static front-end prototype. It is not yet connected to GitHub data, persistent storage, authentication, or live project telemetry.
 
 ## 10. Current verified baseline
-- The repository contains `README.md`, `IDEAS-ALI-ALEX.md`, `ALI-ALEX-MASTER-PROJECT-PROMPT.md`, this build tree, and the control-panel prototype.
-- The tree and prototype were saved and fetched back from GitHub. This verifies file persistence, not browser behavior or production readiness.
-- No evidence currently establishes a complete application, production deployment, or production readiness.
-- The control panel is a static front-end prototype. It is not connected to GitHub data, persistent storage, authentication, or live project telemetry.
+
+- The repository contains a static Ali Tree interface, a CORE registry, an inventory snapshot, validation scripts, browser tests, workflow definitions, and project documentation.
+- The interface is a control-panel prototype and file index. It is not the end-user video platform and does not establish a complete live GitHub controller.
+- The working repair branch has previously reconciled the inventory to 38 tracked files, 38 mapped, and 0 unmapped. The inventory snapshot's source commit and file blob hashes must be refreshed after documentation edits before that result can be treated as current evidence.
+- A1 product definition is an unapproved draft with status PLANNED. A0 remains YELLOW.
+- No evidence in this document certifies production readiness, full accessibility, or closure of A0.
 
 ## 11. Next actions
-1. Review the A0 visual prototype on desktop and mobile.
-2. Record visual and usability fixes; do not add backend functionality yet.
-3. Agree A0 acceptance criteria and verify the prototype.
-4. Lock A0 only after evidence is captured.
-5. Proceed to A1 product definition, then A2–A4 before creating the main application implementation.
 
+1. Finish the approved documentation cleanup on the repair branch without changing project scope or deleting files.
+2. Refresh the inventory snapshot against the exact final branch tree and ensure registry routes and file paths match.
+3. Run the inventory and registry validators, browser acceptance tests, and applicable HTML/source/security checks on the final branch commit.
+4. Review the changed-file diff and resolve any stale links or contradictory claims.
+5. Keep A0 YELLOW until Ali completes visual acceptance, the remaining manual accessibility review is documented, and the response-header findings are handled or explicitly accepted.
+6. Keep PR #13 in draft and do not merge or deploy as part of this work.
 
 ## 12. Repository / section closeout record (mandatory)
 Before any repository, level, or section can be closed, create or update a durable closeout note. The note must record:
@@ -283,18 +286,11 @@ For every stage, work through: **inventory → assign B sections → map existin
 
 Work on one active stage at a time. Inventory or cross-reference preparation for later stages does not authorize implementation of those stages before the current stage gate passes. The A/B/C index is the single agreed locating convention for this project; do not revert to ad-hoc naming schemes or start a competing index.
 
-### 16.6 Session checkpoint — 2026-10-17
+### 16.6 Historical session checkpoint — 2026-10-17
 
-- **Session action:** paused at Ali's request; resume next work session from this checkpoint.
-- **Active stage:** A0 — Project Control Panel & identity.
-- **Status:** YELLOW — A0 inventory/index draft prepared in the conversation; the formal stage closeout and GREEN certificate have **not** been issued.
-- **A0 inventory:** initial proposed B sections cover the control-panel source, design baseline, build-tree/status rules, interaction tests/configuration, static validation, CI/live workflows, browser acceptance evidence, repository review, closeout templates, and project metadata/docs.
-- **A1 and A2:** preliminary file references identified only. No implementation work started and no stage was marked complete.
-- **Repository changes in this session:** this policy/checkpoint addition only. No application source, file names, directory structure, or other repositories are to be changed as part of the indexing policy.
-- **Next exact action:** resume with A0; verify the current main-branch commit and pending acceptance gates, refine the A0 B/C index against the actual file tree, resolve or explicitly carry forward outstanding findings, then prepare the closeout record. Do not mark A0 GREEN until its gates pass. Proceed to A1 only after A0 is formally accepted and closed.
+This subsection preserves the original checkpoint as history only. Its file counts, next actions, and repository state are not the current operational baseline. Use Section 19 below for the current checkpoint, and verify branch/commit data directly before relying on any test evidence.
 
-
-## 17. شجرة علي — فهرس A/B/C الفعلي (2026-10-17)
+## 17. شجرة علي — فهرس A/B/C الفعلي (مراجعة 2026-10-23)
 
 **الاسم المعروض:** شجرة علي · Ali Tree  
 **المستودع الأساسي:** [AligasSRM/ALI-NEW](https://github.com/AligasSRM/ALI-NEW)  
@@ -304,7 +300,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 
 ### 17.1 ما أثبته جرد المستودع
 
-جرد شجرة GitHub الفعلية على `main` أظهر **25 ملفاً** في 2026-10-17. الفهرس الحالي يعطي كل ملف هوية C واحدة فقط، ويشير إلى مساره الحقيقي. الرقم ليس تقديراً ولا عدد ملفات مستقبلية. الأقسام التي لم تُبنَ بعد تظهر كمخططة دون ادعاء وجود ملفات لها.
+أظهر الجرد المسجل في فرع الإصلاح **38 ملفاً متتبعاً، و38 ملفاً مربوطاً، و0 غير مربوط**. هذه نتيجة لقطة مرتبطة بمرجع مصدر سابق؛ بعد تعديل الوثائق يجب إعادة بناء اللقطة والتحقق من مساراتها وـ blob SHAs على commit نهائي. لا يُستخدم الرقم كدليل حديث قبل إتمام هذا التحقق. الأقسام التي لم تُبنَ بعد تبقى مخططة ولا تُعرض كملفات موجودة.
 
 ### 17.2 A0 — الجرد والتحكم بالمشروع
 
@@ -398,13 +394,14 @@ This is a session-driven procedure; it does not claim background work happens wh
 ## 19. Current checkpoint — 2026-10-23
 
 - **Active stage:** A0 — Ali Tree control panel and canonical inventory.
-- **Status:** YELLOW. Automated checks have improved and passed on a review branch, but no GREEN certificate or stage closure is issued.
-- **Main baseline inspected:** `354cd0ca2db4cf8b22b2c5fd0b0ef30f1fc68877`.
-- **Working branch:** `fix/a0-reconcile-core-inventory`; draft PR [#13](https://github.com/AligasSRM/ALI-NEW/pull/13). No merge or deployment has been performed.
-- **Current branch changes:** the existing A1 product-definition draft is mapped as `A1/B0/C0` with status `PLANNED`; the build tree explicitly says this is inventory-only and does not start or approve A1; the CORE inventory was reconciled to 38 tracked files and 38 mappings; breadcrumb navigation now uses a semantic navigation landmark and exposes its current step with `aria-current`; browser tests cover the A1 draft status and registration-field labels/focus.
-- **Latest successful verification:** commit `60653bfddbef9969c5431ca0ecb175fe2ade5985`, [Playwright run #39973469835](https://github.com/AligasSRM/ALI-NEW/actions/runs/39973469835): 15 browser tests passed; both HTML files had 0 errors and 0 warnings; secret-history scan and A0 source invariants passed; CORE snapshot validation reported 38 files, 38 mapped, 0 unmapped; registry validation reported 13 A phases, 21 B sections, and 38 C resources; diagnostic/router tests passed 5/5.
-- **Hosting-header review:** deployment of main commit `354cd0ca2db4cf8b22b2c5fd0b0ef30f1fc68877`, [run #39851207526](https://github.com/AligasSRM/ALI-NEW/actions/runs/39851207526), reported HSTS present. CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and X-Frame-Options were not present in that response. The workflow reports these headers but does not configure them; no hosting/provider/settings changes were made.
-- **Open gates:** refresh the inventory snapshot against the final pre-snapshot commit and rerun CI; obtain owner visual acceptance; complete the remaining manual screen-reader/contrast review; record the handling of missing response headers. Sampled design-token contrast ratios exceed WCAG AA normal-text threshold, but this is not a full rendered-page accessibility audit.
-- **Stage sequencing:** A0 remains the only active stage. Do not start A1 implementation or mark A0 GREEN until its acceptance gates and closeout evidence are complete. A1 remains `PLANNED`; its document is an unapproved draft. Preserve A0–A12 numbering and existing A/B/C locator rules.
-- **Next exact action:** verify the refreshed inventory against the exact source commit and registry, reconcile the latest `main` README update without losing either set of required project guidance, then inspect fresh CI on the final PR head. Keep PR #13 in draft and do not merge while A0 remains open or any required gate is unresolved.
+- **Status:** YELLOW. No GREEN certificate or stage closure has been issued.
+- **Working repository:** AligasSRM/ALI-NEW only.
+- **Working branch:** fix/a0-reconcile-core-inventory.
+- **Pull request:** [PR #13](https://github.com/AligasSRM/ALI-NEW/pull/13), draft and not merged. This documentation work does not authorize merge or deployment.
+- **Changes made in this documentation pass:** README shortened to an entry point; master engineering rules consolidated; the ideas file separated decisions, proposals, and open product questions; the CORE study now distinguishes proposed architecture from implemented capabilities. No files were deleted, and the product definition remains an unapproved A1 draft.
+- **Inventory state:** the branch's recorded snapshot reported 38 tracked files, 38 mapped, 0 unmapped. Because documentation files have now changed, the snapshot's source commit and per-file blob hashes must be refreshed and the validators rerun before the inventory can be called current.
+- **Latest test evidence before this documentation pass is not evidence for the new commits.** Fresh CI and validators must be checked on the final branch head. Do not reuse old run results as proof that these edits pass.
+- **Open A0 gates:** inventory/snapshot refresh; fresh automated validation; Ali's visual acceptance; remaining manual screen-reader/accessibility review; and a documented disposition for the observed missing response security headers. Automated HTML checks and design-token contrast sampling do not replace these manual gates.
+- **A1:** remains PLANNED and unapproved. Listing its draft in the registry is inventory-only; it does not start A1.
+- **Next exact action:** refresh the inventory snapshot from the exact final branch tree, validate it against core/registry.json, run the relevant CI checks on that commit, then review the complete diff. Keep A0 YELLOW and PR #13 in draft until every required gate is addressed.
 
