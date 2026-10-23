@@ -111,20 +111,15 @@ Do not create extra repositories yet. No legacy project repository is a source f
 
 ## 10. Current verified baseline
 
-- The repository contains a static Ali Tree interface, a CORE registry, an inventory snapshot, validation scripts, browser tests, workflow definitions, and project documentation.
-- The interface is a control-panel prototype and file index. It is not the end-user video platform and does not establish a complete live GitHub controller.
-- The working repair branch has previously reconciled the inventory to 38 tracked files, 38 mapped, and 0 unmapped. The inventory snapshot's source commit and file blob hashes must be refreshed after documentation edits before that result can be treated as current evidence.
-- A1 product definition is an unapproved draft with status PLANNED. A0 remains YELLOW.
-- No evidence in this document certifies production readiness, full accessibility, or closure of A0.
+- The repository contains the Ali Tree static interface, CORE registry and inventory snapshot, validation scripts, browser tests, workflows, and project documentation.
+- Ali Tree is a control-panel prototype and file index. It is not the end-user video platform or a complete live GitHub controller.
+- The current inventory snapshot records 38 tracked files, 38 mapped, and 0 unmapped. Its sourceCommit, blob SHAs, and byte sizes identify the tree version described by the snapshot.
+- The registry currently records 13 A phases, 21 B sections, and 38 C resources. Registry status remains PARTIALLY_VERIFIED; do not promote it to VERIFIED without satisfying its own verification criteria.
+- A1 product definition remains an unapproved PLANNED draft. A0 remains YELLOW.
 
 ## 11. Next actions
 
-1. Finish the approved documentation cleanup on the repair branch without changing project scope or deleting files.
-2. Refresh the inventory snapshot against the exact final branch tree and ensure registry routes and file paths match.
-3. Run the inventory and registry validators, browser acceptance tests, and applicable HTML/source/security checks on the final branch commit.
-4. Review the changed-file diff and resolve any stale links or contradictory claims.
-5. Keep A0 YELLOW until Ali completes visual acceptance, the remaining manual accessibility review is documented, and the response-header findings are handled or explicitly accepted.
-6. Keep PR #13 in draft and do not merge or deploy as part of this work.
+Follow the remaining A0 acceptance gates in Section 19. Do not maintain a second list of current tasks here; update the single checkpoint when the active blocker or next action changes.
 
 ## 12. Repository / section closeout record (mandatory)
 Before any repository, level, or section can be closed, create or update a durable closeout note. The note must record:
