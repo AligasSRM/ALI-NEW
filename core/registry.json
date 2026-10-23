@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "registryStatus": "PARTIALLY_VERIFIED",
-  "lastInventoryAt": "2026-10-21T23:44:36.551Z",
+  "lastInventoryAt": "2026-10-24T14:00:00Z",
   "repositories": [
     {
       "repositoryId": "R-ALI-NEW",
@@ -840,5 +840,22 @@
       "notes": "Read-only evidence collector for workflow/commit metadata, failed-step metadata, and exact A/B/C routing."
     }
   ],
-  "unmappedResources": []
+  "unmappedResources": [
+    {
+      "path": "control-panel/index.html",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html",
+      "blobSha": "e85cab987709f438de4e60a58f1a9770de71f83d",
+      "sizeBytes": 662,
+      "status": "UNMAPPED",
+      "notes": "Compatibility redirect for the legacy control-panel URL; no A/B/C route assigned pending explicit registry classification."
+    },
+    {
+      "path": "docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "blobSha": "e138fda58774fbd2f4fe69a188235307ec26a2d6",
+      "sizeBytes": 13331,
+      "status": "UNMAPPED",
+      "notes": "A1 product-definition draft; recorded for tracked-file coverage only. A1 remains PLANNED and the document remains unapproved."
+    }
+  ]
 }

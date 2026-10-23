@@ -1,18 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "inventoryStatus": "VERIFIED",
+  "inventoryStatus": "PARTIALLY_VERIFIED",
   "repository": {
     "fullName": "AligasSRM/ALI-NEW",
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "eefb0f69620ef3fc830973075c0b54873defd126",
-  "capturedAt": "2026-10-22",
+  "sourceCommit": "894d06a11a207a0de88fd156d6c959fa6220b4cb",
+  "capturedAt": "2026-10-24",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
-    "files": 37,
+    "files": 39,
     "mapped": 37,
-    "unmapped": 0
+    "unmapped": 2
   },
   "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness.",
   "files": [
@@ -57,6 +57,13 @@
       "hierarchyRoute": "A0/B1/C2"
     },
     {
+      "path": "control-panel/index.html",
+      "blobSha": "e85cab987709f438de4e60a58f1a9770de71f83d",
+      "sizeBytes": 662,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/control-panel/index.html",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
       "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
       "blobSha": "11ecf173a03b15bfd0b76f56397a052b19111069",
       "sizeBytes": 30913,
@@ -74,7 +81,7 @@
     },
     {
       "path": "core/inventory.snapshot.json",
-      "blobSha": "a202ba386bf1e9b739319ef31cd58ee5187992a1",
+      "blobSha": "2c3f80449832d74bda421022ff852a958e6bae45",
       "sizeBytes": 12462,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
@@ -151,6 +158,13 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/design/VIDEO-PLATFORM-SCREEN-MAP.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A2/B1/C0"
+    },
+    {
+      "path": "docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "blobSha": "e138fda58774fbd2f4fe69a188235307ec26a2d6",
+      "sizeBytes": 13331,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "mappingStatus": "UNMAPPED"
     },
     {
       "path": "docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
@@ -242,8 +256,8 @@
     },
     {
       "path": "README.md",
-      "blobSha": "cae8c362b28423ac58164ecd1dafeb780391e356",
-      "sizeBytes": 2754,
+      "blobSha": "499b569318166bb7505b01e8c99fee4e99374207",
+      "sizeBytes": 21732,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B1/C1"
