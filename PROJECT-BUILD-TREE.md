@@ -5,13 +5,16 @@
 **Engineering & coordination:** Alex  
 **Repository:** https://github.com/AligasSRM/ALI-NEW  
 **Status:** YELLOW — planning and control-panel prototype; not production-ready.  
-**Change policy:** OPEN TO CHANGE — the levels, section count, repository count, tools, architecture, and priorities are proposals that may be revised for a better, newer, safer, or more maintainable solution. Nothing is immutable merely because it appears in this tree.
+**Change policy:** Architecture, tools, implementation details, section contents, and priorities may be revised when evidence supports a better, newer, safer, or more maintainable solution. The approved engineering stage sequence remains **A0–A12**; do not invent A13+ or renumber/reorder stages without an explicit, recorded decision from Ali. This document never authorizes work outside the current repository scope.
 
 ## 1. Purpose and rules
 This tree is the source of truth for building ALI-NEW from zero to a verified release. The levels below are a proposed baseline, not a claim that every feature is already implemented. Each section must follow: inspect → specify → implement → test → review/security → evidence → GREEN → LOCK. No section is GREEN without repeatable evidence. Never copy code, files, configuration, or architecture from another project without Ali's explicit approval. Free-first; no paid activation, card, or upgrade without explicit approval. No secrets in repository files.
 
-## 2. Changeability is a permanent rule (OPEN TO CHANGE)
-The A0–A12 numbering is a starting map, not a hard limit. A13, A14, A15, or later levels may be added whenever evidence, product needs, newer technology, security, maintainability, or cost/availability make that the better choice. Sections may be split, merged, renamed, reordered, or removed only after impact analysis and an explicit record of the reason. Repository count is also changeable: start with one primary repository, but create another when a documented technical, security, ownership, deployment, or operational reason justifies it. Do not create or avoid repositories merely to satisfy a fixed number.
+## 2. Controlled change (without inventing stages)
+Improve architecture, tools, implementation details, and section content when evidence shows a better, newer, safer, or more maintainable solution. Preserve the approved A0–A12 sequence and meanings: do not add A13+, renumber, or reorder stages unless Ali explicitly approves and the decision is recorded. Changes to B/C mappings must follow the canonical registry and inventory checks; never create files or stages merely to fill numbering gaps.
+
+## 2A. GitHub session entry and repository scope
+At the start of GitHub work, read `AligasSRM/Ali-Control` as the read-only governance reference: its control index, work rules, and scope rules. Then inspect only the repository explicitly authorized for the task. For this checkpoint, work only in `AligasSRM/ALI-NEW`; do not modify `Ali-Control`, and do not access or modify frozen `Ali-Mind`.
 
 
 ## 3A. Technology and provider neutrality (mandatory gate)
