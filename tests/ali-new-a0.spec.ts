@@ -43,10 +43,12 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
     await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('A0');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('A0');
     await expect(page.locator('.tree-select')).toHaveCount(6);
 
     await page.locator('.tree-select').filter({ hasText: 'B2' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('B2');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('B2');
     const registryResponse = await page.request.get('/core/registry.json');
     expect(registryResponse.ok()).toBeTruthy();
     const registry = await registryResponse.json();
@@ -100,13 +102,15 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     await expect(page.getByText('Browser acceptance / Run browser acceptance tests')).toBeVisible();
   });
 
-  test('planned sections do not pretend files exist', async ({ page }) => {
+  test('A1 draft is indexed without being treated as an approved stage', async ({ page }) => {
     await page.goto('/');
     await page.locator('.tree-select').filter({ hasText: /^A1\b/ }).click();
     await expect(page.locator('.tree-select')).toHaveCount(1);
     await page.locator('.tree-select').filter({ hasText: 'B0' }).click();
-    await expect(page.locator('.empty-tree')).toContainText('لا يوجد ملف مخصص بعد');
-    await expect(page.locator('.file-card')).toHaveCount(0);
+    await expect(page.locator('.file-card')).toHaveCount(1);
+    await expect(page.locator('.file-path')).toHaveText('docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md');
+    await expect(page.locator('.file-card')).toContainText('الحالة: PLANNED');
+    await expect(page.locator('.file-card')).toContainText('مسودة تعريف المنتج A1');
   });
 });
 
@@ -156,6 +160,25 @@ test.describe('ALI-NEW design preview', () => {
       const style = getComputedStyle(el);
       return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
     });
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(3);
+  });
+
+  test('registration fields retain visible keyboard focus and associated labels', async ({ page }) => {
+    await page.goto('/design-preview/');
+    await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
+    await page.getByRole('button', { name: 'Create account', exact: true }).click();
+    await expect(page.getByLabel('Display name')).toBeVisible();
+    await expect(page.getByLabel('Email address')).toBeVisible();
+    await expect(page.getByLabel('Create password', { exact: true })).toBeVisible();
+    await page.locator('#reg-name').focus();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#reg-email')).toBeFocused();
+    const outline = await page.locator('#reg-email').evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { visible: el.matches(':focus-visible'), style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.visible).toBeTruthy();
     expect(outline.style).not.toBe('none');
     expect(outline.width).toBeGreaterThanOrEqual(3);
   });

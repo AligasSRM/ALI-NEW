@@ -143,3 +143,15 @@ The following later runs supersede the earlier viewport failures and older 9/9 o
 - No real credentials were entered and no authentication or backend integration was added.
 
 **Status remains YELLOW** until standards-based HTML validation, full-history secret scanning, deployed response-header review, broader semantic/contrast accessibility review, and final A0 closeout are recorded. These passing browser tests do not certify the end-user platform or production readiness.
+
+
+## 11. Current-source verification — 2026-10-23
+
+- **Review branch:** `fix/a0-reconcile-core-inventory`; draft PR [#13](https://github.com/AligasSRM/ALI-NEW/pull/13).
+- **Code/test commit:** `60653bfddbef9969c5431ca0ecb175fe2ade5985`.
+- **Playwright acceptance:** [run #39973469835](https://github.com/AligasSRM/ALI-NEW/actions/runs/39973469835) — **15 passed (3.7s)**.
+- **Static/source checks:** A0 source invariants and inline JavaScript syntax passed; Nu HTML Checker reported 0 errors and 0 warnings for both `index.html` and `design-preview/index.html`; full-history secret scan passed.
+- **CORE consistency:** snapshot validation passed with 38 files, 38 mapped, 0 unmapped; registry validation passed with 13 A phases, 21 B sections, and 38 C resources; diagnostic/router tests passed 5/5.
+- **Accessibility follow-up:** the Ali Tree breadcrumb is now a semantic navigation landmark; the active A/B/C location is exposed using `aria-current="step"`. Regression tests cover the current location, associated registration labels, and visible keyboard focus on a registration field. This does not establish full screen-reader or WCAG conformance.
+- **Deployed response headers:** the latest reviewed main deployment was commit `354cd0ca2db4cf8b22b2c5fd0b0ef30f1fc68877` ([deployment run #39851207526](https://github.com/AligasSRM/ALI-NEW/actions/runs/39851207526)). HSTS was present; Content-Security-Policy, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and X-Frame-Options were not present in the captured response. The workflow records but does not configure these headers. No hosting/provider/settings changes were made.
+- **Status:** A0 remains **YELLOW**. These results establish the listed automated checks only; owner visual acceptance, remaining manual accessibility review, and a recorded disposition for the missing response headers are still open. No production-readiness claim is made.

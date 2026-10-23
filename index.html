@@ -50,7 +50,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
   <section id="build-tree">
     <div class="section-head"><div><h2>شجرة علي · Ali Tree</h2><p>فهرس مراقبة هرمي: اختر A، ثم B، ثم اعرض ملفات C وروابطها الفعلية داخل المستودع. الأرقام للتنظيم فقط ولا تغيّر أسماء الملفات أو أماكنها.</p></div><a class="tree-link" href="./core/incidents.html">فتح محقق الحوادث للقراءة فقط ↗</a></div>
     <div class="tree-toolbar">
-      <div class="crumbs" id="tree-crumbs" aria-live="polite"><span>ALI-NEW</span><span>›</span><strong>كل المراحل A0–A12</strong></div>
+      <nav class="crumbs" id="tree-crumbs" aria-label="مسار التنقل" aria-live="polite"><span>ALI-NEW</span><span>›</span><strong aria-current="step">كل المراحل A0–A12</strong></nav>
       <div class="tree-actions"><button type="button" class="secondary" id="tree-back" disabled>← رجوع</button><button type="button" class="secondary" id="tree-home">كل المراحل</button></div>
     </div>
     <div class="tree-summary" id="tree-summary" aria-live="polite"></div>
@@ -155,12 +155,12 @@ function renderTree(){
  }else{
   const a=aliTree.find(x=>x.id===selectedA);
   if(selectedB===null){
-   crumbs.replaceChildren();const rootCrumb=document.createElement('span');rootCrumb.textContent='ALI-NEW';const separator=document.createElement('span');separator.textContent='›';const currentCrumb=document.createElement('strong');currentCrumb.textContent=a.id+' · '+a.name;crumbs.append(rootCrumb,separator,currentCrumb);
+   crumbs.replaceChildren();const rootCrumb=document.createElement('span');rootCrumb.textContent='ALI-NEW';const separator=document.createElement('span');separator.textContent='›';const currentCrumb=document.createElement('strong');currentCrumb.setAttribute('aria-current','step');currentCrumb.textContent=a.id+' · '+a.name;crumbs.append(rootCrumb,separator,currentCrumb);
    summary.textContent=a.id+' يحتوي '+a.sections.length+' أقسام B ضمن الفهرس. الأقسام ذات الملفات تعرض العدد الفعلي، والأقسام الأخرى تبقى مخططة.';
    a.sections.forEach(b=>{const card=document.createElement('article');card.className='tree-card';const btn=document.createElement('button');btn.type='button';btn.className='tree-select';const count=b.files.length?b.files.length+' ملفات C':'لا توجد ملفات مخصصة';const level=document.createElement('span');level.className='level';level.textContent=b.id;const details=document.createElement('span');const name=document.createElement('span');name.className='tree-name';name.textContent=b.name;const desc=document.createElement('span');desc.className='tree-desc';desc.textContent=b.desc;details.append(name,desc);const countLabel=document.createElement('span');countLabel.className='tree-count';countLabel.textContent=count;const chevron=document.createElement('span');chevron.textContent='›';btn.append(level,details,countLabel,chevron);btn.addEventListener('click',()=>{selectedB=b.id;renderTree()});card.append(btn);list.append(card)});
   }else{
    const b=a.sections.find(x=>x.id===selectedB);
-   crumbs.replaceChildren();const rootCrumb=document.createElement('span');rootCrumb.textContent='ALI-NEW';const separatorOne=document.createElement('span');separatorOne.textContent='›';const backToA=document.createElement('button');backToA.type='button';backToA.className='secondary';backToA.id='crumb-a';backToA.textContent=a.id;const separatorTwo=document.createElement('span');separatorTwo.textContent='›';const currentCrumb=document.createElement('strong');currentCrumb.textContent=b.id+' · '+b.name;crumbs.append(rootCrumb,separatorOne,backToA,separatorTwo,currentCrumb);
+   crumbs.replaceChildren();const rootCrumb=document.createElement('span');rootCrumb.textContent='ALI-NEW';const separatorOne=document.createElement('span');separatorOne.textContent='›';const backToA=document.createElement('button');backToA.type='button';backToA.className='secondary';backToA.id='crumb-a';backToA.textContent=a.id;const separatorTwo=document.createElement('span');separatorTwo.textContent='›';const currentCrumb=document.createElement('strong');currentCrumb.setAttribute('aria-current','step');currentCrumb.textContent=b.id+' · '+b.name;crumbs.append(rootCrumb,separatorOne,backToA,separatorTwo,currentCrumb);
    document.getElementById('crumb-a').addEventListener('click',()=>{selectedB=null;renderTree()});
    summary.textContent=a.id+' / '+b.id+' · '+(b.files.length?b.files.length+' ملفات موجودة ومساراتها الحقيقية':'لا يوجد ملف مخصص لهذا القسم حالياً؛ هذا قسم تنظيمي مخطط فقط.');
    if(!b.files.length){const empty=document.createElement('div');empty.className='empty-tree';empty.textContent='مخطط — لا يوجد ملف مخصص بعد. لم ننشئ ملفاً أو مجلداً، ولم نخترع مساراً.';list.append(empty)}
