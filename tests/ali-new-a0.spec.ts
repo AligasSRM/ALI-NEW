@@ -164,6 +164,25 @@ test.describe('ALI-NEW design preview', () => {
     expect(outline.width).toBeGreaterThanOrEqual(3);
   });
 
+  test('registration fields retain visible keyboard focus and associated labels', async ({ page }) => {
+    await page.goto('/design-preview/');
+    await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
+    await page.getByRole('button', { name: 'Create an account' }).click();
+    await expect(page.getByLabel('Display name')).toBeVisible();
+    await expect(page.getByLabel('Email address')).toBeVisible();
+    await expect(page.getByLabel('Password', { exact: true })).toBeVisible();
+    await page.locator('#reg-name').focus();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#reg-email')).toBeFocused();
+    const outline = await page.locator('#reg-email').evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { visible: el.matches(':focus-visible'), style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.visible).toBeTruthy();
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(3);
+  });
+
   for (const width of [360, 390, 768, 1280]) {
     test(`design preview fits viewport at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
