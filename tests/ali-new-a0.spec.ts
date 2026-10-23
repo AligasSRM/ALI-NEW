@@ -43,10 +43,12 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
     await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('A0');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('A0');
     await expect(page.locator('.tree-select')).toHaveCount(6);
 
     await page.locator('.tree-select').filter({ hasText: 'B2' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('B2');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('B2');
     const registryResponse = await page.request.get('/core/registry.json');
     expect(registryResponse.ok()).toBeTruthy();
     const registry = await registryResponse.json();
