@@ -6,15 +6,15 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "894d06a11a207a0de88fd156d6c959fa6220b4cb",
+  "sourceCommit": "4030c9af9463a64f33446802ffa7933c7ab206ac",
   "capturedAt": "2026-10-24",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
-    "files": 39,
+    "files": 41,
     "mapped": 37,
-    "unmapped": 2
+    "unmapped": 4
   },
-  "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness.",
+  "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness. Newly added language-scope files are explicitly UNMAPPED until a separately reviewed canonical A/B/C route is assigned.",
   "files": [
     {
       "path": ".github/workflows/core-diagnostic.yml",
@@ -86,6 +86,13 @@
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A3/B0/C2"
+    },
+    {
+      "path": "core/language-registry.json",
+      "blobSha": "8bb04d188498f1ede1ca5c5311a7c00ac708372e",
+      "sizeBytes": 3152,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/language-registry.json",
+      "mappingStatus": "UNMAPPED"
     },
     {
       "path": "core/registry.json",
@@ -164,6 +171,13 @@
       "blobSha": "e138fda58774fbd2f4fe69a188235307ec26a2d6",
       "sizeBytes": 13331,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "mappingStatus": "UNMAPPED"
+    },
+    {
+      "path": "docs/product/ALI-NEW-LANGUAGE-BASELINE.md",
+      "blobSha": "2519b50d3d024072bd2d86e26cef291078df6587",
+      "sizeBytes": 7881,
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-LANGUAGE-BASELINE.md",
       "mappingStatus": "UNMAPPED"
     },
     {
