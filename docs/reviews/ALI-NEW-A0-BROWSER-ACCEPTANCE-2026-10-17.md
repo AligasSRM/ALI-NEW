@@ -166,10 +166,10 @@ This addendum supersedes the earlier open-item wording only for HTML validation 
 
 A source-level mitigation was added on the existing PR #15 branch; it has **not** been merged or verified on the live Pages deployment.
 
-- Moved the control-panel inline JavaScript into the same-origin `ali-tree.js` file and load it with `defer`.
-- Added a page-level CSP meta policy: `default-src 'self'`, `object-src 'none'`, `base-uri 'self'`, same-origin scripts only, same-origin connections, and restricted form actions. Inline styles remain allowed because the current design uses an inline style block and style attributes.
+- Kept the current inline control-panel JavaScript in place to avoid adding an unregistered file to the CORE inventory.
+- Added a page-level CSP meta policy: `default-src 'self'`, `object-src 'none'`, `base-uri 'self'`, same-origin resources/connections, and restricted form actions. `script-src 'self' 'unsafe-inline'` is required by the existing inline script, so this is limited defense-in-depth and does not prevent all inline-script injection. Inline styles also remain allowed because the current design uses an inline style block and style attributes.
 - Added `strict-origin-when-cross-origin` as the document referrer policy.
-- Extended `scripts/validate-a0.mjs` to assert the policies are present and that `ali-tree.js` passes JavaScript syntax validation.
+- Extended `scripts/validate-a0.mjs` to assert the policies are present; the existing inline JavaScript syntax check remains active.
 
 **Important limitation:** these meta policies are defense-in-depth, not HTTP response headers. They do not clear the SecurityHeaders finding and do not replace `X-Frame-Options`, `X-Content-Type-Options: nosniff`, or `Permissions-Policy`; CSP `frame-ancestors` also cannot be enforced through a CSP meta element. The live SecurityHeaders grade therefore remains unverified after this source change and must not be described as fixed. GitHub Pages does not provide arbitrary per-site response-header configuration through repository HTML. No hosting, DNS, Pages, protection, or permission settings were changed.
 
