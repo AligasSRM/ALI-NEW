@@ -856,6 +856,22 @@
       "sizeBytes": 13331,
       "status": "UNMAPPED",
       "notes": "A1 product-definition draft; recorded for tracked-file coverage only. A1 remains PLANNED and the document remains unapproved."
+    },
+    {
+      "path": "core/language-registry.json",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/language-registry.json",
+      "blobSha": "8bb04d188498f1ede1ca5c5311a7c00ac708372e",
+      "sizeBytes": 3152,
+      "status": "UNMAPPED",
+      "notes": "Canonical 25-locale scope inventory added in PR #17. Kept explicitly UNMAPPED rather than inventing an A/B/C hierarchy route; assign a route only through a separately reviewed canonical-registry decision."
+    },
+    {
+      "path": "docs/product/ALI-NEW-LANGUAGE-BASELINE.md",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-LANGUAGE-BASELINE.md",
+      "blobSha": "2519b50d3d024072bd2d86e26cef291078df6587",
+      "sizeBytes": 7881,
+      "status": "UNMAPPED",
+      "notes": "Language-scope and acceptance baseline added in PR #17. Kept explicitly UNMAPPED rather than inventing an A/B/C hierarchy route; documents language scope and acceptance criteria but does not claim runtime localization is implemented."
     }
   ]
 }
