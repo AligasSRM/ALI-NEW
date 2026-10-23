@@ -33,10 +33,10 @@ for (const path of sources) {
   }
 
   if (path === 'index.html') {
-    if (!/<meta\\s+http-equiv=["']Content-Security-Policy["']/i.test(html)) failures.push(path + ' missing page-level Content-Security-Policy');
-    if (!/script-src 'self'/.test(html) || /script-src[^"]*unsafe-inline/.test(html)) failures.push(path + ' CSP must restrict scripts to same-origin sources without unsafe-inline');
-    if (!/<meta\\s+name=["']referrer["']\\s+content=["']strict-origin-when-cross-origin["']/i.test(html)) failures.push(path + ' missing strict-origin-when-cross-origin referrer policy');
-    if (!/<script\\s+src=["']\\.\\/ali-tree\\.js["'][^>]*\\bdefer\\b/i.test(html)) failures.push(path + ' must load the external control-panel script with defer');
+    if (!/<meta\s+http-equiv=["']Content-Security-Policy["']/i.test(html)) failures.push(path + ' missing page-level Content-Security-Policy');
+    if (!/script-src\s+'self'/.test(html) || /script-src\s+[^;"]*unsafe-inline/.test(html)) failures.push(path + ' CSP must restrict scripts to same-origin sources without unsafe-inline');
+    if (!/<meta\s+name=["']referrer["']\s+content=["']strict-origin-when-cross-origin["']/i.test(html)) failures.push(path + ' missing strict-origin-when-cross-origin referrer policy');
+    if (!/<script\s+src=["']\.\/ali-tree\.js["'][^>]*\bdefer\b/i.test(html)) failures.push(path + ' must load the external control-panel script with defer');
     const externalScript = await readFile('ali-tree.js', 'utf8');
     const externalSyntax = spawnSync(process.execPath, ['--check', '-'], { input: externalScript, encoding: 'utf8' });
     if (externalSyntax.status !== 0) failures.push('ali-tree.js syntax failed: ' + (externalSyntax.stderr || externalSyntax.stdout).trim());
