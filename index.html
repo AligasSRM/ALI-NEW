@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -21,7 +21,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
 <aside>
   <div class="brand"><div class="logo">A+</div><div><strong>شجرة علي</strong><small>ALI-NEW · فهرس هندسي</small></div></div>
   <div class="nav-label">Workspace</div>
-  <nav class="nav" aria-label="Main navigation">
+  <nav class="nav" aria-label="التنقل الرئيسي">
     <button type="button" class="active" data-target="overview"><span>◈</span><span>Overview</span></button>
     <button type="button" data-target="build-tree"><span>⌘</span><span>Build tree</span></button>
     <button type="button" data-target="repository"><span>▤</span><span>Repository map</span></button>
@@ -41,7 +41,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
     <div class="card"><div class="next-label">NEXT ACTION</div><div class="next-title">A0 — جرد وفهرسة الشجرة</div><p class="muted">Review the visual system, navigation, expandable tree, and mobile layout before locking this milestone.</p><span class="status">NOT VERIFIED</span></div>
   </section>
   <div class="change-note"><strong>OPEN TO CHANGE · قابل للتعديل دائماً</strong><br>A0–A12 هي الخطة الحالية وليست سقفاً ثابتاً. يمكن إضافة A13 أو A14 أو A15، أو تعديل الأقسام والملفات وعدد المستودعات، إذا أثبتت المراجعة أن ذلك أفضل وأكثر أماناً أو حداثة. نسجّل سبب كل تغيير وأثره قبل اعتماده.</div>
-  <div class="metrics" role="group" aria-label="Project summary">
+  <div class="metrics" role="group" aria-label="ملخص المشروع">
     <div class="metric"><span>Planned levels</span><strong id="metric-phase-count">13</strong><small>A0 through A12</small></div>
     <div class="metric"><span>ملفات مفهرسة</span><strong id="metric-file-count">—</strong><small>ملفات ذات مسارات فعلية في السجل</small></div>
     <div class="metric"><span>Production releases</span><strong>0</strong><small>No release verified</small></div>
@@ -58,7 +58,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
     <p class="tree-footnote">قاعدة الفهرسة: A = مرحلة هندسية، B = قسم منطقي داخل المرحلة، C = ملف موجود فعلياً. لا تُنشأ مجلدات A/B/C، ولا نختلق مسارات للملفات الناقصة. الأقسام التي لا تملك ملفات مخصصة تظهر كـ «مخطط — لا يوجد ملف مخصص بعد».</p>
   </section>
 
-  <section id="design-options" class="bottom-grid" aria-label="Approved design options">
+  <section id="design-options" class="bottom-grid" aria-label="خيارات التصميم المعتمدة">
     <div class="card">
       <div class="eyebrow">OPTION 01 · APPROVED DIRECTION</div>
       <h2>Engineering Control Panel</h2>
@@ -97,7 +97,7 @@ button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible
   </section>
 
   <section aria-labelledby="closeout-heading"><div class="section-head"><div><h2 id="closeout-heading">Closeout · الإغلاق بشروط واضحة</h2><p>لا نغلق قسماً أو مستودعاً لمجرد انتهاء التعديل؛ نوثّق ما وجدناه وما أصلحناه وما بقي.</p></div></div><div class="workflow"><div class="workflow-step"><strong>01 · Baseline</strong><span>الملفات الموجودة، النواقص، الاعتماديات والمشاكل.</span></div><div class="workflow-step"><strong>02 · Work log</strong><span>ما تغيّر، ما لم يتغيّر، المحاولات والعوائق.</span></div><div class="workflow-step"><strong>03 · Evidence</strong><span>الاختبارات الفعلية، النتائج، الروابط وCommit SHA.</span></div><div class="workflow-step"><strong>04 · GREEN certificate</strong><span>شهادة محددة النطاق لا تصدر إلا بعد نجاح المعايير.</span></div></div></section>
-  <div class="bottom-grid" role="group" aria-label="Status and repository overview">
+  <div class="bottom-grid" role="group" aria-label="الحالة ونظرة عامة على المستودع">
     <div class="card" id="status-legend"><div class="mini-title">Status & release gates</div><div class="status-list"><div class="status-line"><i class="key yellow"></i><span><strong>YELLOW</strong> — design or implementation underway</span></div><div class="status-line"><i class="key orange"></i><span><strong>ORANGE</strong> — integration not yet verified</span></div><div class="status-line"><i class="key green"></i><span><strong>GREEN</strong> — acceptance checks passed with evidence</span></div><div class="status-line"><i class="key red"></i><span><strong>RED</strong> — blocker, unsafe condition or failed gate</span></div><div class="status-line"><i class="key" style="background:#a5b4fc"></i><span><strong>LOCKED</strong> — accepted; reopen only with a reason</span></div></div></div>
     <div class="card" id="repository"><div class="mini-title">Repository map · proposed</div><div class="repo-path">/README.md</div><div class="repo-path">/IDEAS-ALI-ALEX.md</div><div class="repo-path">/ALI-ALEX-MASTER-PROJECT-PROMPT.md</div><div class="repo-path">/PROJECT-BUILD-TREE.md</div><div class="repo-path">/index.html</div><div class="repo-path">/docs · /app · /tests · /evidence (add when needed)</div><p class="muted" style="font-size:12px;margin-bottom:0">Keep one primary repository for now. Do not create extra repositories without a concrete need.</p></div>
   </div>
