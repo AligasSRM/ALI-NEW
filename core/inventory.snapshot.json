@@ -6,7 +6,7 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "80e36d6f8fdf1b539fe35f96eadb8bfee404aea8",
+  "sourceCommit": "ead7bb30f756e46959c857ac4d95b1ba4cbf1ef8",
   "capturedAt": "2026-10-23",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
@@ -74,16 +74,16 @@
     },
     {
       "path": "core/inventory.snapshot.json",
-      "blobSha": "2c3f80449832d74bda421022ff852a958e6bae45",
-      "sizeBytes": 12462,
+      "blobSha": "87057512bb8029d45493fbf93db3900a17f1287c",
+      "sizeBytes": 12802,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/inventory.snapshot.json",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A3/B0/C2"
     },
     {
       "path": "core/registry.json",
-      "blobSha": "b88bb2ddd8d2267b580034ffbb355af3b28b40d2",
-      "sizeBytes": 33762,
+      "blobSha": "bc2abbd4b5a0a7ef64da385dfcf59da76a7dba95",
+      "sizeBytes": 33758,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/core/registry.json",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A3/B0/C4"
@@ -162,8 +162,8 @@
     },
     {
       "path": "docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
-      "blobSha": "b0dd28a8bacf9226234c322b19e56b81a38dab91",
-      "sizeBytes": 11894,
+      "blobSha": "5200934cdbad24789c42e8b1b57189e119612e90",
+      "sizeBytes": 13818,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B2/C5"
@@ -218,8 +218,8 @@
     },
     {
       "path": "index.html",
-      "blobSha": "f30d7833e60248364551359c6d5f97d1f3081fb7",
-      "sizeBytes": 31585,
+      "blobSha": "3960eb5df4c8aafe27c9af76e7707bac3c2c5850",
+      "sizeBytes": 31738,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/index.html",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B0/C0"
@@ -242,8 +242,8 @@
     },
     {
       "path": "PROJECT-BUILD-TREE.md",
-      "blobSha": "1bd68459b3fc076972668517ff230201d74914a9",
-      "sizeBytes": 34967,
+      "blobSha": "cc29a84068ac9032b66c962a16936b03d70a556c",
+      "sizeBytes": 35507,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B1/C0"
@@ -290,8 +290,8 @@
     },
     {
       "path": "tests/ali-new-a0.spec.ts",
-      "blobSha": "741dadec398a9acccf733ef4e9f90daa3d7935a3",
-      "sizeBytes": 9995,
+      "blobSha": "78233649b8d7365b39044890469778d86de07243",
+      "sizeBytes": 11446,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/tests/ali-new-a0.spec.ts",
       "mappingStatus": "MAPPED",
       "hierarchyRoute": "A0/B2/C0"
