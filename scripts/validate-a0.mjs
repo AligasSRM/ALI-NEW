@@ -31,6 +31,12 @@ for (const path of sources) {
     const syntax = spawnSync(process.execPath, ['--check', '-'], { input: inlineScripts, encoding: 'utf8' });
     if (syntax.status !== 0) failures.push(path + ' inline JavaScript syntax failed: ' + (syntax.stderr || syntax.stdout).trim());
   }
+
+  if (path === 'index.html') {
+    if (!/<meta\s+http-equiv=["']Content-Security-Policy["']/i.test(html)) failures.push(path + ' missing page-level Content-Security-Policy');
+    if (!/script-src\s+'self'\s+'unsafe-inline'/.test(html)) failures.push(path + ' CSP must permit the existing inline application script');
+    if (!/<meta\s+name=["']referrer["']\s+content=["']strict-origin-when-cross-origin["']/i.test(html)) failures.push(path + ' missing strict-origin-when-cross-origin referrer policy');
+  }
   console.log(path + ': ' + ids.length + ' IDs, ' + targets.length + ' navigation targets, ' + buttons.length + ' buttons, ' + anchors.length + ' links.');
 }
 
