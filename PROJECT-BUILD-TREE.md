@@ -354,7 +354,7 @@ Work on one active stage at a time. Inventory or cross-reference preparation for
 | C0 | `docs/design/CONTROL-PANEL-DESIGN-BASELINE.md` | خط أساس تصميم لوحة التحكم |
 
 ### 17.3 A1 — تعريف المنتج
-- **A1 / B0 — متطلبات المنتج:** قسم تنظيمي مخطط؛ لا يوجد ملف مخصص لهذا القسم في شجرة المستودع الحالية.
+- **A1 / B0 — متطلبات المنتج:** المرحلة ما زالت `PLANNED` وغير معتمدة. توجد مسودة `docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md` مفهرسة كـ `A1/B0/C0` بحالة `PLANNED`. إدراجها هنا لأغراض الجرد والتتبع فقط؛ لا يعني بدء تنفيذ A1 أو اعتماد الوثيقة، ولا يغيّر شرط إغلاق A0 أولاً.
 
 ### 17.4 A2 — تجربة المستخدم والتصميم
 
