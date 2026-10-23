@@ -196,6 +196,18 @@
       "notes": "Planned section; no implementation is implied."
     },
     {
+      "id": "C0",
+      "parentId": "A1/B0",
+      "level": "C",
+      "status": "PLANNED",
+      "resourceType": "DOCUMENT",
+      "name": "مسودة تعريف المنتج A1 — غير معتمدة",
+      "path": "docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md",
+      "repositoryFullName": "AligasSRM/ALI-NEW",
+      "branch": "main",
+      "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md"
+    },
+    {
       "id": "B0",
       "level": "B",
       "parentId": "A2",
