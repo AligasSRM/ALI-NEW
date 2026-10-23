@@ -143,3 +143,21 @@ The following later runs supersede the earlier viewport failures and older 9/9 o
 - No real credentials were entered and no authentication or backend integration was added.
 
 **Status remains YELLOW** until standards-based HTML validation, full-history secret scanning, deployed response-header review, broader semantic/contrast accessibility review, and final A0 closeout are recorded. These passing browser tests do not certify the end-user platform or production readiness.
+
+## 11. Independent verification addendum — 2026-10-24
+
+This addendum supersedes the earlier open-item wording only for HTML validation and historical secret scanning. It does not close A0.
+
+### Verified evidence
+
+- **Source CI:** [Playwright Acceptance run 40029504909](https://github.com/AligasSRM/ALI-NEW/actions/runs/40029504909) completed successfully on the PR #14 change set. The job confirms the full-history secret scan passed; A0 source invariants and inline JavaScript syntax passed; Nu HTML Checker returned 0 errors and 0 warnings for `index.html` and `design-preview/index.html`; CORE inventory and registry validation passed; route-resolver tests passed; and Playwright passed **14/14** tests.
+- **Live HTML validation:** the external [Nu HTML Checker report for the root panel](https://validator.w3.org/nu/?doc=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2F&out=json) returned `messages: []` on 2026-10-24. The [legacy-route report](https://validator.w3.org/nu/?doc=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2Fcontrol-panel%2F&out=json) also returned `messages: []`; an independent live fetch confirmed that `/ALI-NEW/control-panel/` resolves to the canonical root page.
+- **Response-header review:** the independent [SecurityHeaders scan of the root page](https://securityheaders.com/?q=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2F&followRedirects=on) reported grade **D** at 2026-10-23 22:06:50 UTC. It found `Strict-Transport-Security`, but reported these headers missing: `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy`. The legacy-route scan reported the same missing-header set.
+- **CSS contrast spot-check:** selected foreground/background pairs from the current source tokens were calculated and exceeded WCAG AA's 4.5:1 normal-text threshold (including `#F3F5FF` on `#080D19` = 17.85:1, `#AAB5CC` on `#10182A` = 8.59:1, and `#71839e` on `#10182A` = 4.59:1). This is a limited static spot-check, **not** a complete contrast or semantic-accessibility audit.
+
+### Remaining gates and decision
+
+- **A0 remains YELLOW / OPEN.** Passing HTML and historical-secret checks are now evidenced; they must not continue to be listed as unverified.
+- The response-header finding is documented, not silently waived. No hosting, Pages, permission, or protection settings were changed. Addressing server response headers may require a separately authorized hosting/configuration decision; static HTML cannot supply every missing response header.
+- A broader semantic/accessibility review and the owner's desktop/mobile visual acceptance are still outstanding.
+- No GREEN certificate is issued and A1 is not started. Reassess only after the remaining gates are resolved with evidence and the required owner acceptance is recorded.
