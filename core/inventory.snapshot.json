@@ -6,7 +6,7 @@
     "url": "https://github.com/AligasSRM/ALI-NEW",
     "defaultBranch": "main"
   },
-  "sourceCommit": "6ae78302841f6ac717070294354a171948d431ce",
+  "sourceCommit": "777db74649ddb36ba4efe84f31dcbe2e625ad8fd",
   "capturedAt": "2026-10-23",
   "source": "GitHub Git Trees API recursive tree; only blob entries are listed",
   "counts": {
@@ -14,7 +14,7 @@
     "mapped": 38,
     "unmapped": 0
   },
-  "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness.",
+  "policy": "Observed Git tree snapshot tied to sourceCommit. core/registry.json is the canonical A/B/C mapping source; MAPPED entries include the exact hierarchyRoute from that registry. UNMAPPED entries remain explicit until assigned. Snapshot verification covers tracked-path inventory and registry mapping only; it does not certify runtime behavior or production readiness. Blob SHAs refer to the sourceCommit tree; this snapshot file is updated in a subsequent commit.",
   "files": [
     {
       "path": ".github/workflows/core-diagnostic.yml",
@@ -50,7 +50,7 @@
     },
     {
       "path": "ALI-ALEX-MASTER-PROJECT-PROMPT.md",
-      "blobSha": "9aeb9607b4f3a75a6f180d2a4dd3b11e2f574b9e",
+      "blobSha": "b448e35d884a0c44d845f0e6fe8cb3e0e1d6e01e",
       "sizeBytes": 17721,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/ALI-ALEX-MASTER-PROJECT-PROMPT.md",
       "mappingStatus": "MAPPED",
@@ -58,7 +58,7 @@
     },
     {
       "path": "CORE-BRAIN-ARCHITECTURE-STUDY.md",
-      "blobSha": "11ecf173a03b15bfd0b76f56397a052b19111069",
+      "blobSha": "a72bc85de920dd70feef56c09a6859ebb352e40f",
       "sizeBytes": 30913,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/CORE-BRAIN-ARCHITECTURE-STUDY.md",
       "mappingStatus": "MAPPED",
@@ -66,7 +66,7 @@
     },
     {
       "path": "IDEAS-ALI-ALEX.md",
-      "blobSha": "9e24d6b224ead3f3b3042e43ccff2121c1c4eace",
+      "blobSha": "ea6cd0a144c5afd03f9daeea39cae116d4903455",
       "sizeBytes": 31138,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/IDEAS-ALI-ALEX.md",
       "mappingStatus": "MAPPED",
@@ -74,7 +74,7 @@
     },
     {
       "path": "PROJECT-BUILD-TREE.md",
-      "blobSha": "b029c619625e03efe8db775dd0b47a4c714e43a8",
+      "blobSha": "360eb9a7afaed1bd05037932f001bb75e363a598",
       "sizeBytes": 35603,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/PROJECT-BUILD-TREE.md",
       "mappingStatus": "MAPPED",
@@ -82,7 +82,7 @@
     },
     {
       "path": "README.md",
-      "blobSha": "964ef6326942c8adce085ab0c679bd1755071fa9",
+      "blobSha": "c9aa37b8989eae451f18a09d565a63b9b36065ef",
       "sizeBytes": 22720,
       "url": "https://github.com/AligasSRM/ALI-NEW/blob/main/README.md",
       "mappingStatus": "MAPPED",
