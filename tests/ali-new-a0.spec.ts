@@ -170,7 +170,7 @@ test.describe('ALI-NEW design preview', () => {
     await page.getByRole('button', { name: 'Create an account' }).click();
     await expect(page.getByLabel('Display name')).toBeVisible();
     await expect(page.getByLabel('Email address')).toBeVisible();
-    await expect(page.getByLabel('Password', { exact: true })).toBeVisible();
+    await expect(page.getByLabel('Create password', { exact: true })).toBeVisible();
     await page.locator('#reg-name').focus();
     await page.keyboard.press('Tab');
     await expect(page.locator('#reg-email')).toBeFocused();
