@@ -39,14 +39,18 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     await page.goto('/');
     await expect(page).toHaveTitle(/شجرة علي.*ALI-NEW Engineering Control Panel/);
     await expect(page.locator('h1').filter({ hasText: 'Ali Tree' })).toBeVisible();
+    await expect(page.getByRole('navigation', { name: 'مسار التنقل' })).toBeVisible();
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('كل المراحل A0–A12');
     await expect(page.locator('.tree-select')).toHaveCount(13);
 
     await page.locator('.tree-select').filter({ hasText: 'A0' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('A0');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('A0');
     await expect(page.locator('.tree-select')).toHaveCount(6);
 
     await page.locator('.tree-select').filter({ hasText: 'B2' }).click();
     await expect(page.locator('#tree-crumbs')).toContainText('B2');
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('B2');
     const registryResponse = await page.request.get('/core/registry.json');
     expect(registryResponse.ok()).toBeTruthy();
     const registry = await registryResponse.json();
@@ -59,8 +63,17 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
 
     await page.getByRole('button', { name: '← رجوع' }).click();
     await expect(page.locator('.tree-select')).toHaveCount(6);
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('A0');
+
+    await page.locator('.tree-select').filter({ hasText: 'B2' }).click();
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('B2');
+    await page.locator('#crumb-a').click();
+    await expect(page.locator('.tree-select')).toHaveCount(6);
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('A0');
+
     await page.getByRole('button', { name: 'كل المراحل' }).click();
     await expect(page.locator('.tree-select')).toHaveCount(13);
+    await expect(page.locator('#tree-crumbs [aria-current="step"]')).toContainText('كل المراحل A0–A12');
   });
 
   test('incident console routes exact paths and exposes no write action', async ({ page }) => {
