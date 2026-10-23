@@ -58,3 +58,26 @@ A locale passes only when all applicable criteria pass. Any missing translation,
 - Registry: `core/language-registry.json` — canonical locale inventory and direction metadata.
 
 **Conclusion:** language scope is now explicitly recorded, while runtime localization, translation coverage, automated acceptance, and visual review remain open work. Do not mark the language gate GREEN until evidence proves completion.
+
+## 7. Verification record — 2026-10-24
+
+**Tested commit:** `53c35bf5591e73dc2fbb2fd6f809462fcb3dd726` (before this verification record was appended).  
+**Pull request:** [#17](https://github.com/AligasSRM/ALI-NEW/pull/17), open Draft; not merged.
+
+### Checks completed
+
+- **PASS — JSON parse:** `core/language-registry.json` parses successfully.
+- **PASS — locale count:** exactly 25 locale entries and 25 unique locale codes.
+- **PASS — direction metadata:** every direction is either `rtl` or `ltr`; RTL entries are exactly `ar`, `fa`, and `ur`.
+- **PASS — default locale safety:** `default_locale` is null; no default was invented.
+- **PASS — documentation coverage scan:** the baseline includes requirements for translation completeness, language switching, RTL/LTR, responsive/accessibility checks, regression automation, and explicit open/not-implemented status.
+- **PASS — CORE Diagnostic Loop (Read-only):** GitHub Actions run `40041306474` completed successfully.
+- **FAIL — Playwright Acceptance workflow:** GitHub Actions run `40041306543` failed at `Validate CORE inventory snapshot`; the browser acceptance steps were skipped.
+
+### Failure analysis and disposition
+
+The Playwright workflow did not fail a language-switching or browser localization test. It failed earlier because the canonical tracked-file inventory does not yet account for the two files added by this PR: `core/language-registry.json` and `docs/product/ALI-NEW-LANGUAGE-BASELINE.md`. The validator reported both as missing from `core/inventory.snapshot.json`. As a result, browser acceptance was not executed and cannot be reported as passing.
+
+**Required follow-up:** reconcile the two added paths with the existing canonical registry and inventory snapshot in a separately reviewed, scope-safe change, then rerun the workflow. Until that succeeds, CI is not green. This record is evidence of the current outcome, not closure of the multilingual acceptance gate.
+
+**Current language-gate status: OPEN / NOT ACCEPTED.** Runtime translations, language switching, per-locale browser tests, and visual/accessibility review remain unimplemented or unverified.
