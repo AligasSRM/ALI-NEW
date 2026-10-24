@@ -228,4 +228,41 @@ test.describe('ALI-NEW design preview', () => {
       expect(dimensions.page, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(dimensions.viewport + 1);
     });
   }
+
+  test('semantic translation IDs remain stable when visible English copy changes', async ({ page }) => {
+    await page.goto('/design-preview/');
+    await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
+
+    const login = page.locator('.nav-actions button[data-page="sign-in"]');
+    await expect(login).toHaveAttribute('data-i18n-key', 'auth.login');
+
+    // Simulate a copy edit before switching locale: lookup must use the semantic ID, not the text.
+    await login.evaluate((el) => { el.textContent = 'Sign in to continue'; });
+    await page.locator('#locale-select').selectOption('ar');
+    await expect(login).toHaveText('تسجيل الدخول');
+  });
+
+  test('unknown semantic translation IDs emit an explicit diagnostic without crashing the preview', async ({ page }) => {
+    const warnings: string[] = [];
+    page.on('console', (message) => {
+      if (message.type() === 'warning' && message.text().includes('[i18n] Missing or unknown translation ID:')) {
+        warnings.push(message.text());
+      }
+    });
+
+    await page.goto('/design-preview/');
+    await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
+    await page.evaluate(() => {
+      const probe = document.createElement('span');
+      probe.id = 'i18n-unknown-key-probe';
+      probe.setAttribute('data-i18n-key', 'test.unknown_key');
+      probe.textContent = 'Fallback remains visible';
+      document.body.appendChild(probe);
+    });
+    await page.locator('#locale-select').selectOption('ar');
+
+    await expect(page.locator('#i18n-unknown-key-probe')).toHaveText('Fallback remains visible');
+    expect(warnings.some((warning) => warning.includes('test.unknown_key'))).toBeTruthy();
+  });
+
 });
