@@ -63,6 +63,38 @@ test.describe('ALI-NEW Ali Tree A/B/C index', () => {
     await expect(page.locator('.tree-select')).toHaveCount(13);
   });
 
+  test('control panel tree supports keyboard focus with a visible indicator', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.tree-select').first()).toBeVisible();
+
+    let reachedTreeControl = false;
+    for (let i = 0; i < 30; i += 1) {
+      await page.keyboard.press('Tab');
+      reachedTreeControl = await page.locator(':focus').evaluate((el) => el.matches('.tree-select')).catch(() => false);
+      if (reachedTreeControl) break;
+    }
+
+    expect(reachedTreeControl, 'keyboard Tab sequence should reach a tree navigation control').toBeTruthy();
+    const outline = await page.locator(':focus').evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(3);
+  });
+
+  for (const width of [360, 390, 768, 1280]) {
+    test(`control panel fits viewport at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto('/');
+      const dimensions = await page.evaluate(() => ({
+        viewport: document.documentElement.clientWidth,
+        page: document.documentElement.scrollWidth
+      }));
+      expect(dimensions.page, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(dimensions.viewport + 1);
+    });
+  }
+
   test('incident console routes exact paths and exposes no write action', async ({ page }) => {
     await page.goto('/core/incidents.html');
     await expect(page.getByRole('heading', { name: 'CORE Incident Router' })).toBeVisible();
