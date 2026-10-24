@@ -12,6 +12,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr .65fr}.top{gap:12px}.nav-actions .btn{padding:9px 10px}}
 @media(max-width:720px){.top{flex-wrap:wrap}.brand{flex:1}.search{order:3;flex-basis:100%;max-width:none}.nav-actions{margin-left:0}.hero{grid-template-columns:1fr}.hero-graphic{min-height:130px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.account-layout{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}}
 @media(max-width:420px){.nav-actions .btn{font-size:12px;padding:8px}.grid{gap:9px}.video-card h3{font-size:13px}.thumb{border-radius:10px}.age-card h1,.auth-card h1{font-size:26px}}
+
+.locale-control{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}.locale-control select{max-width:150px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:9px 8px;font:inherit}.locale-control select:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+html[dir="rtl"] body{direction:rtl}html[dir="rtl"] .nav-actions{margin-left:0;margin-right:auto}html[dir="rtl"] .side-links button{text-align:right}html[dir="rtl"] .duration{right:auto;left:8px}html[dir="rtl"] .thumb:before{right:auto;left:-22px}
 </style>
 </head>
 <body>
@@ -26,7 +29,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 </div>
 <div id="exit-screen" class="age-wrap hidden"><section class="notice-card"><div class="eyebrow">ACCESS CLOSED</div><h1>Preview not opened</h1><p>You chose not to continue. No account or personal information was collected.</p><button type="button" class="btn" id="return-age">Return to age notice</button></section></div>
 <div id="app" class="shell hidden">
-  <header class="top"><div class="brand"><div class="logo">A+</div><div>ALI<span>NEW</span></div></div><label class="search"><input id="search" type="search" placeholder="Search videos, creators, topics…" aria-label="Search preview"></label><div class="nav-actions"><button type="button" class="btn" data-page="sign-in">Log in</button><button type="button" class="btn primary" data-page="register">Join</button></div></header>
+  <header class="top"><div class="brand"><div class="logo">A+</div><div>ALI<span>NEW</span></div></div><label class="search"><input id="search" type="search" placeholder="Search videos, creators, topics…" aria-label="Search preview"></label><div class="locale-control"><label for="locale-select" data-i18n="Language">Language</label><select id="locale-select" aria-label="Language"><option value="en">English</option><option value="ar">العربية</option></select></div><div class="nav-actions"><button type="button" class="btn" data-page="sign-in">Log in</button><button type="button" class="btn primary" data-page="register">Join</button></div></header>
   <nav class="nav" aria-label="Main navigation"><button type="button" class="active" data-page="home">Discover</button><button type="button" data-page="home">Popular</button><button type="button" data-page="home">Categories</button><button type="button" data-page="account">My account</button></nav>
   <main>
     <section id="page-home" class="page">
@@ -48,6 +51,121 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   <footer><span>ALI-NEW · Video platform design preview</span><span>Front-end mock only · No account data saved</span></footer>
 </div>
 <script>
+
+const translations = {
+"ACCESS NOTICE · DESIGN PREVIEW":"إشعار الوصول · معاينة التصميم",
+"Are you 18 or older?":"هل عمرك 18 عامًا أو أكثر؟",
+"This preview represents an age-restricted platform entry screen. Continuing here is only a visual demonstration, not legally sufficient age verification.":"تعرض هذه المعاينة شاشة دخول لمنصة مقيّدة بالعمر. المتابعة هنا للعرض البصري فقط وليست تحققًا قانونيًا كافيًا من العمر.",
+"Yes, continue to preview":"نعم، تابع إلى المعاينة",
+"No, leave this preview":"لا، غادر المعاينة",
+"The actual age-assurance method, privacy impact, legal requirements, and hosting rules must be reviewed before any public launch.":"يجب مراجعة طريقة التحقق من العمر وأثرها على الخصوصية والمتطلبات القانونية وقواعد الاستضافة قبل الإطلاق العام.",
+"ACCESS CLOSED":"تم إغلاق الوصول",
+"Preview not opened":"لم تُفتح المعاينة",
+"You chose not to continue. No account or personal information was collected.":"اخترت عدم المتابعة. لم يتم جمع أي حساب أو معلومات شخصية.",
+"Return to age notice":"العودة إلى إشعار العمر",
+"Search preview":"البحث في المعاينة",
+"Log in":"تسجيل الدخول",
+"Join":"انضم",
+"Main navigation":"التنقل الرئيسي",
+"Discover":"اكتشف",
+"Popular":"الأكثر شيوعًا",
+"Categories":"الفئات",
+"My account":"حسابي",
+"YOUR SPACE · YOUR DISCOVERY":"مساحتك · اكتشافك",
+"Discover something":"اكتشف شيئًا",
+"worth watching.":"يستحق المشاهدة.",
+"A design-only preview of the planned video platform. Explore the page structure, colors, navigation, and responsive cards.":"معاينة تصميمية لمنصة الفيديو المخطط لها. استكشف بنية الصفحة والألوان والتنقل والبطاقات المتجاوبة.",
+"Explore videos":"استكشف الفيديوهات",
+"Create account":"إنشاء حساب",
+"For you":"مقترح لك",
+"Latest":"الأحدث",
+"Creators":"صنّاع المحتوى",
+"Collections":"المجموعات",
+"Languages":"اللغات",
+"Sample cards only — no real media is connected.":"بطاقات تجريبية فقط — لا توجد وسائط حقيقية متصلة.",
+"DESIGN PREVIEW":"معاينة التصميم",
+"No sample cards match that search.":"لا توجد بطاقات تجريبية تطابق البحث.",
+"WELCOME BACK":"أهلًا بعودتك",
+"Open your personal space. This demo does not send or save credentials.":"افتح مساحتك الشخصية. هذا العرض لا يرسل بيانات الدخول ولا يحفظها.",
+"Email or username":"البريد الإلكتروني أو اسم المستخدم",
+"Password":"كلمة المرور",
+"Forgot password?":"هل نسيت كلمة المرور؟",
+"Create an account":"إنشاء حساب",
+"Log in to demo":"تسجيل الدخول إلى العرض",
+"Password recovery is not connected in this prototype.":"استعادة كلمة المرور غير متصلة في هذا النموذج.",
+"Prototype only · Authentication is not connected.":"نموذج أولي فقط · المصادقة غير متصلة.",
+"JOIN ALI-NEW":"انضم إلى ALI-NEW",
+"Create your account":"أنشئ حسابك",
+"Account registration is shown for layout review only. No information is transmitted or stored.":"يُعرض التسجيل لمراجعة التصميم فقط. لا تُرسل المعلومات ولا تُخزّن.",
+"Display name":"الاسم المعروض",
+"Email address":"عنوان البريد الإلكتروني",
+"Create password":"أنشئ كلمة مرور",
+"Production requirements and recovery rules will be defined before implementation.":"سيتم تحديد متطلبات الإنتاج وقواعد الاستعادة قبل التنفيذ.",
+"By continuing, you would agree to the platform terms and privacy notice.":"بالمتابعة، فإنك توافق على شروط المنصة وإشعار الخصوصية.",
+"Already registered? Log in":"لديك حساب؟ سجّل الدخول",
+"Create demo account":"إنشاء حساب تجريبي",
+"Choose a display name":"اختر اسمًا معروضًا",
+"At least 8 characters":"8 أحرف على الأقل",
+"Enter a demo password":"أدخل كلمة مرور تجريبية",
+"PERSONAL SPACE":"المساحة الشخصية",
+"Your account":"حسابك",
+"This is a sample profile layout, not a signed-in session.":"هذا تصميم تجريبي للملف الشخصي وليس جلسة دخول فعلية.",
+"Edit profile":"تعديل الملف الشخصي",
+"Settings & privacy":"الإعدادات والخصوصية",
+"Saved videos":"الفيديوهات المحفوظة",
+"Sign in":"تسجيل الدخول",
+"ACCOUNT OVERVIEW":"نظرة عامة على الحساب",
+"Welcome to your space":"أهلًا بك في مساحتك",
+"In the real product, this area can show profile details, saved content, creator status, and account settings according to permissions.":"في المنتج الفعلي، يمكن أن تعرض هذه المنطقة تفاصيل الملف الشخصي والمحتوى المحفوظ وحالة صانع المحتوى وإعدادات الحساب وفق الصلاحيات.",
+"No real profile, authentication, or private data exists in this preview.":"لا يوجد في هذه المعاينة ملف شخصي حقيقي أو مصادقة أو بيانات خاصة.",
+"Back to discovery":"العودة إلى الاستكشاف",
+"Sample video page":"صفحة فيديو تجريبية",
+"The real watch page will include approved media playback, creator information, captions where available, reporting, and related videos.":"ستتضمن صفحة المشاهدة الفعلية تشغيل الوسائط المعتمدة ومعلومات صانع المحتوى والترجمات النصية عند توفرها والإبلاغ والفيديوهات ذات الصلة.",
+"No video player or media service is connected in this prototype.":"لا يوجد مشغّل فيديو أو خدمة وسائط متصلة بهذا النموذج.",
+"ALI-NEW · Video platform design preview":"ALI-NEW · معاينة تصميم منصة الفيديو",
+"Front-end mock only · No account data saved":"نموذج واجهة فقط · لا تُحفظ بيانات الحساب",
+"Profile editing is not connected.":"تعديل الملف الشخصي غير متصل.",
+"Settings are a design placeholder.":"الإعدادات عنصر تصميمي مؤقت.",
+"Saved videos are not connected.":"الفيديوهات المحفوظة غير متصلة.",
+"Demo validation passed. No account was created or data sent.":"نجح التحقق التجريبي. لم يُنشأ حساب ولم تُرسل بيانات.",
+"Demo validation passed. No login was performed.":"نجح التحقق التجريبي. لم يتم تسجيل الدخول.",
+"Language":"اللغة"
+};
+function setLocale(locale) {
+  const isArabic = locale === 'ar';
+  document.documentElement.lang = locale;
+  document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    el.textContent = isArabic ? (translations[key] || key) : key;
+  });
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const key = node.nodeValue.trim();
+    if (!key) return;
+    if (isArabic && translations[key]) node.nodeValue = node.nodeValue.replace(key, translations[key]);
+    else if (!isArabic) {
+      const original = Object.keys(translations).find(k => translations[k] === key);
+      if (original) node.nodeValue = node.nodeValue.replace(key, original);
+    }
+  });
+  const attrs = [
+    ['#search','placeholder','Search videos, creators, topics…','ابحث عن فيديوهات وصنّاع محتوى ومواضيع…'],
+    ['#search','aria-label','Search preview','البحث في المعاينة'],
+    ['#login-id','placeholder','you@example.com','you@example.com'],
+    ['#login-pass','placeholder','Enter a demo password','أدخل كلمة مرور تجريبية'],
+    ['#reg-name','placeholder','Choose a display name','اختر اسمًا معروضًا'],
+    ['#reg-email','placeholder','you@example.com','you@example.com'],
+    ['#reg-pass','placeholder','At least 8 characters','8 أحرف على الأقل'],
+    ['nav.nav','aria-label','Main navigation','التنقل الرئيسي'],
+    ['#locale-select','aria-label','Language','اللغة']
+  ];
+  attrs.forEach(([selector,attr,en,ar])=>{const el=document.querySelector(selector);if(el)el.setAttribute(attr,isArabic?ar:en)});
+}
+document.getElementById('locale-select').addEventListener('change', e => setLocale(e.target.value));
+
 const age=document.getElementById('age-screen'),exit=document.getElementById('exit-screen'),app=document.getElementById('app');
 function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));const page=document.getElementById('page-'+name);if(page)page.classList.remove('hidden');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo({top:0,behavior:'smooth'})}
 document.getElementById('age-yes').addEventListener('click',()=>{age.classList.add('hidden');exit.classList.add('hidden');app.classList.remove('hidden')});
