@@ -174,3 +174,23 @@ A source-level mitigation was added on the existing PR #15 branch; it has **not*
 **Important limitation:** these meta policies are defense-in-depth, not HTTP response headers. They do not clear the SecurityHeaders finding and do not replace `X-Frame-Options`, `X-Content-Type-Options: nosniff`, or `Permissions-Policy`; CSP `frame-ancestors` also cannot be enforced through a CSP meta element. The live SecurityHeaders grade therefore remains unverified after this source change and must not be described as fixed. GitHub Pages does not provide arbitrary per-site response-header configuration through repository HTML. No hosting, DNS, Pages, protection, or permission settings were changed.
 
 A0 remains **YELLOW / OPEN** until the source checks pass, the change is deployed and checked live, the remaining response-header risk is resolved through an explicitly authorized supported hosting path or documented risk decision, and accessibility/owner-acceptance gates are complete.
+## 8. Post-merge CI verification (2026-10-24)
+
+The semantic translation-ID refactor was merged as commit `e7dfa9242032b8af2f77c456a0e2b1dd5a206973`. The following GitHub Actions runs for that commit completed successfully:
+
+- [Deployed Pages smoke tests — run 40086667806](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086667806)
+- [CORE Diagnostic Loop — run 40086650117](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086650117); the `validate` job passed, while `diagnose_pull_request` and `diagnose_trusted` were skipped.
+- [Playwright Acceptance — run 40086649999](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649999)
+- [GitHub Pages deployment — run 40086649902](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649902)
+- [Pages build and deployment — run 40086649619](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649619)
+
+These are successful workflow results, not a substitute for the outstanding acceptance gates below. They do not establish that the missing HTTP response headers have been fixed, that a comprehensive accessibility audit has passed, or that the owner has accepted desktop/mobile visuals.
+
+## 9. Current A0 closeout blockers (reconfirmed 2026-10-24)
+
+1. **HTTP security response headers:** the previously recorded SecurityHeaders grade D and missing response headers remain unresolved until a fresh live scan demonstrates otherwise. HTML meta directives are not equivalent to HTTP response headers. Standard GitHub Pages static hosting does not provide a per-repository setting for arbitrary response headers; do not add an ignored `_headers` file and claim remediation.
+2. **Accessibility:** add repeatable keyboard-focus and responsive-overflow regression checks, then run them in CI. These checks cover only the stated behaviors and are not a comprehensive WCAG audit.
+3. **Owner visual acceptance:** record Ali's actual desktop and mobile review/decision. Engineering cannot self-certify owner acceptance.
+4. **Final evidence:** after the changes and live deployment, repeat the relevant Actions and live-page/header checks and record exact commit/run IDs.
+
+A0 remains **YELLOW / OPEN** until these gates are evidenced. No release or next phase is authorized by this record.
