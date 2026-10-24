@@ -67,3 +67,23 @@ test('issue comment explicitly describes read-only scope and limitations', () =>
   assert.match(comment, /unit test/);
   assert.match(comment, /does not fetch full logs/);
 });
+
+
+
+
+test('pull-request diagnostics have no write permission and trusted diagnostics use default-branch code', () => {
+  const workflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'core-diagnostic.yml'), 'utf8');
+  const prStart = workflow.indexOf('  diagnose_pull_request:');
+  const trustedStart = workflow.indexOf('  diagnose_trusted:', prStart);
+  const pullRequestJob = prStart >= 0 && trustedStart > prStart ? workflow.slice(prStart, trustedStart) : '';
+  const trustedJob = trustedStart >= 0 ? workflow.slice(trustedStart) : '';
+
+  assert.notEqual(pullRequestJob, '');
+  assert.ok(pullRequestJob.includes("if: github.event_name == 'pull_request'"));
+  assert.ok(pullRequestJob.includes('contents: read'));
+  assert.ok(pullRequestJob.includes('actions: read'));
+  assert.ok(!pullRequestJob.includes('issues: write'));
+  assert.ok(trustedJob.includes("if: github.event_name == 'workflow_dispatch' || (github.event_name == 'issues'"));
+  assert.ok(trustedJob.includes('issues: write'));
+  assert.ok(trustedJob.includes('ref: ${{ github.event.repository.default_branch }}'));
+});
