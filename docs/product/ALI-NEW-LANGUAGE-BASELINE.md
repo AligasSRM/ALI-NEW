@@ -62,7 +62,7 @@ A locale passes only when all applicable criteria pass. Any missing translation,
 ## 7. Verification record — 2026-10-24
 
 **Tested commit:** `53c35bf5591e73dc2fbb2fd6f809462fcb3dd726` (before this verification record was appended).  
-**Pull request:** [#17](https://github.com/AligasSRM/ALI-NEW/pull/17), open Draft; not merged.
+**Pull request:** [#17](https://github.com/AligasSRM/ALI-NEW/pull/17), merged on 2026-10-24. The pre-merge verification evidence is recorded below; it must not be described as a post-merge workflow run.
 
 ### Checks completed
 
@@ -89,3 +89,12 @@ The CORE diagnostic workflow was updated to separate pull-request diagnostics fr
 - Pull-request diagnostic job permissions are limited to `contents: read` and `actions: read`; it has no `issues: write` permission and does not post issue comments.
 - The issue/manual diagnostic job alone receives `issues: write`, and checks out the repository default branch so write-capable diagnostic code is not taken from a pull-request branch.
 - Final acceptance must be based on workflow results for the current head commit after this change. Earlier green runs do not certify a later commit.
+
+
+## 9. Post-merge status reconciliation — 2026-10-24
+
+- **PR #17 status:** merged and closed. Merge commit: `0ccd8b6098cdf6d4679aa37bb9c95f7fc0d16e11`.
+- **Pre-merge CI evidence:** CORE Diagnostic Loop run [#134](https://github.com/AligasSRM/ALI-NEW/actions/runs/40084191930) and Playwright Acceptance run [#212](https://github.com/AligasSRM/ALI-NEW/actions/runs/40084191903) passed on PR head commit `ccca0e89a76805e569e526b9743ab50286e039f8`.
+- **Evidence limitation:** a check for workflow runs associated with the merge commit returned no PR-triggered runs. Therefore, these pre-merge green runs are not represented as post-merge CI evidence.
+- **Workflow implementation verified on `main`:** PR diagnostics have `contents: read` and `actions: read`; `issues: write` is limited to the trusted issue/manual job, which checks out the repository default branch.
+- **Scope and gate status unchanged:** the 25-locale scope is locked, but product-wide multilingual acceptance remains `OPEN / NOT ACCEPTED`. A0 remains `YELLOW / OPEN`; A1 remains `PLANNED`. This record does not authorize a release, close A0, or start A1.
