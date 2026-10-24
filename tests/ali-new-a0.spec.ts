@@ -185,7 +185,7 @@ test.describe('ALI-NEW design preview', () => {
       const languageLabel = (await page.locator('label[for="locale-select"]').innerText()).trim();
       const exploreLabel = (await page.locator('.hero .actions button[data-page="home"]').innerText()).trim();
       const registrationLink = (await page.locator('button[data-page="sign-in"].text-button').innerText()).trim();
-      const accountSignIn = (await page.locator('#page-account button[data-page="sign-in"]').first().innerText()).trim();
+      const accountSignIn = (await page.locator('#page-account .side-links button[data-page="sign-in"]').innerText()).trim();
       const backToDiscovery = (await page.locator('#page-watch button[data-page="home"]').innerText()).trim();
       if (locale === 'en') {
         expect(loginLabel).toBe('Log in');
@@ -212,7 +212,7 @@ test.describe('ALI-NEW design preview', () => {
     await expect(page.locator('.nav-actions button[data-page="sign-in"]')).toHaveText('تسجيل الدخول');
     await expect(page.locator('.hero .actions button[data-page="home"]')).toHaveText('استكشف الفيديوهات ↓');
     await expect(page.locator('button[data-page="sign-in"].text-button')).toHaveText('هل لديك حساب بالفعل؟ تسجيل الدخول');
-    await expect(page.locator('#page-account button[data-page="sign-in"]').first()).toHaveText('تسجيل الدخول');
+    await expect(page.locator('#page-account .side-links button[data-page="sign-in"]')).toHaveText('تسجيل الدخول');
     await expect(page.locator('#page-watch button[data-page="home"]')).toHaveText('← العودة إلى الاكتشاف');
   });
 
