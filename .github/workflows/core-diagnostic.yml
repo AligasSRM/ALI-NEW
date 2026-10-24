@@ -46,7 +46,7 @@ jobs:
         run: node --test tests/core-diagnostic.test.mjs tests/core-route-resolver.test.mjs
 
   diagnose:
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'issues' && github.event.issue.user.login == 'AligasSRM')
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || (github.event_name == 'issues' && github.event.issue.user.login == 'AligasSRM')
     permissions:
       contents: read
       actions: read
@@ -69,7 +69,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
-          INPUT_RUN_ID: ${{ inputs.run_id }}
+          INPUT_RUN_ID: ${{ inputs.run_id || github.run_id }}
           INPUT_ISSUE_NUMBER: ${{ inputs.issue_number }}
           INPUT_CHANGED_PATHS: ${{ inputs.changed_paths }}
         run: node scripts/run-core-diagnostic.mjs
