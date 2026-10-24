@@ -23,9 +23,9 @@ This is a product scope decision, not a statement that these locales are already
 
 ## 3. Current implementation status
 
-**Not implemented / not accepted yet.** The source snapshot inspected during the language audit contains English-only main and design-preview document metadata, a few separate Arabic RTL utility pages, and no verified end-to-end language switcher or complete locale resource set. The existing product screen map explicitly says language selection and translated content require a later acceptance pass. The language inventory does not close that gap by itself.
+**Preview-level switching is implemented; product-wide multilingual acceptance remains OPEN / NOT ACCEPTED.** The `design-preview/index.html` prototype contains locale dictionaries and a language selector for the 25 scoped locales. The selector updates representative UI strings, `html lang`, `dir`, and the saved preview preference. A Playwright test exercises all 25 choices and checks representative strings plus Arabic restoration after reload.
 
-Do not advertise any locale as fully supported until the acceptance gate below is satisfied. Do not infer translation completeness from the presence of a locale code, a translated page title, or `lang`/`dir` attributes alone.
+This is evidence of the design-preview implementation only. It does not prove that every user-facing string on every product screen is translated, that translations have been reviewed by native speakers, or that all locales pass responsive, accessibility, and RTL/LTR review. Do not advertise any locale as fully supported based only on this preview or its current automated checks.
 
 ## 4. Required implementation and acceptance gate
 
@@ -54,7 +54,7 @@ A locale passes only when all applicable criteria pass. Any missing translation,
 
 - Screen map: `docs/design/VIDEO-PLATFORM-SCREEN-MAP.md` — states that Arabic RTL and English LTR are planned and that language selection/translated content need a later acceptance pass.
 - Product definition: `docs/product/ALI-NEW-A1-PRODUCT-DEFINITION.md` — remains a draft and leaves launch languages unresolved.
-- Design preview: `design-preview/index.html` — currently declares `lang="en"`; this is not proof of multilingual support.
+- Design preview: `design-preview/index.html` — implements preview-level locale switching; automated coverage is in `tests/ali-new-a0.spec.ts`. This is not proof of product-wide multilingual acceptance.
 - Registry: `core/language-registry.json` — canonical locale inventory and direction metadata.
 
 **Conclusion:** language scope is now explicitly recorded, while runtime localization, translation coverage, automated acceptance, and visual review remain open work. Do not mark the language gate GREEN until evidence proves completion.
@@ -78,6 +78,14 @@ A locale passes only when all applicable criteria pass. Any missing translation,
 
 The Playwright workflow did not fail a language-switching or browser localization test. It failed earlier because the canonical tracked-file inventory does not yet account for the two files added by this PR: `core/language-registry.json` and `docs/product/ALI-NEW-LANGUAGE-BASELINE.md`. The validator reported both as missing from `core/inventory.snapshot.json`. As a result, browser acceptance was not executed and cannot be reported as passing.
 
-**Required follow-up:** reconcile the two added paths with the existing canonical registry and inventory snapshot in a separately reviewed, scope-safe change, then rerun the workflow. Until that succeeds, CI is not green. This record is evidence of the current outcome, not closure of the multilingual acceptance gate.
+**Disposition of this historical failure:** the inventory snapshot and canonical registry were subsequently reconciled on the PR branch. The two new paths are explicitly recorded as `UNMAPPED`, without inventing hierarchy routes. A later run on commit `edeee5b0f09a4cc0b059c9252543efd521e6526e` passed CORE and Playwright acceptance (runs `40041636400` and `40041636410`). The failure above remains in the record as historical evidence, not the current CI status.
 
 **Current language-gate status: OPEN / NOT ACCEPTED.** Runtime translations, language switching, per-locale browser tests, and visual/accessibility review remain unimplemented or unverified.
+
+
+## 8. Workflow trust-boundary hardening — 2026-10-24
+
+The CORE diagnostic workflow was updated to separate pull-request diagnostics from trusted issue/manual diagnostics:
+- Pull-request diagnostic job permissions are limited to `contents: read` and `actions: read`; it has no `issues: write` permission and does not post issue comments.
+- The issue/manual diagnostic job alone receives `issues: write`, and checks out the repository default branch so write-capable diagnostic code is not taken from a pull-request branch.
+- Final acceptance must be based on workflow results for the current head commit after this change. Earlier green runs do not certify a later commit.
