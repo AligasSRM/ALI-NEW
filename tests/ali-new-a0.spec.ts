@@ -160,6 +160,46 @@ test.describe('ALI-NEW design preview', () => {
     expect(outline.width).toBeGreaterThanOrEqual(3);
   });
 
+  test('switches all 25 locales, applies RTL/LTR, and restores the selected locale after reload', async ({ page }) => {
+    const locales = [
+      ['ar', 'rtl'], ['en', 'ltr'], ['es', 'ltr'], ['fr', 'ltr'], ['pt', 'ltr'],
+      ['de', 'ltr'], ['it', 'ltr'], ['nl', 'ltr'], ['pl', 'ltr'], ['uk', 'ltr'],
+      ['ru', 'ltr'], ['tr', 'ltr'], ['fa', 'rtl'], ['ur', 'rtl'], ['hi', 'ltr'],
+      ['bn', 'ltr'], ['zh-CN', 'ltr'], ['zh-TW', 'ltr'], ['ja', 'ltr'], ['ko', 'ltr'],
+      ['id', 'ltr'], ['ms', 'ltr'], ['vi', 'ltr'], ['th', 'ltr'], ['sw', 'ltr']
+    ] as const;
+
+    await page.goto('/design-preview/');
+    await page.getByRole('button', { name: 'Yes, continue to preview' }).click();
+    const selector = page.locator('#locale-select');
+    await expect(selector.locator('option')).toHaveCount(25);
+
+    for (const [locale, direction] of locales) {
+      await selector.selectOption(locale);
+      await expect(page.locator('html')).toHaveAttribute('lang', locale);
+      await expect(page.locator('html')).toHaveAttribute('dir', direction);
+      await expect(selector).toHaveValue(locale);
+      expect(await page.evaluate(() => localStorage.getItem('ali-new-locale'))).toBe(locale);
+
+      const loginLabel = (await page.locator('.nav-actions button[data-page="sign-in"]').innerText()).trim();
+      const languageLabel = (await page.locator('label[for="locale-select"]').innerText()).trim();
+      if (locale === 'en') {
+        expect(loginLabel).toBe('Log in');
+        expect(languageLabel).toBe('Language');
+      } else {
+        expect(loginLabel).not.toBe('Log in');
+        expect(languageLabel).not.toBe('Language');
+      }
+    }
+
+    await selector.selectOption('ar');
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    await expect(page.locator('#locale-select')).toHaveValue('ar');
+    await expect(page.locator('.nav-actions button[data-page="sign-in"]')).toHaveText('تسجيل الدخول');
+  });
+
   for (const width of [360, 390, 768, 1280]) {
     test(`design preview fits viewport at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
