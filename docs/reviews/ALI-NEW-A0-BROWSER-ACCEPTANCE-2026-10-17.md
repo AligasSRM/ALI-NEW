@@ -189,7 +189,7 @@ These are successful workflow results, not a substitute for the outstanding acce
 ## 9. Current A0 closeout blockers (reconfirmed 2026-10-24)
 
 1. **HTTP security response headers:** the previously recorded SecurityHeaders grade D and missing response headers remain unresolved until a fresh live scan demonstrates otherwise. HTML meta directives are not equivalent to HTTP response headers. Standard GitHub Pages static hosting does not provide a per-repository setting for arbitrary response headers; do not add an ignored `_headers` file and claim remediation.
-2. **Accessibility:** add repeatable keyboard-focus and responsive-overflow regression checks, then run them in CI. These checks cover only the stated behaviors and are not a comprehensive WCAG audit.
+2. **Accessibility:** the PR adds repeatable keyboard-focus and responsive-overflow regression checks. Playwright run [40087765315](https://github.com/AligasSRM/ALI-NEW/actions/runs/40087765315) completed successfully on the PR head, including the browser acceptance job. These checks cover only the stated behaviors and are not a comprehensive WCAG audit.
 3. **Owner visual acceptance:** record Ali's actual desktop and mobile review/decision. Engineering cannot self-certify owner acceptance.
 4. **Final evidence:** after the changes and live deployment, repeat the relevant Actions and live-page/header checks and record exact commit/run IDs.
 
