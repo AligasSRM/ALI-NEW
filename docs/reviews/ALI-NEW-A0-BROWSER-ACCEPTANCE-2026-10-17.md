@@ -1,196 +1,280 @@
-# ALI-NEW — A0 Browser Acceptance Evidence
+# ALI-NEW — سجل قبول A0 (إعادة بناء قائمة على الأدلة)
 
-**Recorded:** 2026-10-17  
-**Scope:** ALI-NEW only; static control-panel and design-preview browser behavior  
-**Status:** 🟡 Partial acceptance evidence recorded; A0 is not certified GREEN  
-**Owner / final decision:** Ali  
-**Engineering record:** Alex
+**تاريخ إعادة البناء:** 2026-10-24  
+**المستودع:** `AligasSRM/ALI-NEW` فقط  
+**الملف:** `docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md`  
+**الحالة الرسمية:** 🟡 **A0 = YELLOW / OPEN**  
+**صاحب قرار القبول النهائي:** Ali  
+**الغرض:** سجل قابل للتدقيق يوضح ما تم اختباره، وما تثبته الأدلة، وما بقي مفتوحًا. هذا السجل لا يمنح موافقة إطلاق ولا يغلق A0.
 
-## 1. Evidence source
+> **قاعدة الإثبات:** نجاح تشغيل CI يثبت نجاح المهام التي نفذها ذلك التشغيل وعلى الكوميت الذي اختبره فقط. لا يثبت تلقائيًا الأمان الشامل، أو إمكانية الوصول الشاملة، أو تطابق الموقع المنشور مع المصدر، أو الجاهزية للإنتاج.
 
-- Earlier browser run: [TinyFish run report](https://agent.tinyfish.ai/runs/b3716518-8499-4c40-8940-19fe7d1379ae)
-- Follow-up control-panel acceptance run: [TinyFish run report](https://agent.tinyfish.ai/runs/860e86b4-bf6b-4e9c-8593-a37d14afaa77)
-- Follow-up design-preview acceptance run: [TinyFish run report](https://agent.tinyfish.ai/runs/05fef65a-ca41-41c3-843b-6fc6c4346870)
-- Control panel: https://aligassrm.github.io/ALI-NEW/control-panel/
-- Design preview: https://aligassrm.github.io/ALI-NEW/design-preview/
-- Repository: https://github.com/AligasSRM/ALI-NEW
+---
 
-The earlier run is retained as historical evidence. The two follow-up runs below provide more specific acceptance results and supersede earlier broad statements where they identify a limitation or failure. This note does not claim a full security, accessibility, or production audit.
+## 1. الملخص التنفيذي
 
-## 2. Follow-up browser acceptance runs (2026-10-17)
+أُعيد تنظيم هذا السجل لمعالجة مشكلات النسخة السابقة، ومنها تكرار أرقام الأقسام، وخلط الأدلة التاريخية مع الحالة الحالية، وتكرار بوابات القبول بصيغ متباينة.
 
-### Control panel — run `860e86b4-bf6b-4e9c-8593-a37d14afaa77`
+**الخلاصة الحالية:**
+- اعتمد المالك أن يكون المنتج متاحًا بـ25 لغة؛ هذا اعتماد لنطاق المتطلب فقط، وليس قبولًا نهائيًا لتنفيذ اللغات.
+- فحوصات HTML ومصدر JavaScript وفحص الأسرار عبر سجل Git الكامل واختبارات Playwright قد نجحت في تشغيلات مسجلة سابقة، لكن يجب ربط كل نتيجة بالكوميت والتشغيل المحددين.
+- أُصلحت اختبارات التجاوز الأفقي والتركيز المرئي ضمن نطاقات المتصفح المسجلة؛ وهي لا تمثل تدقيق WCAG كاملًا.
+- فحص ترويسات HTTP المنشور بتاريخ 2026-10-23 أبلغ عن الدرجة D ونقص عدة ترويسات. لا يوجد في الأدلة المسجلة هنا فحص حي أحدث يثبت إزالة هذا النقص.
+- موافقة المالك الفعلية على العرض المرئي للكمبيوتر والهاتف لم تُسجّل في هذا الملف.
+- **لا يوجد أساس كافٍ لإغلاق A0 أو إعلان الجاهزية للإنتاج.**
 
-**Passed:** page load/title; desktop rendering spot-check; all 7 navigation targets and active states; expand/collapse of A0 and A11; `security` search and clearing; build-tree shortcut; build specification link; visible keyboard focus on the tested input.
+## 2. النطاق وحدود التفويض
 
-**Open / not verified:** the browser run did not find `aria-expanded` on the tree-row buttons when inspecting the DOM, raising a screen-reader state concern. A narrow mobile viewport could not be emulated. No complete accessibility audit was performed.
+### داخل النطاق
+- مصدر لوحة التحكم الحالي في `index.html`.
+- `design-preview/index.html` بوصفها معاينة مستقلة للمنتج.
+- اختبارات `tests/ali-new-a0.spec.ts` ومدقق `scripts/validate-a0.mjs`.
+- فحوصات CI ذات الصلة، والتحقق من الصفحات المنشورة، وتوثيق الأدلة.
+- مراجعة إمكانية الوصول الأساسية، والاستجابة للشاشات، وصحة HTML وJavaScript، وسلامة الروابط، وترويسات استجابة HTTP.
 
-### Design preview — run `05fef65a-ca41-41c3-843b-6fc6c4346870`
+### خارج النطاق
+- أي ادعاء بأن المصادقة أو إنشاء الحسابات أو تشغيل الفيديو أو واجهات الخلفية تعمل فعليًا؛ فالواجهات التجريبية لا تثبت ذلك.
+- تغيير الاستضافة أو DNS أو إعدادات GitHub Pages أو الحماية أو الصلاحيات دون موافقة مستقلة صريحة.
+- إنشاء خدمة مدفوعة أو استهلاك رصيد مدفوع.
+- إغلاق A0 أو بدء A1 أو تغيير `default_locale` أو إعلان اجتياز قبول اللغات الـ25 دون أدلة.
+- أي تعديل في `AligasSRM/Ali-Control` أو `AligasSRM/Ali-Mind` أو مستودع آخر.
 
-**Passed:** page title and age-notice presentation; declining access shows the closed screen; returning restores the notice; continuing reveals the demo; navigation chips change active state; matching search, no-match state, and clearing behave as observed; clicking a sample card opens the sample watch page; sign-in and registration labels and prototype warnings are present; empty form submissions are blocked by native required-field validation without entering data.
+## 3. مرجعية المعايير الحديثة
 
-**Open / failed spot-check:** a distinct visible keyboard-focus indicator was not clearly observed on the tested registration controls. This is an accessibility follow-up, not a claim that all keyboard navigation fails. Mobile viewport emulation was not performed.
+تُستخدم المراجع التالية لتحديد طريقة الفحص، لا لادعاء المطابقة قبل تنفيذ الفحوص:
 
-**Safety boundary:** no personal data, email, username, or password was entered. The age gate is a visual demo, not legally sufficient age verification; authentication, registration, and playback remain unconnected.
+1. **إمكانية الوصول:** الهدف المرجعي هو WCAG 2.2 مستوى AA، مع تحديد معايير النجاح المنطبقة على الواجهات الفعلية. توضح W3C أن WCAG 2.2 هي النسخة الأحدث الموصى بها من سلسلة WCAG 2، وأنها تضيف معايير نجاح جديدة إلى 2.1. [W3C — WCAG 2 Overview](https://www.w3.org/WAI/standards-guidelines/wcag/) و[What's New in WCAG 2.2](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/).
+2. **دلالات HTML:** يُستخدم [Nu HTML Checker](https://validator.nu/about.html) كأداة فحص؛ ووفق توثيقه، لا ينبغي استخدامه منفردًا كشهادة مطابقة معيارية أو حكم نهائي على الوثيقة.
+3. **اختبارات الأمان:** يُستخدم [OWASP Web Security Testing Guide](https://owasp.org/projects/web-security-testing-guide) كمرجع منهجي مناسب لنطاق الاختبار، وليس كشهادة امتثال تلقائية.
+4. **ترويسات HTTP:** تُراجع الترويسات على استجابة HTTP الحية باستخدام مراجع [OWASP Secure Headers Project](https://secure-headers-project.owasp.org/response-headers/). وجود عنصر `meta` داخل HTML ليس بديلًا عن ترويسة استجابة HTTP.
+5. **حدود GitHub Pages:** توثّق GitHub Pages بوصفها استضافة للمحتوى الثابت، وتوثّق إعداد HTTPS وأنواع MIME. لا يجوز افتراض أن ملف إعدادات خاصًا بمزوّد استضافة آخر سيُطبّق على GitHub Pages. راجع [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) و[Securing a GitHub Pages site with HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
 
-## 3. Earlier browser checks recorded as passed
+**قاعدة التفسير:** نتيجة أداة آلية واحدة لا تكفي لإثبات المطابقة الكاملة. يلزم الجمع بين الاختبارات الآلية، والفحص اليدوي المناسب، والتحقق من النسخة المنشورة، وتوثيق القيود.
 
-### Control panel
-- Page loaded.
-- Project build tree expanded across the A0–A12 levels (13 levels).
-- Search for the term security returned matching content.
-- Navigation interactions worked.
-- Evidence links were present.
+## 4. سجل الأدلة المسجلة
 
-### Design preview
-- Page loaded.
-- The demo age-gate interaction worked.
-- Search filtering worked.
-- Navigation chips changed the displayed state.
-- Demo cards and buttons were clickable.
+الأدلة أدناه من سجل المشروع السابق؛ لا تعني أن هذه التشغيلات أُعيدت أثناء إعادة بناء الوثيقة.
 
-### Safety boundary observed during the run
-- No settings were changed.
-- No credentials were entered.
+| المجال | الدليل المسجل | ما يثبته ضمن النطاق | ما لا يثبته |
+|---|---|---|---|
+| HTML وJavaScript المصدر | تشغيل Playwright Acceptance رقم [40029504909](https://github.com/AligasSRM/ALI-NEW/actions/runs/40029504909) | سجل التشغيل أفاد بنجاح فحوصات المصدر وJavaScript المضمّن، وNu HTML Checker بلا أخطاء أو تحذيرات للملفين المذكورين | لا يثبت خلو جميع الصفحات الحية من العيوب ولا المطابقة الكاملة |
+| الأسرار | التشغيل نفسه | سجل التشغيل أفاد بنجاح فحص الأسرار عبر سجل Git الكامل | لا يضمن عدم ظهور أسرار مستقبلًا أو خارج النطاق المفحوص |
+| المتصفح | التشغيل نفسه | سجل التشغيل أفاد بنجاح 14/14 اختبار Playwright | لا يثبت أن جميع تدفقات المنتج أو الأجهزة أو المتصفحات قد اختُبرت |
+| اختبار التجاوب والتركيز | تشغيل [40087765315](https://github.com/AligasSRM/ALI-NEW/actions/runs/40087765315) وفق السجل السابق | سجل المشروع أفاد بنجاح اختبارات التركيز والتجاوب على رأس طلب السحب آنذاك | لا يجوز نسب النتيجة إلى `main` الحالي ما لم يُتحقق من SHA التشغيل؛ ولا يمثل ذلك تدقيق WCAG كاملًا |
+| CI بعد دمج التغييرات | تشغيلات [40086667806](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086667806)، [40086649999](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649999)، [40086649902](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649902)، [40086649619](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649619) | سجل المشروع أفاد بنجاح فحوص الموقع المنشور وPlaywright والنشر والبناء ذات الصلة | لا يحسم ترويسات HTTP أو القبول البصري أو إمكانية الوصول الشاملة |
+| فحص HTML الحي | تقريرا Nu بتاريخ 2026-10-24 للصفحة الرئيسية والمسار التاريخي | أعادا `messages: []` بحسب السجل السابق | لا يثبتان صحة كل تفاعل أو إمكانية الوصول أو الأمان |
+| ترويسات HTTP | فحص SecurityHeaders بتاريخ 2026-10-23 الساعة 22:06:50 UTC | أبلغ عن الدرجة D ووجود `Strict-Transport-Security` وغياب الترويسات المبينة أدناه | الفحص قديم نسبيًا؛ يلزم إعادة الفحص بعد أي تغيير على الاستضافة أو النشر |
+| تباين الألوان | حساب موضعي لثلاثة أزواج من الألوان | الأزواج المختارة تجاوزت 4.5:1 للنص العادي وفق الحساب المسجل | لا يمثل جردًا شاملًا لكل حالات النص والحالات التفاعلية والصور والخلفيات |
+| القبول البصري | لا يوجد قرار مالك مسجل هنا | لا شيء حتى الآن | لا يجوز للهندسة أن تستنتج موافقة المالك |
 
-## 4. What these results do and do not establish
+### سجل ترويسات HTTP المفتوحة
 
-**Established within the recorded test scope:** the listed static-page loading and UI interactions behaved as expected in that browser run.
+أبلغ الفحص السابق عن غياب:
+- `Content-Security-Policy`
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
 
-**Not established:** real authentication, account creation, persistence, backend/API integration, video upload or playback, legally sufficient age assurance, production readiness, comprehensive responsive behavior, or comprehensive accessibility/security.
+كما أبلغ عن وجود `Strict-Transport-Security`.
 
-The design-preview sign-in and registration screens are demos. Do not enter real passwords or sensitive personal data. The browser test did not establish a real account or login flow.
+أضيفت سابقًا سياسات CSP وReferrer Policy على مستوى HTML. هذه وسائل دفاع إضافية محدودة، وليست دليلًا على وجود ترويسات HTTP المقابلة. كما أن CSP عبر `meta` لا يتيح فرض `frame-ancestors`. لا تُسجّل هذه البوابة على أنها محلولة قبل فحص استجابة HTTP حية وإثبات النتيجة.
 
-## 5. Remaining A0 verification
+## 5. بوابات القبول الإلزامية
 
-Keep A0 **YELLOW** until the following are checked and recorded with evidence:
-1. Keyboard-only navigation and visible focus.
-2. Contrast and semantic/accessibility checks.
-3. Desktop and mobile viewport behavior.
-4. HTML and JavaScript validation.
-5. Full link destination review and console/runtime errors.
-6. Security headers/hosting configuration and a broader secret scan, including relevant Git history.
+تُسجّل كل بوابة بحالة مستقلة: **PASS / FAIL / BLOCKED / NOT RUN**. ويجب إرفاق الكوميت، والتشغيل، وطريقة الاختبار، والنتيجة، وتاريخ التحقق. تعني **NOT RUN** عدم وجود دليل، لا النجاح.
 
-The earlier repository review dated 2026-10-16 contains source-level findings and limitations. Where it says browser interaction checks were not run, this later browser evidence supersedes that statement only for the interactions explicitly listed above; all other untested areas remain unverified.
+### A0-G1 — تطابق المصدر والنشر
+- تحديد SHA الحالي على `main` وSHA الذي نُشر فعليًا.
+- فحص الصفحة الرئيسية ومعاينة التصميم المنشورتين.
+- مقارنة السلوك والخصائص الدلالية المهمة مع المصدر الحالي.
+- فشل البوابة عند وجود فرق غير مفسر أو تعذّر تحديد نسخة النشر.
 
-## 6. Repository and deployment note
+### A0-G2 — التفاعلات والروابط
+- اختبار أهداف التنقل، والروابط، وحالات البحث وعدم وجود نتائج ومسح البحث.
+- اختبار فتح/إغلاق شجرة المشروع وتزامن حالة ARIA مع الحالة المرئية.
+- التحقق من وجهات الروابط وعدم وجود أخطاء JavaScript غير معالجة.
+- التمييز بين روابط النموذج الأولي والخدمات الفعلية.
 
-GitHub repository metadata was checked on 2026-10-17 and reported the repository as **public**. The Pages URLs above were the targets in the browser report. Recheck the repository and deployment settings before any visibility or hosting change.
+### A0-G3 — لوحة المفاتيح والدلالات وإمكانية الوصول
+- تنفيذ رحلة كاملة باستخدام لوحة المفاتيح فقط.
+- التأكد من ظهور التركيز وعدم حجبه أو فقدانه في المكونات التفاعلية.
+- التحقق من أسماء عناصر التحكم، وترتيب التركيز، ومعالم التنقل، وحالات ARIA، والعناوين، ورسائل الحالة.
+- فحص التباين في كل حالة ذات صلة، لا الاكتفاء بثلاثة أزواج منتقاة.
+- إجراء فحص آلي مساعد وفحص يدوي مناسب، مع قارئ شاشة واحد على الأقل في المتصفحات المستهدفة عندما يكون متاحًا.
+- توثيق معايير WCAG 2.2 AA المنطبقة والنتيجة لكل معيار. لا يُعلن امتثال كامل إذا بقيت معايير منطبقة غير مفحوصة.
 
-## 7. Playwright CI and live Pages parity check (2026-10-17)
+### A0-G4 — التجاوب
+- اختبار عروض الشاشة المسجلة: 360، 390، 768، و1280 بكسل.
+- إضافة عرضي أصغر/أكبر إذا كانا ضمن الأجهزة المستهدفة.
+- فحص التمرير الأفقي، وقص المحتوى، وتراكب العناصر، وقابلية تشغيل عناصر التحكم باللمس.
+- حفظ نتائج الاختبارات على الكوميت الجاري قبوله.
 
-### Local-source Playwright run
+### A0-G5 — سلامة المصدر
+- تشغيل مدقق A0 واختبارات JavaScript وNu HTML Checker على الملفات المستهدفة.
+- فحص المعرّفات المكررة وأهداف التنقل والأزرار ذات النوع الصريح والروابط الفارغة وروابط `target="_blank"`.
+- فحص الأسرار عبر سجل Git الكامل على الكوميت الجاري قبوله.
+- التحقق من أن الاختبارات فشلت فعلًا عند إدخال عيب تجريبي في بيئة الاختبار، متى كان ذلك عمليًا وآمنًا.
 
-- Workflow run: https://github.com/AligasSRM/ALI-NEW/actions/runs/38982161340
-- Commit tested: `8913ef32179e50c80e375dd6739c75051c6d41a2`
-- Job: `Browser acceptance (Chromium)` — completed with conclusion `success`.
-- Result: **9 passed (4.7s)**.
-- Artifact: [ali-new-playwright-report](https://api.github.com/repos/AligasSRM/ALI-NEW/actions/artifacts/12081895427) (expires 2026-10-23).
-- Passing coverage: tree ARIA state in the checked-out repository source; build-tree search/clear; age-notice decline/return; preview card search/no-results; demo-only login/registration with empty forms blocked; horizontal overflow at 360, 390, 768, and 1280 px.
+### A0-G6 — أمان الاستجابة المنشورة
+- جلب ترويسات HTTP الفعلية لكل مسار منشور ذي صلة بعد اتباع التحويلات، وتسجيل رمز الحالة والترويسات والوجهة النهائية والتاريخ.
+- مراجعة CSP وسياسة الإحالة و`X-Content-Type-Options` و`X-Frame-Options` أو سياسة `frame-ancestors` المناسبة و`Permissions-Policy` وHSTS.
+- فحص سياسة CSP على أنها سياسة قابلة للاختبار ومتلائمة مع التطبيق، لا مجرد وجود نص في HTML.
+- إذا لم تسمح الاستضافة بترويسات لازمة، تُسجّل البوابة **BLOCKED** إلى أن يتخذ المالك قرارًا صريحًا بشأن مسار استضافة مدعوم أو قبول المخاطر. لا تُغيّر الاستضافة أو DNS من تلقاء نفسك.
+- لا تستخدم درجة ماسح واحدة وحدها كحكم نهائي؛ احفظ نتيجة الماسح وتحقق مستقلًا من الترويسات المطلوبة.
 
-### Read-only deployed Pages check
+### A0-G7 — قبول المالك والإغلاق
+- يسجل المالك مراجعة فعلية للواجهة على الكمبيوتر والهاتف.
+- تُرفق لقطات أو ملاحظات مراجعة واضحة عند توفرها، مع القرار: قبول أو رفض أو طلب إصلاح.
+- بعد إصلاح أي عيب، تُعاد الاختبارات المتأثرة على الكوميت النهائي، ثم تُوثق جميع معرّفات التشغيل.
+- لا تُغلق A0 ولا يبدأ A1 إلا بعد استيفاء بوابات القبول المعتمدة وموافقة المالك المطلوبة.
 
-- Control panel loaded at https://aligassrm.github.io/ALI-NEW/control-panel/ and design preview loaded at https://aligassrm.github.io/ALI-NEW/design-preview/.
-- A read-only live browser check reported the A1 “Product definition” button had no `aria-expanded` attribute before or after toggling, and reported no visible runtime/console errors.
-- The current main-branch `control-panel/index.html` source blob inspected during this review is `847a33c0380fd03b255d05afc2bc06bdd399f53d`; it does include `aria-expanded="false"` on the A1 tree row. This mismatch is evidence of a deployed/source parity issue or an inconsistent live-browser observation and must be resolved with a repeatable direct check. Do not claim Pages deployment is verified GREEN.
-- The deployed page's stage-detail copy still says browser acceptance is pending, which is stale relative to the passing CI run.
-- The available GitHub connector did not expose a readable Pages build-status/configuration response during this review. Therefore the exact Pages build source and last successful deployment SHA remain **unverified**.
+## 6. قواعد جودة الأدلة
 
-### Change made to the source to support the next deployment check
+1. لا تُسجّل PASS دون نتيجة قابلة للتحقق.
+2. اربط كل نتيجة بـcommit SHA محدد؛ نتيجة فرع طلب سحب لا تعني تلقائيًا نجاح `main`.
+3. ميّز بين الاختبار المحلي، وCI، والفحص الحي، والمراجعة اليدوية.
+4. احتفظ بالإخفاقات التاريخية المهمة، لكن علّمها بوضوح بأنها تاريخية إذا عالجتها أدلة أحدث على الكوميت الصحيح.
+5. لا تكرر نتيجة واحدة تحت عدة عناوين لتبدو كأنها اختبارات مستقلة.
+6. لا تخلط بين فحص HTML ومطابقة WCAG، أو بين نجاح النشر وتطابق المصدر، أو بين وجود CSP داخل الصفحة وترويسات HTTP.
+7. عند تعذر التحقق بسبب صلاحية أو أداة أو قيد استضافة، سجّل BLOCKED وسبب العائق بدل استنتاج النجاح.
+8. يجب أن يحتوي سجل الإغلاق النهائي على: SHA، وتاريخ الفحص، وبيئة المتصفح/الأجهزة، وأوامر أو أسماء الاختبارات، ومعرّفات التشغيل، والنتائج، والعيوب المتبقية، وقرار المالك.
 
-Commit: `b893cb052255e69fcdc11559a3ca59cab72875e4`
+## 7. القرارات والقيود المحفوظة
 
-- Added a visible `:focus-visible` outline to buttons, links, inputs, selects, and textareas.
-- Updated the A0 stage-detail copy to reflect the 9/9 local Playwright result and explicitly keep live deployment parity/accessibility checks open.
-- This commit does not, by itself, prove that GitHub Pages has deployed the change. Re-fetch and re-test the live URLs after deployment.
+- الحالة الرسمية: **A0 = YELLOW / OPEN**.
+- **A1 = PLANNED**؛ لا يُعد هذا السجل إذنًا لبدء A1.
+- **قرار المالك المعتمد لنطاق المنتج:** يجب أن يكون المنتج متاحًا بـ25 لغة.
+- **حالة قبول تنفيذ اللغات الـ25:** `OPEN / NOT ACCEPTED` إلى أن تُختبر اللغات الخمس والعشرون فعليًا، وتُوثق تغطية الترجمات والاتجاهات والتفاعلات والأخطاء لكل لغة. اعتماد النطاق لا يعني اعتماد جودة التنفيذ أو اكتماله.
+- `default_locale = null`؛ لا يُغيّر بموجب هذا القرار، لأنه لا يحدد اللغة الافتراضية.
+- صفحات تسجيل الدخول والتسجيل وبوابة العمر في المعاينة هي نماذج أولية؛ لا تُدخل بيانات اعتماد حقيقية ولا توصف بأنها أنظمة إنتاج.
+- لا توجد موافقة ضمنية على تغيير الاستضافة أو DNS أو الحماية أو الصلاحيات أو تفعيل خدمة مدفوعة.
+- لا يُدمج طلب السحب ولا تُنشر تغييرات جديدة اعتمادًا على نجاح الاختبارات وحده؛ يخضع الدمج والنشر للموافقة الصريحة المطلوبة.
 
-### Next checks
+## 8. خطة العمل التالية
 
-1. Confirm whether the new commit is served by both Pages URLs; compare visible stage-detail copy and the A1 button's `aria-expanded` state against the current source.
-2. Add automated live-URL smoke tests so a future Pages/source mismatch fails visibly.
-3. Add keyboard-only focus assertions, navigation-link destination checks, browser-console capture, and standards-based HTML/JavaScript validation.
-4. Keep A0 **YELLOW** until deployed parity and the remaining acceptance gates are evidenced.
+1. التحقق من أحدث حالة CI المنشورة وربط كل تشغيل بـSHA الصحيح.
+2. إعادة فحص HTTP headers على الصفحة الرئيسية ومسار معاينة التصميم، وتوثيق النتيجة الحديثة.
+3. استكمال مراجعة إمكانية الوصول اليدوية والدلالية والتباين وفق WCAG 2.2 AA.
+4. تنفيذ مراجعة المالك الفعلية على الكمبيوتر والهاتف وتسجيل القرار.
+5. تحديث هذا السجل بالأدلة النهائية فقط بعد تنفيذ الفحوص؛ ثم تقرير ما إذا كانت البوابات قد استوفيت.
 
-## 8. Latest Playwright and deployment verification (2026-10-17)
-
-- Playwright Acceptance run #10: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983084948 — **17 passed (6.6s)** on commit `ae2477df2fd924e28d2982044cd51d51ba95b03d`.
-- Coverage included control-panel tree ARIA state, search/clear, navigation targets, no uncaught page errors, visible keyboard focus on both pages, age-gate decline/return and continue flows, demo-only login/registration safeguards, and viewport checks at 360, 390, 768, and 1280 px.
-- Pages deployment run #3: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983085161 — **success** on the same commit. The deployment job fetched `/ALI-NEW/control-panel/` and verified the stage status marker and `aria-expanded="false"` in the published HTML.
-- Playwright report artifact: https://github.com/AligasSRM/ALI-NEW/actions/runs/38983084948/artifacts/12081348435 (expires 2026-10-23).
-- CI maintenance note: the deployment workflow previously asserted the stale literal `9/9`; it has now been changed to assert the stable A0 YELLOW stage marker instead, so the check does not become brittle as the suite grows. The ARIA marker assertion remains.
-- This confirms a successful deployment workflow and its configured live-HTML smoke check. It does **not** establish a full accessibility/security audit or production readiness. A0 remains **YELLOW** until remaining gates are completed.
-
-## 9. Final status
-
-- Control-panel tested interactions: **PASS within the recorded scope**, with `aria-expanded` follow-up open.
-- Design-preview tested interactions: **PASS within the recorded scope**, with visible-focus follow-up open.
-- Overall A0 milestone: **YELLOW** — accessibility, security, responsive, validation, and additional acceptance checks remain open.
-- Production readiness: **NOT ESTABLISHED**.
-- This record was updated after the Playwright and deployment verification runs. Latest CI evidence is documented in Section 8; no credentials or hosting settings were changed.
+**قرار هذه النسخة:** إعادة بناء الوثيقة وتحديث هيكلها لا يغيّر حالة المشروع. تبقى A0 **YELLOW / OPEN** حتى ظهور الأدلة المطلوبة واعتماد الإغلاق من صاحب القرار.
 
 
-## 10. Responsive defect correction and latest acceptance — 2026-10-17
+## 9. سجل التثبيت للمراجعة النهائية — 2026-10-24
 
-The following later runs supersede the earlier viewport failures and older 9/9 or 17/17 totals only for the exact commit and tests listed here.
+هذا القسم يثبت حالة الملف على فرع المراجعة قبل تحديثه بهذا القسم. لا يحل محل فحوص النسخة الجديدة الناتجة عن هذا التحديث، ولا يمثل موافقة دمج.
 
-- **Code commit tested:** `7d97fae46ffe988fdfd6ca937e4498c64dff9e37`.
-- **Local Playwright Acceptance run #25:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108730 — **18 passed (8.0s)**.
-- **Deployed Pages smoke run #12:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985140923 — **11 passed (9.9s)**.
-- **GitHub Pages deployment run #18:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108729 — success.
-- **Pages build/deployment run #36:** https://github.com/AligasSRM/ALI-NEW/actions/runs/38985108135 — success.
-- Coverage includes control-panel title/stage evidence; tree disclosure and synchronized ARIA state; all navigation targets; search/clear; explicit button types and safe in-page/external-link attributes; visible keyboard focus; no uncaught page errors; and 360, 390, 768, and 1280px viewport checks. The live suite covers the corresponding published-page interactions.
-- Earlier runs exposed horizontal overflow at 360px and 768px. The recorded root causes were an unconstrained mobile navigation/content width and intrinsic minimum width in the two-column detail grid. The source now constrains the mobile app/navigation and stacks detail grids at widths up to 900px. The subsequent local and live suites passed at all tested widths.
-- No real credentials were entered and no authentication or backend integration was added.
+### 9.1 هوية النسخة التي جرى فحصها
 
-**Status remains YELLOW** until standards-based HTML validation, full-history secret scanning, deployed response-header review, broader semantic/contrast accessibility review, and final A0 closeout are recorded. These passing browser tests do not certify the end-user platform or production readiness.
+- المستودع الوحيد: `AligasSRM/ALI-NEW`.
+- فرع المراجعة: `docs/a0-acceptance-rebuild-2026-10-24`.
+- الكوميت الذي جرى فحصه قبل هذا التحديث: `8877e1d96e1f9108865e1e49c60c583f17f21fa7`.
+- طلب السحب: [#21](https://github.com/AligasSRM/ALI-NEW/pull/21) — مفتوح، Draft، غير مدمج.
+- ملف هذا السجل على الفرع: `docs/reviews/ALI-NEW-A0-BROWSER-ACCEPTANCE-2026-10-17.md`.
+- لم يُجرَ أي تعديل على `main`، أو المستودعات الأخرى، أو إعدادات الحماية والصلاحيات والاستضافة وDNS.
+- نتيجة API لحالة Commit Status لم تُرجع عناصر حالة مستقلة؛ لذلك لا تُعامل هذه الاستجابة الفارغة كدليل نجاح. تُوثّق أدناه نتائج تشغيلات Actions المحددة بدلًا منها.
 
-## 11. Independent verification addendum — 2026-10-24
+### 9.2 فحوص CI التي تم التحقق منها
 
-This addendum supersedes the earlier open-item wording only for HTML validation and historical secret scanning. It does not close A0.
+| التشغيل | SHA الذي طُلبت نتائجه | النتيجة | الخطوات ذات الصلة | حدود الإثبات |
+|---|---|---|---|---|
+| [Playwright Acceptance #40088875337](https://github.com/AligasSRM/ALI-NEW/actions/runs/40088875337) | `8877e1d96e1f9108865e1e49c60c583f17f21fa7` | SUCCESS | فحص الأسرار في سجل Git، مدقق A0 وHTML وJavaScript، جرد CORE، التحقق من السجل الهرمي وتغطية الملفات، route resolver، واختبارات Playwright | يثبت نجاح الخطوات المسجلة لهذا التشغيل فقط؛ لا يثبت قبول WCAG كاملًا أو ترويسات HTTP أو موافقة المالك |
+| [CORE Diagnostic Loop #40088875341](https://github.com/AligasSRM/ALI-NEW/actions/runs/40088875341) | `8877e1d96e1f9108865e1e49c60c583f17f21fa7` | SUCCESS | وظيفة التحقق وقراءة أدلة طلب السحب والتوجيه | لا يثبت وحده صحة المنتج المنشور أو إغلاق أي بوابة قبول |
 
-### Verified evidence
+**قاعدة النسخة الحالية:** بعد تحديث هذا الملف يتغير SHA الخاص بفرع المراجعة. يجب الاعتماد على نتائج Actions المرتبطة برأس الفرع الجديد عند استعراض هذه النسخة، لا نقل نجاح التشغيلين أعلاه تلقائيًا إلى الكوميت الجديد.
 
-- **Source CI:** [Playwright Acceptance run 40029504909](https://github.com/AligasSRM/ALI-NEW/actions/runs/40029504909) completed successfully on the PR #14 change set. The job confirms the full-history secret scan passed; A0 source invariants and inline JavaScript syntax passed; Nu HTML Checker returned 0 errors and 0 warnings for `index.html` and `design-preview/index.html`; CORE inventory and registry validation passed; route-resolver tests passed; and Playwright passed **14/14** tests.
-- **Live HTML validation:** the external [Nu HTML Checker report for the root panel](https://validator.w3.org/nu/?doc=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2F&out=json) returned `messages: []` on 2026-10-24. The [legacy-route report](https://validator.w3.org/nu/?doc=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2Fcontrol-panel%2F&out=json) also returned `messages: []`; an independent live fetch confirmed that `/ALI-NEW/control-panel/` resolves to the canonical root page.
-- **Response-header review:** the independent [SecurityHeaders scan of the root page](https://securityheaders.com/?q=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2F&followRedirects=on) reported grade **D** at 2026-10-23 22:06:50 UTC. It found `Strict-Transport-Security`, but reported these headers missing: `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy`. The legacy-route scan reported the same missing-header set.
-- **CSS contrast spot-check:** selected foreground/background pairs from the current source tokens were calculated and exceeded WCAG AA's 4.5:1 normal-text threshold (including `#F3F5FF` on `#080D19` = 17.85:1, `#AAB5CC` on `#10182A` = 8.59:1, and `#71839e` on `#10182A` = 4.59:1). This is a limited static spot-check, **not** a complete contrast or semantic-accessibility audit.
+### 9.3 مصفوفة القرار قبل مراجعة المالك
 
-### Remaining gates and decision
+| البوابة | الحالة المسجلة | سبب الحالة / شرط الحسم |
+|---|---|---|
+| A0-G1 — تطابق المصدر والنشر | NOT RUN / OPEN | لا يوجد في هذا التحديث دليل حي حديث يربط SHA المنشور برأس المصدر الحالي ويثبت التطابق |
+| A0-G2 — التفاعلات والروابط | PARTIAL / OPEN | توجد تغطية Playwright ناجحة ضمن النطاق المسجل؛ يلزم توثيق مراجعة وجهات الروابط والأخطاء والسلوك الفعلي المتبقي |
+| A0-G3 — إمكانية الوصول | NOT RUN / OPEN | لا يوجد تدقيق يدوي شامل لمعايير WCAG 2.2 AA مع مصفوفة نتائج معيارًا بمعيار |
+| A0-G4 — التجاوب | PARTIAL / OPEN | اختبارات آلية سابقة تغطي 360 و390 و768 و1280 بكسل؛ يلزم مراجعة بصرية فعلية للأجهزة المستهدفة وتوثيقها |
+| A0-G5 — سلامة المصدر | PASS WITHIN RECORDED CI SCOPE / REVERIFY NEW HEAD | تشغيل CI المشار إليه اجتاز خطوات التحقق على SHA المسجل؛ يلزم الرجوع إلى التشغيل المرتبط برأس الفرع الجديد بعد هذا التحديث |
+| A0-G6 — أمان HTTP | BLOCKED / OPEN PENDING LIVE EVIDENCE | آخر دليل مسجل أبلغ عن ترويسات مفقودة ودرجة D؛ لا يوجد هنا فحص حي أحدث يثبت الإصلاح أو قرار مخاطر معتمد |
+| A0-G7 — قبول المالك والإغلاق | NOT RUN / OPEN | مراجعة الكمبيوتر والهاتف وقرار المالك النهائي غير مسجلين |
 
-- **A0 remains YELLOW / OPEN.** Passing HTML and historical-secret checks are now evidenced; they must not continue to be listed as unverified.
-- The response-header finding is documented, not silently waived. No hosting, Pages, permission, or protection settings were changed. Addressing server response headers may require a separately authorized hosting/configuration decision; static HTML cannot supply every missing response header.
-- A broader semantic/accessibility review and the owner's desktop/mobile visual acceptance are still outstanding.
-- No GREEN certificate is issued and A1 is not started. Reassess only after the remaining gates are resolved with evidence and the required owner acceptance is recorded.
+لا تُستخدم `PARTIAL` كحالة بديلة عن حالات البوابة التشغيلية؛ بل وصف نطاق الأدلة فقط. تظل الحالة الرسمية لـA0 هي **YELLOW / OPEN** حتى تُحسم البوابات وفق الأدلة وقرار المالك.
 
-## 12. Page-level security mitigation — 2026-10-24
+### 9.4 قائمة المراجعة النهائية
 
-A source-level mitigation was added on the existing PR #15 branch; it has **not** been merged or verified on the live Pages deployment.
+قبل طلب اعتماد الإغلاق، يجب أن يتضمن سجل الأدلة النهائي ما يلي:
 
-- Kept the current inline control-panel JavaScript in place to avoid adding an unregistered file to the CORE inventory.
-- Added a page-level CSP meta policy: `default-src 'self'`, `object-src 'none'`, `base-uri 'self'`, same-origin resources/connections, and restricted form actions. `script-src 'self' 'unsafe-inline'` is required by the existing inline script, so this is limited defense-in-depth and does not prevent all inline-script injection. Inline styles also remain allowed because the current design uses an inline style block and style attributes.
-- Added `strict-origin-when-cross-origin` as the document referrer policy.
-- Extended `scripts/validate-a0.mjs` to assert the policies are present; the existing inline JavaScript syntax check remains active.
+- [ ] رأس فرع المراجعة النهائي وSHA محددان، ونتائج Actions الخاصة به ظاهرة وناجحة حيث يلزم.
+- [ ] الصفحة الرئيسية ومعاينة التصميم ومسارات التحويل مفحوصة حيًا، مع توثيق النسخة المنشورة ومقارنتها بالمصدر.
+- [ ] نتائج ترويسات HTTP الحديثة محفوظة مع التاريخ، ورمز الحالة، والوجهة النهائية، والترويسات الفعلية؛ أو يوجد قرار صريح موثق بشأن عائق الاستضافة/قبول المخاطر.
+- [ ] مصفوفة WCAG 2.2 AA للمعايير المنطبقة مكتملة، بما يشمل الفحص الآلي واليدوي، ولوحة المفاتيح، والتركيز، والتباين، والدلالات، وقارئ الشاشة عندما يكون متاحًا.
+- [ ] نتائج التجاوب والتفاعلات والروابط وأخطاء وقت التشغيل موثقة للنسخة التي يجري قبولها.
+- [ ] تغطية اللغات الـ25 موثقة كلغة نطاق معتمد؛ ولا توصف بأنها مقبولة بالكامل قبل استيفاء معايير القبول الخاصة بها.
+- [ ] مراجعة المالك الفعلية على الكمبيوتر والهاتف مسجلة بقرار واضح: قبول أو رفض أو طلب إصلاح.
+- [ ] العيوب المتبقية ومخاطرها وأي استثناءات معتمدة موثقة قبل القرار النهائي.
 
-**Important limitation:** these meta policies are defense-in-depth, not HTTP response headers. They do not clear the SecurityHeaders finding and do not replace `X-Frame-Options`, `X-Content-Type-Options: nosniff`, or `Permissions-Policy`; CSP `frame-ancestors` also cannot be enforced through a CSP meta element. The live SecurityHeaders grade therefore remains unverified after this source change and must not be described as fixed. GitHub Pages does not provide arbitrary per-site response-header configuration through repository HTML. No hosting, DNS, Pages, protection, or permission settings were changed.
+**قرار التثبيت للمراجعة:** أصبحت الوثيقة منظمة كسجل قبول وأدلة قابل للتدقيق ومهيأة للمراجعة النهائية، لكن هذا لا يعني أن بوابات المنتج كلها اجتازت القبول. تبقى A0 **YELLOW / OPEN**، وA1 **PLANNED**، وطلب السحب #21 غير مدمج. لا يُدمج هذا الطلب ولا يُغلق A0 بموجب هذا التوثيق وحده.
 
-A0 remains **YELLOW / OPEN** until the source checks pass, the change is deployed and checked live, the remaining response-header risk is resolved through an explicitly authorized supported hosting path or documented risk decision, and accessibility/owner-acceptance gates are complete.
-## 8. Post-merge CI verification (2026-10-24)
 
-The semantic translation-ID refactor was merged as commit `e7dfa9242032b8af2f77c456a0e2b1dd5a206973`. The following GitHub Actions runs for that commit completed successfully:
+## 10. استكمال الأدلة — تحقق 2026-10-24
 
-- [Deployed Pages smoke tests — run 40086667806](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086667806)
-- [CORE Diagnostic Loop — run 40086650117](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086650117); the `validate` job passed, while `diagnose_pull_request` and `diagnose_trusted` were skipped.
-- [Playwright Acceptance — run 40086649999](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649999)
-- [GitHub Pages deployment — run 40086649902](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649902)
-- [Pages build and deployment — run 40086649619](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086649619)
+### 10.1 إعادة التحقق من رأس المراجعة الحالي
 
-These are successful workflow results, not a substitute for the outstanding acceptance gates below. They do not establish that the missing HTTP response headers have been fixed, that a comprehensive accessibility audit has passed, or that the owner has accepted desktop/mobile visuals.
+- **SHA الحالي الذي تم التحقق منه:** `4fe239bfa3b9bd327e3b9d47a005dcbf3aa6434c`.
+- **Playwright Acceptance:** [التشغيل 40089447575](https://github.com/AligasSRM/ALI-NEW/actions/runs/40089447575) — **SUCCESS** على SHA أعلاه. اكتملت بنجاح خطوات فحص سجل Git للأسرار، مدقق A0، جرد CORE وسجله الهرمي، route resolver، تثبيت Chromium، واختبارات المتصفح.
+- **CORE Diagnostic Loop:** [التشغيل 40089447567](https://github.com/AligasSRM/ALI-NEW/actions/runs/40089447567) — **SUCCESS** على SHA أعلاه؛ وظيفتا `validate` و`diagnose_pull_request` ناجحتان، و`diagnose_trusted` **SKIPPED** وليست PASS.
+- هذه النتائج تعالج إعادة التحقق المطلوبة لبوابة سلامة المصدر ضمن نطاق CI المسجل؛ ولا تثبت وحدها مطابقة WCAG أو حالة الموقع المنشور أو ترويسات HTTP.
 
-## 9. Current A0 closeout blockers (reconfirmed 2026-10-24)
+### 10.2 محاولات التحقق الحي وحدود البيئة
 
-1. **HTTP security response headers:** the previously recorded SecurityHeaders grade D and missing response headers remain unresolved until a fresh live scan demonstrates otherwise. HTML meta directives are not equivalent to HTTP response headers. Standard GitHub Pages static hosting does not provide a per-repository setting for arbitrary response headers; do not add an ignored `_headers` file and claim remediation.
-2. **Accessibility:** the PR adds repeatable keyboard-focus and responsive-overflow regression checks. Playwright run [40087765315](https://github.com/AligasSRM/ALI-NEW/actions/runs/40087765315) completed successfully on the PR head, including the browser acceptance job. These checks cover only the stated behaviors and are not a comprehensive WCAG audit.
-3. **Owner visual acceptance:** record Ali's actual desktop and mobile review/decision. Engineering cannot self-certify owner acceptance.
-4. **Final evidence:** after the changes and live deployment, repeat the relevant Actions and live-page/header checks and record exact commit/run IDs.
+في 2026-10-24 حاولنا جلب الصفحة الرئيسية ومسار `/design-preview/` مباشرةً من بيئة الفحص. تعذر حل اسم المضيف بسبب فشل DNS في بيئة الفحص (`Temporary failure in name resolution`)، كما لم تتمكن أداة تصفح الويب من فتح هذين العنوانين. **هذا عائق في بيئة الفحص وليس دليلًا على أن الموقع نفسه متوقف**، ولذلك لم تُستنتج منه نتيجة PASS أو FAIL للموقع المنشور.
 
-A0 remains **YELLOW / OPEN** until these gates are evidenced. No release or next phase is authorized by this record.
+- **A0-G1 — المصدر مقابل النشر:** تبقى **BLOCKED / OPEN** حتى يتوفر تشغيل Pages Live Smoke حديث على SHA المنشور أو تحقق حي مكافئ يثبت الوجهة والنسخة.
+- **A0-G6 — ترويسات HTTP:** تبقى **BLOCKED / OPEN**؛ لم نتمكن من الحصول على استجابة HTTP حية حديثة من بيئة الفحص. الدليل السابق بتاريخ 2026-10-23 أبلغ عن غياب عدة ترويسات. لا يُعد وجود CSP داخل HTML بديلًا عن ترويسة CSP، ولا نغيّر الاستضافة أو DNS دون تفويض مستقل.
+- **A0-G3 — WCAG 2.2 AA:** تبقى **NOT RUN / OPEN** للمراجعة الشاملة؛ لا يوجد في هذا التحقق فحص يدوي موثق بلوحة المفاتيح وقارئ شاشة ومصفوفة لكل معيار منطبق. نجاح Playwright لا يكفي لإعلان المطابقة.
+- **A0-G2 — التفاعلات والروابط:** **PARTIAL / OPEN**؛ اختبارات المتصفح الحالية ناجحة ضمن نطاقها، لكن التحقق الحي من وجهات الروابط وأخطاء وقت التشغيل لم يكتمل.
+- **A0-G4 — التجاوب:** **PARTIAL / OPEN**؛ اختبارات العرض الآلية موجودة، لكن القبول البصري الفعلي للأجهزة المستهدفة غير موثق.
+- **A0-G5 — سلامة المصدر:** **PASS WITHIN RECORDED CI SCOPE** على SHA أعلاه، بناءً على تشغيل Playwright الناجح؛ لا يتجاوز هذا الحكم نطاق الفحوص التي نفذها التشغيل.
+- **A0-G7 — قبول المالك:** **NOT RUN / OPEN**؛ لا يمكن استنتاج موافقة المالك البصرية من CI.
+
+### 10.3 قرار الإغلاق بعد استكمال التحقق المتاح
+
+تم استكمال إعادة ربط أدلة CI برأس الفرع الحالي وتوثيق حدود محاولة الفحص الحي بدل اختلاق نتيجة. لكن **لا يمكن إغلاق جميع بوابات A0 بأدلة موثوقة في هذه الجلسة** بسبب تعذر الوصول الحي، وغياب المراجعة اليدوية الشاملة لإمكانية الوصول، وغياب قرار القبول البصري للمالك. تبقى الحالة الرسمية **A0 = YELLOW / OPEN**، و**A1 = PLANNED**. هذا ليس طلبًا لإعادة بناء الملف؛ بل قائمة دقيقة بالأدلة الخارجية/اليدوية المحددة التي ما زالت مطلوبة.
+
+
+## 11. دليل حي حديث وقرار الحسم — 2026-10-24
+
+### 11.1 التحقق من النشر الفعلي
+
+- **الصفحة الرئيسية:** https://aligassrm.github.io/ALI-NEW/ — استُرجعت بنجاح، العنوان `شجرة علي | ALI-NEW Engineering Control Panel`.
+- **معاينة التصميم:** https://aligassrm.github.io/ALI-NEW/design-preview/ — استُرجعت بنجاح، العنوان `ALI-NEW · Video Platform Design Preview`.
+- **فحص GitHub Pages الحي:** [التشغيل 40086667806](https://github.com/AligasSRM/ALI-NEW/actions/runs/40086667806) — **SUCCESS**، واكتملت اختبارات الصفحة المنشورة، التنقل وأهدافه، شجرة A0 وحالة ARIA، البحث وحالات عدم وجود نتائج، تحذيرات النموذج التجريبي، التركيز المرئي، عدم وجود أخطاء صفحة غير معالجة، وعدم التجاوز الأفقي عند 360 و390 و768 و1280 بكسل.
+- **نسخة النشر:** التشغيل اختبر `e7dfa9242032b8af2f77c456a0e2b1dd5a206973`. رأس `main` الحالي هو `2c6ef6b2b4767ecce0df77fb3253458ed8d409d2`؛ وفحص الفرق يبيّن أن التغيير اللاحق اقتصر على سجل القبول واختبارات القبول، ولم يغيّر ملفات المنتج المنشورة. لذلك تغطي اختبارات النشر مصدر المنتج الحالي، لكن SHA النشر وSHA رأس main ليسا متطابقين حرفيًا.
+- **A0-G1:** **PASS WITHIN VERIFIED SOURCE/DEPLOYMENT SCOPE**؛ الصفحتان متاحتان، واختبار النشر ناجح، والفرق بين SHA النشر ورأس main محصور بملف التوثيق واختبارات القبول. لا تعني هذه النتيجة اعتماد إطلاق إنتاجي.
+- **A0-G2:** **PASS WITHIN AUTOMATED SMOKE SCOPE**؛ نجاح التفاعلات المحددة أعلاه لا يثبت كل وجهة خارجية أو كل مسار ممكن.
+- **A0-G4:** **PASS WITHIN AUTOMATED VIEWPORT SCOPE / VISUAL ACCEPTANCE OPEN**؛ لا يوجد توثيق لموافقة بصرية يدوية نهائية.
+
+### 11.2 فحص ترويسات HTTP حي — نتيجة سلبية مؤكدة
+
+أُعيد فحص العنوان المنشور عبر [SecurityHeaders.com — التقرير الحي](https://securityheaders.com/?q=https%3A%2F%2Faligassrm.github.io%2FALI-NEW%2F&followRedirects=on) بتاريخ **2026-10-24 11:25:55 UTC**. النتيجة: **Grade D**، استجابة `HTTP/2 200`، ووجود `Strict-Transport-Security: max-age=31556952`، مع غياب الترويسات التالية:
+
+- `Content-Security-Policy`
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
+
+**A0-G6 = FAIL / OPEN** بالنسبة إلى معيار الترويسات الحالي. سياسات `meta` في HTML لا تعوّض ترويسات الاستجابة. مصدر النشر الحالي هو GitHub Pages، ولا تُصلَح هذه النتيجة بإضافة ملف إعدادات لمزوّد استضافة آخر. لم نغيّر الاستضافة أو DNS أو إعدادات الحماية، لأن ذلك خارج التفويض الحالي. يلزم قرار مستقل بشأن طبقة استضافة/وكيل يدعم الترويسات أو قبول مخاطرة موثق من صاحب الصلاحية؛ لا يجوز تسجيل البوابة PASS في غياب ذلك.
+
+### 11.3 قرار الحسم
+
+| البوابة | الحالة بعد أحدث الأدلة | الحكم |
+|---|---|---|
+| A0-G1 المصدر/النشر | PASS ضمن النطاق الآلي الموثق | لا يوجد مانع آلي حالي ضمن الاختبارات المحددة |
+| A0-G2 التفاعلات | PASS ضمن نطاق smoke tests فقط | الروابط الخارجية الشاملة غير معتمدة |
+| A0-G3 WCAG 2.2 AA | PARTIAL / OPEN | لا يوجد تدقيق يدوي شامل وقارئ شاشة ومصفوفة معايير مكتملة |
+| A0-G4 التجاوب | PASS آليًا / القبول البصري OPEN | لا توجد موافقة بصرية يدوية نهائية |
+| A0-G5 سلامة المصدر | PASS ضمن CI المسجل | تشغيل Playwright على رأس الفرع الحالي ناجح |
+| A0-G6 ترويسات HTTP | FAIL / OPEN | التقرير الحي يؤكد خمس ترويسات مفقودة |
+| A0-G7 قبول المالك | NOT RECORDED / OPEN | لا يوجد قرار قبول بصري مسجل |
+
+**الحسم المهني:** استُنفدت الفحوص الآلية المتاحة ووُثّقت النتائج الحية، بما فيها العيب الأمني المؤكد. لكن إغلاق A0 على أنها GREEN سيكون ادعاءً غير صحيح: ترويسات HTTP ناقصة، وتدقيق WCAG الكامل والقبول البصري لم يُستكملا. لذلك تبقى **A0 = YELLOW / OPEN** و**A1 = PLANNED**. لا توجد حاجة لإعادة بناء الملف؛ هذا هو سجل الأدلة النهائي الحالي إلى أن تُعالج بوابة G6 وتُستكمل موافقات G3/G7.
