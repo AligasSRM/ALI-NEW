@@ -57,6 +57,7 @@ const LOCALE_DATA = {"ar":{"Language":"اللغة","Search videos, creators, top
 const LOCALE_NAMES = {"ar":"العربية","en":"English","es":"Español","fr":"Français","pt":"Português","de":"Deutsch","it":"Italiano","nl":"Nederlands","pl":"Polski","uk":"Українська","ru":"Русский","tr":"Türkçe","fa":"فارسی","ur":"اردو","hi":"हिन्दी","bn":"বাংলা","zh-CN":"简体中文","zh-TW":"繁體中文","ja":"日本語","ko":"한국어","id":"Bahasa Indonesia","ms":"Bahasa Melayu","vi":"Tiếng Việt","th":"ไทย","sw":"Kiswahili"};
 const LOCALE_DIR = {"ar":"rtl","en":"ltr","es":"ltr","fr":"ltr","pt":"ltr","de":"ltr","it":"ltr","nl":"ltr","pl":"ltr","uk":"ltr","ru":"ltr","tr":"ltr","fa":"rtl","ur":"rtl","hi":"ltr","bn":"ltr","zh-CN":"ltr","zh-TW":"ltr","ja":"ltr","ko":"ltr","id":"ltr","ms":"ltr","vi":"ltr","th":"ltr","sw":"ltr"};
 const DEFAULT_LOCALE = 'en';
+const LOCALE_TEXT_NODES = (() => { const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); const nodes = []; while (walker.nextNode()) { const node = walker.currentNode; node.__localeSource = node.nodeValue; nodes.push(node); } return nodes; })();
 function tr(key) { return (LOCALE_DATA[document.documentElement.lang] || LOCALE_DATA[DEFAULT_LOCALE])[key] || key; }
 function applyLocale(locale) {
   if (!LOCALE_DATA[locale]) locale = DEFAULT_LOCALE;
@@ -74,12 +75,8 @@ function applyLocale(locale) {
   document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
     const key = el.getAttribute('data-i18n-aria-label'); el.setAttribute('aria-label', dict[key] || key);
   });
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  const nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(node => {
-    const original = node.__localeSource !== undefined ? node.__localeSource : node.nodeValue;
-    if (node.__localeSource === undefined) node.__localeSource = original;
+  LOCALE_TEXT_NODES.forEach(node => {
+    const original = node.__localeSource;
     const trimmed = original.trim();
     if (!trimmed) return;
     const translated = dict[trimmed] || trimmed;
@@ -101,7 +98,7 @@ function applyLocale(locale) {
 }
 document.getElementById('locale-select').innerHTML = "<option value=\"ar\">العربية</option><option value=\"en\">English</option><option value=\"es\">Español</option><option value=\"fr\">Français</option><option value=\"pt\">Português</option><option value=\"de\">Deutsch</option><option value=\"it\">Italiano</option><option value=\"nl\">Nederlands</option><option value=\"pl\">Polski</option><option value=\"uk\">Українська</option><option value=\"ru\">Русский</option><option value=\"tr\">Türkçe</option><option value=\"fa\">فارسی</option><option value=\"ur\">اردو</option><option value=\"hi\">हिन्दी</option><option value=\"bn\">বাংলা</option><option value=\"zh-CN\">简体中文</option><option value=\"zh-TW\">繁體中文</option><option value=\"ja\">日本語</option><option value=\"ko\">한국어</option><option value=\"id\">Bahasa Indonesia</option><option value=\"ms\">Bahasa Melayu</option><option value=\"vi\">Tiếng Việt</option><option value=\"th\">ไทย</option><option value=\"sw\">Kiswahili</option>".replace(/></g, '><');
 document.getElementById('locale-select').addEventListener('change', e => applyLocale(e.target.value));
-try { const saved = localStorage.getItem('ali-new-locale'); if (saved && LOCALE_DATA[saved]) document.getElementById('locale-select').value = saved; } catch (_) {}
+try { const saved = localStorage.getItem('ali-new-locale'); if (saved && LOCALE_DATA[saved]) { document.getElementById('locale-select').value = saved; applyLocale(saved); } } catch (_) {}
 
 
 const age=document.getElementById('age-screen'),exit=document.getElementById('exit-screen'),app=document.getElementById('app');
